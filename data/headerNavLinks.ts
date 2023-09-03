@@ -5,7 +5,7 @@ const headerNavLinks = [
   { href: '/blog/资源整理/tech-manual', title: '手册' },
   { href: '/blog/资源整理/tech-note', title: '笔记' },
   { href: '/blog/资源整理/tools-collection', title: '工具' },
-  { href: '/blog/资源整理/ai-prompt', title: 'AI' },
+  { href: '/blog/资源整理/ai', title: 'AI' },
   { href: '/about', title: '关于' },
 ]
 
