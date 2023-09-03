@@ -32,11 +32,11 @@
   },
   "include": [
     "next-env.d.ts",
-    "**/*.js",
-    "**/*.mjs",
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.json",
+    "./**/*.js",
+    "./**/*.mjs",
+    "./**/*.ts",
+    "./**/*.tsx",
+    "./**/*.json",
     ".contentlayer/generated",
     ".contentlayer/generated/**/*.json",
     ".next/types/**/*.ts"
