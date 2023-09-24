@@ -1,0 +1,151 @@
+---
+title: 2023-第三十七周
+date: '2023-09-11'
+tags: ['WEEKLY-2023']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+- [技术](#技术)
+  - [What's The Order Of Component Rendering?](#whats-the-order-of-component-rendering)
+  - [简单对比一下 Bun 与 NodeJs 的性能](#简单对比一下-bun-与-nodejs-的性能)
+  - [Challenging Established Norms: Making Component Fetching the Exception](#challenging-established-norms-making-component-fetching-the-exception)
+  - [Mastering 'useRef' in React with TypeScript: 4 Different Use-Cases for 'useRef'](#mastering-useref-in-react-with-typescript-4-different-use-cases-for-useref)
+  - [CSS 基于视区的长度单位](#css-基于视区的长度单位)
+  - [Next.js, just why?](#nextjs-just-why)
+  - [How  and Components Streaming works in Next.js](#how--and-components-streaming-works-in-nextjs)
+  - [How to Pass a Component as a Prop in React](#how-to-pass-a-component-as-a-prop-in-react)
+  - [负载均衡下的前端资源更新策略](#负载均衡下的前端资源更新策略)
+- [更新](#更新)
+  - [Bun 1.0](#bun-10)
+  - [New in Chrome 117](#new-in-chrome-117)
+- [AI](#ai)
+  - [OpenAI confirms that AI writing detectors don’t work](#openai-confirms-that-ai-writing-detectors-dont-work)
+- [其他](#其他)
+  - [Style is consistent constraint](#style-is-consistent-constraint)
+
+## 技术
+
+### [What's The Order Of Component Rendering?](https://www.pronextjs.dev/what-s-the-order-of-component-rendering)
+
+这段文字讲述了在使用 NextJS App Router 时，组件的渲染顺序可能会有所变化。它解释了当组件包含其他组件时，渲染顺序会受到影响。此外，当将某个组件变为客户端组件时，它的渲染顺序也会发生变化。因此，不能完全依赖组件的渲染顺序来设计应用程序的架构。
+
+- 组件渲染顺序不总是按照我们期望的顺序进行，特别是在使用 NextJS App Router 时。
+- 当混合使用客户端组件和服务器组件时，会改变组件的渲染顺序。
+- 不应该依赖组件渲染顺序来进行架构设计，因为它们可能会出现意外的变化。
+
+### [简单对比一下 Bun 与 NodeJs 的性能](https://jw1.dev/2023/09/11/bun-node-perf-diff.html)
+
+Bun.js 是一个快速的 JavaScript 和 TypeScript 工具包，可以用于运行、构建、测试和调试代码。与 Node.js 兼容，性能比 Node.js 快 3.75 倍。它的开发体验也很好，能够简化很多操作。Bun.js 的出现让人对写 Server-ful 应用产生了兴趣。
+
+- Bun.js 是一个全功能的 JavaScript 和 TypeScript 工具箱，可以运行、构建、测试和调试代码，可以替代 Node.js。
+- 在 API 服务性能测试中，Bun.js 比 Node.js 快 3.75 倍，加密性能也比 Node.js 快。
+- 尽管在算数性能测试中，Bun.js 比 Node.js 慢 40 毫秒，但在生产环境中这个差距并不明显，而且 Bun.js 的开发体验和 API 设计都很优秀。
+
+### [Challenging Established Norms: Making Component Fetching the Exception](https://jjenzz.com/making-component-fetching-the-exception/)
+
+本文介绍了作者在处理数据时的不同策略，并探讨了将数据查询从组件中分离的优势。作者指出了请求瀑布和紧密耦合的数据依赖的问题，并提出了解决方案。作者通过将数据传递给组件的方式来避免请求瀑布，并提倡将查询放在组件外部，以减少对 API 结构的紧密依赖。文章最后给出了一个重构示例，展示了如何通过传递数据作为 props 的方式来解决问题。
+
+- 组件中的查询导致请求瀑布，增加页面加载时间和用户等待时间。
+- 应用程序紧密耦合于 API 结构，导致对 API 的任何更改都需要更新多个组件和相关测试。
+- 将查询从组件中重构，通过 prop drilling 将数据传递给组件，以避免请求瀑布和紧密耦合的问题。
+
+### [Mastering 'useRef' in React with TypeScript: 4 Different Use-Cases for 'useRef'](https://dev.to/kirubelkinfe/mastering-useref-in-react-with-typescript-4-different-use-cases-for-useref-2a87)
+
+在 React 中，useRef 是一个多用途的钩子，允许开发者与 DOM 进行交互并管理可变值，而不触发重新渲染。与 TypeScript 结合使用时，它变得更加强大，提供类型安全性并防止常见的运行时错误。本文将探讨在 React 中使用 useRef 的各种用例，重点关注在 TypeScript 项目中有效使用它的方法。
+
+- useRef 是 React 中的一个钩子，可以让开发者在不触发重新渲染的情况下与 DOM 交互和管理可变值。
+- useRef 可以用于访问 DOM 元素、存储和比较先前的值、存储不需要重新渲染的值以及与第三方库交互。
+- 在使用 TypeScript 时，useRef 可以提供类型安全性，防止常见的运行时错误。
+
+### [CSS 基于视区的长度单位](https://mebtte.com/new_css_viewport_units)
+
+本文介绍了 CSS 中的长度单位，包括绝对长度单位和相对长度单位。绝对长度单位主要是像素（px），而相对长度单位包括 em、rem、ex、ch、lh 等。另外，还介绍了相对于视区大小的长度单位，如 vw、vh、vmin 等。文章还提到了 CSS 中新增的视区状态，包括大视区、小视区和动态视区，并介绍了与视区状态相关的长度单位。最后，还提到了兼容性问题，建议在生产环境中避免使用新增的长度单位。
+
+- 绝对长度单位包括像素 (px)，在显示器上表示逻辑像素，而逻辑像素并不总是和物理像素一一对应。
+- 相对长度单位可以相对于父元素的字体大小 (em)，根元素的字体大小 (rem)，以及行高 (lh) 和视区 (viewport) 的大小 (vw/vh/vmin/vmax/vi/vb)。
+- 为了解决移动设备上相对于视区长度单位的问题，CSS 引入了视区状态的概念，包括大视区 (LV)、小视区 (SV) 和动态视区 (DV)，并新增了相应的长度单位 (lv*/sv*/dv*)。
+
+### [Next.js, just why?](https://pilcrow.vercel.app/blog/nextjs-why)
+
+这篇文章是关于作者对使用 Next.js 框架的不满和困惑。作者主要抱怨了在 Next.js 中设置 cookie 的问题，以及访问请求对象的困难。他还提到了 Next.js 的文档不完善和开发过程中的一些限制。作者认为问题的根源在于 Next.js 的发布过于仓促，以及 React 和服务器组件之间的冲突。他呼吁 React 能够更加专注于一个框架，以解决这些问题。
+
+- Next.js 在处理请求时的 API 不一致，使得获取请求对象变得困难。
+- Next.js 的 App Router 限制了在页面渲染过程中设置 cookie，缺乏灵活性。
+- Next.js 的中间件只能在 Edge 上运行，限制了数据库查询和使用 Node.js 模块的能力。
+
+### [How <Suspense /> and Components Streaming works in Next.js](https://hackernoon.com/how-lesssuspense-greater-and-components-streaming-works-in-nextjs)
+
+
+这篇文章是关于 Next.js 和服务器端渲染（SSR）功能中的`<Suspense />`标签的讨论。它解释了在 HTTP 协议层面上，当将组件包装在`<Suspense />`标签中时会发生什么。文章还介绍了流式传输的概念以及 Content-Length 和 Transfer-Encoding 在 HTTP 传输中的作用。最后，文章展示了如何使用`<Suspense />`标签来解决组件加载时的延迟问题。
+
+- HTTP 协议中的内容长度和分块传输编码是实现数据传输和渲染的关键。
+- 使用`<Suspense />`标签可以在组件加载过程中显示占位内容，提高用户体验。
+- 浏览器的容错机制使得在数据还未完全接收的情况下就可以开始渲染页面内容。
+
+### [How to Pass a Component as a Prop in React](https://www.totaltypescript.com/pass-component-as-prop-react)
+
+这篇文章讲述了在 React 中如何通过 props 传递组件的方法，并介绍了三种不同的类型方式来正确地定义和使用这些 props。其中一种方法是通过 JSX 作为 props 传递组件，另一种方法是直接将整个组件作为 props 传递，还有一种方法是通过 React.ElementType 来传递原生标签或自定义组件作为 props。文章还提到了选择何种方法的建议，并指出了使用'as'属性的注意事项。
+
+- React 的 props 模型非常强大，可以将组件作为 prop 传递，实现组件的可组合性和重用性。
+- 通过传递 JSX 作为 prop，我们可以灵活地传递组件的 UI 内容。
+- 通过使用 React.ComponentType 和 React.ElementType，我们可以轻松地传递组件或原生标签作为 prop，并对其进行类型约束。
+
+### [负载均衡下的前端资源更新策略](https://mebtte.com/update_strategy_of_front_end_assets_under_the_load_balancing)
+
+这篇文章讲述了在负载均衡下的前端资源更新策略。作者遇到了页面空白的问题，经过排查发现是某个 JS 文件 404 导致的。问题出在部署系统上传构建产物到静态资源服务器集群的过程中，存在过渡状态导致 404 问题。作者提出了解决方案，将上传分成两次上传来避免过渡状态引起的问题。文章总结了三个过渡状态的影响。
+
+- 前端页面空白问题的排查过程：发现用户反馈后排查日志，发现某个 JS 文件 404，检查服务器发现文件存在，刷新页面后问题解决。
+- 问题原因分析：部署系统上传构建产物导致部分服务器存在过渡状态，用户访问时出现 404 错误导致页面空白。
+- 解决方案：将部署过程分成两次上传，剔除 HTML 文件后先上传资源文件，再上传 HTML 文件，避免过渡状态导致的 404 错误。
+
+## 更新
+
+### [Bun 1.0](https://bun.sh/blog/bun-v1.0)
+
+Bun 是一个快速、全能的 JavaScript 和 TypeScript 工具包，用于运行、构建、测试和调试应用程序。它可以替代多个工具，包括 Node.js、转译器、打包工具、包管理器和测试库。Bun 支持 Node.js 应用程序和 npm 包的完全兼容，并且具有更快的启动速度和更好的性能。它还支持 TypeScript、JSX、ESM 和 CommonJS，并内置了 Web 标准 API 和 SQLite 支持。Bun 还提供了自定义插件和优化的文件读写 API。总体而言，Bun 旨在简化 JavaScript 开发过程，提供更快、更简单、更有趣的开发体验。
+
+- Bun 是一个快速的 JavaScript 和 TypeScript 工具包，可以运行、构建、测试和调试 JavaScript 和 TypeScript 应用程序。
+- Bun 的目标是简化 JavaScript 工具链，消除繁琐和复杂性，同时保留 JavaScript 的优点。
+- Bun 可以代替 Node.js、nodemon、babel、webpack 等多个工具，提供一体化的开发体验，提高开发效率
+
+
+### [New in Chrome 117](https://developer.chrome.com/en/blog/new-in-chrome-117/)
+
+这篇文章介绍了 Chrome 117 版本中的一些新功能和更新。其中包括了三个新的 CSS 特性，用于添加平滑的入场和出场动画；数组分组功能，用于计算高级数据集；以及 DevTools 中本地覆盖功能的改进。此外，还提到了其他一些新功能和更新。
+
+- Chrome 117 引入了三个新的 CSS 特性，可以轻松添加入场和出场动画，使得网页的动态效果更加流畅。
+- 新的数组分组功能可以让开发者更方便地对数据进行分组操作，从而计算出更高阶的数据集。
+- DevTools 中的本地覆盖功能经过优化，可以更轻松地模拟远程资源的响应头和内容，方便开发和调试。
+
+## AI
+
+### [OpenAI confirms that AI writing detectors don’t work](https://arstechnica.com/information-technology/2023/09/openai-admits-that-ai-writing-detectors-dont-work/)
+
+OpenAI 在一篇博客文章中给教育工作者提供了一些建议，展示了一些教师如何将 ChatGPT 作为教学辅助工具使用，并提供了一些开始使用的提示。OpenAI 在相关的常见问题解答中也正式承认了我们已经知道的事实：AI 写作检测器并不可靠，尽管常常被用来错误地惩罚学生。这些检测器经常因依赖未经证实的检测指标而导致误报。OpenAI 还解释了他们的 AI 模型会创造虚假信息的倾向，提醒人们不要将其作为唯一的研究来源。目前，自动化 AI 检测工具并不可靠，最安全的做法是完全避免使用这些工具。
+
+- OpenAI 宣布 AI 写作检测工具无法可靠区分 AI 生成和人类生成的内容。
+- ChatGPT 无法知道文本是否由 AI 生成，有时会随机回答关于 AI 生成的问题。
+- 虽然自动化的 AI 检测工具不可靠，但人类可以通过观察文本风格和一些痕迹来判断是否为 AI 写作。
+
+## 其他
+
+### [Style is consistent constraint](https://stephango.com/style)
+
+这篇文章讨论了风格的重要性以及如何通过一系列约束来塑造自己的风格。作者强调风格的一致性和重复性，以及通过风格可以节省时间和提高效率。文章还列举了一些有趣的个人风格选择的例子。
+
+- 风格的一致性来源于约束，有助于节省时间和集中注意力。
+- 风格可以是一种个人规范或模式，可以应用于各个方面，如服装、文字、习惯等。
+- 风格还可以帮助我们知道何时打破约束，并且可以随时更改和调整。
+
+---
+
+现实世界是非线性的、非因果的，而人的思维是线性的、因果关系的，会不知不觉从单一的线性因素，去解读非线性关系。
+
+“重要的不在于你的努力程度，而在于仔细选择工作、人员和项目。”  
+“真正有效的工作方式，不是铁人三项或马拉松，比拼谁坚持的时间长，而是短跑，当机会来临的时候冲刺，平时注意健康和休息。”  
+“你要像狮子一样，看到猎物一跃而起，而不要牛一样，从早到晚劳作。”  
+
+---

@@ -1,0 +1,81 @@
+---
+title: 2023-第三十八周
+date: '2023-09-21'
+tags: ['WEEKLY-2023']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+- [技术](#技术)
+  - [From WebGL to WebGPU](#from-webgl-to-webgpu)
+  - [Storing React state in the URL with Next.js](#storing-react-state-in-the-url-with-nextjs)
+- [工具](#工具)
+  - [plotteus](#plotteus)
+  - [rad-event-listener](#rad-event-listener)
+- [更新](#更新)
+  - [Next.js 13.5](#nextjs-135)
+- [AI](#ai)
+  - [0.dev](#0dev)
+- [其他](#其他)
+  - [What Silicon Valley "Gets" about Software Engineers that Traditional Companies Do Not](#what-silicon-valley-gets-about-software-engineers-that-traditional-companies-do-not)
+
+## 技术
+
+### [From WebGL to WebGPU](https://developer.chrome.com/en/blog/from-webgl-to-webgpu/)
+
+本文介绍了 WebGL 和 WebGPU 之间的一些区别。WebGL 是 WebGPU 的前身，但两者在全局状态、同步性、计算着色器、视频帧处理、画布处理、错误信息等方面存在差异。WebGPU 通过减少全局状态的使用、实现完全异步操作、支持计算着色器等功能，提供了更强大和高效的图形处理能力。此外，WebGPU 还提供了更好的错误信息和调试支持。
+
+- WebGL 和 WebGPU 的核心概念相似，但 WebGPU 通过减少全局状态和引入管线的概念，提高了开发者的代码可靠性和可组合性。
+- WebGPU 是完全异步的，避免了在发送指令时出现的同步等待，提高了性能。
+- WebGPU 引入了计算着色器，可以在 GPU 上执行通用计算任务，不仅限于图形处理，适用于机器学习、物理模拟和科学计算等广泛领域。
+
+### [Storing React state in the URL with Next.js](https://francoisbest.com/posts/2023/storing-react-state-in-the-url-with-nextjs?hello=fellow+Next.js+Weekly+Readers)
+
+这篇文章介绍了如何在 Next.js 中使用 URL 查询字符串来存储 React UI 状态，并解释了如何通过浅层路由和批处理来优化性能。它还讨论了如何使用事件发射器和最新引用模式来同步状态，并提供了一些特定于 Next.js 的细节和优化技巧。作者还感谢了一些人对该更新的测试和贡献。
+
+- 将 React UI 状态与 URL 查询字符串同步，可以实现与他人分享、书签保存、页面刷新后恢复、前进后退按钮导航等功能。
+- Next.js 的 app router 不支持浅层路由，但通过使用 Web History API 和批量更新来解决此问题。
+- 为了优化性能，使用单独的 React 状态钩子和最新引用模式来同步状态更新，并使用 Map 来管理更新队列。
+
+
+## 工具
+
+### [plotteus](https://github.com/bprusinowski/plotteus)  
+Plotteus 是一个 JavaScript 数据可视化库，旨在帮助您讲述更好的故事。
+
+### [rad-event-listener](https://github.com/JLarky/rad-event-listener)  
+简单的包装器，用于 addEventListener 并返回一个清理函数，因此您不必手动调用 removeEventListener。最棒的部分是它可以与 TypeScript 一起使用
+
+## 更新
+
+### [Next.js 13.5](https://nextjs.org/blog/next-13-5)
+
+Next.js 13.5 版本改进了本地开发性能和可靠性。通过使用 App 和 Pages 路由，本地服务器启动速度提升了 22%，热模块替换速度提升了 29%。内存使用减少了 40%。此外，优化了包导入，提高了使用常见图标和组件库时的更新速度。next/image 也进行了改进，支持`<picture>`、自适应图片和暗黑模式。此外，修复了 438 个 bug。
+
+- Next.js 13.5 通过优化提高了本地开发性能和可靠性，包括更快的本地服务器启动速度、更快的 HMR（热模块替换）速度和减少 40% 的内存使用。
+- 通过优化包导入，Next.js 13.5 改善了使用大型图标库和组件库时的本地开发性能和生产环境冷启动时间。
+- next/image在13.5版本中进行了改进，包括支持`<picture>`标签、艺术方向和暗模式的功能，以及新的实验性函数 unstable_getImgProps() 来支持高级用例。
+
+## AI
+
+### [0.dev](https://v0.dev/)
+
+v0: “一个有效的 React 中间件 AI 工具” - Vercel 的一项有趣实验，您可以提交类似“SaaS 定价页面”或“联系表单”的提示，它会返回适用于 React 应用程序的可复制和粘贴友好的 shadcn/ui + Tailwind CSS 代码。目前处于“私人 alpha 版”，需要等待名单才能使用，但您仍然可以浏览其他人创建的内容并了解其运作方式。
+
+## 其他
+
+### [What Silicon Valley "Gets" about Software Engineers that Traditional Companies Do Not](https://blog.pragmaticengineer.com/what-silicon-valley-gets-right-on-software-engineers/)
+
+这段文字主要讲述了硅谷公司相比传统公司在以下几个方面的优势：1. 软件工程师的自主权：硅谷公司鼓励工程师自己决策和解决问题，而传统公司更多依赖项目经理指派任务。2. 工程师的好奇心和问题解决能力：硅谷公司认为工程师能够带来更高的价值，因此鼓励他们思考和解决问题，而不仅仅是编码。3. 内部数据、代码和文档的透明度：硅谷公司更倾向于分享信息，让员工了解业务指标和决策依据。4. 与业务和业务指标的接触：硅谷公司鼓励团队成员了解自己工作对业务的影响，并与其他部门建立联系。而传统公司则更多将工程师与业务隔离。
+
+- 硅谷公司更注重软件工程师的自主权和解决问题的能力，而传统公司则倾向于指派任务和控制工作流程。
+- 硅谷公司将软件工程师视为能够带来高度价值和影响的问题解决者，而传统公司则将他们视为只需完成任务的资源。
+- 硅谷公司更加注重内部数据、代码和文档的透明度，而传统公司往往在这方面表现较差。
+
+---
+
+你对我的百般注解和识读，并不构成万分之一的我，却是一览无余的你。—— 三毛
+
+---
