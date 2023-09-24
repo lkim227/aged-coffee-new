@@ -15,7 +15,7 @@ summary: ''
   - [Mastering 'useRef' in React with TypeScript: 4 Different Use-Cases for 'useRef'](#mastering-useref-in-react-with-typescript-4-different-use-cases-for-useref)
   - [CSS 基于视区的长度单位](#css-基于视区的长度单位)
   - [Next.js, just why?](#nextjs-just-why)
-  - [How  and Components Streaming works in Next.js](#how--and-components-streaming-works-in-nextjs)
+  - [How and Components Streaming works in Next.js](#how--and-components-streaming-works-in-nextjs)
   - [How to Pass a Component as a Prop in React](#how-to-pass-a-component-as-a-prop-in-react)
   - [负载均衡下的前端资源更新策略](#负载均衡下的前端资源更新策略)
 - [更新](#更新)
@@ -66,7 +66,7 @@ Bun.js 是一个快速的 JavaScript 和 TypeScript 工具包，可以用于运�
 
 - 绝对长度单位包括像素 (px)，在显示器上表示逻辑像素，而逻辑像素并不总是和物理像素一一对应。
 - 相对长度单位可以相对于父元素的字体大小 (em)，根元素的字体大小 (rem)，以及行高 (lh) 和视区 (viewport) 的大小 (vw/vh/vmin/vmax/vi/vb)。
-- 为了解决移动设备上相对于视区长度单位的问题，CSS 引入了视区状态的概念，包括大视区 (LV)、小视区 (SV) 和动态视区 (DV)，并新增了相应的长度单位 (lv*/sv*/dv*)。
+- 为了解决移动设备上相对于视区长度单位的问题，CSS 引入了视区状态的概念，包括大视区 (LV)、小视区 (SV) 和动态视区 (DV)，并新增了相应的长度单位 (lv*/sv*/dv\*)。
 
 ### [Next.js, just why?](https://pilcrow.vercel.app/blog/nextjs-why)
 
@@ -76,8 +76,7 @@ Bun.js 是一个快速的 JavaScript 和 TypeScript 工具包，可以用于运�
 - Next.js 的 App Router 限制了在页面渲染过程中设置 cookie，缺乏灵活性。
 - Next.js 的中间件只能在 Edge 上运行，限制了数据库查询和使用 Node.js 模块的能力。
 
-### [How <Suspense /> and Components Streaming works in Next.js](https://hackernoon.com/how-lesssuspense-greater-and-components-streaming-works-in-nextjs)
-
+### [How Suspense and Components Streaming works in Next.js](https://hackernoon.com/how-lesssuspense-greater-and-components-streaming-works-in-nextjs)
 
 这篇文章是关于 Next.js 和服务器端渲染（SSR）功能中的`<Suspense />`标签的讨论。它解释了在 HTTP 协议层面上，当将组件包装在`<Suspense />`标签中时会发生什么。文章还介绍了流式传输的概念以及 Content-Length 和 Transfer-Encoding 在 HTTP 传输中的作用。最后，文章展示了如何使用`<Suspense />`标签来解决组件加载时的延迟问题。
 
@@ -110,7 +109,6 @@ Bun 是一个快速、全能的 JavaScript 和 TypeScript 工具包，用于运�
 - Bun 是一个快速的 JavaScript 和 TypeScript 工具包，可以运行、构建、测试和调试 JavaScript 和 TypeScript 应用程序。
 - Bun 的目标是简化 JavaScript 工具链，消除繁琐和复杂性，同时保留 JavaScript 的优点。
 - Bun 可以代替 Node.js、nodemon、babel、webpack 等多个工具，提供一体化的开发体验，提高开发效率
-
 
 ### [New in Chrome 117](https://developer.chrome.com/en/blog/new-in-chrome-117/)
 
@@ -146,6 +144,6 @@ OpenAI 在一篇博客文章中给教育工作者提供了一些建议，展示�
 
 “重要的不在于你的努力程度，而在于仔细选择工作、人员和项目。”  
 “真正有效的工作方式，不是铁人三项或马拉松，比拼谁坚持的时间长，而是短跑，当机会来临的时候冲刺，平时注意健康和休息。”  
-“你要像狮子一样，看到猎物一跃而起，而不要牛一样，从早到晚劳作。”  
+“你要像狮子一样，看到猎物一跃而起，而不要牛一样，从早到晚劳作。”
 
 ---
