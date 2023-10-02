@@ -215,6 +215,11 @@ location ~ /xx/([0-9a-z]+).html {
 ffmpeg -i video.mp4 -i audio.mp4 -c:v copy -c:a aac -strict experimental output.mp4
 ```
 
+```shell
+// 合并音频和视频
+ffmpeg -i video.webm -i audio.weba -vcodec copy output.mp4
+```
+
 ## 在 webpack4 中添加强本地缓存
 
 ```js
