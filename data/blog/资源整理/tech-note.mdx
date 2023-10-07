@@ -6,6 +6,7 @@ draft: false
 summary: ''
 ---
 
+- [nvm 切换 node 版本快速迁移全局 npm 包](#nvm-切换-node-版本快速迁移全局-npm-包)
 - [FixedForwardRef](#fixedforwardref)
 - [渐变 border 的 tailwind 实现](#渐变-border-的-tailwind-实现)
 - [ios H5 history.back() 返回上一路由 页面白屏问题](#ios-h5-historyback-返回上一路由-页面白屏问题)
@@ -22,6 +23,40 @@ summary: ''
 - [在 nextjs 中支持项目外部的.ts,.tsx 文件编译](#在-nextjs-中支持项目外部的tstsx-文件编译)
 - [H5 的使用技巧](#h5-的使用技巧)
 - [vite 配合 whistle 跑本地环境的 server-hmr 配置](#vite-配合-whistle-跑本地环境的-server-hmr-配置)
+
+## nvm 切换 node 版本快速迁移全局 npm 包
+
+在使用 `nvm` 切换到新的 Node.js 版本后，你可以通过以下步骤来迁移某个版本下的全局 npm 包到新的版本：
+
+1. 首先，使用 `nvm ls` 命令查看当前已安装的 Node.js 版本列表。找到你想要迁移的旧版本的版本号。
+
+2. 使用 `nvm use <old_version>` 命令切换到旧版本的 Node.js。例如，如果你想要切换到 Node.js 版本 `16.17.0`，可以运行以下命令：
+
+   ```bash
+   nvm use 16.17.0
+   ```
+
+3. 运行以下命令将旧版本的全局 npm 包导出到一个文件中：
+
+   ```bash
+   npm list -g --depth=0 > packages.txt
+   ```
+
+   这将生成一个名为 `packages.txt` 的文件，其中包含了旧版本下的全局 npm 包列表。
+
+4. 切换到新的 Node.js 版本，使用 `nvm use <new_version>` 命令。例如：
+
+   ```bash
+   nvm use 18.17.0
+   ```
+
+5. 运行以下命令将之前导出的全局 npm 包列表安装到新版本中：
+
+   ```bash
+   npm install -g $(cat packages.txt)
+   ```
+
+   这将读取 `packages.txt` 文件中的包列表，并在新版本下安装这些全局 npm 包。
 
 ## FixedForwardRef
 
