@@ -6,6 +6,7 @@ draft: false
 summary: ''
 ---
 
+- [git 相关](#git-相关)
 - [nvm 切换 node 版本快速迁移全局 npm 包](#nvm-切换-node-版本快速迁移全局-npm-包)
 - [FixedForwardRef](#fixedforwardref)
 - [渐变 border 的 tailwind 实现](#渐变-border-的-tailwind-实现)
@@ -23,6 +24,24 @@ summary: ''
 - [在 nextjs 中支持项目外部的.ts,.tsx 文件编译](#在-nextjs-中支持项目外部的tstsx-文件编译)
 - [H5 的使用技巧](#h5-的使用技巧)
 - [vite 配合 whistle 跑本地环境的 server-hmr 配置](#vite-配合-whistle-跑本地环境的-server-hmr-配置)
+
+## git 相关
+
+同步 fork 仓库的代码到当前仓库
+```sh
+# 在一个fork的项目中添加原来的 remote git
+# 在git中添加一个新的remote指向原始的仓库。在你的本地开发环境中执行此git命令
+git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
+
+# 获取原始仓库的更新
+git fetch upstream
+
+# 同步原来仓库的最新代码到当前
+git pull upstream main
+
+# 如果是始祖不同的两个git仓库则需要添加特殊的声明
+git pull upstream main --allow-unrelated-histories
+```
 
 ## nvm 切换 node 版本快速迁移全局 npm 包
 
