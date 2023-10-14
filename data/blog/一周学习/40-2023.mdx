@@ -1,0 +1,130 @@
+---
+title: 2023-第四十周
+date: '2023-10-08'
+tags: ['WEEKLY-2023']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+- [技术](#技术)
+  - [Next.js 13 vs Remix: An In-depth case study](#nextjs-13-vs-remix-an-in-depth-case-study)
+  - [Upgrading frontend dependencies with confidence](#upgrading-frontend-dependencies-with-confidence)
+  - [The future of rendering in React](#the-future-of-rendering-in-react)
+  - [Programmatic SEO in Next.js](#programmatic-seo-in-nextjs)
+  - [React memo is good actually](#react-memo-is-good-actually)
+- [工具](#工具)
+  - [nice-modal-react](#nice-modal-react)
+  - [react-inlinesvg](#react-inlinesvg)
+  - [useFilePicker](#usefilepicker)
+  - [kuma-ui](#kuma-ui)
+  - [next-safe-action](#next-safe-action)
+- [更新](#更新)
+  - [Remix DevTool 3](#remix-devtool-3)
+- [设计](#设计)
+  - [5 best practices for preventing chaos in Tailwind CSS](#5-best-practices-for-preventing-chaos-in-tailwindcss)
+- [AI](#ai)
+- [其他](#其他)
+  - [Kind Engineering](#kind-engineering)
+
+## 技术
+
+### [Next.js 13 vs Remix: An In-depth case study](https://prateeksurana.me/blog/nextjs-13-vs-remix-an-in-depth-case-study/)
+
+这篇文章主要比较了 React 框架的两个流行扩展工具 Next.js 和 Remix 在构建 Web 应用方面的差异。作者认为 Next.js 和 Remix 在布局和数据获取方面都有相似的优点，但 Remix 在路由设计上更直观，而 Next.js 则更加灵活。另外，文章还讨论了数据获取在现代 Web 应用中的重要性，并介绍了 Next.js 和 Remix 在数据获取方面的不同实现。
+
+- Next.js 和 Remix 是两个流行的 React 框架，它们都提供了灵活的布局和数据获取功能。
+- 两个框架在布局方面都采用了基于文件系统的路由机制，允许创建共享的嵌套布局。
+- 在数据获取方面，Next.js 和 Remix 都支持在服务器端或构建时获取数据，以实现预渲染和提高性能。
+
+### [Upgrading frontend dependencies with confidence](https://docusaurus.io/blog/upgrading-frontend-dependencies-with-confidence-using-visual-regression-testing)
+
+这篇文章介绍了一种基于 GitHub Actions、Playwright 和 Argos 的可视化回归测试工作流程，可以帮助前端开发人员在升级 npm 依赖时检测页面的视觉差异。该工作流程适用于各种前端应用和框架，并且已经在 Docusaurus 等网站上得到验证。通过该工作流程，可以在自动化的方式下提前发现视觉回归问题，并对比两个 Git 分支中的页面差异。
+
+- 这篇文章介绍了一种基于 GitHub Actions、Playwright 和 Argos 的可视化回归测试工作流程，帮助前端开发人员在升级 npm 依赖时更加自信地进行测试。
+- 该工作流程通过在 CI 中构建网站、使用 Playwright 拍摄所有 sitemap.xml 页面的截图，并将它们上传到 Argos 进行比较，来自动化地检测主分支和 PR 分支之间的视觉差异。
+- 这种可视化回归测试方法不仅适用于 Docusaurus 和 React，还可以适应其他前端应用程序和框架，有助于捕捉常规测试套件无法发现的细微 UI 副作用。
+
+### [The future of rendering in React](https://prateeksurana.me/blog/future-of-rendering-in-react/)
+
+这篇文章介绍了 React 的当前渲染模式以及它们存在的问题，还讨论了 React 18 引入的新的渲染模式。目前最常用的渲染模式是客户端渲染（CSR）和服务器端渲
+染（SSR）。CSR 在首次加载时速度快，但需要下载并处理 JavaScript 才能显示内容，对性能有影响；而 SSR 在服务器上生成 HTML 并发送给客户端，速度快，但需要等待数据请求和 JavaScript 的下载和执行。React 18 引入了流式服务器端渲染，可以通过 HTTP 流将 HTML 以多个块的形式发送给浏览器，提高首屏加载速度。
+
+- 目前 React 的渲染模式主要有客户端渲染和服务器端渲染，但都存在一些问题。
+- 客户端渲染的优势在于可以通过 CDN 轻松提供静态文件，但性能较差，用户需要等待 JavaScript 下载并处理才能看到内容。
+- 服务器端渲染可以提供更好的 SEO 和较快的渲染时间，但首次字节时间慢，用户需要等待服务器获取数据并转换为 HTML 字符串。
+
+### [Programmatic SEO in Next.js](https://practicalprogrammatic.com/blog/programmatic-seo-in-nextjs/)
+
+这篇文章介绍了如何使用 Next.js 构建程序化 SEO 网站。文章首先介绍了 Next.js 在程序化 SEO 方面的优势，包括自定义渲染策略、内置 SEO 功能和可扩展性。然后，文章探讨了 Next.js 相对于 WordPress 的优劣势，以及 Next.js 的技术限制。接着，文章介绍了构建程序化 SEO 网站的基本步骤，包括 SEO 研究和选择数据集、选择数据存储方式、构建页面模板以及添加 SEO 元数据。最后，文章回答了一些常见问题，包括学习更多关于 Next.js 程序化 SEO 的资源、选择最佳的渲染策略以及 Next.js 能够生成的最大页面数量等。
+
+- Next.js 是一种流行的程序化 SEO 网站开发框架，可以选择渲染策略和利用服务器端渲染来建立内容丰富的页面。
+- Next.js 比 WordPress 更灵活，但也需要自己开发网站主题，没有像 WordPress 那样丰富的免费和付费主题可供选择。
+- Next.js 在技术上没有限制，可以通过编码实现任何想象的功能，非常适合程序化 SEO 和生产环境的网站开发。
+
+### [React memo is good actually](https://timtech.blog/posts/react-memo-is-good-actually/)
+
+这篇文章主要讨论了 React 中的性能优化工具 React.memo、React.useMemo 和 React.useCallback。作者指出了这些工具在实际应用中的误解和争议，并解释了一些常见的误解。作者认为这些工具在提高应用性能和逻辑正确性方面非常有用，但是由于误解和争议，它们的声誉并不好。作者希望能够纠正这些误解，让开发者更好地理解和使用这些工具。
+
+- React.memo，React.useMemo 和 React.useCallback 是 React 库提供的官方 API，用于提高应用程序的运行时和渲染性能。
+- 这些 API 经常被误解和批评，但它们实际上填补了 React 模型的空白，并帮助团队在时间上保持与最新实践的代码库。
+- React.memo 可以在正确使用时提高性能，而 React.useMemo 和 React.useCallback 还可以确保非原始 JavaScript 值的稳定性。
+- 这些 API 的不良声誉和误解导致了很多争论和困难，阻碍了改善用户渲染性能的努力。
+
+## 工具
+
+### [nice-modal-react](https://github.com/eBay/nice-modal-react)
+一个用于 React 的模态状态管理器
+
+### [react-inlinesvg](https://github.com/gilbarbara/react-inlinesvg)
+一个用于 ReactJS 的 SVG 加载器组件
+
+### [useFilePicker](https://github.com/Jaaneek/useFilePicker)
+简单的 React 钩子，用于打开浏览器文件选择器
+
+### [kuma-ui](https://www.kuma-ui.com/)
+
+被描述为“CSS-in-JS 的未来”，这是一个无头、实用优先和零运行时 UI 组件库和工具包。
+
+### [next-safe-action](https://github.com/TheEdoRan/next-safe-action)
+
+在 Next.js 13 应用程序中使用类型安全的服务器操作
+
+## 更新
+
+### [Remix DevTool 3](https://github.com/Code-Forge-Net/Remix-Dev-Tools/releases/tag/v3.0.0)
+
+## 设计
+
+### [5 best practices for preventing chaos in Tailwind CSS](https://evilmartians.com/chronicles/5-best-practices-for-preventing-chaos-in-tailwind-css)
+
+这篇文章主要介绍了使用 Tailwind CSS 时的最佳实践，包括使用设计系统和组件化开发的要求，以及减少类数量、分组和命名设计令牌、保持类的排序等技巧。
+
+- 为了避免代码混乱，使用 Tailwind CSS 前应确保项目具有设计系统，其中设计师和开发人员使用一致的设计令牌。
+- 采用基于组件的方法可以更好地组织代码，减少冗余，同时仍然保持 Tailwind 样式的统一性。
+- 在使用 Tailwind 时，应注意少用实用类，合理分组和命名设计令牌，以及保持类的有序排列。
+
+## AI
+
+## 其他
+
+世界上有两种人：一种人接受教条并且知道它，另一种人接受教条但不知道它。
+
+-- GK·切斯特顿，英国小说家
+
+---
+
+一项研究表明，领导力最重要的因素并不是能力，那些发言最多的人往往会成为团队的领导者。这称为“喋喋不休假说”。
+
+-- 《领导者的喋喋不休假说》
+
+
+---
+### [Kind Engineering](https://kind.engineering/)
+
+这篇文章主要讲述了什么是善良，以及如何在工作中表现出善良。善良是关心他人、帮助他们并站在他们的角度思考问题的概念。与友善相比，善良需要更积极主动地投入到对他人的帮助中。文章还提到了建立信任、诚实以及通过挑战和关心来帮助他人的重要性。同时，文章还强调了在代码审查中要理解变化的原因，并通过提问来促进更好的理解。
+
+- 什么是善良？善良是关心他人，理解他们的情感和背景，并努力帮助他们。
+- 善良与友善不同，友善只是对外表的礼貌和友好，而善良是主动投入并真心帮助他人。
+- 善良需要建立信任和关系，通过在工作中展示真实的自己，与同事分享个人生活，以更好地理解和帮助他们。
