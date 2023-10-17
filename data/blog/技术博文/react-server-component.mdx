@@ -1,31 +1,30 @@
-<!--
- * @Author: yuchen
- * @Date: 2023-10-14 16:11:54
- * @Description:
- * @LastEditTime: 2023-10-17 19:48:15
- * @LastEditors: yuchen
--->
+---
+title: React 编程新范式 - React Server Component
+date: '2023-10-17'
+tags: ['react', 'next', 'rsc', 'ssr']
+draft: false
+summary: '理解 RSC'
+---
 
-# React Server Component
+# React 编程新范式 - React Server Component
 
-- [React Server Component](#react-server-component)
-  - [RSC 的整体介绍](#rsc-的整体介绍)
-  - [为什么设计 RSC？RSC 有什么用，解决了什么问题？](#为什么设计-rscrsc-有什么用解决了什么问题)
-    - [React 世界中的 CSR 和 SSR](#react-世界中的-csr-和-ssr)
-    - [React 世界中的数据请求](#react-世界中的数据请求)
-    - [进一步认识 RSC](#进一步认识-rsc)
-    - [RSC 和普通客户端组件共存时候的限制条件](#rsc-和普通客户端组件共存时候的限制条件)
-    - [RSC 范式下特有的渲染数据格式](#rsc-范式下特有的渲染数据格式)
-    - [实用的使用场景举例](#实用的使用场景举例)
-  - [未来 RSC](#未来-rsc)
-  - [参考资料](#参考资料)
-    - [React Official Doc - React Server Components](#react-official-doc---react-server-components)
-    - [Making Sense of React Server Components](#making-sense-of-react-server-components)
-    - [RSC From Scratch. Part 1: Server Components](#rsc-from-scratch-part-1-server-components)
-    - [React-Server-Components-From-Scratch - code flow](#react-server-components-from-scratch---code-flow)
-    - [React Server Components: A Comprehensive Breakdown](#react-server-components-a-comprehensive-breakdown)
-    - [An Inconsistent Truth: Next.js and Type Safety](#an-inconsistent-truth-nextjs-and-type-safety)
-    - [servercomponents.dev](#servercomponentsdev)
+- [RSC 的整体介绍](#rsc-的整体介绍)
+- [为什么设计 RSC？RSC 有什么用，解决了什么问题？](#为什么设计-rscrsc-有什么用解决了什么问题)
+  - [React 世界中的 CSR 和 SSR](#react-世界中的-csr-和-ssr)
+  - [React 世界中的数据请求](#react-世界中的数据请求)
+  - [进一步认识 RSC](#进一步认识-rsc)
+  - [RSC 和普通客户端组件共存时候的限制条件](#rsc-和普通客户端组件共存时候的限制条件)
+  - [RSC 范式下特有的渲染数据格式](#rsc-范式下特有的渲染数据格式)
+  - [实用的使用场景举例](#实用的使用场景举例)
+- [未来 RSC](#未来-rsc)
+- [参考资料](#参考资料)
+  - [React Official Doc - React Server Components](#react-official-doc---react-server-components)
+  - [Making Sense of React Server Components](#making-sense-of-react-server-components)
+  - [RSC From Scratch. Part 1: Server Components](#rsc-from-scratch-part-1-server-components)
+  - [React-Server-Components-From-Scratch - code flow](#react-server-components-from-scratch---code-flow)
+  - [React Server Components: A Comprehensive Breakdown](#react-server-components-a-comprehensive-breakdown)
+  - [An Inconsistent Truth: Next.js and Type Safety](#an-inconsistent-truth-nextjs-and-type-safety)
+  - [servercomponents.dev](#servercomponentsdev)
 
 ## RSC 的整体介绍
 
