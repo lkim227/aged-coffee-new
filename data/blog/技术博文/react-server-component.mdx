@@ -145,7 +145,7 @@ export default Counter
 
 由于普通客户端组件如果定义了 state，就有可能将该 state 作为一个可相应更新的 prop 传递给子组件，如果一个 RSC 作为这个客户端组件的子组件，且 RSC 有只渲染一次不在响应更新的特性，就会导致应用出现问题，所以一旦在应用树的某个组件定义成了客户端组件，那这个组件的子组件也默认成为客户端组件
 
-![](https://static.fuxi.netease.com/yaotai/portal/index/lnu4oxsq_307034.png)
+![](https://static.fuxi.netease.com/yaotai/portal/index/lnv50c0o_304855.png)
 
 但是这句话又不一定是绝对的例如一个 ContextProvider 被标记为客户端组件了，按照上面的说法他包裹的所有组件就成为客户端组件了
 
