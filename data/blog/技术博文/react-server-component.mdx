@@ -6,8 +6,6 @@ draft: false
 summary: '理解 RSC'
 ---
 
-# React 编程新范式 - React Server Component
-
 - [RSC 的整体介绍](#rsc-的整体介绍)
 - [为什么设计 RSC？RSC 有什么用，解决了什么问题？](#为什么设计-rscrsc-有什么用解决了什么问题)
   - [React 世界中的 CSR 和 SSR](#react-世界中的-csr-和-ssr)
@@ -57,12 +55,12 @@ summary: '理解 RSC'
 
 但是这个返回的 html 还是存在 bundle.js，这个时候这个 bundle.js 主要用于 Hydration-水合（让页面变得可以交互，事件、状态管理等）
 
-```
+```txt
 Hydration is like watering the “dry” HTML with the “water” of interactivity and event handlers. - Dan Abramov
-Hydration 就像用交互性和事件处理器的“水”来浇灌“干燥”的HTML。
+Hydration 就像用交互性和事件处理器的“水”来浇灌“干燥”的 HTML。
 ```
 
-btw：SSG 是 SSR 的一个变种，但一般在打包完成后服务端依赖的数据就被凝固了，一般不会在请求的时候发生动态的数据变化
+btw：`SSG` 是 `SSR` 的一个变种，但一般在打包完成后服务端依赖的数据就被凝固了，一般不会在请求的时候发生动态的数据变化
 
 ### React 世界中的数据请求
 
@@ -80,11 +78,12 @@ SSR 的做法除了让页面具备了 SEO 的能力同时提升了 First Paint �
 
 查看 SSR 模式下的流程图会发现查询数据是在客户端发送请求到服务端服务端再进一步响应的，可不可以把数据请求这个流程前置
 
-![](https://static.fuxi.netease.com/yaotai/portal/index/lnsw4syh_464537.png)
-
 想象一下在没有 RSC 的时候使用 SSR 我们可以怎么实现这样的效果
 
+![](https://static.fuxi.netease.com/yaotai/portal/index/lnsw4syh_464537.png)
+
 ```tsx
+// 在传统的 next.js SSR 模式下
 import db from 'imaginary-db'
 // 这段代码只能在服务器上运行
 export async function getServerSideProps() {
@@ -96,6 +95,10 @@ export async function getServerSideProps() {
 }
 // 这段代码在服务器和客户端上运行
 export default function Homepage({ data }) {
+  // 在运用了 RSC 能力之后可以把 getServerSideProps 的能力搬到组件内部
+  const link = db.connect('localhost', 'root', 'passw0rd')
+  const data = await db.query(link, 'SELECT * FROM products')
+
   return (
     <>
       <h1>Trending Products</h1>
@@ -144,7 +147,11 @@ export default Counter
 
 ![](https://static.fuxi.netease.com/yaotai/portal/index/lnu4oxsq_307034.png)
 
-但是这句话又不一定是绝对的例如一个 ContextProvider 被标记为客户端组件了，按照上面的说法他包裹的所有组件就成为客户端组件了，但是由于 ContextProvider 中的 state 并不一定被他包裹的所有组件都用到，所以在这种情况下其中还是可以存在很多被优化的基于 RSC 的子树
+但是这句话又不一定是绝对的例如一个 ContextProvider 被标记为客户端组件了，按照上面的说法他包裹的所有组件就成为客户端组件了
+
+但是由于 ContextProvider 中的 state 并不一定被他包裹的所有组件都用到，所以在这种情况下其中还是可以存在很多被优化的基于 RSC 的子树
+
+但是需要注意的是原来在 ContextProvider 中定义一个 state 然后靠一个 dispatch 可以改变 state 并且可以让页面组件自己重新渲染的模式理论上不再起效，需要变通实现
 
 ```tsx
 'use client'
@@ -205,7 +212,7 @@ function Homepage() {
 
 其中可以看到有冗余的两个表示一样信息的描述，一个是已经渲染好的 html，一个是告诉 React 要怎么渲染的描述
 
-前者其实是 SSR 作用的结果，例如如果配合 next.js 这样 SSR 起家的框架，就会竟可能多的渲染可以被渲染的 RSC 和客户端组件中可以被渲染的部分
+前者其实是 SSR 作用的结果，例如如果配合 next.js 这样 SSR 起家的框架，就会尽可能多的渲染可以被渲染的 RSC 和客户端组件中可以被渲染的部分
 
 可以理解为现在 React 具备了在服务端被提前消化吸收一部分的能力，比如酸奶就比直接喝牛奶有更高的吸收效率
 
@@ -213,7 +220,7 @@ function Homepage() {
 
 ### RSC 范式下特有的渲染数据格式
 
-[以 waku 的官网传输的数据为例](https://waku.gg/docs/practices/router)
+[以 waku 的官网传输的数据为例](https://waku.gg/docs/practices/router)  
 [通过当前的传输数据解析可得](https://rsc-parser.vercel.app/)
 
 ### 实用的使用场景举例
@@ -221,6 +228,8 @@ function Homepage() {
 例如你需要利用一个代码高亮库来进行代码高亮，由于他涵盖了很多的语言所以他基本需要好几个 mb
 
 现在可以把这个逻辑交给服务端来做，直接返回高亮好结果的 html 和 css 样式结果
+
+最小化的使用示例建议参考[waku 的 example](https://github.com/dai-shi/waku/blob/main/examples/01_counter/src/entries.tsx)
 
 ## 未来 RSC
 
@@ -232,11 +241,11 @@ function Homepage() {
 
 ### [Making Sense of React Server Components](https://www.joshwcomeau.com/react/server-components/)
 
+### [React Server Components: A Comprehensive Breakdown](https://www.youtube.com/watch?v=VIwWgV3Lc6s&list=WL&index=4&ab_channel=Theo-t3%E2%80%A4gg)
+
 ### [RSC From Scratch. Part 1: Server Components](https://github.com/reactwg/server-components/discussions/5)
 
 ### [React-Server-Components-From-Scratch - code flow](https://dev.to/bronifty/react-server-components-from-scratch-39ac)
-
-### [React Server Components: A Comprehensive Breakdown](https://www.youtube.com/watch?v=VIwWgV3Lc6s&list=WL&index=4&ab_channel=Theo-t3%E2%80%A4gg)
 
 ### [An Inconsistent Truth: Next.js and Type Safety](https://t3.gg/blog/post/types-and-nextjs)
 
