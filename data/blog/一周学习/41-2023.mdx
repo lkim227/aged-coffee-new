@@ -1,0 +1,141 @@
+---
+title: 2023-第四十一周
+date: '2023-10-16'
+tags: ['WEEKLY-2023']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+- [技术](#技术)
+  - [The Absolute Minimum Every Software Developer Must Know About Unicode in 2023 (Still No Excuses!)](#the-absolute-minimum-every-software-developer-must-know-about-unicode-in-2023-still-no-excuses)
+  - [What is in that .git directory?](#what-is-in-that-git-directory)
+  - [The Rise of Next.js: Why It's the Full-Stack Framework of Choice for Modern Websites](#the-rise-of-nextjs-why-its-the-full-stack-framework-of-choice-for-modern-websites)
+- [工具](#工具)
+  - [table-saw](#table-saw)
+  - [tailwindcss-3d](#tailwindcss-3d)
+- [更新](#更新)
+  - [Announcing TanStack Query v5](#announcing-tanstack-query-v5)
+  - [How we optimized package imports in Next.js](#how-we-optimized-package-imports-in-nextjs)
+  - [Node.js 21 Available Now!](#nodejs-21-available-now)
+  - [CSS relative color syntax](#css-relative-color-syntax)
+- [AI](#ai)
+  - [Introducing Visual Copilot: A Better Figma-to-Code Workflow](#introducing-visual-copilot-a-better-figma-to-code-workflow)
+  - [Multimodality and Large Multimodal Models (LMMs)](#multimodality-and-large-multimodal-models-lmms)
+- [其他](#其他)
+  - [Take less information in, but do more with it](#take-less-information-in-but-do-more-with-it)
+
+## 技术
+
+### [The Absolute Minimum Every Software Developer Must Know About Unicode in 2023 (Still No Excuses!)](https://tonsky.me/blog/unicode/)
+
+这篇文章讲述了 Unicode 和 UTF-8 编码的相关概念以及对程序员的影响。Unicode 是一个标准，旨在统一所有人类语言，并使其能够与计算机一起工作。它使用唯一的代码点将字符与数字相对应。UTF-8 是一种变长编码，可以将 Unicode 代码点以字节序列的形式存储在内存中。文章还介绍了扩展字形簇的概念，它是 Unicode 中的一系列代码点，应被视为一个不可分割的字符。此外，文章还强调了正确使用 UTF-8 编码的重要性。
+
+- Unicode 是一个标准，旨在统一所有人类语言，并使其能够与计算机协同工作。
+- UTF-8 是一种编码方式，用于在计算机内存中存储 Unicode 的代码点。
+- 扩展字形簇是由一个或多个 Unicode 代码点组成的序列，应该被视为一个不可分割的字符单元。
+
+### [What is in that .git directory?](https://blog.meain.io/2023/what-is-in-dot-git)
+
+本文主要介绍了.git 文件夹的结构以及其中包含的文件和文件夹的作用。.git 文件夹是 git 版本控制系统创建的，包含了项目的配置信息、分支引用、提交历史等。文章还详细解释了添加文件、提交文件、查看对象的过程，并通过示例展示了.git 文件夹中的各个文件的内容。
+
+- .git 文件夹是 git 创建的，其中包含了与 git 仓库相关的配置文件、对象文件和引用文件。
+- 对象文件夹内的文件以 zlib 压缩格式存储，其中包含了文件的类型、大小和内容。
+- 提交操作会修改.git 文件夹中的索引文件和 objects 文件夹，同时创建新的提交对象和引用文件。
+
+### [The Rise of Next.js: Why It's the Full-Stack Framework of Choice for Modern Websites](https://www.felixvemmer.com/blog/why-next-js/)
+
+本文介绍了 Next.js 作为现代网站全栈框架的选择原因。Next.js 在可靠性方面表现出色，并赢得了客户和开发者的信任。它具有出色的性能和 SEO 功能，提供了多种渲染策略和运行时选择，还提供了 React Server 组件以及内置的优化功能，如 next/image 和 next/script。总之，Next.js 是一个可靠且功能强大的前端框架。
+
+- Next.js 是现代网站首选的全栈框架，因为它可靠稳定。
+- Next.js 在开发者社区中受到广泛认可和关注，得到了许多大型公司和平台的信任和采用。
+- Next.js 提供了多种页面渲染策略，包括静态渲染、动态渲染和流式渲染，以满足不同的性能和 SEO 需求。
+- Next.js 还提供了 React 服务器组件、加载 UI 和流式加载等功能，提升了用户体验和网站性能。
+- Next.js 内置了优化功能，包括图片优化和第三方脚本优化，提供了最佳的用户体验。
+
+## 工具
+
+### [table-saw](https://github.com/zachleat/table-saw)
+
+一个用于响应式`<table>`元素的小型网络组件。
+
+### [tailwindcss-3d](https://github.com/sambauers/tailwindcss-3d)
+
+将 3D 变换添加到您的 TailwindCSS 项目中
+
+## 更新
+
+### [Announcing TanStack Query v5](https://tanstack.com/blog/announcing-tanstack-query-v5)
+
+TanStack Query v5 是一个数据查询库的新版本，它经过了长时间的开发和测试。这个版本主要关注 API 的简化和改进，包括统一使用 useQuery 和其他 hooks 的方式，并且修复了一些 TypeScript 的限制。此外，v5 还引入了一些新功能，如简化的乐观更新、可共享的变异状态、支持 Suspense 的数据获取等。还有一些改进，如优化的无限查询、新的开发工具和更好的持久性。最后，感谢所有贡献者和社区的支持。
+
+- TanStack Query v5 是一个经过长时间开发和优化的版本，旨在使其更小、更好、更易于使用。
+- v5 的重大变化包括统一了 API 的使用方式，去除了大多数重载，使得代码更加一致和易于理解。
+- v5 带来了一系列新功能，包括简化的乐观更新、可共享的变异状态、一流的暂停支持、改进的无限查询、新的开发者工具以及细粒度的持久化能力。
+
+### [How we optimized package imports in Next.js](https://vercel.com/blog/how-we-optimized-package-imports-in-next-js)
+
+Next.js 最新版本对包导入进行了优化，提高了本地开发性能和生产冷启动速度。这篇文章解释了为什么需要这种改变，以及他们如何通过优化包导入来实现性能改进。文章还介绍了什么是“barrel file”（索引文件），以及使用“barrel file”可以提高组织代码和可维护性。之前他们尝试了 modularizeImports 方法来优化导入，但效果有限。现在他们引入了 optimizePackageImports 选项来自动处理导入，这种方法比 tree-shaking 更快且更有效。他们进行了性能测试，发现在本地开发、生产构建和冷启动方面都有明显的改进。最后，他们建议升级到最新版本的 Next.js 以获得这些性能改进。
+
+- 针对大型图标或组件库的依赖关系，Next.js 的最新版本进行了优化，通过优化包导入来提高本地开发性能和生产冷启动性能。
+- JavaScript 中的"barrel 文件"是一种将多个模块从一个文件中进行分组和导出的方法，可以提高代码组织和可维护性。
+- 使用"barrel 文件"导入大量模块时，会导致性能下降，Next.js 通过引入新的"optimizePackageImports"选项来解决这个问题，并在本地开发、生产构建和冷启动中实现了显著的性能改进。
+
+### [Node.js 21 Available Now!](https://openjsf.org/announcement/2023/10/17/node-js-21-available-now/)
+
+Node.js 21 是最新的版本，用于早期功能测试，而 Node.js 20 则用于生产部署。Node.js 21 包含了 V8 JavaScript 引擎的更新、稳定的 WebStreams、翻转模块默认设置的实验性标志以及测试运行器的多个更新。Node.js 21 可以帮助开发人员评估 Node.js 功能的当前状态。
+
+- Node.js 21 是最新发布的版本，适合在特定环境下进行早期功能测试。
+- Node.js 20 LTS 是用于生产部署的版本，提供稳定性和可靠性。
+- Node.js 21 包含了许多更新，如 V8 JavaScript 引擎升级、稳定的 WebStreams、实验性标志等，让开发者可以提前体验和测试新功能。
+
+### [CSS relative color syntax](https://developer.chrome.com/blog/css-relative-color-syntax/)
+
+Chrome 119 中引入了 CSS Color Level 4 的强大功能，即相对颜色语法。这个功能可以在 CSS 中进行颜色的调整和操作，包括亮度、饱和度、透明度等。相对颜色语法可以简化代码，并提供更清晰易读的样式和系统。此外，文章还介绍了语法的概述和常见的颜色操作，如颜色转换、使用自定义属性和选择不同的颜色空间等。最后，文章给出了一些使用示例，包括调亮、调暗、饱和和去饱和等操作。
+
+- 相对颜色语法是 CSS 中的一个强大功能，可以通过从其他颜色派生出新的颜色，实现对颜色进行各种操作和调整。
+- 相对颜色语法可以将原始颜色转换为指定颜色空间的各个通道，使得创建新颜色变得更加简单和直观。
+- 相对颜色语法可以应用于各种颜色操作，包括提亮、加深、饱和度调整等，提供了更多灵活性和创造力。
+
+## AI
+
+### [Introducing Visual Copilot: A Better Figma-to-Code Workflow](https://www.builder.io/blog/figma-to-code-visual-copilot)
+
+Visual Copilot 是一个重新设计的 Figma 设计转码插件，可以帮助开发人员将设计转换为干净的代码，节省 50-80% 的时间。它使用 AI 模型和编译器，将 Figma 设计转化为 React、Vue、Svelte、Angular、Qwik、Solid 或 HTML 代码，并支持多种样式库。插件还具有自动响应和可定制的代码结构等功能，旨在简化设计转码和将设计直接部署到生产环境的流程。同时，Visual Copilot 还计划推出 AI 使用现有组件和自动同步 Figma 与 Builder 的功能。
+
+- Visual Copilot 是一款能够将 Figma 设计转化为代码的插件，可节省开发人员 50-80% 的时间。
+- Visual Copilot 使用 AI 模型和编译器将 Figma 设计转化为高性能、响应式的代码。
+- Visual Copilot 支持多种框架和库，并能够自动适应不同屏幕尺寸，提供一键转化和自定义代码结构的功能。
+
+### [Multimodality and Large Multimodal Models (LMMs)](https://huyenchip.com/2023/10/10/multimodal.html)
+
+这篇文章介绍了多模态系统的概念和应用。多模态系统能够处理不同类型的数据，如文本、图像和音频，以更好地模拟人类的感知和理解能力。文章还提到了一些多模态任务的例子，包括生成任务和视觉 - 语言理解任务。此外，文章还介绍了一些重要的多模态系统，如 CLIP 和 Flamingo，并探讨了多模态系统的研究方向和应用前景。
+
+- 多模态系统的重要性：多模态系统可以处理不同的数据模态，提高模型性能，并为用户提供更灵活的交互方式。
+- 数据模态的种类：文本和图像是两种常见的数据模态，它们可以相互转换和表示其他数据模态。
+- 多模态任务的分类：生成任务和视觉语言理解任务是多模态系统的主要任务，包括图像生成、文本生成、分类和基于文本的图像检索等。
+
+## 其他
+
+### [Take less information in, but do more with it](https://www.dsebastien.net/take-less-information-in-but-do-more-with-it/)
+
+这篇文章主要讲述了如何过滤和利用生活中的信息。作者提到我们每天都会接收到大量的信息，而大部分信息都是垃圾或对我们来说没有用处的。因此，我们需要学会过滤掉噪音，专注于对我们有价值的内容。文章还介绍了如何更好地利用所消费的信息，包括将信息变得可行动化，识别有价值的来源，实践和分享所学等。
+
+- 了解如何过滤信息噪音和集中注意力于有价值的内容。
+- 学会过滤无用信息，只关注当前对自己有价值的内容。
+- 学会有效利用所消费的信息，包括记录、实践、联系和分享。
+
+---
+
+产品是资产，代码是负债。
+
+你的产品解决了客户的问题，因此是你的资产。代码则是创造资产的成本。你拥有的代码越多，阅读、测试、更改和理解所付出的成本就越高。
+
+-- 《我的工程公理》
+
+---
+
+程序员的任务不仅仅是解决今天的问题，还要确保你的代码不会成为明天的问题。
+
+-- 《好的代码就像写给接手者的一封情书》
