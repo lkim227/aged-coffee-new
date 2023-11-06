@@ -118,15 +118,13 @@ Chrome 120 版本的 Chrome 扩展平台迎来了一些新功能和改进。其�
 
 ### [Remix ❤️ Vite](https://remix.run/blog/remix-heart-vite)
 
-React 框架 Remix 在其 v2.2.0 版本中引入了对 Vite 的不稳定支持，将 Vite 融合进 Remix 提供了快速开发体验。使用新模板，你现在可以立即尝试 Minimal Server 或 Custom Express Server。
+Remix v2.2.0 引入了 Vite 的不稳定支持，用户现在在使用 Remix 时即可享受到 Vite 提供的闪电般的开发体验 (DX)。Remix 已经不再是一个编译器，它本身就是一个 Vite 插件，用户可以享受到 Vite 插件生态系统的所有优势。
 
-动热服务器更新、ESM 和 CJS 交互操作、TypeScript 支持、工作空间支持、浏览器兼容目标等等。
-Remix 有一段长久的开发历程才选择使用 Vite，并在其中克服了各种阻碍。他们感谢 Vite 团队，特别是 Matias Capeletto，Arnaud Barré，和 Bjorn Lu。他们还感谢 Remix 社区在探索 Vite 支持中的贡献，并表示受到其他使用 Vite 的框架，包括 Astro、SolidStart 和 SvelteKit 的启发。
-
-- 提升性能：在 M1 Max MacBook Pro 上的测试表明，与之前相比，HMR 快 10 倍，HDR 快 5 倍。
-- 为框架构建优化：与传统的构建工具不同，Vite 专为构建框架而设计。
-- Vite plugin 支持：Remix 现在只是一个 Vite 插件，这意味着你可以访问 Vite 插件的整个生态系统，并根据需要定制插件。
-- 丰富的开发优势：包括近似瞬间的开发启动、预打包的依赖、增量热更新、极大的减少内存使用、自动路由基础的 CSS 拆分、在 HMR 期间更好的浏览器状态保持、自
+- 在 M1 Max MacBook Pro 上进行的快速测试中，我们发现 Remix 现在的热模块替换 (HMR) 速度提高了 10 倍，HDR 速度提高了 5 倍。
+- 使用 Vite，Remix 可以全面依赖 Vite 插件处理除核心之外的功能，如将 SVG 作为 React 组件导入，使用﻿tsconfig 路径别名，或者使用 MDX 等。
+- Remix Vite 插件的更多优势包括近乎即时的开发启动，预打包依赖，增量热更新，大大减少内存使用，自动按路由分割 CSS，更好地在 HMR 期间保留浏览器状态，自动热更新服务器等。
+- 为什么现在 Remix 引入 Vite 的支持？简单的答案是，当 Remix 开始开发时，Vite 尚未发布稳定版本！
+- 2023 年 6 月，Remix 开始为 Vite 开发插件。至今，Remix 正在与 CloudFlare (CF) 核心团队合作，并有信心在 Remix Vite 插件稳定之前提供最佳的 CF 支持。
 
 ## 设计
 
@@ -140,7 +138,7 @@ Remix 有一段长久的开发历程才选择使用 Vite，并在其中克服了
 
 ## AI
 
-### [misgif](https://misgif.app/)  
+### [misgif](https://misgif.app/)
 
 Misgif - 将你的脸放入你最喜欢的 GIF 中
 
@@ -163,7 +161,6 @@ Misgif - 将你的脸放入你最喜欢的 GIF 中
 
 ---
 
-[react-iztro](https://github.com/SylarLong/react-iztro)  
+[react-iztro](https://github.com/SylarLong/react-iztro)
 
 基于 iztro 实现的紫微斗数星盘 React 组件
-
