@@ -1,0 +1,209 @@
+---
+title: 2023-第四十四周
+date: '2023-11-06'
+tags: ['WEEKLY-2023']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+- [技术](#技术)
+  - [Why You Should Write Your Own Static Site Generator](#why-you-should-write-your-own-static-site-generator)
+  - [CSS is fun again](#css-is-fun-again)
+  - [ECMAScript Decorators. The Ones That are Real](#ecmascript-decorators-the-ones-that-are-real)
+  - [Speeding up your Project Setup](#speeding-up-your-project-setup)
+  - [An Intro to Building Game UIs with React](#an-intro-to-building-game-uis-with-react)
+  - [How to Build a Server-Side React App Using Vite and Express](#how-to-build-a-server-side-react-app-using-vite-and-express)
+- [工具](#工具)
+  - [sshx](#sshx)
+  - [moveable](#moveable)
+  - [minisearch](#minisearch)
+  - [helmet](#helmet)
+- [更新](#更新)
+  - [Astro 3.5: i18n Routing](#astro-35-i18n-routing)
+  - [What's new in DevTools (Chrome 120)](#whats-new-in-devtools-chrome-120)
+  - [Announcing TypeScript 5.3 RC](#announcing-typescript-53-rc)
+- [设计](#设计)
+  - [Addressing Accessibility Concerns With Using Fluid Type](#addressing-accessibility-concerns-with-using-fluid-type)
+  - [Minimalist Affordances: Making the right tradeoffs](#minimalist-affordances-making-the-right-tradeoffs)
+  - [Why You Should Use px Units for margin, padding, \& Other Spacing Techniques](#why-you-should-use-px-units-for-margin-padding--other-spacing-techniques)
+  - [Introducing FigJam, with AI](#introducing-figjam-with-ai)
+- [AI](#ai)
+  - [Telling GPT-4 you're scared or under pressure improves performance](#telling-gpt-4-youre-scared-or-under-pressure-improves-performance)
+  - [Prompt 逆向工程：让 ChatGPT 模仿任何作家，完美续写红楼梦](#prompt-逆向工程让-chatgpt-模仿任何作家完美续写红楼梦)
+  - [Building AI Applications with LangChain and Node.js](#building-ai-applications-with-langchain-and-nodejs)
+- [其他](#其他)
+  - [How to go from Senior to Lead](#how-to-go-from-senior-to-lead)
+
+## 技术
+
+### [Why You Should Write Your Own Static Site Generator](https://arne.me/articles/write-your-own-ssg)
+
+这篇文章讲述了作者使用自己的静态网站生成器来构建自己的网站的经历。作者选择自己构建的原因是不想依赖其他人的决定和版本升级，并且可以选择自己喜欢的技术栈。作者使用 Rust 编程语言，并选择了一些相关的库来完成 Markdown 转换、HTML 模板渲染、CSS 编译、生成 RSS 和网站地图等功能。最后，作者鼓励读者选择自己感兴趣的技术栈并享受构建过程。
+
+- 传统的静态网站生成器需要根据框架的要求构建网站结构，而自己开发的静态网站生成器可以根据自己的需求进行定制，更加灵活。
+- 自己开发的静态网站生成器可以选择自己喜欢的技术栈，比如选择使用 Rust 语言进行开发，增加了开发的乐趣和自由度。
+- 自己开发的静态网站生成器只需要完成几个主要任务，如将 Markdown 转换为 HTML，渲染 HTML 模板，编译 CSS 等，可以根据自己的需求选择相应的工具和库进行开发。
+
+### [CSS is fun again](https://pdx.su/blog/2023-10-25-css-is-fun-again)
+
+这篇文章讲述了 CSS 近年来的复兴，以及它如何成为一种更强大、更易用的语言。CSS 在过去被认为是不好用的，但随着时间的推移，它逐渐发展出许多新的功能和特性。现在的 CSS 已经可以完成以前需要外部工具才能实现的复杂样式和布局。文章还提到了一些新的 CSS 特性，如嵌套、颜色混合、容器选择器和样式查询，以及一些小的改进和新增的功能。作者表示，现在是重新学习和使用 CSS 的好时机。
+
+- CSS 经历了一个安静的复兴，带来了许多新功能和改进。
+- 在过去，CSS 被认为过于简单，无法满足复杂的样式需求，但现在它已经发展成为一种强大而灵活的语言。
+- 新的 CSS 功能包括嵌套样式、颜色混合和样式查询，使得编写样式更加简单和高效。
+- CSS 的复兴还在继续，更多功能正在陆续推出，如相对颜色和本地 CSS 作用域。
+
+### [ECMAScript Decorators. The Ones That are Real](https://dev.to/what1s1ove/ecmascript-decorators-the-ones-that-are-real-g96)
+
+这篇文章讲述了 JavaScript 装饰器的概念和应用。装饰器是一种设计模式，可以在对象上附加新的行为。文章介绍了一些常见的装饰器例子，如防抖函数和高阶组件，以及装饰器在 JavaScript 中的实现和历史。装饰器可以使代码更加简洁和可读，提高开发效率。
+
+- ECMAScript 6 引入了许多新特性，如 const/let、箭头函数、类等，目的是消除 JavaScript 的怪异之处。
+- 装饰器是一种结构设计模式，可以在对象上附加新的行为，可以在任何编程语言中实现，而 JavaScript 中的高阶函数 debounce 就是最著名的装饰器之一。
+- 装饰器在 JavaScript 中的应用广泛，可以简化代码，提高可读性，并在许多框架和库中使用。
+
+### [Speeding up your Project Setup](https://axemsolutions.io/blog/vs-code-configuration-export-import.html)
+
+这篇文章主要介绍了如何在 Visual Studio Code（VS Code）中导出和共享插件配置，以提高开发者的工作效率和团队协作。通过导出插件列表和配置文件，可以快速在其他设备上复制和安装相同的插件和设置。这样可以加快项目的启动速度，提供标准化的调试和代码格式设置，并促进团队成员之间的配对编程。文章还提到了如何自定义 VS Code 的行为和扩展的设置，并强调了备份和参考官方文档的重要性。最后，强调了 VS Code 的强大功能和可扩展性，帮助开发者提高工作效率。
+
+- 使用 Visual Studio Code 的优势：VS Code 是一款轻量但功能强大的代码编辑器，通过与合适的扩展配对，可以提升开发人员的编码体验。
+- 导出和共享扩展配置的方法：可以将安装的插件列表导出到文件中，并在其他设备上轻松复制和共享，从而实现统一的开发环境。
+- 自定义 VS Code 的设置：通过编辑 settings.json 文件，可以定制编辑器的行为、配置特定编程语言或文件类型的设置，并对已安装的扩展进行偏好设置。
+
+### [An Intro to Building Game UIs with React](https://www.adammadojemu.com/blog/intro-to-building-game-uis-with-react)
+
+在这篇文章中，作者讨论了在 Unity 游戏引擎中使用 React 构建用户界面的优势和适用情况。他提到了一些使用 React 的游戏巨头，如 Minecraft 和 Battlefield，并介绍了两种主要的 React 使用方法：嵌入浏览器或 WebView 以及无浏览器的方法。作者还分享了他在使用 React 构建游戏界面时的工作流程和一些经验教训。尽管 React 在开发体验和灵活性方面具有优势，但在性能和特定游戏类型的需求方面可能不是最佳选择。文章最后，作者表示对这个领域有兴趣并愿意分享更多深入的内容和示例。
+
+- 使用 React 作为游戏界面的开发工具可以带来成熟的生态系统和更多的开发资源。
+- 嵌入浏览器或 WebView 是一种将浏览器功能嵌入游戏中的方法，可以方便地实现跨平台开发。
+- 通过解析 JavaScript 代码为本地游戏引擎 UI 代码的方式，可以实现快速迭代和无需浏览器的游戏界面开发。
+
+### [How to Build a Server-Side React App Using Vite and Express](https://thenewstack.io/how-to-build-a-server-side-react-app-using-vite-and-express/)
+
+这篇文章介绍了如何在 React 中实现服务器端渲染和服务器端数据获取，而不使用框架。它提供了一些相关的代码和配置，并解释了 React 中的 hydrateRoot 和 renderToString 方法的使用。文章还包括设置和安装依赖、创建 src 文件、Vite 配置、开发服务器和生产服务器的步骤。最后，文章还提到了如何在服务器端进行数据获取的方法。
+
+- 本文介绍了如何在 React 中实现服务器端渲染和数据获取，而不使用框架。
+- 通过使用 React 的内置方法 hydrateRoot 和 renderToString，可以实现服务器端渲染。
+- 该教程提供了配置和安装依赖项的步骤，并详细介绍了创建开发和生产服务器的过程。
+
+
+## 工具
+
+### [sshx](https://github.com/ekzhang/sshx)
+
+快速、协作的在线终端共享
+
+### [moveable](https://github.com/daybrush/moveable)
+
+拖动大小变换的组件
+
+### [minisearch](https://github.com/lucaong/minisearch)
+
+在内存里快速搜索
+
+### [helmet](https://github.com/helmetjs/helmet)
+
+HTTP 头部设置的集合，用于提高 Express 应用的安全性
+
+## 更新
+
+### [Astro 3.5: i18n Routing](https://astro.build/blog/astro-350/)
+
+Astro 3.5 发布了，新增了 i18n 路由、预取优化等功能。i18n 路由可以轻松构建多语言应用，预取功能可以提高网站速度。此外，还增加了内容集合构建缓存、表单支持、图片优化、中间件集成等功能。还修复了一些错误。
+
+- Astro 3.5 的新功能包括 i18n 路由、预取优化和内容集合构建缓存。
+- i18n 路由实验性功能使构建多语言应用变得更加容易。
+- 预取功能可以提前获取页面，提高网站加载速度。
+
+### [What's new in DevTools (Chrome 120)](https://developer.chrome.com/en/blog/new-in-devtools-120/)
+
+这段文字主要讲述了 Chrome 浏览器的一些更新和改进。其中包括对第三方 cookie 的逐步淘汰、新增的隐私沙盒分析工具、调试器的改进、源代码映射的更新、远程调试时的输入模式切换、元素面板的改进、内容安全策略的显示、动画调试的改进、自我跨站脚本攻击警告、事件监听断点在 Web Worker 中的支持、媒体元素的调试、预加载的改名、Lighthouse 工具的升级、无障碍性改进以及
+
+- 第三方 Cookie 将被停用，网站需要采取行动以适应这一变化。
+- 开发者工具现在支持隐私沙盒分析工具，帮助网站了解其使用的 Cookie 并提供新的隐私保护 Chrome API 的指导。
+- 调试器现在可以在捕获的异常中停止执行，同时还提供了更好的动画调试和源码映射支持。
+
+### [Announcing TypeScript 5.3 RC](https://devblogs.microsoft.com/typescript/announcing-typescript-5-3-rc/)
+
+TypeScript 5.3 发布了候选版本，新增了一些功能和优化。其中包括导入属性、import 类型中 resolution-mode 的稳定支持、switch 语句中的变量缩小、对布尔值比较进行变量缩小、通过 Symbol.hasInstance 进行 instanceof 缩小、对实例字段上的 super 属性访问进行检查等。此外还有一些破坏性变化和修正改进。
+
+- TypeScript 5.3 中的新功能包括导入属性、交互式提示和性能优化。
+- 支持在导入类型中使用 resolution-mode 属性，可以控制模块的解析方式。
+- TypeScript 5.3 还增加了在 switch 语句中进行条件判断的能力，以及通过 Symbol.hasInstance 进行 instanceof 的细化。
+
+
+
+## 设计
+
+### [Addressing Accessibility Concerns With Using Fluid Type](https://www.smashingmagazine.com/2023/11/addressing-accessibility-concerns-fluid-type/)
+
+本文讨论了使用 CSS clamp() 函数来实现字体大小的流式调整时可能出现的无障碍问题。WCAG Success Criterion 1.4.4 规定，在用户浏览器达到最大缩放级别 500% 时，文字应至少放大到原始大小的 200%。然而，使用 vw 单位和 clamp() 函数来实现流式字体大小可能导致无法满足这一要求。文章通过数学分析和图形展示，探讨了何时使用 clamp() 函数可能导致无障碍问题，并提出了一些解决方案。
+
+- CSS clamp() 函数与 vw 单位一起使用时可能导致文本无法在浏览器达到最大缩放级别时放大至至少 200%，从而引发无障碍问题。
+- WCAG Success Criterion 1.4.4 规定，文本应在不使用辅助技术的情况下，可以缩放至 200% 而不会丢失内容或功能。
+- 使用 clamp() 函数可以在一定程度上解决这个无障碍问题，但需要仔细测试和调整以确保文本大小符合 WCAG 准则。
+
+### [Minimalist Affordances: Making the right tradeoffs](https://lea.verou.me/blog/2023/minimalist-affordances/#the-ever-evolving-vocabulary-of-user-interaction)
+
+这篇文章讨论了在用户界面设计中，美学和可用性之间的平衡问题。作者举了 GitHub 评论界面的例子，指出了新设计虽然美观，但在用户识别和使用文本输入框方面存在问题。文章还提到了用户界面设计中的符号和示意物的重要性，以及用户学习和适应新设计的过程。最后，作者指出了一些其他领域中的例子，说明用户往往会适应并习惯于不易使用的界面。
+
+- 界面的美观性和易用性通常是相辅相成的，但有时也可能出现"形式胜过功能"的情况。
+- 用户界面的简洁性和知道何时停下来是重要的，但有时过于简化会影响可学习性。
+- 用户界面的设计需要考虑到用户的习惯和共同认知，以确保界面元素的可识别性和易用性。
+
+### [Why You Should Use px Units for margin, padding, & Other Spacing Techniques](https://ashleemboyer.com/blog/why-you-should-use-px-units-for-margin-padding-and-other-spacing-techniques)
+
+本文讨论了 CSS 中的 margin 和 padding 属性以及它们之间的区别。它介绍了 CSS 长度和百分比数据类型，以及绝对单位和相对单位之间的区别。文章强调了在使用相对单位时要考虑用户行为，以及为什么在边距和填充等间距技术中不应使用相对单位。最后，文章通过一个网页示例演示了使用绝对单位和相对单位在内容高度和可读性方面的差异，并提出了如何使响应式设计更具可访问性的建议。
+
+- CSS 的 margin 和 padding 属性对于网页设计非常重要，但在选择使用绝对单位还是相对单位时需要考虑用户体验和内容的关系。
+- 相对单位适用于用户调整文字大小、调整浏览器窗口大小、缩放页面、在移动设备上阅读等情况，因为它们能够帮助网页适应不同的设备和配置。
+- 然而，对于边距、填充和其他间距技术，使用相对单位可能导致页面变得过长、内容显示不全，给用户阅读和浏览带来困扰，因此我们应该慎重选择使用绝对或相对单位。
+
+### [Introducing FigJam, with AI](https://www.figma.com/whats-new/)
+
+FigJam AI 是一个基于 AI 技术的工具，可以帮助团队在会议和规划中节省时间和精力。它提供了团队同步、头脑风暴、回顾等模板，并能自动识别主题和总结要点。此外，文章还提到了 FigJam 的新功能和 Dev Mode 的介绍。
+
+- FigJam AI 是一个能够帮助团队进行会议准备工作的工具，能够生成团队同步、头脑风暴和回顾的模板，还可以提供可视化的时间线和组织结构图。
+- FigJam AI 可以自动识别黏贴便利贴并将其分组，帮助团队更快地整理并发现重要的想法。
+- 通过点击一键，FigJam AI 能够生成摘要并提供快速链接，帮助团队更加清晰地理解会议的关键要点和下一步行动。
+
+## AI
+
+### [Telling GPT-4 you're scared or under pressure improves performance](https://www.reddit.com/r/ChatGPTPro/comments/17mkf5s/telling_gpt4_youre_scared_or_under_pressure/)
+
+最近的研究发现，当给予语言模型 (LM) 带有情感上下文的提示时，其表现得到了提升。这些提示包含了紧迫性或重要性的情感，例如"对于我的论文答辩来说，这是至关重要的"，而不是中性的提示，比如"请提供反馈"。研究结果显示，确定性任务的性能提升了 8%，生成性任务在使用 BIG-Bench 进行基准测试时提升了 115%。通过人工评估，发现使用情感提示时，回复的质量提升了 10.9%。这种改进归因于模型能够检测和优先处理那些暗示回应需要精确性和关注度的语言模式。该研究指出了情感提示在改进人工智能应用中的潜力，尤其是在需要理解用户意图和紧迫性的情况下，即使人工智能并不真正理解或感受情感。简而言之，研究表明，在提示信号情感紧迫性时，语言模型的结果更好。这一洞见可以通过将情感提示集成到用户交互设计中来改进人工智能应用。
+
+- 最新研究发现，当语言模型 (LM) 收到带有情绪上下文的提示时，它们表现出更好的性能，这些情绪提示被称为"情感提示"。
+- 研究结果显示，情感提示能够显著提高确定性任务的性能，使生成性任务的表现提升 115%。
+- 通过使用情感提示，人类评估员进一步验证了这些发现，观察到使用情感提示时，回答的感知质量增加了 10.9%。
+
+
+### [Prompt 逆向工程：让 ChatGPT 模仿任何作家，完美续写红楼梦](https://mp.weixin.qq.com/s/YybF9r-BoYn4NNpsBzKhAw)
+
+这篇文章介绍了逆向 Prompt 提示词工程的具体操作步骤，包括明确概念、规划实验流程、验证可行性、广泛试验获得提示词等。同时还分享了不同写作风格的逆向提示词示例，强调了逆向分析的细化和深化过程的重要性。最后，提到了逆向分析技术在各领域的应用和 AI 创业公司的替代潜力。
+
+- 逆向提示词工程是通过已有文本内容推导出生成该内容的关键提示词的技术。
+- 逆向提示词工程的操作步骤包括明确概念、规划实验流程、验证可行性和获得多样化的写作风格。
+- 逆向提示词工程可以应用于不同领域，如营销、商业分析和心理学，需要深入了解对应领域的专业知识。
+
+
+
+
+### [Building AI Applications with LangChain and Node.js](https://developer.salesforce.com/blogs/2023/11/building-ai-applications-with-langchain-and-node-js)
+
+本文介绍了如何利用生成式人工智能（AI）查询内容。通过使用开源工具 LangChain 和 Node.js，可以构建一个用于查询 YouTube 视频内容的工具，让用户可以直接从视频中获取准确的答案。文章介绍了检索增强生成（RAG）的概念，它结合了检索和生成方法的优点，通过从大型数据集中检索相关内容并生成更准确和相关的答案。作者还介绍了 LangChain 是一个帮助开发者集成 AI 语言能力的工具包，可以简化与语言模型的交互。最后，文章列举了 RAG 的潜在应用领域，包括增强型知识库和 FAQ、研究辅助、内容推荐、增强型搜索引擎和交互式娱乐等。
+
+- 生成 AI 和大型语言模型（LLM）使用户能够直接从详细数据中获取答案，实现从大量内容中快速提取洞察力。
+- 检索增强生成（RAG）结合了 AI 的检索和生成方法的优势，通过首先从大数据集中检索相关内容，然后使用该内容生成更具信息的响应，提高了 AI 响应的准确性和相关性。
+- LangChain 是一个针对开发人员的综合工具包，简化了与语言模型一起工作的复杂性，为应用程序中的文本嵌入、上下文查询等任务提供了简化的界面。
+
+## 其他
+
+### [How to go from Senior to Lead](https://swizec.com/blog/how-to-go-from-senior-to-lead/)
+
+这篇文章讲述了如何从高级工程师晋升为团队/技术负责人。首先，与经理进行沟通，了解晋升的期望和要求。其次，通过与其他团队建立联系、参与战略会议、解决问题等方式展现领导能力。同时，建立良好的人际关系，关注业务结果，提出建议并帮助同事。最后，确保经理注意到你的工作，并为团队宣传和赞扬。
+
+- 要成为领导工程师，与经理密切合作并制定个人成长计划，包括在一对一会议中进行指导和反馈。
+- 领导工程师需要具备战略思维，参与设计路线图，拥有跨团队的项目管理能力。
+- 在没有获得领导工程师职位前，可以通过参与决策会议、解决技术问题、与利益相关者建立关系等方式开始扮演领导角色。

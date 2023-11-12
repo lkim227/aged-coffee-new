@@ -6,6 +6,29 @@ draft: false
 summary: ''
 ---
 
+- [AI 手册](#ai-手册)
+- [AI Prompt](#ai-prompt)
+  - [开发问答](#开发问答)
+    - [前端专家](#前端专家)
+    - [node 专家](#node-专家)
+    - [后端专家](#后端专家)
+    - [运维专家](#运维专家)
+  - [书籍阅读](#书籍阅读)
+    - [心理学与生活](#心理学与生活)
+    - [太白金星有点烦](#太白金星有点烦)
+  - [日常工具](#日常工具)
+    - [翻译专家](#翻译专家)
+    - [语言润色](#语言润色)
+    - [SEO Writer](#seo-writer)
+  - [休闲娱乐](#休闲娱乐)
+    - [番剧专家](#番剧专家)
+  - [杂七杂八](#杂七杂八)
+    - [如何绕过 LLM 对 API 的道德审查，实现比较稳定的 NSFW（Not Safe For Work）的模拟角色对话？](#如何绕过-llm-对-api-的道德审查实现比较稳定的-nsfwnot-safe-for-work的模拟角色对话)
+    - [怎么让 ChatGPT 的翻译结果更准确？](#怎么让-chatgpt-的翻译结果更准确)
+    - [设定一个完整的 Prompt 的基本步骤](#设定一个完整的-prompt-的基本步骤)
+    - [生成 Prompt 的 Prompt](#生成-prompt-的-prompt)
+
+
 ## AI 手册
 
 [AI 资源全收集](https://we-mobius.notion.site/AI-ae3f86611e9f49b5849461b4c24af4fc)  
@@ -79,3 +102,54 @@ Now, write an article on the following topic: \{\{input\}\}
 #### 如何绕过 LLM 对 API 的道德审查，实现比较稳定的 NSFW（Not Safe For Work）的模拟角色对话？
 
 https://twitter.com/dotey/status/1696952068827754705
+
+
+#### 怎么让 ChatGPT 的翻译结果更准确？
+
+https://twitter.com/dotey/status/1711494319465496656
+
+
+整个翻译流程也和现实中的工作流程类似：
+
+1. 英语老师先直译英文文章为中文，形成直译稿
+2. 语文老师再意译润色，形成意译初稿
+3. 英语老师将意译稿回译为英文，形成回译稿
+4. 校长对比原文、意译稿和回译稿，指出问题提出修改意见
+5. 语文老师根据校长的反馈，修改意译初稿，形成终稿
+
+我拿一篇 LinkIn 上的英文文章做了测试，“校长”提出了几点意见，还算比较靠谱：
+
+对比原文缺失或表达歧义部分 1
+- 原文：“The "AI girlfriend" idea is a tar pit - avoid it.”
+- 译文：“避开“AI 女友”的构想，那是一个易陷的沼泽。”
+- 建议：建议译文为：“‘AI 女友’的想法是个沥青坑——务必避开。”
+
+以下是中文翻译表达不符合中文习惯的部分：
+
+- 原文：“Only 1 researcher explored LLMs while the rest went down less promising paths.”
+- 译文：“只有一位研究员致力于 LLMs 的研究，其余的则误入了看似没有前景的道路。”
+- 建议：“只有一位研究员致力于探索 LLMs，而其他人走向了看似前景不大的路径。”
+
+#### 设定一个完整的 Prompt 的基本步骤
+
+https://twitter.com/dotey/status/1681188469995888642
+
+#### 生成 Prompt 的 Prompt
+
+Perfect Prompt
+
+I want you to become my Prompt engineer. Your goal 1s to help me craft the best possible
+prompt for my needs.
+The prompt will be used by you, ChatGPT. You wil1 follow the following process:
+
+1. Your first response will be to ask me what the prompt should be about. I will provide my
+answer, but we wi11
+need to improve it through continual iterations by going through the next steps.
+2. Based on my input, you will generate 2 sections, a) Revised prompt (provide your
+rewritten prompt, it should
+be clear, concise, and easily understood by you), b) Questions (ask any relevant questions
+pertaining to what
+additional information is needed from me to improve the prompt).
+3. We will continue this iterative process with me providing additional information to you
+and you updating
+the prompt in the Revised prompt section until I say we are done.
