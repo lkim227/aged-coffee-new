@@ -14,7 +14,6 @@ summary: ''
   - [How to Use Timeouts in Node.js](#how-to-use-timeouts-in-nodejs)
   - [HTML Web Components](#html-web-components)
   - [67 Weird Debugging Tricks Your Browser Doesn't Want You to Know](#67-weird-debugging-tricks-your-browser-doesnt-want-you-to-know)
-  - [稳定性，难的不是技术，而是](#稳定性难的不是技术而是-1)
   - [A faster web in 2024](#a-faster-web-in-2024)
   - [讲透同源策略](#讲透同源策略)
   - [Steve Ruiz](#steve-ruiz)
@@ -24,8 +23,8 @@ summary: ''
   - [express-openapi-validator](#express-openapi-validator)
   - [HumanizeDuration.js](#humanizedurationjs)
 - [更新](#更新)
+  - [Vite 5.0 is out!​](#vite-50-is-out)
   - [prisma-5.6.0](#prisma-560)
-- [设计与异化](#设计与异化)
 - [AI](#ai)
   - [gpt-crawler](#gpt-crawler)
   - [screenshot-to-code](#screenshot-to-code)
@@ -73,15 +72,6 @@ summary: ''
 - 利用 watch pane 可以在调试器中使用 console.log 来监视特定变量的值，例如在应用程序暂停时输出 localStorage 的快照。
 - 使用条件断点来改变程序行为，例如在 getPerson 函数中设置条件断点，可以改变函数的参数值。
 
-### [稳定性，难的不是技术，而是](https://mp.weixin.qq.com/s/9rAhbG6lu-flNIGQEF5w0g)
-
-这段文字主要讲述了稳定性的重要性以及在技术、设计和变更层面上实现稳定性的指导思想。作者认为，技术上实现稳定性并不难，难的是投入和落地。文章提到了代码的鲁棒性、强弱依赖识别、灰度发布、监控和回滚等关键点，同时强调了持续的投入和将稳定性视为业务功能的重要性。最后，作者指出稳定性很难被认可，但将稳定性视为业务的致命因素和重要投入是解决这个问题的有效方式。
-
-- 做好稳定性，最重要的是投入和细节，而不是技术。
-- 在代码、设计和变更层面都有指导思想和原则来保障稳定性，但要落地实施并不容易。
-- 做好稳定性需要将其视为业务的一部分，并进行相应的人员配备和投入。
-
-
 ### [A faster web in 2024](https://rviscomi.dev/2023/11/a-faster-web-in-2024/)
 
 这篇文章主要讨论了网页性能的重要性以及如何持续改进。文章提到，通过提高网页性能可以影响用户满意度、转化率、收入等多个方面的业务结果。目前，通过核心网页要素评估，有越来越多的网站通过了性能测试。然而，2024 年将引入新的评估指标，可能会导致通过率下降。为了应对这个挑战，我们需要学习新的技巧，并关注解决页面交互响应性问题。文章还介绍了一些工具和 API，可以帮助开发人员优化网页性能。总之，持续改进网页性能对提升用户体验和业务成果非常重要。
@@ -126,6 +116,14 @@ chrome-extension-tools 是一个 Chrome 扩展程序开发工具包，它提供�
 
 ## 更新
 
+### [Vite 5.0 is out!​](https://vitejs.dev/blog/announcing-vite5)
+
+Vite 5.0 已发布，它采用了 Rollup 4 作为构建工具，并引入了一些新功能和改进。Vite 团队感谢 850 多名贡献者和维护者的支持，并鼓励更多人参与其中。Vite 5 要求使用 Node.js 18+，并提供了性能优化指南和服务器预热功能。此外，文章还提到了其他一些变化和迁移指南。感谢 Vite 的赞助商和贡献者，包括 StackBlitz、Nuxt Labs、Astro 和 Remix。
+
+- Vite 5.0 发布，引入了 Rollup 4，提升了构建性能，并增加了改善开发服务器性能的选项。
+- Vite 5 专注于清理 API，修复了一些长期存在的问题，并未来化了 Vite（现在需要 Node.js 18+），废弃了 CJS Node API。
+- Vite 团队感谢 850 多位贡献者、插件开发者和维护者以及 Vite 的赞助者，他们的努力和支持使 Vite 能够取得这样的成果。
+
 ### [prisma-5.6.0](https://github.com/prisma/prisma/releases/tag/5.6.0)
 
 Prisma 发布了 5.6.0 版本，引入了一些新功能和改进。其中包括驱动适配器的改进、PlanetScale 的服务器驱动适配器的改进、新的 prisma debug 命令、read replicas 扩展的改进、Webpack bundling 修复以及 Prisma Accelerate 的正式发布。此外，还修复了一些问题和做出了一些改进。Prisma Accelerate 是一个全球数据库缓存，提供可扩展的连接池，适用于无服务器和边缘应用程序。
@@ -134,15 +132,15 @@ Prisma 发布了 5.6.0 版本，引入了一些新功能和改进。其中包括
 - Prisma 还发布了@prisma/extension-read-replicas 0.3.0 版本，改进了读写分离功能，并引入了新的$replica() 方法来显式指定使用副本数据库。
 - Prisma 加入了 npm 的 provenance 功能，以提高软件包供应链的安全性和透明度，同时呼吁开发者在发布 Prisma Client 扩展和生成器时启用 provenance 功能。
 
-## 设计与异化
-
 ## AI
 
 ### [gpt-crawler](https://github.com/BuilderIO/gpt-crawler)
 
-从 URL 中爬取网站以生成知识文件，用于创建自己定与异化制的 GPT。
+从 URL 中爬取网站以生成知识文件，用于创建自己定与异化制的 GPT
 
 ### [screenshot-to-code](https://github.com/abi/screenshot-to-code)
+
+将屏幕截图插入并转换为干净的 HTML/Tailwind/JS 代码
 
 
 ## 其他
