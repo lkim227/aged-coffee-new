@@ -6,6 +6,7 @@ draft: false
 summary: ''
 ---
 
+- [兼容](#兼容)
 - [git 相关](#git-相关)
 - [nvm 切换 node 版本快速迁移全局 npm 包](#nvm-切换-node-版本快速迁移全局-npm-包)
 - [FixedForwardRef](#fixedforwardref)
@@ -24,6 +25,16 @@ summary: ''
 - [在 nextjs 中支持项目外部的.ts,.tsx 文件编译](#在-nextjs-中支持项目外部的tstsx-文件编译)
 - [H5 的使用技巧](#h5-的使用技巧)
 - [vite 配合 whistle 跑本地环境的 server-hmr 配置](#vite-配合-whistle-跑本地环境的-server-hmr-配置)
+
+## 兼容
+
+### 在 Safari 用户操作运行粘贴板相关逻辑逻辑的时候，如果粘贴的函数上下文同时有异步请求逻辑，则这时候会出现安全确认提示窗口
+
+参考这篇文章[How to use Clipboard API in Safari async](https://wolfgangrittner.dev/how-to-use-clipboard-api-in-safari/)解决了 Safari 调用剪贴板出现弹窗逻辑
+
+- Safari 只允许在直接用户交互的情况下使用剪贴板 API
+- 在异步环境下无法在 Safari 中写入剪贴板
+- 通过将 Promise 传递给剪贴板 API 可以解决 Safari 中的限制
 
 ## git 相关
 
