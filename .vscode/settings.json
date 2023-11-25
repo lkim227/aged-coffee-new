@@ -19,5 +19,5 @@
     "titleBar.inactiveForeground": "#15202b99"
   },
   "peacock.color": "#68B984",
-  "autocorrect.formatOnSave": true
+  "autocorrect.formatOnSave": false
 }
