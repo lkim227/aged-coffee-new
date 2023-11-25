@@ -1,5 +1,6 @@
 {
-  "weekly-2023": 42,
+  "weekly-2023": 45,
+  "monthly-2023": 1,
   "react": 9,
   "next": 2,
   "rsc": 1,
@@ -13,5 +14,8 @@
   "通用": 2,
   "原创": 3,
   "黑客与画家": 1,
-  "vite": 1
+  "vite": 1,
+  "next-js": 1,
+  "tailwind": 1,
+  "guide": 1
 }
