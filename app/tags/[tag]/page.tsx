@@ -42,9 +42,10 @@ export default function TagPage({ params }: { params: { tag: string } }) {
           post.tags
             .map((t) => {
               console.log('haha', t, tag)
+              console.log('decodeURI(tag)', decodeURI(tag))
               return slug(decodeURI(t))
             })
-            .includes(tag)
+            .includes(decodeURI(tag))
       )
     )
   )
