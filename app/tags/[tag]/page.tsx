@@ -2,6 +2,7 @@ import { slug } from 'github-slugger'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import siteMetadata from '@/data/siteMetadata'
 import ListLayout from '@/layouts/ListLayoutWithTags'
+import decodeUrlRepeatedly from '@/utils/decodeUrlRepeatedly'
 import { allBlogs } from 'contentlayer/generated'
 import tagData from 'app/tag-data.json'
 import { genPageMetadata } from 'app/seo'
@@ -25,15 +26,15 @@ export const generateStaticParams = async () => {
   const tagCounts = tagData as Record<string, number>
   const tagKeys = Object.keys(tagCounts)
   const paths = tagKeys.map((tag) => ({
-    tag: encodeURI(tag),
+    tag,
   }))
   return paths
 }
 
 export default function TagPage({ params }: { params: { tag: string } }) {
-  const tag = decodeURI(params.tag)
+  const tag = decodeUrlRepeatedly(params.tag)
   // Capitalize first letter and convert space to dash
-  const title = decodeURI(tag)[0].toUpperCase() + tag.split(' ').join('-').slice(1)
+  const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)
   const filteredPosts = allCoreContent(
     sortPosts(
       allBlogs.filter(
@@ -41,9 +42,9 @@ export default function TagPage({ params }: { params: { tag: string } }) {
           post.tags &&
           post.tags
             .map((t) => {
-              return slug(decodeURI(t))
+              return slug(t)
             })
-            .includes(decodeURI(tag))
+            .includes(tag)
       )
     )
   )
