@@ -33,7 +33,7 @@ export const generateStaticParams = async () => {
 export default function TagPage({ params }: { params: { tag: string } }) {
   const tag = decodeURI(params.tag)
   // Capitalize first letter and convert space to dash
-  const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)
+  const title = decodeURI(tag)[0].toUpperCase() + tag.split(' ').join('-').slice(1)
   const filteredPosts = allCoreContent(
     sortPosts(
       allBlogs.filter(
@@ -41,8 +41,6 @@ export default function TagPage({ params }: { params: { tag: string } }) {
           post.tags &&
           post.tags
             .map((t) => {
-              console.log('haha', t, tag)
-              console.log('decodeURI(tag)', decodeURI(tag))
               return slug(decodeURI(t))
             })
             .includes(decodeURI(tag))
