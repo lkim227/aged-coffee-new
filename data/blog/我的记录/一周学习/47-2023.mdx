@@ -1,0 +1,162 @@
+---
+title: 2023-第周
+date: '2023-11-27'
+tags: ['WEEKLY-2023']
+draft: false
+summary: ''
+---
+
+![keishi_sakurai-20231128_175458-404899501_731927048796604_7146487301805541534_n](https://cdn.jsdelivr.net/gh/klaaay/pbed1@master/uPic/keishi_sakurai-20231128_175458-404899501_731927048796604_7146487301805541534_n.jpeg)
+
+`该周报主要为各个地方内容的汇总整理`
+
+- [技术](#技术)
+  - [Push Ifs Up And Fors Down](#push-ifs-up-and-fors-down)
+  - [Why Rust in Production?](#why-rust-in-production)
+  - [How Non-Tech Brands Use AI: Food](#how-non-tech-brands-use-ai-food)
+  - [An Interactive Guide to CSS Grid](#an-interactive-guide-to-css-grid)
+  - [JavaScript 的 Reflect 和 Proxy](#javascript-的-reflect-和-proxy)
+  - [Web Components Eliminate JavaScript Framework Lock-in](#web-components-eliminate-javascript-framework-lock-in)
+  - [Deep dive into CheerpJ 3.0: A WebAssembly Java Virtual Machine for the browser](#deep-dive-into-cheerpj-30-a-webassembly-java-virtual-machine-for-the-browser)
+  - [An Introduction To Full Stack Composability](#an-introduction-to-full-stack-composability)
+- [工具](#工具)
+  - [kirimase](#kirimase)
+  - [react-quiz-component](#react-quiz-component)
+- [更新](#更新)
+  - [Node v20.10.0 (LTS) 和 Node v18.19.0 (LTS)](#node-v20100-lts-和-node-v18190-lts)
+  - [Biome formatter wins the Prettier challenge](#biome-formatter-wins-the-prettier-challenge)
+- [设计](#设计)
+  - [Psychology of Speed: A Guide to Perceived Performance](#psychology-of-speed-a-guide-to-perceived-performance)
+- [AI](#ai)
+  - [Open-Custom-GPT](#open-custom-gpt)
+  - [Breathing Life Into Sketches Using Text-to-Video Priors](#breathing-life-into-sketches-using-text-to-video-priors)
+  - [Try SDXL Turbo For Free!](#try-sdxl-turbo-for-free)
+- [其他](#其他)
+
+## 技术
+
+### [Push Ifs Up And Fors Down](https://matklad.github.io/2023/11/15/push-ifs-up-and-fors-down.html#Push-Ifs-Up-And-Fors-Down)
+
+这篇文章讲述了两个相关的经验法则：将 if 语句向上移动并将 for 循环向下移动。将 if 语句向上移动可以减少重复检查和简化控制流程，而将 for 循环向下移动可以提升性能和代码可读性。这两种技巧可以相互组合，并且对于性能和代码表达都有积极影响。总之，推荐将 if 语句向上移动并将 for 循环向下移动。
+
+- 将 if 条件移到调用方，可以减少重复的检查，简化控制流程，并减少错误的可能性。
+- 将循环操作批量化，可以提高性能，减少启动成本，并允许灵活处理对象的顺序。
+- 将条件语句和循环操作结合使用，可以进一步优化性能，提高代码的表达力。
+
+### [Why Rust in Production?](https://corrode.dev/why-rust/)
+
+Rust 在生产环境中的应用优势包括可靠性和稳定性、可预测的运行时行为、成本节约和良好的开发人员工作环境。它能够提供稳定的服务，减少错误修复成本，并节省云基础设施成本。此外，Rust 具有表达能力强的类型系统和函数式概念，使开发人员能够编写简洁、表达力强的代码。
+
+- Rust 在生产环境中的可靠性和稳定性是吸引企业使用的主要原因。
+- Rust 的可预测的运行时行为对于性能要求高的服务非常重要。
+- Rust 的低运行时开销可以带来成本节约，并且具有良好的开发人员人机工程学特性。
+
+### [How Non-Tech Brands Use AI: Food](https://journal.everypixel.com/how-non-tech-brands-use-ai-food)
+
+这篇文章讨论了人工智能在食品行业中的应用。人工智能在农业、作物管理、害虫检测、减少环境影响、自动化分选过程、包装优化、可持续食品开发、供应链管理、市场推广、产品个性化和个性化营养方面都发挥了重要作用。通过人工智能的应用，食品行业实现了生产、分销和消费的革新和提升。
+
+- AI 正在革命性地改变食品行业，从农业生产到供应链管理和个性化营销，各方面都得到了提升和创新。
+- AI 在农业中的应用使农民能够优化种植条件，提高产量。
+- AI 可以分析数据，优化种植时间和预测产量，确保农作物的一致品质。
+- AI 在食品包装、供应链管理和个性化营销等方面发挥重要作用，提高效率、减少浪费，并推动可持续发展。
+
+### [An Interactive Guide to CSS Grid](https://www.joshwcomeau.com/css/interactive-guide-to-grid/)
+
+CSS Grid 是 CSS 语言中的一部分，它能够帮助我们创建复杂和流动的布局。使用 CSS Grid，我们可以在 CSS 中定义行和列，而不需要增加 DOM 节点。通过 grid-template-columns 和 grid-template-rows 属性，我们可以定义网格的结构。网格中的子元素可以通过 grid-row 和 grid-column 属性来指定它们所占用的位置。此外，CSS Grid 还提供了一些辅助功能，如 repeat 函数和 grid areas，可以更方便地创建布局。
+
+- CSS Grid 是 CSS 语言中最新和最强大的布局算法，可以用来创建复杂的、根据不同约束条件自适应的布局。
+- CSS Grid 通过在 CSS 中定义网格结构来管理布局，而不需要添加更多的 DOM 节点。
+- CSS Grid 可以使用 grid-template-columns 属性定义列，使用 grid-template-rows 属性定义行，还可以使用 grid-area 属性将子元素分配到指定的网格单元格。
+
+### [JavaScript 的 Reflect 和 Proxy](https://ssshooter.com/2023-01-30-javascript-reflect/)
+
+这段文字主要介绍了 JavaScript 中的 Reflect 和 Proxy 两个重要的元编程方法。Reflect 是 JavaScript 元编程的重要对象，可以调用对象的内部方法进行一些内部操作，同时也简化了一些常用的函数调用。Proxy 是代理对象，可以通过定义陷阱函数来拦截对对象的操作，并可以任意定义对象的操作行为。Reflect 和 Proxy 在 JavaScript 中的应用广泛，可以实现更高维度的编程功能。
+
+- Reflect 是 JavaScript 元编程的重要方法之一，可以通过调用对象内部方法实现对对象的内部操作。
+- Reflect 的方法可以简化代码，例如可以用 Reflect.apply 替代 Function.prototype.apply.call。
+- Reflect 和 Proxy 可以搭配使用，可以任意定义对象的操作行为。
+
+### [Web Components Eliminate JavaScript Framework Lock-in](https://jakelazaroff.com/words/web-components-eliminate-javascript-framework-lock-in/)
+
+本文介绍了使用 Web 组件与 JavaScript 框架结合的好处，以及构建一个每个组件都使用不同框架的应用的示例。Web 组件可以减少 JavaScript 框架之间的耦合性，并提供了一种灵活的方式来使用不同的框架。文章还介绍了 Web 组件的基本原理，以及如何通过使用阴影 DOM 和插槽来嵌套不同框架的组件。最后，文章通过一个简单的 todo 应用示例展示了如何使用 React、Solid 和无框架的组件来构建一个混合框架的应用。
+
+- Web components 可以与 JavaScript 框架结合使用，从而减少框架之间的耦合度。
+- 通过使用 shadow DOM，web components 可以将框架封装在组件内部，而不会对应用的其他部分产生影响。
+- Web components 可以用于逐步迁移或混合使用不同的 JavaScript 框架，以满足特定的需求。
+
+### [Deep dive into CheerpJ 3.0: A WebAssembly Java Virtual Machine for the browser](https://labs.leaningtech.com/blog/cheerpj-3-deep-dive)
+
+CheerpJ 是一个基于 WebAssembly 的 JVM，可以在浏览器中完全运行客户端的 Java 应用程序和传统的 applets 和库。它不需要编译、服务器后端、插件或后处理步骤。CheerpJ 3.0 引入了全新的基于 JIT 的架构，使工具更快、更易用和更强大。它将在 2024 年 1 月完全发布，支持 Java 8。CheerpJ 支持多进程和多线程，并且提供了完整的 Java 支持，包括 ClassLoader、反射访问、图形应用程序支持等。它还提供了高级的 Java-JavaScript 互操作性，可以从 Java 中访问 JavaScript 和 DOM，并且可以从 JavaScript 中直接与 Java 方法、对象和数组交互。CheerpJ 3.0 的架构由 JVM 实现、虚拟化的窗口管理器、虚拟化的文件系统和网络支持组成，所有这些能力都是通过纯 WebAssembly 或 JavaScript 实现的。与 CheerpJ 2.x 相比，CheerpJ 3.0 是一个完全兼容的替代品，具有更好的性能和更多的功能。对于 CheerpJ 2.x 用户，需要注意的一些重要变化包括去除了 Ahead-Of-Time 编译、实际支持 ClassLoader、API 的变化等。同时，CheerpJ 3.0 还引入了一个名为 Library mode 的新功能，可以直接从 JavaScript 中使用 Java 库。
+
+- CheerpJ 是一个基于 WebAssembly 的 JVM，可以在浏览器中完全客户端运行 Java 应用程序、传统小程序和库，无需编译、服务器后端、插件或后处理步骤。
+- CheerpJ 3.0 引入了全新的基于 JIT 的架构，使工具更快、更易用、更强大，将于 2024 年 1 月完全发布，支持 Java 8。
+- CheerpJ 可以运行未经修改的 Java 应用程序、小程序和 JAR 库文件，无需访问源代码或专门的编译时工具，特别适用于运行源代码不可用或基于第三方商业库的遗留应用程序。
+
+### [An Introduction To Full Stack Composability](https://www.smashingmagazine.com/2023/11/introduction-full-stack-composability/)
+
+本文介绍了可组合架构的概念以及如何在前后端开发中应用可组合性。可组合架构通过将系统拆分为独立的模块和组件，并使用统一的 API 进行通信，实现了组件的重用、扩展和维护的便利性。文章还介绍了使用 React 和 React-based 框架（如 Remix 和 Next.js）实现可组合性的方法。此外，文章还提到了使用 Headless Content Management System（如 Storyblok）来管理内容与架构的一致性。总之，可组合架构能够提高开发效率、代码可维护性和系统的扩展性。
+
+- 组合架构是构建可扩展、可维护和高效系统的关键，它包括将系统拆分为独立的模块和使用统一的 API 进行通信。
+- 使用 React 可以实现用户界面和体验的组合性，通过将界面拆分为可重用的组件来促进代码复用和模块化。
+- 使用 Headless CMS，如 Storyblok，可以帮助我们将内容管理与架构和展示层对齐，实现内容的可组合性和灵活性。
+
+## 工具
+
+### [kirimase](https://github.com/nicoalbanese/kirimase)
+
+Kirimase 是一个命令行工具（CLI），用于更快地构建全栈 Next.js 应用程序。它加速了开发流程，让您能够快速集成包并按照最佳实践为应用程序创建资源
+
+### [react-quiz-component](https://github.com/wingkwong/react-quiz-component)
+
+React Quiz Component 是一个用于创建和管理问答游戏的 React 组件
+
+## 更新
+
+### Node v20.10.0 (LTS) 和 Node v18.19.0 (LTS)
+
+Node.js 的两个 LTS 分支已经发布了从较新版本中回溯功能的更新：[Node v20.10.0 (LTS)](https://nodejs.org/en/blog/release/v20.10.0) 获得 WebSocket 和一个实验性标志来自动检测 ESM 代码。[Node v18.19.0 (LTS)](https://nodejs.org/en/blog/release/v18.19.0) 获得 npm 10 以及用于自定义钩子和加载器的调整
+
+### [Biome formatter wins the Prettier challenge](https://biomejs.dev/blog/biome-wins-prettier-challenge)
+
+在 Biome v1.4.0 发布后，我们宣称赢得了 Prettier 挑战的奖金。新版本带来了更好的格式化体验、更多的格式化选项、新的 VSCode 功能和新的赞助商。此外，还增加了一些新的规则和选项。挑战揭示了一些 Prettier 输出的差异，我们已经在网站上对其进行了解释。我们致力于进一步提高与 prettier 的兼容性，欢迎任何相关的贡献。此外，还提供了一些 VSCode 扩展和 CLI 的改进。
+
+- Biome v1.4.0 发布，获得了 Prettier 挑战的奖励，提供了更好的格式化体验和更多的格式化选项。
+- 挑战吸引了很多人的关注和贡献，通过协作和沟通，在几个小时内完成了任务并提供了解决方案。
+- Biome 的兼容性得分从 85% 提高到了 96%，对于大型代码库来说，这个提升对于早期采用者来说是巨大的。
+
+## 设计
+
+### [Psychology of Speed: A Guide to Perceived Performance](https://calibreapp.com/blog/perceived-performance)
+
+这篇文章讨论了人们对性能和速度的感知以及如何改善感知性能的四种方法。文章指出，感知性能是主观的，并且受到外部因素的影响，因此很难量化。文章还介绍了人们对时间和速度的感知方式，以及如何根据注意力范围来评估性能。最后，文章提出了四种改善感知性能的方法，包括智能地传达状态和进展、始终为用户提供可操作的内容、避免突然的页面移动和防止繁重的处理。
+
+- 感知性能是指网站或应用程序的速度和响应性与实际速度和响应性之间的差异，需要综合设计选择和运用心理学原理来管理。
+- 人们对时间和速度的感知是主观的，受情绪状态、年龄、任务复杂度等因素影响，需要考虑这些因素来确定如何提供快速的体验。
+- 通过智能地传达状态和进度、提供及时的反馈、避免突然的页面移动、减少繁重的处理等方式，可以改善人们对性能的感知。
+
+## AI
+
+### [Open-Custom-GPT](https://github.com/SamurAIGPT/Open-Custom-GPT)
+
+使用助手 API 创建自定义 GPT，并将其添加/嵌入到您的网站上
+
+### [Breathing Life Into Sketches Using Text-to-Video Priors](https://livesketch.github.io/)
+
+这篇文章介绍了一种将手绘草图添加动画效果的方法。通过提供描述所需动作的文本提示，可以自动为单人草图添加运动，从而给草图注入生命。方法通过利用预训练的文本到视频模型的运动先验来指导笔画的放置，以实现自然流畅的运动。文章还展示了一些生成的动画示例，并对方法进行了与其他基线方法的比较和分析。
+
+- 本文介绍了一种自动将单一主题草图添加动画的方法，通过提供所需动作的文本提示，使草图焕发生机。
+- 该方法利用预训练的文本到视频扩散模型的运动先验，通过得分蒸馏损失来指导笔画的放置，以实现自然流畅的运动。
+- 通过局部变形和全局仿射变换的两个组件，模型可以创建小的局部变化和大的全局移动，同时保持草图的外观。
+
+### [Try SDXL Turbo For Free!](https://sdxlturbo.ai/)
+
+
+
+## 其他
+
+
+每当你认为别人毁了你的生活时，实际上是你自己毁了你的生活。受害者心态是一种非常有害的心态。
+
+如果你换一种心态：无论情况多糟糕，这始终是你自己的问题，并且你尽力来解决它。我认为这更有效。
+
+-- 查理·芒格，美国著名投资家，本周去世，享年 99 岁

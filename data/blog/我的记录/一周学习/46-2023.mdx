@@ -68,6 +68,14 @@ summary: ''
 - 好的 URL 既要简洁，又要清晰明了，能够提供足够的信息，但不至于过长和繁琐。
 - 为了创建美丽的 URL，应尽量少使用 URL 段，同时注意 URL 的结构和内容组织，避免过多的层级和冗余信息。
 
+### [The Security Vulnerabilities of The Target="_Blank" Attribute](https://blog.bolajiayodeji.com/the-security-vulnerabilities-of-the-target-blank-attribute)
+
+这段文字讲解了 HTML 中的超链接标签和目标属性的使用。然后提到了使用 target="_blank"属性时存在的安全漏洞，即新页面可以访问父页面的 window 对象，从而进行恶意重定向。解决这个问题的方法是在超链接标签中添加 rel="noopener noreferrer"属性，使新页面在独立的进程中运行，防止 window.opener 被设置。此外，还介绍了 rel="noreferrer"属性可以防止发送 referrer 请求头信息。最后强调了添加 rel="noopener"或 rel="noreferrer"属性可以提高网站的安全性和性能。
+
+- HTML 超链接标签允许创建一个可点击的元素，用于引用网页中的另一个文档或部分。
+- 目标属性用于指定链接的打开方式，可以在当前窗口或新窗口中打开链接。
+- 使用 target="_blank"时，应添加 rel="noopener noreferrer"属性来防止利用 window.opener 进行恶意操作。
+
 ## 工具
 
 ### [pushdeer](https://github.com/easychen/pushdeer)
@@ -89,14 +97,6 @@ summary: ''
 ### [inpaint-web](https://github.com/lxfater/inpaint-web)
 
 一个由 WebGPU 和浏览器上的 WASM 驱动的免费开源修复工具
-
-### [The Security Vulnerabilities of The Target="_Blank" Attribute](https://blog.bolajiayodeji.com/the-security-vulnerabilities-of-the-target-blank-attribute)
-
-这段文字讲解了 HTML 中的超链接标签和目标属性的使用。然后提到了使用 target="_blank"属性时存在的安全漏洞，即新页面可以访问父页面的 window 对象，从而进行恶意重定向。解决这个问题的方法是在超链接标签中添加 rel="noopener noreferrer"属性，使新页面在独立的进程中运行，防止 window.opener 被设置。此外，还介绍了 rel="noreferrer"属性可以防止发送 referrer 请求头信息。最后强调了添加 rel="noopener"或 rel="noreferrer"属性可以提高网站的安全性和性能。
-
-- HTML 超链接标签允许创建一个可点击的元素，用于引用网页中的另一个文档或部分。
-- 目标属性用于指定链接的打开方式，可以在当前窗口或新窗口中打开链接。
-- 使用 target="_blank"时，应添加 rel="noopener noreferrer"属性来防止利用 window.opener 进行恶意操作。
 
 ## 更新
 
