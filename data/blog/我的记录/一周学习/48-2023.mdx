@@ -1,0 +1,176 @@
+---
+title: 2023-第四十八周
+date: '2023-12-04'
+tags: ['WEEKLY-2023']
+draft: false
+summary: ''
+---
+
+![keishi_sakurai-20231128_175458-404899501_731927048796604_7146487301805541534_n_1](https://cdn.jsdelivr.net/gh/klaaay/pbed1@master/uPic/keishi_sakurai-20231128_175458-404899501_731927048796604_7146487301805541534_n_1.jpeg)
+
+`该周报主要为各个地方内容的汇总整理`
+
+- [技术](#技术)
+  - [四层负载均衡漫谈](#四层负载均衡漫谈)
+  - [GLB: GitHub’s open source load balancer](#glb-githubs-open-source-load-balancer)
+  - [Advanced usage patterns for taking page element screenshots with Playwright](#advanced-usage-patterns-for-taking-page-element-screenshots-with-playwright)
+  - [技术债务的定义与处理](#技术债务的定义与处理)
+  - [Does Interaction to Next Paint actually correlate to user behavior?](#does-interaction-to-next-paint-actually-correlate-to-user-behavior)
+  - [Getting Started with React Native Skia](#getting-started-with-react-native-skia)
+  - [TanStack Router – modern React for the rest of us](#tanstack-router--modern-react-for-the-rest-of-us)
+  - [Printing Perfection, A Developer’s Journey with React-to-Print](#printing-perfection-a-developers-journey-with-react-to-print)
+- [工具](#工具)
+  - [nft](#nft)
+  - [JSPyBridge](#jspybridge)
+  - [stylex](#stylex)
+  - [tinyld](#tinyld)
+- [更新](#更新)
+  - [XState v5 is here](#xstate-v5-is-here)
+  - [Astro 4.0](#astro-40)
+  - [RTK-v2.0.0](#rtk-v200)
+  - [Storybook 7.6](#storybook-76)
+- [AI](#ai)
+  - [design2code](#design2code)
+  - [CopilotKit](#copilotkit)
+- [其他](#其他)
+
+## 技术
+
+### [四层负载均衡漫谈](https://www.kawabangga.com/posts/5301)
+
+四层负载均衡是一种在网络中常见的技术，通常作为 TCP 层的反向代理使用。它根据 TCP 头部中的端口和标志位来转发数据，而不维护完整的 TCP 实现。这种负载均衡更像是转发 IP 包而不是 TCP 代理。这种设计使得四层负载均衡具有高效的转发效率。除了这些基本概念，还介绍了依赖服务发现的客户端侧负载均衡和反向代理模式的负载均衡技术。在后者中，将负载均衡器放在后端实例前面，通过将流量均衡地转发给后端实例来实现扩缩容。然而，负载均衡器本身也需要解决自身的扩缩容和服务发现问题。
+
+- 四层负载均衡是 TCP 层的反向代理，根据 TCP 头部的端口和标志位来转发数据，而不维护完整的 TCP 实现。
+- 四层负载均衡更像是转发 IP 包而不是 TCP 代理，转发效率高。
+- 依赖服务发现的客户端侧负载均衡是让客户端知道存在多个服务器，并根据一定策略访问不同的服务器。
+- 反向代理模式的负载均衡通过在后端实例前面放置负载均衡器来实现扩缩容，将流量均衡地转发给后端实例。
+- 负载均衡器本身需要解决自身的扩缩容和服务发现问题。
+
+### [GLB: GitHub’s open source load balancer](https://github.blog/2018-08-08-glb-director-open-source-load-balancer/)
+
+GitHub 发布了他们的负载均衡器 GLB Director 的设计细节，并将其开源。GLB Director 是一个第四层负载均衡器，可以将一个 IP 地址分散到多个物理机器上，同时尽量减少服务器变化时连接的中断。它不取代 haproxy 和 nginx 等服务，而是在这些服务（或任何 TCP 服务）之前添加了一层，使它们能够在多个物理机器上扩展而不需要每个机器都有唯一的 IP 地址。GLB Director 利用 ECMP（Equal-Cost Multi-Path）路由实现 IP 地址的扩展，通过哈希算法将连接均衡地分配到多个路径上。为了解决连接断裂的问题，GLB Director 引入了一个新的层级“director”，负责控制哈希和存储与连接相关的状态。GLB Director 通过利用代理服务器已有的流状态，避免了在 director 层级中重复存储连接状态的问题。为了保持一致性，GLB Director 使用“rendezvous hashing”来选择主服务器和备用服务器，并通过调整服务器状态来添加和删除服务器。
+
+- GitHub 发布了他们的负载均衡器 GLB Director 的设计细节，并将其作为开源项目发布。
+- GLB Director 是一个 Layer 4 负载均衡器，可以将单个 IP 地址分布在多个物理机器上，以实现负载均衡，同时尽量减少连接中断。
+- GLB Director 通过使用 ECMP 路由和流状态改进了传统负载均衡器的设计，使得代理服务器可以在无状态的情况下进行添加和删除，并保持连接的稳定。
+
+### [Advanced usage patterns for taking page element screenshots with Playwright](https://lirantal.com/blog/advanced-usage-patterns-for-taking-page-element-screenshots-with-playwright/)
+
+本文介绍了如何使用 Playwright 进行网页截图，并对截图进行自定义修改。作者首先介绍了使用 Playwright 框架进行截图的基本用法，然后通过示例演示了如何使用 Playwright 的 addScriptTag 方法在截图前修改 DOM，以及如何使用 Sharp 模块对截图进行修改。最后，作者还介绍了 Playwright 的 mask 功能，可以通过指定 CSS 选择器来隐藏截图中的某些元素。
+
+- 使用 Playwright 工具可以方便地进行页面截图，可以用于视觉回归测试或爬取第三方网页。
+- 通过 Playwright 的 addScriptTag 方法可以在截图前修改页面的 DOM 结构，从而控制截图的内容。
+- 使用 Sharp 模块可以对截图进行裁剪、调整大小和处理，实现对截图图片的修改。
+
+### [技术债务的定义与处理](https://ssshooter.com/technical-debt/)
+
+本文讨论了技术债务的定义和处理方法。技术债务是指在开发过程中为了完成代码而做出的妥协，包括鲁莽债务、审慎债务、故意债务和无意债务。技术债务会带来负面后果，如代码库不稳定和性能问题。为了处理技术债务，建议记录所有妥协并添加注释，严格遵守编码风格指南，进行代码审查，并使用耻辱文件来跟踪和处理已知的债务。
+
+- 技术债务是指在开发过程中为了解决问题而做出的妥协，可能会影响代码的稳定性和可维护性。
+- 技术债务有四种类型：鲁莽债务、审慎债务、故意债务和无意债务，每种类型都有不同的后果和处理方法。
+- 处理技术债务的方法包括记录一切、遵守编码风格指南、进行代码审查和跟踪技术债务清单。
+
+### [Does Interaction to Next Paint actually correlate to user behavior?](https://www.speedcurve.com/blog/INP-user-experience-correlation/)
+
+在这篇文章中，作者讨论了 Google 推出的交互至下一次绘制（INP）指标，该指标将取代首次输入延迟（FID）成为 2024 年 3 月的核心 Web 关键指标之一。文章介绍了 INP 的定义、如何测量和影响因素，并通过实际数据分析了 INP 与用户行为和业务指标之间的相关性。作者还提到，不同网站的结果会有所不同，INP 与转化率存在负相关关系，但与 Google 的阈值没有一致的关联。最后，文章介绍了如何在 SpeedCurve 中测量 INP，并提供了相关资源。
+
+- Interaction to Next Paint (INP) 是一个用于衡量页面对用户交互响应性的指标，与实际用户行为和业务指标存在负相关关系。
+- INP 的好坏与用户行为和转化率呈现负相关，说明 INP 是一个与用户感知性能相关的有意义的指标。
+- INP 与谷歌设定的阈值（好、需要改进、差）之间没有一致的相关性，因此需要根据自己的数据来确定阈值。
+
+### [Getting Started with React Native Skia](https://shopify.engineering/getting-started-with-react-native-skia)
+
+Skia 是一个跨平台的 2D 图形库，允许在 iOS、Android、macOS、Windows、Linux 和浏览器上绘制图形。@shopify/react-native-skia 库将 Skia 功能暴露给 React Native 开发者。Skia 在 React Native 中可以用于绘制自定义用户交互，具有优化性能和动画效果的特点。文章介绍了如何使用 Skia 绘制基本形状和路径，并通过 react-native-reanimated 库实现动画效果。
+
+- React Native Skia 是一个跨平台的 2D 图形库，可以在多个操作系统和浏览器上运行。
+- RN Skia 提供了强大的绘图功能，可以绘制自定义形状并实现动画效果。
+- 使用 React Native Skia 可以构建不同于常规 React Native 组件的自定义用户交互，并实现高性能的动态效果。
+
+### [TanStack Router – modern React for the rest of us](https://swizec.com/blog/tanstack-router-modern-react-for-the-rest-of-us/)
+
+TanStack Router 是一个基于 React 的路由库，它提供了类型安全的路由和数据加载功能。它的设计灵感来自于 Remix、NextJS、TRPC 和 Chicane。通过将路由与应用的状态和 UI 结合起来，使得应用能够更好地控制 URL 和页面状态，实现更好的多任务处理和数据预加载效果。TanStack Router 还支持文件式路由和嵌套路由，可以帮助开发者更方便地构建下一代应用。虽然它目前还处于 beta 版本，但已经受到了开发者的欢迎和使用。
+
+- Tanner 通过 TanStack Router 为我们提供了一种类型安全的路由，使得构建下一代应用变得更加轻松。
+- TanStack Router 将路由放在应用程序状态和界面的控制之中，使得每个重要的 UI 变化都与一个新的 URL 相关联，从而实现了页面重构和多任务处理的能力。
+- TanStack Router 的嵌套路由功能可以通过控制不同部分的 UI 来实现更灵活的页面布局，同时支持加载和错误状态的处理。
+
+### [Printing Perfection, A Developer’s Journey with React-to-Print](https://buaiscia.github.io/blog/tips/printing-developer-journey-react-to-print)
+
+这篇文章讲述了作者在商业应用中实现自定义打印解决方案的经历。作者通过使用"react-to-print"库来利用浏览器原生的打印 API，解决了默认打印布局不理想的问题。作者分享了选择该库的原因、遇到的挑战以及解决方案。文章强调了在 Web 开发领域中持续学习、解决问题和社区的重要性。
+
+- 为了实现更好的打印布局，有时需要使用非浏览器默认的打印解决方案。
+- "react-to-print"是一个基于浏览器原生打印 API 构建的库，具有较高的下载量和广泛的使用者。
+- 在实施过程中，需要注意解决组件引用、隐藏元素和键盘事件等问题，以实现理想的打印效果。
+
+
+## 工具
+
+### [nft](https://github.com/vercel/nft)
+
+Node.js 依赖追踪工具
+
+### [JSPyBridge](https://github.com/extremeheat/JSPyBridge)
+
+用于互操作 Node.js 和 Python 的桥梁
+
+### [stylex](https://github.com/facebook/stylex)
+
+一个适用于雄心勃勃的用户界面的样式系统
+
+### [tinyld](https://github.com/komodojp/tinyld)
+
+NodeJS 的简单高效语言检测库
+
+## 更新
+
+### [XState v5 is here](https://stately.ai/blog/2023-12-01-xstate-v5)
+
+XState v5 是一个基于状态机、状态图和 Actor 模型的开源状态管理和编排解决方案。它主要关注于演员（actors）的使用，使开发者能够更轻松地编写和管理复杂的应用逻辑。在这个版本中，XState 引入了演员作为抽象单位，可以用来创建各种类型的逻辑，如 Promise 逻辑、Transition 函数逻辑、Observable 逻辑和 Callback 逻辑。同时，XState v5 还引入了新的特性，如 Inspect API、深度持久化和演员系统等。这个版本还对 API 进行了简化，减小了打包大小，并进行了文档改进和添加了新的示例。
+
+- XState v5 是一个基于状态机、状态图和演员模型的开源状态管理和编排解决方案，旨在简化逻辑管理和协同开发。
+- XState v5 的主要关注点是演员，它们可以模拟系统中多个部分之间的通信和协作。
+- XState v5 引入了新的演员逻辑创建器，并通过创建演员来实现不同类型的逻辑，如 Promise、过渡函数、Observable 和 Callback。
+
+### [Astro 4.0](https://astro.build/blog/astro-4/)
+
+Astro 4.0 是一个用于构建内容驱动网站的 web 框架，它提供了一些新的 API、更快的构建速度、重新设计的文档和一个增强本地开发环境的开发工具。新版本的亮点包括 Astro 开发者工具栏、国际化路由、增量内容缓存、新的视图转换 API、重新设计的日志和文档。Astro 4.0 还引入了国际化路由和增量内容缓存等新功能，提供了更简化的开发和更快的构建速度。可以通过 npm 安装 Astro 4.0，并使用 Astro 开发者工具栏增强本地浏览器开发体验。
+
+- Astro 4.0 是一个用于构建内容驱动网站的 Web 框架，具有快速加载和强大的 SEO 功能。
+- Astro 4.0 引入了 Astro Dev Toolbar，可以增强和定制本地浏览器开发体验。
+- Astro 4.0 还增加了国际化（i18n）路由、增量内容缓存、新的视图过渡 API、重新设计的日志和文档等功能。
+
+### [RTK-v2.0.0](https://github.com/reduxjs/redux-toolkit/releases/tag/v2.0.0)
+
+这个重要版本更新带来了一些重大改变，包括删除了旧版的语法、更新了中间件和增强器选项、增加了新的方法和中间件，以及对其他依赖进行了更新。此外，还改进了 TypeScript 的支持和构建输出的现代化等。这个版本是 Redux 系列所有相关包的重大更新之一。具体的改动和迁移指南可以在 Redux 文档中找到。
+
+- RTK 2.0 的主要更新包括删除不推荐的对象语法、更新了 configureStore 的中间件和增强器选项、添加了 combineSlices 和 dynamic middleware 等新功能、以及对 RTK Query 和其他库进行了更新。
+- RTK 2.0 中，createReducer 和 createSlice.extraReducers 不再支持对象形式的语法，而是推荐使用 builder 回调形式。
+- configureStore 的中间件和增强器选项现在必须使用回调函数的形式，并且建议仍使用默认的中间件和增强器。
+- RTK Query 的行为发生了变化，现在会始终跟踪缓存条目，并优化了订阅状态的同步。
+- Redux 发布了 ESM/CJS 兼容的包，并优化了构建输出和工具链，不再提供 UMD 构建。
+- RTK 现在依赖于 Redux core 5.0、Reselect 5.0、Redux Thunk 3.0 和 Immer 10.0。
+
+### [Storybook 7.6](https://storybook.js.org/blog/storybook-7-6/)
+
+Storybook 7.6 是 Storybook 7 系列的最后一个次要版本，它提高了性能和用户体验，增强了与前端生态系统中的工具的集成，并为下一个主要版本 Storybook 8 铺平了道路。更新内容包括改进 SWC 支持、新增测试工具和快速构建模式、NextJS SWC + avif 支持和修复、SvelteKit 页面和导航模拟、React-docgen 升级、背景主题、视口和改进的可访问性、诊断错误等。此外，还有一些移除的功能，例如 Storyshots 和 Vue2 的支持。Storybook 7.6 是 7.x 系列的最后一个版本，为接下来的 Storybook 8 做好了准备。
+
+- Storybook 7.6 的改进包括性能提升和用户体验改善，与前端生态系统中的工具整合更加紧密，为下一个主要版本 Storybook 8 做好准备。
+- Storybook 7.6 通过使用 Speedy Web Compiler（SWC）将 Webpack 项目的启动时间缩短了 50% 以上，并修复了 Preact 和 React fast-refresh 的 SWC 问题。
+- Storybook 7.6 为 Next.js 用户带来了 SWC 和 avif 支持，并修复了 Image 组件的 ref forwarding 问题，以及 Jest 兼容性问题。
+
+## AI
+
+### [design2code](https://github.com/mostafasadeghi97/design2code)
+
+将任何网页设计截图转换为干净的 HTML/CSS 代码
+
+### [CopilotKit](https://github.com/CopilotKit/CopilotKit)
+
+将内置的 AI 聊天机器人 🤖 和基于 AI 的文本区域 ✨ 集成到 React Web 应用程序中
+
+## 其他
+
+不要把职业（career）当成某一件具体的事情，这是人类发明的最危险、最令人窒息的概念之一，也是大多数梦想和直觉的敌人。  
+职业应该是一个抽象的概念，指的是一个人在日常的工作和生活中，不断探索、培训、实践、逐步进步的过程。
+
+--《乔布斯的遗产》
