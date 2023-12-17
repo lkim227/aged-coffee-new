@@ -72,13 +72,7 @@ const TOCInlineWithSticky = ({
   }, [innerNoSticky])
 
   const tocList = (
-    <ul
-      style={{
-        maxWidth: isSticky ? `calc((100vw - 64rem) / 2 - 16px) ` : undefined,
-        maxHeight: isSticky ? '80vh' : undefined,
-        overflow: isSticky ? 'auto' : undefined,
-      }}
-    >
+    <ul>
       {filteredToc.map((heading, index) => (
         <li key={index} className={`${heading.depth >= indentDepth ? 'ml-6' : ''}`}>
           <a href={heading.url}>{heading.value}</a>
@@ -106,6 +100,9 @@ const TOCInlineWithSticky = ({
             top: '4px',
             right: '16px',
             visibility: isSticky ? 'visible' : 'hidden',
+            maxWidth: `calc((100vw - 64rem) / 2 - 16px) `,
+            maxHeight: '80vh',
+            overflow: 'auto',
           }}
         >
           {tocMarkup}
