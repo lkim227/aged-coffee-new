@@ -142,12 +142,11 @@ alias gsl="git stash list"
 alias gsp="git stash pop"
 alias gsclr="git stash clear"
 
-alias aicm="czg ai"
+alias aicm="aicommits"
 
 # -------------------------------- #
 
-alias ls="exa"
-alias cfgzsh="open ~/.zshrc"
+alias cfgzsh="vscode ~/.zshrc"
 alias sourcezsh="source ~/.zshrc"
 alias cpwd="pwd | pbcopy"
 
@@ -160,8 +159,8 @@ alias qgn="quick-gen name-input"
 alias qgd="quick-gen direct"
 alias qgp="quick-gen package-update"
 
-alias qc="quick-commit"
-alias qce="quick-commit --locale en"
+alias qc="quick-commit --mode auto"
+alias qce="quick-commit --locale en --mode auto"
 alias qca="quick-commit -ap true -a create-mr"
 
 # -------------------------------- #
