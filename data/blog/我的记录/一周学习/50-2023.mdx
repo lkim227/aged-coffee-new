@@ -12,7 +12,27 @@ summary: ''
 
 ## 技术
 
+### [How to Keep Your Loader Data Fresh in Remix](https://sergiodxa.com/tutorials/keep-your-loader-data-fresh-in-remix)
+
+这篇文章介绍了如何使用 useRevalidator 钩子来定期重新验证加载器数据，以确保数据始终更新。它还讨论了如何处理缺乏互联网连接、停止应用程序不活动状态下的重新验证、连接状态和间隔速度、以及如何避免在节省数据模式下重新验证。
+
+- 使用 useRevalidator 钩子可以在一定时间间隔内重新验证加载器数据，以确保数据始终是最新的。
+- 通过检测用户是否离线，我们可以避免触发重新验证，从而处理缺乏互联网连接的情况。
+- 通过检测可见性状态的变化，我们可以停止重新验证，从而节省用户带宽和服务器资源。
+
+### [Introducing Waku](https://waku.gg/blog/introducing-waku)
+
+Waku 是一个基于 React 的最小框架，用于探索 React Server Components（RSC）的核心功能和最佳实践。它使用 Vite 作为基础，并支持在 Vercel 等平台上部署。这个框架简单易用，可以独立于传统的静态站点生成和服务器端渲染策略进行开发和实验。
+
+- Waku 是一个基于 React 的轻量级框架，可以探索 React Server Components（RSC）的核心功能并独立于传统的静态网站生成和服务器端渲染策略进行开发。
+- Waku 的 API 简单可扩展，提供了服务器入口 API 和客户端 API，通过定义输入参数和返回 JSX 元素来实现服务器和客户端之间的交互。
+- Waku 可以通过 Vercel 进行部署，并利用 Vercel 的 Build Output API 和 Vercel Functions 来支持 RSC 的部署和功能实现。
+
 ## 工具
+
+### [reason](https://github.com/try-reason/reason)
+
+RΞASON 是一个精简的 TypeScript 框架，可用于构建出色的大语言模型应用程序
 
 ## 更新
 
