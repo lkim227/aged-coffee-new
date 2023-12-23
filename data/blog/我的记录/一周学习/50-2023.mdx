@@ -28,6 +28,30 @@ Waku 是一个基于 React 的最小框架，用于探索 React Server Component
 - Waku 的 API 简单可扩展，提供了服务器入口 API 和客户端 API，通过定义输入参数和返回 JSX 元素来实现服务器和客户端之间的交互。
 - Waku 可以通过 Vercel 进行部署，并利用 Vercel 的 Build Output API 和 Vercel Functions 来支持 RSC 的部署和功能实现。
 
+### [Deep Cloning Objects in JavaScript, the Modern Way](https://www.builder.io/blog/structured-clone)
+
+这篇文章介绍了 JavaScript 中的一个新特性——structuredClone 函数，它可以实现对象的深拷贝。与其他拷贝方法相比，structuredClone 可以拷贝包括嵌套对象、数组以及各种 JavaScript 类型在内的内容。文章还提到了其他拷贝方法的不足之处，并介绍了 structuredClone 支持的类型和适用范围。最后，文章总结了 structuredClone 在不同浏览器和运行环境中的兼容性情况。
+
+- JavaScript 现在有一种原生的方法来深拷贝对象。
+- 使用 structuredClone 函数可以精确地复制嵌套数组和 Date 对象等多种 JavaScript 类型。
+- 相较于其他方法，如 JSON.parse(JSON.stringify(x)) 和 Lodash 的 cloneDeep 函数，structuredClone 更加高效和全面。
+
+### [CSS animation-composition](https://12daysofweb.dev/2023/animation-composition/)
+
+animation-composition 是一种 CSS 属性，用于在多个动画同时影响同一属性时指定组合操作。它有三个可能的值：replace、add 和 accumulate，分别表示替换、添加和累积。通过设置 animation-composition 属性，可以改变动画的默认行为，使其在应用属性值时采用其他方式。animation-composition 不仅适用于多个动画，还适用于所有动画属性。它可以应用于具有动画的元素。此外，文章还介绍了 animation-composition 对位置属性和颜色属性的影响，并提供了示例和浏览器支持信息。总的来说，animation-composition 是一种用于控制动画效果的属性，可以通过试验和错误来确定最佳效果。
+
+- 动画组合属性 (animation-composition) 允许我们指定多个动画同时作用于同一属性时的混合方式，有替换、叠加和累积三种可能的值。
+- 替换 (replace) 是默认的属性混合方式，它会覆盖属性原有的值；叠加 (add) 会在原有值的基础上添加效果值；累积 (accumulate) 则是将效果值与原有值结合起来。
+- 动画组合属性不仅适用于多个动画，也适用于单个动画，可以通过设置 animation-composition 属性来改变动画的效果。
+
+### [Locking scroll with :has().](https://robbowen.digital/wrote-about/locking-scroll-with-has/)
+
+这篇文章介绍了 CSS 中的:has() 选择器，并展示了如何使用它来实现页面滚动锁定的功能。通过使用:has() 选择器，我们可以根据元素的内容来控制父元素的样式，从而简化了滚动锁定的管理。文章还提到了一些应用场景和用法建议，并对:has() 选择器的全面支持表示了赞赏。
+
+- :has() 是一个 CSS 伪类选择器，可以根据元素的内容来修改父元素的样式。
+- 使用:has() 可以简化页面滚动锁定的实现，通过在需要锁定滚动的元素上添加.lock-scroll 类来实现滚动锁定。
+- 通过将滚动锁定的状态与 DOM 内容绑定，可以更简单地管理滚动锁定，只需通过添加或移除.lock-scroll 类来实现滚动锁定或解锁。
+
 ## 工具
 
 ### [reason](https://github.com/try-reason/reason)
