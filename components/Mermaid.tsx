@@ -3,11 +3,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import mermaid from 'mermaid'
 
-let uniqueId = 0
 const Mermaid = ({ chart }: { chart: string }) => {
   const [diagram, setDiagram] = useState('')
-
-  const graphIdRef = useRef(`graphDiv_${uniqueId++}`)
+  const graphIdRef = useRef(`graphDiv_${Math.floor(Math.random() * 10000)}`)
 
   useEffect(() => {
     const renderChart = async () => {
@@ -17,6 +15,7 @@ const Mermaid = ({ chart }: { chart: string }) => {
     }
     renderChart()
   }, [chart])
+
   return <div dangerouslySetInnerHTML={{ __html: diagram }} id={graphIdRef.current} />
 }
 export default Mermaid
