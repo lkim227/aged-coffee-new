@@ -1,0 +1,28 @@
+---
+title: next 页面性能优化
+date: '2023-12-25'
+tags: ['通用','原创']
+draft: false
+summary: ""
+---
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 添加 dns-prefetch、preconnect meta 标签
+
+```tsx
+<Head>
+  <link rel="dns-prefetch" href="//example.com" />
+  <link rel="preconnect" href="//example.com" />
+</Head>
+```
+
+## 图片压缩
+
+尽量使用 webp 格式图片和压缩图片
+
+## 图片懒加载
+
+```tsx
+<Image loading="lazy" src={renderItem.img} alt="" fill  />
+```
