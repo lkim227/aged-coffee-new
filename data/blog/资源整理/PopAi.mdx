@@ -18,10 +18,11 @@ Mermaid 是一种基于文本的图表创建工具，可以用来生成流程图
 
 请注意，具体实现过程可能根据业务需求和微信官方的更新变化而有所不同。以下是一个基本示例：
 
-```mermaid
+
+<Mermaid chart={`
 sequenceDiagram
     participant U as 用户
-    participant H5 as H5页面
+    participant H5 as H5 页面
     participant S as 后端服务
     participant WX as 微信支付服务器
 
@@ -37,7 +38,8 @@ sequenceDiagram
     WX->>S: 异步通知支付结果
     S->>H5: 通知用户支付结果
     U->>H5: 显示支付结果
-```
+`} />
+
 
 以上流程包含以下步骤：
 

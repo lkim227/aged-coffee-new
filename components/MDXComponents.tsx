@@ -7,6 +7,7 @@ import Image from './Image'
 import CustomLink from './Link'
 import TableWrapper from './TableWrapper'
 import TOCInlineWithSticky from './TOCInlineWithSticky'
+import Mermaid from './Mermaid'
 
 export const components: MDXComponents = {
   Image,
@@ -17,4 +18,5 @@ export const components: MDXComponents = {
   BlogNewsletterForm,
   TOCInlineWithSticky,
   Tweet,
+  Mermaid,
 }
