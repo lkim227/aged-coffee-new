@@ -26,3 +26,24 @@ summary: ""
 ```tsx
 <Image loading="lazy" src={renderItem.img} alt="" fill  />
 ```
+
+## [自部署 next 服务的自定义图片 loader 优化](https://nextjs.org/docs/app/api-reference/components/image#loader)
+
+```tsx
+'use client'
+
+import React, { ComponentProps } from 'react';
+import Image from 'next/image';
+
+export const CustomLoaderImg = (props: ComponentProps<typeof Image>) => {
+  return (
+    <Image
+      {...props}
+      loader={({ src, width, quality }) => {
+        // 确认一个可用的图片优化服务之后替换
+        return `https://optimize-img.com?url=${src}?w=${width}&q=${quality || 75}`;
+      }}
+    />
+  );
+};
+```
