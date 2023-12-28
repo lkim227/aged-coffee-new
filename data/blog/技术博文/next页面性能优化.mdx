@@ -47,3 +47,94 @@ export const CustomLoaderImg = (props: ComponentProps<typeof Image>) => {
   );
 };
 ```
+
+### 打包静态资源上传到 CDN 的插件
+
+```tsx
+/* eslint-disable react-func/max-lines-per-function */
+/* eslint-disable max-depth */
+const request = require('request');
+
+function getCdnUrlPrefix(options) {
+  return `${options.packageVersion}/${options?.isEnvProduction ? 'prod' : 'dev'}`;
+}
+
+function UploadCDN(options) {
+  this.isEnvProduction = options?.isEnvProduction ?? false;
+  this.options = options;
+}
+
+function upload(options) {
+  return new Promise((resolve, reject) => {
+    request(options, function (error, response) {
+      if (error) reject(error);
+      resolve();
+    });
+  });
+}
+UploadCDN.prototype.apply = function (compiler) {
+  // eslint-disable-next-line react-func/max-lines-per-function
+  compiler.hooks.emit.tapAsync('UploadCDN', async (compilation, callback) => {
+    // formData list
+    let optionsMap = {};
+    let commonOptions = {
+      method: 'POST',
+      url: 'https://your-cdn-serverice/api/v1/files',
+      headers: {
+        module: this.options.module,
+        _dir: '/',
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      formData: {},
+    };
+    for (let fileName in compilation.assets) {
+      if (!fileName.endsWith('map')) {
+        const parts = fileName.split('/');
+        const filename = parts.pop();
+        const _dir = `${getCdnUrlPrefix(this.options)}/_next/${parts.join('/')}`;
+        const formData = {
+          value: compilation.assets[fileName].source(),
+          options: {
+            filename,
+            contentType: null,
+          },
+        };
+        if (!optionsMap[_dir]) {
+          optionsMap[_dir] = {
+            ...JSON.parse(JSON.stringify(commonOptions)),
+          };
+          optionsMap[_dir].headers._dir = _dir;
+        }
+        optionsMap[_dir].formData[filename] = formData;
+      }
+    }
+
+    const optionsArr = Object.keys(optionsMap).map(key => optionsMap[key]);
+    optionsArr.forEach(async options => await upload(options));
+    callback();
+  });
+};
+
+module.exports = {
+  UploadCDN,
+};
+
+```
+
+```js
+// next.config.js
+// ...
+  assetPrefix: isProd ? `https://your-cdn-serverice/${yourModule}/${moduleName}/${packageVersion}/prod` : undefined,
+  webpack: (config, context) => {
+    isProd &&
+      config.plugins.push(
+        new UploadCDN({
+          module: moduleName,
+          packageVersion,
+          isEnvProduction: isProd,
+        }),
+      );
+
+    return config;
+// ...
+···
