@@ -48,6 +48,72 @@ export const CustomLoaderImg = (props: ComponentProps<typeof Image>) => {
 };
 ```
 
+### 部分逻辑组件和渲染内容独立于服务端渲染
+
+有些组件作为用为用户交互之后才需要展示的内容，例如预留好插槽的 Modal 组件，类似这样的组件没有服务端渲的必要，可以考虑修改他的实现为仅客户端渲染  
+
+另外一种情况是渲染有关于时间的内容的时候，由于服务端和客户端有时候有些微的差异进而会导致水合的错误
+
+具体的实现方法可以通过
+
+1. 使用 next 提供的 dynamic 
+
+```tsx
+import dynamic from 'next/dynamic';
+
+//仅在客户端动态导入并渲染 Modal 组件
+const DynamicModal = dynamic(
+  () => import('../components/Modal'),
+  { ssr: false }  // 这将禁用服务器端渲染（SSR）
+);
+
+// 仅在客户端动态导入并渲染 Time 相关组件
+const DynamicTime = dynamic(
+  () => import('../components/Time'),
+  { ssr: false }  // 这将禁用服务器端渲染（SSR）
+);
+```
+
+2. useEffect 中动态引入
+
+```tsx
+import React, { useState, useEffect } from 'react';
+
+function YourComponent() {
+  const [DynamicComponent, setDynamicComponent] = useState(null);
+
+  useEffect(() => {
+    import('../components/Modal').then((Modal) => {
+      setDynamicComponent(() => Modal.default); // 注意 Modal.default
+    });
+  }, []);
+
+  if (!DynamicComponent) return <p>Loading...</p>;
+
+  return <DynamicComponent />;
+}
+```
+
+3. 首帧之后才实际渲染最终内容
+
+```tsx
+import React, { useState, useEffect } from 'react';
+import Modal from '../components/Modal';
+
+function YourComponent() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    // 在 useEffect 中设置标志表示现在是在客户端了
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) return <p>Loading...</p>;
+
+  return <Modal />;
+}
+```
+
 ### 打包静态资源上传到 CDN 的插件
 
 ```tsx
@@ -118,7 +184,6 @@ UploadCDN.prototype.apply = function (compiler) {
 module.exports = {
   UploadCDN,
 };
-
 ```
 
 ```js
@@ -137,4 +202,4 @@ module.exports = {
 
     return config;
 // ...
-···
+```
