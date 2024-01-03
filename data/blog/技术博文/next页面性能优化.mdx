@@ -3,12 +3,28 @@ title: next 页面性能优化
 date: '2023-12-25'
 tags: ['通用','原创']
 draft: false
-summary: ""
+summary: "Next.js 是一个基于 React 的框架，这篇文章主要介绍如何优化 Next.js 页面性能，提高网页加载速度和用户体验。"
 ---
 
 <TOCInlineWithSticky toc={props.toc} />
 
+## 图片压缩
+
+尽量使用 webp 格式图片和压缩图片，可以减少图片的请求大小，从而减少加载时间，提升性能。
+
+
+## 图片懒加载
+
+图片懒加载是一种常见的提升网页性能的技术，它会等到图片进入视窗再开始加载它们，可以避免一开始加载过多的资源。
+
+```tsx
+<Image loading="lazy" src={renderItem.img} alt="" fill  />
+```
+
 ## 添加 dns-prefetch、preconnect meta 标签
+
+DNS 预获取 (dns-prefetch) 和预连接 (preconnect) 是两种让浏览器提前进行域名解析和建立 TCP 握手的技术  
+在加载一个新的页面时，浏览器需要花费一定的时间来解析域名和建立 TCP 握手。我们可以通过添加 dns-prefetch 和 preconnect meta 标签来预先完成这些操作，从而显著提高页面加载速度
 
 ```tsx
 <Head>
@@ -17,17 +33,9 @@ summary: ""
 </Head>
 ```
 
-## 图片压缩
-
-尽量使用 webp 格式图片和压缩图片
-
-## 图片懒加载
-
-```tsx
-<Image loading="lazy" src={renderItem.img} alt="" fill  />
-```
-
 ## [自部署 next 服务的自定义图片 loader 优化](https://nextjs.org/docs/app/api-reference/components/image#loader)
+
+下面的代码展示了一个自定义的图片 loader，它可以将图片优化的功能外包到另一个服务。
 
 ```tsx
 'use client'
@@ -50,11 +58,9 @@ export const CustomLoaderImg = (props: ComponentProps<typeof Image>) => {
 
 ## 部分逻辑组件和渲染内容独立于服务端渲染
 
-有些组件作为用为用户交互之后才需要展示的内容，例如预留好插槽的 Modal 组件，类似这样的组件没有服务端渲的必要，可以考虑修改他的实现为仅客户端渲染  
+有些组件作为用户交互之后才需要展示的内容，例如预留好插槽的 Modal 组件，类似这样的组件没有服务器端渲染的必要，可以考虑修改他的实现为仅客户端渲染。同样，如果你正在渲染和时间有关的内容，由于服务器和客户端的时间可能存在微小差异，也可能导致错误。
 
-另外一种情况是渲染有关于时间的内容的时候，由于服务端和客户端有时候有些微的差异进而会导致水合的错误
-
-具体的实现方法可以通过
+这可以通过以下方法实行：
 
 1. 使用 next 提供的 dynamic 
 
@@ -115,6 +121,8 @@ function YourComponent() {
 ```
 
 ## 打包静态资源上传到 CDN 的插件
+
+以下代码展示了如何将打包后的静态文件上传到 CDN，这样可以显著减少服务器的负载，同时由于 CDN 通常都具备很好的地理分布和加载优化，所以使用 CDN 可以进一步提升用户的加载体验。
 
 ```tsx
 /* eslint-disable react-func/max-lines-per-function */
@@ -203,3 +211,8 @@ module.exports = {
     return config;
 // ...
 ```
+
+## 推荐阅读
+
+[Next.js 官方文档](https://nextjs.org/docs/)  
+[Google - Web 性能优化指南](https://developers.google.com/web/fundamentals/performance/why-performance-matters/)。
