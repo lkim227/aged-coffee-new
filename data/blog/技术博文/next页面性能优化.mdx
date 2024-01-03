@@ -48,7 +48,7 @@ export const CustomLoaderImg = (props: ComponentProps<typeof Image>) => {
 };
 ```
 
-### 部分逻辑组件和渲染内容独立于服务端渲染
+## 部分逻辑组件和渲染内容独立于服务端渲染
 
 有些组件作为用为用户交互之后才需要展示的内容，例如预留好插槽的 Modal 组件，类似这样的组件没有服务端渲的必要，可以考虑修改他的实现为仅客户端渲染  
 
@@ -114,7 +114,7 @@ function YourComponent() {
 }
 ```
 
-### 打包静态资源上传到 CDN 的插件
+## 打包静态资源上传到 CDN 的插件
 
 ```tsx
 /* eslint-disable react-func/max-lines-per-function */
