@@ -20,6 +20,37 @@ summary: ''
 - PNG 图片的二进制数据以特定的签名开头，然后包含数据块，每个数据块都有开始信息、数据信息和结束信息。
 - 数据块的数据信息包括图片的宽高、色彩类型、压缩算法等信息，而结束信息包括了 CRC32 校验和。
 
+### [React Server Components: the Good, the Bad, and the Ugly](https://www.mayank.co/blog/react-server-components/)
+
+React Server Components 是将服务器专有功能引入到 React 中的新范例。作者对这一范例进行了评估，认为它具有一些好处，但也存在一些问题。React 现在不仅仅是一个 UI 渲染框架，还可以控制路由、数据获取和突变等服务器端功能。新的 Server Components 特性可以将组件转换为可序列化格式，在服务器端渲染为 HTML，并通过网络传递到客户端进行渲染。同时，React 还提供了处理用户交互的服务器端功能。然而，这种新的范例也存在一些问题，例如组件之间的关联性变差、复杂性增加等。此外，Next.js 在扩展 fetch API 方面也存在一些问题。
+
+- React Server Components 是一种新的 React 编程范式，将服务器独有的功能引入 React，提供更好的用户体验和开发者体验。
+- React Server Components 允许在服务器上进行数据获取和 UI 渲染，使得代码更加简洁和高效。
+- 虽然 React Server Components 有一些局限性和不足之处，但它仍然是一个有潜力的技术，可以提升 Web 应用程序的性能和可维护性。
+
+### [A new blog for 2024](https://chrisnicholas.dev/blog/a-new-blog-for-2024)
+
+这篇文章主要讲述了作者重新开始建立个人博客的过程，并介绍了一些使用的技术和库。他希望博客具有良好的开发体验和简洁的设计，并在 5 天内完成建设和发布。作者还分享了一些设计细节和使用的工具，包括 Catalyst UI Kit、Tailwind 库、Next.js 框架、Contentlayer 等。他还提到了一些未来想添加的功能，但强调了及时发布的重要性。
+
+- 作者决定重新开始一个博客，目的是为了提高开发体验和简化文章创作过程。
+- 作者在设计中加入了一些细节，如动态背景、饱和的文字和微噪音，以营造独特的视觉效果。
+- 作者使用了一些新的库和技术，如 Catalyst UI 套件、TWC 库、Next.js 框架和 Contentlayer 插件，以改善博客的功能和开发效率。
+
+### [More Than You Need to Know About ReactDOM.­flushSync](https://julesblom.com/writing/flushsync)
+
+本文介绍了 React 中的一个不常见的函数 ReactDOM.flushSync 的作用和用途。flushSync 是 React 中的一部分，用于强制同步地将状态更新应用到 DOM 中。它可以解决一些特定情况下 React 更新 UI 的延迟问题，例如在状态改变后立即读取 DOM、测量 DOM 节点、在状态改变后立即执行 DOM 副作用等。通常情况下，React 会自动处理这些问题，但在特定情况下使用 flushSync 可以绕过批处理机制，强制同步更新。flushSync 还可以在类组件中模拟 this.setState 的回调功能。此外，本文还提到了其他相关的 React 特性和 API，以及一些使用 flushSync 的实际应用例子。总之，flushSync 是一个较为冷门的 React 函数，通常情况下不需要使用，只有在特定情况下需要手动控制更新时才会使用。
+
+- ReactDOM.flushSync 用于强制 React 同步刷新状态更新到 DOM，适用于需要立即更新 UI 的特定场景。
+- 使用 flushSync 可以解决 React 更新 UI 的延迟问题，例如管理焦点和滚动位置等。
+- flushSync 在某些情况下也可用于处理必须同步更新 DOM 的回调，如测量 DOM 节点或在状态更新后立即执行 DOM 副作用。
+
+### [Next.js 14 Intercepting Routes](https://www.builder.io/blog/nextjs-14-intercepting-routes)
+Next.js 的应用程序路由器引入了两种高级路由模式：并行路由和拦截路由。拦截路由允许您在浏览 UI 时拦截或停止默认的路由行为，以展示替代视图或组件，同时保留预期的路由，以便在页面重新加载时使用。这对于在保持当前页面上下文的情况下显示路由非常有用。拦截路由可以用于登录模态框、照片展示等场景。在 Next.js 中，通过使用 (.) 约定来拦截路由，并且还可以使用其他高级拦截模式。拦截路由是 Next.js 的一个强大功能，可以提高 Web 应用程序的灵活性和用户体验。
+
+- 拦截路由允许在 UI 导航时拦截默认路由行为，以显示替代视图或组件，同时保留预期路由，适用于页面重新加载等场景。
+- 实际应用包括登录模态框和照片流，通过拦截路由可以在 URL 保持不变的情况下显示登录模态框或放大照片，以提供更好的用户体验。
+- 在 Next.js 中定义拦截路由可以通过使用不同的约定来拦截不同层级的路由，例如使用 (..) 来匹配上一级路由段，以增强应用的灵活性。
+
 ## 工具
 
 ### [novel](https://github.com/steven-tey/novel)
@@ -29,6 +60,14 @@ summary: ''
 ## 更新
 
 ## 设计
+
+### [Introducing Catalyst: A modern UI kit for React](https://tailwindcss.com/blog/introducing-catalyst)
+
+Stripe 发布了他们的全新 UI 套件 Catalyst 的第一个开发预览版。Catalyst 是一个完全组件化、内置电池的应用 UI 套件，提供了一系列基于 React 的实用组件。该套件旨在满足设计追求完美的团队的需求，他们希望拥有自己的 UI 组件而不选择现成的库。Catalyst 以细节精致的设计为目标，力求在竞争中脱颖而出，并兼顾时尚和实用性。它还提供完整的暗黑模式支持，并模仿 HTML 的结构，使组件易于使用和定制。此外，Stripe 还发布了 Headless UI 的新版本，包括内置锚定定位、复选框组件、表单组件以及改进的 hover 和 focus-visible 检测等功能。Catalyst 对所有 Tailwind UI All-Access 用户免费提供，并鼓励用户在使用过程中提供反馈意见。
+
+- Catalyst 是一个全新的应用程序 UI 工具包，提供了真实的 React 组件和精心设计的 API，旨在帮助设计团队打造自己的 UI 组件体系。
+- Catalyst 注重细节，力求在视觉风格上与网络上最美观的界面媲美，同时追求永恒的设计，以及高效的用户体验。
+- Catalyst 基于 HTML 模式，通过组合形式的 API，使得使用者可以轻松地定制和使用组件，同时利用 Headless UI 提供的功能增强，进一步简化开发流程。
 
 ## AI
 
