@@ -51,13 +51,57 @@ Next.js 的应用程序路由器引入了两种高级路由模式：并行路由
 - 实际应用包括登录模态框和照片流，通过拦截路由可以在 URL 保持不变的情况下显示登录模态框或放大照片，以提供更好的用户体验。
 - 在 Next.js 中定义拦截路由可以通过使用不同的约定来拦截不同层级的路由，例如使用 (..) 来匹配上一级路由段，以增强应用的灵活性。
 
+### [6 CSS snippets every front-end developer should know in 2023](https://web.dev/articles/6-css-snippets-every-front-end-developer-should-know-in-2023)
+
+这篇文章介绍了一些有用的 CSS 技巧和特性，包括容器查询、滚动捕捉、使用网格布局避免使用 position:absolute、快速创建圆形、使用层叠样式表达变体、使用逻辑属性减少代码量。
+
+- 容器查询：通过使用容器查询，可以根据宽度对元素进行样式调整。
+- 滚动捕捉：使用滚动捕捉可以创建平滑的滚动体验，并在合适的位置停止滚动。
+- 逻辑属性：通过使用逻辑属性，可以根据不同的语言和布局方向自动调整样式，避免手动修改左右边距和填充。
+
+### [The Two Reacts](https://overreacted.io/the-two-reacts/)
+
+这篇文章讨论了 React 的两种运行方式：在客户端运行和在服务器端运行。在客户端运行的组件可以实现即时交互，而在服务器端运行的组件可以处理数据。作者提出了一个问题，即如何将这两种运行方式结合起来，以实现更灵活的编程模式。
+
+- React 是一种 UI 编程范例，它允许将显示内容分解为独立的组件，并像乐高积木一样组合它们。
+- 组件可以在客户端或服务器上运行，客户端运行的组件可以实现即时的交互性，而服务器运行的组件可以进行数据处理和预处理。
+- 在实践中，我们需要将组件分配到客户端和服务器两个环境中，并找到一种方法来组合和嵌套这些组件，以实现灵活和高效的 UI 开发。
+
+<Tweet id="https://twitter.com/wesbos/status/1743347215425237436" />
+
+
 ## 工具
 
 ### [novel](https://github.com/steven-tey/novel)
 
 具有 Notion 风格的所见即所得编辑器，支持 AI 动力自动完成功能
 
+### [style-guide](https://github.com/vercel/style-guide)
+
+Vercel 工程团队的编码规范指南
+
+### [build-it-figma-ai](https://github.com/jordansinger/build-it-figma-ai)
+
+在 Figma 和 FigJam 中绘制和草图 UI
+
+### [vx.dev](https://github.com/Yuyz0112/vx.dev)
+
+Vercel 的 v0.dev 可以通过输入需求，直接生成网站。这里是它的一个开源仿制品，通过逆向工程进行模仿
+
+### [copilot-gpt4-service](https://github.com/aaamoon/copilot-gpt4-service)
+
+将 Github Copilot 请求转换为 ChatGPT 请求，免费使用 GPT-4 模型
+
+
 ## 更新
+
+### [Announcing Vue 3.4](https://blog.vuejs.org/posts/vue-3-4)
+
+Vue 3.4 发布了，主要改进了模板解析器的速度和响应系统的效率，还改善了一些 API，修复了一些错误。此外，删除了一些过时的特性。更新到 3.4 时需要更新相关依赖，并注意一些潜在的行动。
+
+- Vue 3.4 发布，内部改进包括重写的模板解析器，速度提升 2 倍，响应性系统重构以提高计算属性的重算效率。
+- 新增的 defineModel 功能已稳定，可简化支持 v-model 的组件的实现。
+- v-bind 指令现在支持同名缩写，可简化模板中属性绑定的写法。
 
 ## 设计
 
@@ -86,6 +130,14 @@ IconCraftr 是一个生成 3D 图标的工具，可以通过上传线稿图并�
 ### [crewAI](https://github.com/joaomdmoura/crewAI)
 
 CrewAI 是一个最先进的框架，用于协调角色扮演的自主人工智能代理。通过培养协作智能，CrewAI 使代理能够无缝地协同工作，解决复杂的任务。CrewAI 具有灵活性、可扩展性和易用性等优势，支持本地开源模型，并提供了一些示例，如旅行计划、股票分析和登录页面生成器。
+
+### [高级 RAG 技术：图解概览 [译]](https://baoyu.io/translations/rag/advanced-rag-techniques-an-illustrated-overview)
+
+本文系统地介绍了高级检索增强式生成技术（RAG）及其算法。RAG 结合了搜索技术和大语言模型的提示功能，通过从数据源检索信息来生成回答。文章介绍了 RAG 的原始方法和标准方法，并提到了提示优化技术。此外，文章还概述了高级 RAG 技术的核心步骤和算法。
+
+- 本文介绍了高级检索增强式生成技术（RAG）及其算法，以及其在大语言模型系统中的应用。
+- RAG 将搜索技术和大语言模型的提示功能相结合，通过从数据源检索信息来生成回答。
+- 高级 RAG 技术包括标准 RAG 方法、提示优化和其他可选工具，用于提升 RAG 流程的性能和效果。
 
 ## 其他
 
