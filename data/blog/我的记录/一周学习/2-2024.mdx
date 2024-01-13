@@ -1,0 +1,205 @@
+---
+title: 2024-第二周
+date: '2024-01-08'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+![](https://cdn.jsdelivr.net/gh/klaaay/pbed1@master/uPic/akirakusaka_official-20231231_225033-414693278_897129482038654_1305142640934412086_n.jpeg)
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [Dynamic server islands](https://www.mayank.co/blog/server-islands/)
+
+这篇文章介绍了一种在构建时预渲染静态部分页面，并在每个请求时选择性地在服务器上渲染动态部分的方法。通过使用部分页面和中间件函数，可以实现动态插入内容，但需要注意一些考虑因素。作者建议将此技术用于小型的主题和功能标志，而不是大型项目。
+
+- 使用部分 HTML 页面可以在构建时预渲染静态部分，并在每个请求上选择性地在服务器上渲染动态部分。
+- 静态页面中的占位符标记动态部分，在新的路由中渲染动态部分，并在返回 HTML 之前将其插入占位符。
+- 使用中间件函数在静态页面前获取动态部分页面，并使用服务器端自定义元素的技术将其插入自定义元素中，并返回新的 HTML。
+
+### [Google has started phasing out third-party cookies](https://searchengineland.com/google-chrome-started-phasing-out-third-party-cookies-436244)
+
+谷歌正式开始逐步淘汰第三方 Cookie。一项名为“跟踪保护”的新功能已于 2024 年 1 月 4 日开始在全球范围内向 1% 的 Chrome 用户推出。如果受到影响，打开桌面或 Android 设备上的 Chrome 时将收到通知。如果您的营销严重依赖于基于第三方 Cookie 的定向广告，现在是重新考虑策略的时候了。在 2024 年下半年谷歌彻底淘汰第三方 Cookie 之前，请提前准备好您的网站。第三方 Cookie 是一个小的数据片段，由用户当前访问的网站不同于其正在访问的网站放置在用户设备（计算机、手机或平板电脑）上。它跟踪用户的浏览历史，根据其活动提供个性化广告。谷歌计划在 2024 年下半年淘汰第三方 Cookie，这是其隐私沙盒计划的关键举措之一。最终决定取决于英国竞争和市场管理局解决竞争问题的情况。
+
+- 谷歌开始逐步淘汰第三方 Cookie，这意味着广告商需要重新考虑目标广告的策略。
+- 谷歌推出了名为“追踪保护”的新功能，该功能默认限制第三方 Cookie 的使用，并计划在 2024 年下半年完全停用第三方 Cookie。
+- 尽管数字营销人员对于第三方 Cookie 的消失还没有准备好，但谷歌已经开始向全球 1% 的 Chrome 用户推出追踪保护工具。
+
+### [The world's smallest PNG](https://evanhahn.com/worlds-smallest-png/)
+
+这篇文章讲述了 PNG 文件的结构和工作原理。PNG 文件由四个部分组成，包括 PNG 签名、图像元数据、像素数据和图像结束标记。文章还介绍了块的概念，块包含类型和数据，用于编码不同的信息。最后，文章提到了 PNG 文件的大小和顺序要求。
+
+- PNG 文件由四个部分组成，包括 PNG 签名、图像元数据、像素数据和图像结束标记。
+- PNG 文件的签名是固定的 8 个字节，用于验证文件的有效性。
+- PNG 文件的元数据和像素数据是以块的形式存储的，每个块包含长度、类型、数据和校验和信息。
+
+### [Taking a closer look at @property in CSS](https://utilitybend.com/blog/taking-a-closer-look-at-property-in-css/)
+
+本文介绍了 CSS 的@property 规则，该规则可用于定义自定义 CSS 属性，提供了类型检查、设置默认值和定义继承行为等功能。@property 规则的支持使得 CSS 在设计系统和动画方面有了更多的可能性。文章还给出了一些使用@property 规则的示例，如动画色调旋转、动画剪裁路径和动画背景渐变。最后，文章总结了@property 规则的重要性和潜力，认为它将为设计系统和动画带来重大变革。
+
+- @property 是 CSS Houdini API 中的一部分，允许开发者定义自定义 CSS 属性，提供了类型检查和默认值设置等功能。
+- 使用@property 可以更加方便地维护和更新代码，尤其适用于构建设计系统和第三方使用的项目。
+- @property 还可以定义继承行为，控制自定义属性是否可以从父元素继承，带来更多的定制和主题化可能性。
+
+### [Installing Google Fonts as npm packages](https://www.amitmerchant.com/google-fonts-as-npm-packages/)
+
+Fontsource 是一个开源项目，它提供了自托管的字体（包括 Google Fonts），可以作为 npm 包安装。通过安装并导入所需的字体包，可以在项目中使用这些字体。这种方法简单易用，便于管理，同时也避免了额外的 HTTP 请求。此外，字体可以离线加载，适合构建渐进式 Web 应用。
+
+- Fontsource 是一个开源项目，可帮助解决使用 Google 字体时产生的额外 HTTP 请求和隐私问题。
+- Fontsource 提供了各种各样的自托管字体，可以通过 npm 包进行安装和使用。
+- 通过 Fontsource，可以轻松管理字体，保护隐私，并且可以在离线状态下加载字体，适用于构建渐进式 Web 应用程序。
+
+### [Google shapes everything on the web](https://www.theverge.com/c/23998379/google-search-seo-algorithm-webpage-optimization)
+
+这篇文章讨论了 Google 搜索对网页设计和内容的影响，以及网站所有者为了在搜索结果中获得更高的排名而进行的搜索引擎优化（SEO）。文章指出，为了迎合 Google 的算法，许多网站采用相似的设计和结构，以及问题为基础的副标题和内容。同时，网站所有者必须进行关键词研究和优化，以提高他们的内容在搜索结果中的可见性。整体上，Google 对互联网的影响使得网页设计趋同化，而用户则需要适应这种变化。
+
+- 谷歌的搜索算法改变了互联网的样貌，导致网页设计趋同化。
+- 为了迎合谷歌搜索，网页设计和文章结构也发生了改变，包括问题式子标题和目录导航。
+- SEO（搜索引擎优化）成为了网站运营的关键，包括关键词研究和优化内容。
+
+### [How Lee Robinson created his Guestbook, and you can do it too](https://bejamas.io/blog/how-to-create-a-guestbook/)
+
+Next.js 是一个强大的 React 框架，可以方便地构建全栈 Web 应用程序。它结合了 Vercel 的开发工具，使用 Next.js 作为前端，Tailwind CSS 作为样式框架，Vercel 的无服务器函数处理后端逻辑，并使用 PostgreSQL 数据库和 Vercel 云进行部署。Next.js 使用服务器端渲染和静态站点生成，可以快速加载网页，提供了开发者友好的功能和特性。这篇文章将带领读者使用 Vercel 的技术栈构建一个留言板应用程序，并提供了详细的步骤和代码示例。
+
+- Next.js 是一个强大的 React 框架，可以简化全栈开发过程。
+- Vercel 提供了 Next.js 的开发工具和云端托管服务，使构建现代 Web 应用更加轻松和高效。
+- 通过使用 Next.js 和 Vercel 的服务，我们可以构建一个个性化的留言板应用，并实现用户认证、表单提交和数据库连接等功能。
+
+### [Jotai: Build Your State with Atom Precision](https://www.bekk.christmas/post/2023/20/jotai-build-your-state-with-atom-precision)
+
+Jotai 是一个简单、轻量级的状态管理库，可以解决应用程序中的状态管理问题。它可以提供全局状态管理，减少不必要的重新渲染，避免繁琐的代码编写。Jotai 与 React 状态和其他框架集成，非常灵活。它使用原子 (atom) 来管理状态，可以轻松访问和更新状态。与 React context 相比，Jotai 只有在订阅的状态更新时才重新渲染组件，性能更好。Jotai 在客户端重型项目、兄弟组件之间共享状态以及需要避免频繁重新渲染的情况下特别有优势。
+
+- Jotai 是一个简单、轻量级的全局状态管理工具，解决了 React 应用中的一些常见问题。
+- Jotai 使用原子 (atom) 来构建状态，可以存储任何类型的数据，并且可以在组件之间轻松共享和更新。
+- Jotai 还提供了一些衍生原子的功能，可以根据其他原子的值进行计算、过滤或组合。
+
+### [🗺️ Client Data (clientLoader, clientAction) ](https://github.com/remix-run/remix/discussions/7634)
+该提案主要是为 Remix 框架添加了客户端数据加载和客户端操作的支持。客户端数据加载器（clientLoader）和客户端操作（clientAction）可以用于获取来自服务器和客户端的数据，并在路由模块中进行定义和调用。此功能使得应用程序能够在 Remix 中同时使用持久化的服务器数据和客户端数据，而无需额外使用其他框架。这也为从 React Router 到 Remix 的平滑迁移提供了便利。
+
+- Remix 现在支持在路由模块导出中添加 clientLoader 和 clientAction，以便在客户端加载和处理数据。
+- 客户端加载器允许返回来自服务器和客户端的数据，可以用于处理浏览器数据源和本地缓存数据。
+- 客户端操作类似于服务器操作，可以用于保存服务器持久化数据和本地持久化数据，并且可以与客户端加载器一起使用。
+
+### [Introducing fsx: A modern filesystem API for JavaScript](https://humanwhocodes.com/blog/2024/01/fsx-modern-filesystem-api-javascript/)
+
+这篇文章讨论了 JavaScript 服务器端运行环境中文件系统 API 的现状以及对其进行现代化改进的尝试。作者提到目前的文件系统 API 在功能和性能方面存在一些问题，并介绍了一个名为 fsx 的库，它提供了更现代化、高级别的文件系统操作方法。该库支持读取和写入文件、检测文件是否存在以及删除文件和目录等常见操作，并提供了日志记录和模拟文件系统的功能。作者还介绍了 fsx 在不同运行环境下的实现，并提供了示例代码和测试方法。最后，作者表示欢迎反馈和建议，并提到可能会考虑修改库的名称。
+
+- JavaScript 运行时的文件系统 API 一直缺乏创新，Node.js 和 Deno 的文件系统 API 都是基于低级操作的模式。
+- fsx 是一个旨在现代化文件系统 API 的库，它提供了更简洁、可观察和易于模拟的方法。
+- fsx 通过提供读取文件、写入文件、检测文件是否存在以及删除文件和目录等常见操作的简洁接口，改善了 JavaScript 运行时的文件系统 API。
+
+### [WebCodecs 开启 Web 音视频新篇章](https://hughfenghen.github.io/posts/2023/10/06/webcodecs-new-era-for-media-on-the-web/)
+
+WebCodecs 是一个 Web 规范，在 Web 平台上提供音视频编解码的接口。目前的 Web 音视频 API 存在许多限制和问题，无法灵活配置或直接访问编解码器。WebCodecs 的设计目标是实现流式传输、高效率、组合性、可恢复性、灵活性和对称性。WebCodecs 提供了控制编解码过程和访问底层数据的 API，可以实现视频解码和编码的功能。WebCodecs 不涉及音视频的采集、渲染、封装解封装等环节，而是与其他 Web API 配合使用。通过基于底层 API 和 WebCodecs 提供的编解码能力，可以实现音视频处理、离屏图像处理、低延迟网络传输等功能。
+
+- WebCodecs 是一个 Web 规范，提供访问编解码能力的接口，解决了现有的 Web 音视频 API 无法灵活配置或直接访问编解码器的问题。
+- WebCodecs 的设计目标包括流式传输、效率、组合性、可恢复性、灵活性和对称性，使其能够适应各种场景并实现高效精细控制。
+- WebCodecs 提供了控制编解码过程和访问编解码前后底层数据的 API，可以实现图像和音频的编解码，并且可以与其他 Web API 配合使用来实现更多功能。
+
+### [Demystifying Web Push Notifications](https://pqvst.com/2023/11/21/web-push-notifications/)
+
+本文介绍了如何在网页应用中实现推送通知功能。主要步骤包括创建订阅、发送通知和处理通知。文章还提到了实现推送通知所需的 VAPID 密钥和服务器端以及客户端的具体实现方法。此外，还介绍了如何使通知可点击并在点击后执行相应操作的方法。
+
+- Web Push 是一种通过与浏览器提供的“推送服务”交互的方式，实现网页推送通知的功能。
+- 为了实现 Web Push，需要在客户端创建订阅，将订阅发送到后端，后端再将推送通知发送到浏览器。
+- 在实现 Web Push 时，需要使用 VAPID 密钥来确保在主流浏览器上正常工作，并且需要在后端使用适当的库来构建、编码和加密推送通知。
+
+## 工具
+
+### [gzm-design](https://github.com/LvHuaiSheng/gzm-design)
+
+一款漂亮易用的在线图片设计器（仿搞定设计、即时设计），可用于海报设计、广告设计、logo 设计、AI 创作等
+
+### [LogicFlow](https://github.com/didi/LogicFlow)
+
+专注于业务自定义的流程图编辑框架，支持实现脑图、ER 图、UML、工作流等各种图编辑场景
+
+### [foxact](https://github.com/SukkaW/foxact)
+
+正确使用的 React Hooks/Utils。适用于浏览器、SSR 和 React 服务器组件
+
+### [egjs-infinitegrid](https://github.com/naver/egjs-infinitegrid)
+
+一个模块，用于在网格布局上无限制地排列卡片元素及其内容
+
+### [css-hooks](https://github.com/css-hooks/css-hooks)
+
+从原生内联样式中使用高级 CSS 功能
+
+## 更新
+
+### [Astro 4.1](https://astro.build/blog/astro-410/)
+
+Astro 4.1 发布了，包含了一些 bug 修复和改进。更新内容包括新的无障碍审核规则、客户端可见性配置选项、自定义 cookie 编码解码以及其他 bug 修复。
+
+- Astro 4.1 发布了，包括了一些 bug 修复和改进。
+- 新的辅助功能审核规则。
+- 可见性的新配置选项。
+- 自定义 cookie 的编码和解码。
+
+### [Docusaurus 3.1](https://docusaurus.io/blog/releases/3.1)
+
+Docusaurus 3.1 发布了，主要更新包括修复了链接和锚点的问题，添加了解析 front matter 的钩子函数，新增了一些其他功能和改进。完整的更新内容可以在 changelog 中查看。
+
+- Docusaurus 3.1 发布，包括改进的链接检查和前置内容解析钩子。
+- 新的链接检查功能可以检测到破损的锚点，并建议将其设置为失败而不是警告。
+- 添加了前置内容解析钩子，可以方便地对前置内容进行转换和集成。
+
+### [Nx 17.2 Update!!](https://blog.nrwl.io/nx-17-2-update-b8f23ec42cbb)
+
+Nx 17.2 版本带来了一些新的发展和改进。其中包括 Nx 逐渐接近每周 400 万次的 NPM 下载量，项目配置的简化，使用 Rust 提高速度和使用 TypeScript 扩展性，Module Federation 的更新，支持 Angular 17 和 NgRx 17，智能 Monorepos 加速 CI，新的 Canary 版本发布，即将进行的发布直播以及自动更新 Nx 的命令。
+
+- Nx 17.2 迎来了一系列新的发展和改进，包括接近每周 400 万次的 NPM 下载量、简化项目配置、使用 Rust 提高速度、使用 TypeScript 扩展性、Module Federation 更新等。
+- Nx 计划在 2024 年实现几乎无需配置的工作流，旨在提供更简单易用的开发体验，并支持轻松集成 Nx 插件。
+- Nx 17.2 引入了 Rust 来提高任务哈希的性能，改进了 Module Federation 的支持，支持 Angular 17 和 NgRx 17，并推出了“Nx Agents”来解决在 CI 中的可扩展性问题。
+
+
+## 设计
+
+### [design-system-hub](https://www.figma.com/community/plugin/1324752802910575903/design-system-hub)
+
+汇集全球各地的 UX 设计系统。在这里，您可以轻松找到您需要的相关信息，包括设计系统的官方网站以及在 Figma 中的组件库文件
+
+## AI
+
+### [AI Code Review](https://codara.io/)
+
+Codara 是一个开发工具，具有无缝集成、高级 AI 分析和智能深入评审的功能。它能够实时提供反馈，帮助开发者在编码过程中发现错误。Codara 还能根据团队的标准进行定制，促进团队合作和知识共享。它保证代码的隐私和安全，并且可靠可扩展。
+
+- Codara 的 CLI 工具可以轻松集成到现有的开发环境中，只需几分钟的设置，几秒钟的审查。
+- Codara 的 AI 分析功能可以检测潜在问题，提供优化建议，确保代码整洁高效。
+- Codara 提供实时反馈，帮助捕捉错误，可根据团队需求自定义评判标准，促进团队合作和知识共享。
+
+### [ant-codeAI](https://github.com/sparrow-js/ant-codeAI)
+
+AI 生成代码
+
+## 其他
+
+### [When "Everything" Becomes Too Much: The npm Package Chaos of 2024](https://socket.dev/blog/when-everything-becomes-too-much)
+
+2024 年，一个名为 PatrickJS 的 npm 用户通过上传一个名为"everything"的 npm 包，引发了一场恶作剧。这个包依赖于每一个公共 npm 包，导致了无数的依赖关系，使得安装该包的用户遭受了拒绝服务攻击。这个恶作剧突显了 npm 生态系统中包管理的挑战，并提醒开发者在创建、维护和使用包时要谨慎。
+
+- npm 用户 PatrickJS 及其团队发布了一个名为"everything"的 npm 包，该包依赖于所有其他公共 npm 包，导致数百万个传递依赖关系，造成了存储空间不足和系统资源耗尽的拒绝服务攻击。
+- 这个恶作剧的影响使得其他开发者无法取消发布他们的包，因为 npm 的政策变更禁止取消发布被其他包所依赖的包。
+- 这个事件凸显了 npm 生态系统中包管理的挑战，提醒开发者在创建、维护和使用包时要谨慎处理依赖关系，同时也反映了开源软件中自由与责任之间的微妙平衡。
+
+---
+
+正则表达式让程序员感觉像一个强大的魔法师，但这不是一件好事。  
+复杂的正则表达式很难理解，也很难调试。我认为，应该尽可能避免使用它们，大部分正则表达式都可以用更易读的代码替代。
+
+-- Terence Eden
+
+---
+
+未来的内容生产，就是两种趋势的斗争。  
+一种是 GPT 工具快速、廉价地生产出大量的文章，造成巨大的内容污染。  
+另一种是更多的人可以借助 GPT，更容易地创作更多优质的内容，内容行业的进入门槛会降低，对周围一切的理解将会更加深入。
+
+-- 《AI 如何改变我们的知识》
