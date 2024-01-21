@@ -1,0 +1,147 @@
+---
+title: 2024-第三周
+date: '2024-01-15'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [穿越时空：2023 年前端技术盘点与 2024 年技术展望](https://mp.weixin.qq.com/s/LiygBJqMN8U_vSpAjxMibQ)
+
+本文是对前端技术领域在 2023 年的发展进行了回顾和总结。文章首先介绍了在语言与标准、前端框架、前端基础建设、低代码、D2C、跨端、WASM 以及音视频等领域的一些重要进展和变化。其中重点介绍了 TypeScript 和 CSS 的新特性，以及 React、Vue、Svelte 和其他前端框架的最新动态和发展趋势。
+
+- 前端技术领域在 2023 年有了明显的进步，包括语言与标准、主流框架、WASM、音视频等核心场景。
+- TypeScript 在 2023 年持续完善，但出现了一些社区对其抛弃的声音，引发了一定争议。
+- 主流前端框架如 React、Vue、Svelte 和 Angular 持续发展，同时出现了黑马框架 Htmx 和 Qwik，为前端技术领域带来新的变化。
+
+### [How to Set Up Soft Navigation Reporting in a React App](https://www.debugbear.com/blog/soft-navigations-react-tutorial)
+
+本文介绍了如何在 React 应用中添加软导航报告，以测量核心 Web 指标和其他指标。通过启用软导航报告，可以更好地了解用户在应用中的 Web 指标表现，并识别潜在的性能问题，提高用户体验。同时，本文还介绍了如何在 Google Chrome 浏览器中启用软导航报告，并展示了如何报告最大内容绘制（LCP）指标。
+
+- 本教程介绍了如何在 React 应用程序中添加软导航报告，以监测核心 Web Vitals 指标的性能。
+- 通过启用 Chrome 浏览器的实验性功能和使用 soft-navs 分支的 web-vitals.js 库，可以在控制台中报告软导航和硬导航。
+- 通过报告 Largest Contentful Paint 指标，可以帮助开发人员理解应用程序的性能并改善用户体验。
+
+### [New Framework Lets Devs Explore React Server Components](https://thenewstack.io/new-framework-lets-devs-explore-react-server-components/)
+
+这篇文章介绍了一个名为 Waku 的 React Server Components（RSC）的最小框架，由 Daishi Kato 创建。尽管还不建议用于生产环境，但该框架已准备好供开发人员探索 RSC 的能力。文章解释了为什么需要另一个 JavaScript 框架以及 Waku 的特点和功能。同时，还介绍了 Waku 的组成部分和开发者可以获取更多信息的方式。
+
+- Waku 是一个 React 服务器组件的最小框架，由 Daishi Kato 创建，用于探索 RSC 的能力。
+- Waku 旨在提供一个独立的学习 RSC 的平台，避免与其他特性绑定，并支持 RSC 在 Zustand 和 Jotai 中的应用。
+- Waku 基于 Vite 构建，提供了服务器 API、客户端 API 和路由功能，可用于探索 RSC 的核心能力和最佳实践。
+
+### [Preventing and Debugging Memory Leaks in Node.js](https://betterstack.com/community/guides/scaling-nodejs/high-performance-nodejs/nodejs-memory-leaks/)
+
+本文介绍了内存泄漏在应用程序中的问题，包括其原因、预防方法和临时修复策略。文章还详细介绍了如何在 Node.js 应用程序中使用 Chrome DevTools 调试内存泄漏，并使用 Prometheus 监控内存使用情况，并配置 Alertmanager 发送邮件警报。文章提供了全面的指导，帮助读者理解内存泄漏问题，并学会如何处理和预防这些问题。
+
+- 认识内存泄漏：内存泄漏可能导致应用程序变慢甚至崩溃，因此需要谨慎编写代码以避免内存泄漏。
+- JavaScript 内存存储：JavaScript 引擎通过堆和栈来存储数据，而对象占用堆内存，而基本数据类型存储在栈中。
+- 防止内存泄漏：通过减少全局变量的使用、避免意外创建全局变量、及时清除定时器等方式可以预防内存泄漏。
+
+### [How to use data-nosnippet to block specific content from being used in a Google search snippet [Experiment]](https://www.gsqi.com/marketing-blog/how-to-use-data-nosnippet/)
+
+这篇文章介绍了网站所有者如何通过使用"data-nosnippet"属性来控制谷歌搜索结果中的展示内容。作者通过实验展示了如何在网页中添加"data-nosnippet"属性，并强调了一些使用技巧和建议。总体而言，文章强调了网站所有者对搜索结果展示内容有一定的控制权，可以通过简单的操作影响搜索结果的展示效果。
+
+- 网站所有者最近发现谷歌搜索结果显示的摘录内容不符合他们的期望，他们想知道是否能够影响搜索摘录的显示内容。
+- 作者解释说，提供完整的元描述可以增加谷歌使用您自己描述生成搜索摘录的机会，但谷歌可以选择页面上的任何文本来生成摘录，包括主要内容和用户评论。
+- 作者介绍了一种名为 data-nosnippet 的工具，可以限制生成搜索摘录所使用的内容，通过在 HTML 元素上添加 data-nosnippet 属性，可以快速改变搜索摘录的显示内容。
+
+## 工具
+
+### [create-rust-app](https://github.com/Wulf/create-rust-app)
+
+只需运行一条命令，即可搭建一个现代化的 Rust+React 网页应用程序
+
+### [react-math-keyboard](https://github.com/krirkrirk/react-math-keyboard)
+
+一个适用于 React 的可自定义的数学键盘组件
+
+### [json-viewer](https://github.com/TexteaInc/json-viewer)
+
+不仅仅是一个 JSON 查看器
+
+### [nushell](https://github.com/nushell/nushell)
+
+### [eslint-flat-config-viewer](https://github.com/antfu/eslint-flat-config-viewer)  
+
+一款视觉工具，帮助您查看和理解 ESLint 的扁平配置
+
+### [piscina](https://github.com/piscinajs/piscina)
+
+一种快速高效的 Node.js 工作线程池实现方法
+
+### [penrose](https://github.com/penrose/penrose)
+
+通过在纯文本中输入符号表示法，即可轻松创建美观的图表
+
+### [effect](https://github.com/Effect-TS/effect)
+
+Effect 是一个功能强大的 TypeScript 库，专为开发人员设计，可帮助他们轻松创建复杂、同步和异步的程序。
+
+### [nanopop](https://github.com/Simonwep/nanopop)
+
+🍦 一款极简、轻量级的定位引擎，专为高性能、最小占用空间和最大定位行为控制而设计
+
+## 更新
+
+### [Astro 4.2](https://astro.build/blog/astro-420/)
+
+这篇文章介绍了 Astro 4.2 版本的更新内容，包括实验性功能的支持、改进的可访问性规则、Markdown 中图片优化的定制化等。值得注意的是，这是 Astro 首次由社区贡献了几乎所有的功能，标志着 Astro 已经发展成一个拥有活跃贡献者社区的项目。同时，文章还提到了如何升级到最新版本以及一些 bug 修复。
+
+- Astro 4.2 发布了许多新的实验性功能和改进，包括使用 Speculation Rules API 进行页面预渲染的支持，改进的可访问性规则，以及允许 remark 插件自定义 Markdown 中的图像优化。
+- 这次发布标志着 Astro 首次由社区贡献了几乎所有功能，显示了 Astro 已经发展成一个拥有繁荣贡献者社区的项目，仅有一个功能是由 Astro 核心维护者贡献的。
+- 除了新功能外，该版本还包括了许多改进和错误修复，如实验性全局路由优先级选项、新的 redirectToDefaultLocale 配置选项，改进的可访问性规则和 Markdown 中可定制的图像优化。
+
+## 设计
+
+### [万字文章深入解读，让用户养成使用习惯的产品逻辑](https://www.zcool.com.cn/work/ZNjczMDA1NzY=.html)
+
+### [Designing better target sizes](https://ishadeed.com/article/target-size)
+
+这篇文章讨论了用户界面中可点击区域的重要性，以及如何优化可点击区域的大小和布局。作者通过举例和技术建议，详细介绍了如何测试和优化可点击区域，以提升用户体验和可访问性。文章涵盖了设计师和开发人员在创建和测试用户界面时需要考虑的关键因素。
+
+- 用户需要与可点击的 UI 元素交互，如按钮、链接、卡片等。
+- 目标大小的增加可以使用户更容易点击和与元素交互。
+- 设计师和开发人员需要测试和修复 UI 元素的目标大小问题。
+
+
+## AI
+
+### [AI 模型和托管提供商的分析](https://artificialanalysis.ai/)
+
+这篇文章主要介绍了不同能力分类下的多种度量标准，其中 GPT-4 在各项质量指标上表现出色。然而，Gemini Pro 和 Mixtral 8x7B 等模型在某些指标上已达到了 GPT-3.5 的性能水平。此外，文章还提到了总响应时间和平均响应时间等相关指标。
+
+- GPT-4 在 Chatbot Arena、MMLU 和 MT Bench 的综合能力评估中表现最佳。
+- Gemini Pro 和 Mixtral 8x7B 在某些指标上已达到了 GPT-3.5 的性能水平。
+- 总响应时间是评估模型质量的另一个重要指标，GPT-4 在各项指标中均处于领先地位。
+
+### [向量数据库的比较](https://vdbs.superlinked.com/)
+
+### [性，谎言和大模型](https://tech.ifeng.com/c/8WQGPMtpm5R)
+
+这篇文章讨论了人工智能大模型可能带来的风险和负面影响，以及对于这些风险的管理和监督。文章提到了大模型可能出现的不当行为，如生成擦边内容和对敏感话题的回应，以及黑客利用大模型进行的攻击。同时，文章还介绍了一些公司和研究机构如何试图通过 AI 监督 AI 来解决这些问题。
+
+- 人工智能大模型可能会出现擦边内容、色情、暴力诱导等问题，对社会带来负面影响。
+- 一些开发者成功绕过 AI 应用的安全机制，创建了具有暗黑色彩的聊天机器人，形成了“地下经济”。
+- 学术界和业界在探索通过 AI 来监督 AI 的方式，以解决人工智能对齐的问题，但仍面临挑战。
+
+### [LangChain v0.1.0](https://blog.langchain.dev/langchain-v0-1-0/)
+
+这篇文章宣布了稳定版本的 langchain 0.1.0 的发布，同时介绍了对 LangChain 包架构的重大改变，以及对 Python 和 JavaScript 版本的功能和文档进行了改进。文章还详细介绍了 LangChain 的核心功能、第三方集成、可观察性、可组合性、流式处理、输出解析、检索和代理等方面的功能和改进。此外，文章还提到了未来版本 0.2 的一些计划和新功能，并介绍了新的 langgraph 库。文章强调了对用户反馈的重视，并呼吁社区继续提供意见和建议。
+
+- LangChain 发布了 0.1.0 稳定版本，进行了架构变更，同时制定了新的版本规范，以提高稳定性和可维护性。
+- LangChain 着重改进了第三方集成、可观测性、可组合性、流式处理、输出解析、数据检索和代理方法，以满足用户需求并提供更强大的功能。
+- 除了发布 0.1 版本外，LangChain 还计划着手开发 0.2 版本，包括重写旧的链式结构、增加新类型的链式结构和代理方法，以及改进生产数据处理能力。
+
+## 其他
+
+我从来不想辩论，但如果必须辩论，我希望自己会输。  
+我宁愿对方的观点是正确的，他来说服我，因为这样会比我的观点是正确的，我来说服他，对我更有趣。
+
+-- 《我想输掉每一场辩论》
