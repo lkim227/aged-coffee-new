@@ -103,6 +103,14 @@ export const fixedForwardRef = forwardRef as FixedForwardRef;
 
 ## CSS 样式相关
 
+### 在 js 中等待 css 的动画执行结束
+
+```ts
+const animations  = document.getAnimations()
+  .map(a => a.finished)
+await Promise.all(animations)
+```
+
 ### 渐变 border 的 tailwind 实现
 
 ```tsx
