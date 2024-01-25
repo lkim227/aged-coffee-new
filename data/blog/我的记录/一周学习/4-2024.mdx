@@ -1,0 +1,91 @@
+---
+title: 2024-第四周
+date: '2024-01-22'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [如何优雅编译一个 Markdown 文档](https://diygod.cc/unified-markdown)
+
+这篇文章介绍了如何使用 xLog Flavored Markdown 解析器来优雅地处理 Markdown 文档。通过解析、转换和输出这三个步骤，可以将 Markdown 文档转换为各种需要的格式，同时介绍了一些插件和工具库的使用方法。文章还提到了如何利用解析出的语法树编写一个可以左右同步滚动和实时预览的 Markdown 编辑器。
+
+- Markdown 解析过程使用 unified 生态的插件将 Markdown 文档解析成语法树，再通过一系列插件转换为需要的内容。
+- 在转换过程中，使用多个 unified 插件来实现从 Markdown 到 HTML 的转换，夹带私货、清理 HTML、增加语法高亮、嵌入自定义组件等操作。
+- 最后一步是利用 unified 的工具库将调整后的格式转换为 Markdown、HTML 或纯文本，满足不同的输出需求。
+
+### [How to publish binaries on npm](https://sentry.engineering/blog/publishing-binaries-on-npm)
+
+这篇文章是关于如何在 npm 上分发特定平台的二进制文件的综合指南。它介绍了在 npm 上发布包含不同处理器架构和操作系统的二进制文件的方法，并提供了实际的实现步骤。文章强调了避免包体积过大以及如何在安装时仅下载特定平台的二进制文件的重要性。同时，还提到了一些可能遇到的问题和解决方案。
+
+- 这篇博文介绍了如何通过 npm 发布平台特定的二进制文件，并讨论了在 npm 上发布二进制文件的挑战和解决方案。
+- 作者指出了两种发布平台特定二进制文件的方法：使用 optionalDependencies 字段和 postinstall 脚本。
+- 文章详细介绍了实施这两种方法的步骤，包括发布平台特定的 npm 包，创建 postinstall 脚本以及访问和使用已下载的二进制文件。
+
+### [WebGL Chromakey 实时绿幕抠图](https://hughfenghen.github.io/posts/2023/07/07/webgl-chromakey/)
+
+这段文字主要介绍了使用 20 行核心（shader）代码实现实时绿幕抠图的原理和方法。它首先解释了绿幕抠图的原理和计算过程，然后提供了基于 WebGL 的核心 Shader 代码实现，以及如何在静态图片和视频中应用该方法进行绿幕抠图。文章还提到了其他实现方法和相关的附录内容。
+
+- 实时绿幕抠图的核心代码是基于 WebAV 实现的，使用 WebGL 的片元着色器逐个比对原像素与目标颜色，计算距离并根据相似度阈值、平滑度敏感系数和颜色饱和度敏感系数进行处理。
+- 作者介绍了两种方法可以为最通用的视频格式移除背景，一种是将原视频配上绿幕，使用方法一进行抠图；另一种是在客户端进行混合，参考了另一种方法的实现。
+- 除了介绍了核心的 Shader 代码实现外，还提供了静态图片抠图示例和另一个实现抠图的 shader 代码实现，以及关于 WebAV、YUV 颜色编码等的附录内容。
+
+### [Common mistakes with the Next.js App Router and how to fix them](https://vercel.com/blog/common-mistakes-with-the-next-js-app-router-and-how-to-fix-them)
+
+这篇文章介绍了使用 Next.js App Router 时常见的十个错误，包括使用 Route Handlers 与 Server Components、静态或动态 Route Handlers、使用 Suspense 与 Server Components 等。文章还提供了这些错误发生的原因、如何修复以及一些建议，以帮助读者更好地理解新的 App Router 模型。
+
+- 使用 Route Handlers 与 Server Components 时，应该避免不必要的网络请求，而是直接在 Server Component 中调用逻辑。
+- 静态或动态 Route Handlers 默认情况下会被缓存，这意味着需要注意数据更新的时机。
+- 在使用 Next.js App Router 时，需要注意重新验证数据以及处理重定向的方式。
+
+### [Debian 系 Linux 内核优化](https://ericlee.xlog.app/linux_kernel_optimization)
+
+本文介绍了如何优化 Debian 系 Linux 内核的性能，包括编辑 /etc/sysctl.conf 文件和 /etc/security/limits.conf 文件，以提高系统的响应速度和吞吐量。
+
+- 优化 Debian 系 Linux 内核的性能可以提高系统的响应速度和吞吐量。
+- 编辑 /etc/sysctl.conf 文件来配置内核的运行参数，包括启用 BBR 拥塞控制算法和调整网络连接参数。
+- 修改 /etc/security/limits.conf 文件来提高最大可打开文件描述符数量，以支持更多的文件和网络连接。
+
+## 工具
+
+### [tiny-rdm](https://github.com/tiny-craft/tiny-rdm)
+
+一个现代化的 Redis 图形用户界面（GUI）客户端
+
+### [react-ast](https://github.com/clayrisser/react-ast)
+
+使用 React 渲染抽象语法树
+
+### [node-cache-manager](https://github.com/node-cache-manager/node-cache-manager)
+
+Node.js 的缓存模块
+
+### [node-signpdf](https://github.com/vbuch/node-signpdf)
+
+在 Node.js 中轻松对 PDF 进行签名
+
+
+## 更新
+
+### [Chrome is getting 3 new generative AI features](https://blog.google/products/chrome/google-chrome-generative-ai-features-january-2024/)
+
+这篇文章介绍了谷歌 Chrome 浏览器最新的人工智能技术应用。从智能标签管理、生成个性化主题到辅助网络写作，Chrome 通过实验性的人工智能功能让用户的浏览体验更加个性化、便捷和高效。未来还将推出更多 AI 和机器学习功能，以帮助用户更轻松、更快速地浏览网络。
+
+- Chrome 最新发布的 M121 版本将引入实验性生成 AI 功能，包括智能整理标签、自定义主题和辅助网页写作。
+- 智能整理标签功能会自动建议并创建标签组，方便用户管理多个标签页，还能为新组命名并添加表情符号。
+- 用户可以利用生成 AI 功能自定义浏览器主题，还将有 AI 辅助帮助用户在网页上更自信地表达想法。
+
+## 设计
+
+## AI
+
+### [pdftochat](https://github.com/Nutlope/pdftochat)
+
+## 其他
+

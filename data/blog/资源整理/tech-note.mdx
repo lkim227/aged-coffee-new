@@ -6,9 +6,9 @@ draft: false
 summary: ''
 ---
 
-<TOCInlineWithSticky toc={props.toc} />
+<TOCInlineWithSticky indentDepth={1} toc={props.toc} />
 
-## 兼容
+## 兼容性相关
 
 ### 在 Safari 用户操作运行粘贴板相关逻辑逻辑的时候，如果粘贴的函数上下文同时有异步请求逻辑，则这时候会出现安全确认提示窗口
 
@@ -17,6 +17,18 @@ summary: ''
 - Safari 只允许在直接用户交互的情况下使用剪贴板 API
 - 在异步环境下无法在 Safari 中写入剪贴板
 - 通过将 Promise 传递给剪贴板 API 可以解决 Safari 中的限制
+
+### ios H5 history.back() 返回上一路由 页面白屏问题
+
+改变 history.scrollRestoration
+
+使用 history.back 返回上一页的时候，浏览器会记录页面的滚动位置，而在 iOS 上面，滚动后返回的时候页面渲染会出现问题，导致白屏。可以利用 scrollRestoration 属性，它默认是 auto，也就是会记录滚动位置（这是 H5 新增的属性，所以需要判断浏览器是否支持，我实践的是可以兼容大部分移动端机型）
+
+```js
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual' //改为 manual 之后，就不会记录滚动位置
+}
+```
 
 ## git 相关
 
@@ -37,7 +49,9 @@ git pull upstream main
 git pull upstream main --allow-unrelated-histories
 ```
 
-## nvm 切换 node 版本快速迁移全局 npm 包
+## node 相关
+
+### nvm 切换 node 版本快速迁移全局 npm 包
 
 在使用 `nvm` 切换到新的 Node.js 版本后，你可以通过以下步骤来迁移某个版本下的全局 npm 包到新的版本：
 
@@ -69,9 +83,11 @@ git pull upstream main --allow-unrelated-histories
    npm install -g $(cat packages.txt)
    ```
 
-   这将读取 `packages.txt` 文件中的包列表，并在新版本下安装这些全局 npm 包。
+这将读取 `packages.txt` 文件中的包列表，并在新版本下安装这些全局 npm 包。
 
-## FixedForwardRef
+## React 相关
+
+### FixedForwardRef
 
 ```tsx
 import React, { forwardRef } from " react";
@@ -85,7 +101,9 @@ type FixedForwardRef = <T, P= {}>(
 export const fixedForwardRef = forwardRef as FixedForwardRef;
 ```
 
-## 渐变 border 的 tailwind 实现
+## CSS 样式相关
+
+### 渐变 border 的 tailwind 实现
 
 ```tsx
 export const AnimatedGradientBorderTW: React.FC<{
@@ -127,23 +145,7 @@ export const AnimatedGradientBorderTW: React.FC<{
 }
 ```
 
-## ios H5 history.back() 返回上一路由 页面白屏问题
-
-改变 history.scrollRestoration
-
-使用 history.back 返回上一页的时候，浏览器会记录页面的滚动位置，而在 iOS 上面，滚动后返回的时候页面渲染会出现问题，导致白屏。可以利用 scrollRestoration 属性，它默认是 auto，也就是会记录滚动位置（这是 H5 新增的属性，所以需要判断浏览器是否支持，我实践的是可以兼容大部分移动端机型）
-
-```js
-if ('scrollRestoration' in history) {
-  history.scrollRestoration = 'manual' //改为 manual 之后，就不会记录滚动位置
-}
-```
-
-## Vite 配置 ws 转发
-
-![L3PbXs](https://cdn.jsdelivr.net/gh/klaaay/pbed@main/uPic/L3PbXs.jpg)
-
-## 在屏幕缩放比例发生改变页面不变的处理方案
+### 在屏幕缩放比例发生改变页面不变的处理方案
 
 1. 首页第一个模块所有的 100vh 全部要动态的改变为 calc（100vh \* 2）
 2. 视频的宽度需要调整为 100%（视频动效会没）
@@ -152,7 +154,7 @@ if ('scrollRestoration' in history) {
 - 暂定有问题的动效模块直接不展示
 - 另外注入 URS 模态框的 css 可以区分 Win 还是 Mac
 
-## antd-mobile css 变量覆盖
+### antd-mobile css 变量覆盖
 
 ```css
 :root:root {
@@ -160,7 +162,65 @@ if ('scrollRestoration' in history) {
 }
 ```
 
-## nginx 常规路径代理配置
+## 脚手架相关
+
+### Vite 配置 ws 转发
+
+![L3PbXs](https://cdn.jsdelivr.net/gh/klaaay/pbed@main/uPic/L3PbXs.jpg)
+
+
+### vite 配合 whistle 跑本地环境的 server-hmr 配置
+
+```typescript
+server: {
+  hmr: {
+    protocol: 'ws',
+    host: 'localhost',
+    },
+  },
+```
+
+### 在 webpack4 中添加强本地缓存
+
+```js
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
+
+plugins: [
+  new HardSourceWebpackPlugin({
+    cacheDirectory: path.resolve(__dirname, '../cache'),
+  }),
+]
+```
+
+### 在 nextjs 中支持项目外部的.ts,.tsx 文件编译
+
+```javascript
+const nextConfig = {
+  webpack: (config, options) => {
+    config.module.rules.forEach((rule) => {
+      if (rule.test && rule.test.toString().includes('tsx|ts')) {
+        rule.include = [...rule.include, path.resolve(__dirname, '../common-package/src')]
+      }
+      if (Array.isArray(rule.oneOf)) {
+        rule.oneOf.forEach((rule_inner) => {
+          if (rule_inner.test && rule_inner.test.toString().includes('tsx|ts')) {
+            rule_inner.include = [
+              ...rule_inner.include,
+              path.resolve(__dirname, '../common-package/src'),
+            ]
+          }
+        })
+      }
+    })
+    return config
+  },
+}
+```
+
+
+## Nginx 相关
+
+### nginx 常规路径代理配置
 
 ```
 location /docs/zh {
@@ -170,7 +230,7 @@ location /docs/zh {
 }
 ```
 
-## nginx 网段禁止配置
+### nginx 网段禁止配置
 
 ```
 server {
@@ -183,11 +243,23 @@ server {
 }
 ```
 
-## nginx-openresty 查看日志位置
+### nginx-openresty 查看日志位置
 
 ![rahGOt](https://cdn.jsdelivr.net/gh/klaaay/pbed@main/uPic/rahGOt.jpg)
 
-## Canvas 工具函数
+### nginx 配置正则反向代理
+
+```
+resolver 8.8.8.8;
+
+location ~ /xx/([0-9a-z]+).html {
+  proxy_pass http://your.domain/xx/$1/
+}
+```
+
+## Canvas & WebGL
+
+### Canvas 工具函数
 
 ```typescript
 // 调整图片的尺寸大小
@@ -247,17 +319,9 @@ function compressorImage(image: File, backType?: 'blob' | 'file', quality?: numb
 }
 ```
 
-## nginx 配置正则反向代理
+## 本地常用 sh 相关
 
-```
-resolver 8.8.8.8;
-
-location ~ /xx/([0-9a-z]+).html {
-  proxy_pass http://your.domain/xx/$1/
-}
-```
-
-## FFmpeg 脚本
+### FFmpeg 脚本
 
 ```shell
 ffmpeg -i video.mp4 -i audio.mp4 -c:v copy -c:a aac -strict experimental output.mp4
@@ -268,44 +332,7 @@ ffmpeg -i video.mp4 -i audio.mp4 -c:v copy -c:a aac -strict experimental output.
 ffmpeg -i video.webm -i audio.weba -vcodec copy output.mp4
 ```
 
-## 在 webpack4 中添加强本地缓存
-
-```js
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
-
-plugins: [
-  new HardSourceWebpackPlugin({
-    cacheDirectory: path.resolve(__dirname, '../cache'),
-  }),
-]
-```
-
-## 在 nextjs 中支持项目外部的.ts,.tsx 文件编译
-
-```javascript
-const nextConfig = {
-  webpack: (config, options) => {
-    config.module.rules.forEach((rule) => {
-      if (rule.test && rule.test.toString().includes('tsx|ts')) {
-        rule.include = [...rule.include, path.resolve(__dirname, '../common-package/src')]
-      }
-      if (Array.isArray(rule.oneOf)) {
-        rule.oneOf.forEach((rule_inner) => {
-          if (rule_inner.test && rule_inner.test.toString().includes('tsx|ts')) {
-            rule_inner.include = [
-              ...rule_inner.include,
-              path.resolve(__dirname, '../common-package/src'),
-            ]
-          }
-        })
-      }
-    })
-    return config
-  },
-}
-```
-
-## H5 的使用技巧
+## H5 相关
 
 ```html
 // 1、捕获摄像头，user 表示前置摄像头，environment 表示后置摄像头
@@ -333,13 +360,3 @@ const nextConfig = {
 <a href="image.png" download></a>
 ```
 
-## vite 配合 whistle 跑本地环境的 server-hmr 配置
-
-```typescript
-server: {
-  hmr: {
-    protocol: 'ws',
-    host: 'localhost',
-    },
-  },
-```
