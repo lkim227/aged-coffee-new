@@ -52,6 +52,30 @@ summary: ''
 - 编辑 /etc/sysctl.conf 文件来配置内核的运行参数，包括启用 BBR 拥塞控制算法和调整网络连接参数。
 - 修改 /etc/security/limits.conf 文件来提高最大可打开文件描述符数量，以支持更多的文件和网络连接。
 
+### [A Practical Introduction to Scroll-Driven Animations with CSS scroll and view](https://tympanus.net/codrops/2024/01/17/a-practical-introduction-to-scroll-driven-animations-with-css-scroll-and-view/)
+
+本文介绍了如何使用 CSS 创建滚动动画，从基本的旋转动画到滚动驱动的动画，以及更高级的示例。作者展示了如何使用 scroll 和 view 函数以及 animation-range 属性来链接动画与滚动交互，以及如何使用@supports 和@media 查询来确保动画在浏览器支持的情况下生效。文章还提供了许多示例和代码片段，讲解了如何创建各种类型的滚动动画，包括导航淡入、主题滚动、视图交叉点动画等。文章还提到了一些工具和资源，帮助读者更好地理解和应用 CSS 滚动动画。
+
+- CSS 滚动动画的基本原理和关键特性。
+- 使用 scroll 和 view 函数创建滚动驱动的动画效果。
+- 进阶应用，包括水平滚动动画、交叉淡入淡出按钮、同步分页点和滚动动画等。
+
+### [Fading content using transparent gradient in CSS](https://www.amitmerchant.com/fading-content-using-transparent-gradients-in-css/)
+
+这篇文章介绍了作者在发现一个网站上文字渐隐效果后，使用 CSS 尝试复制这一效果的过程。作者通过在文本上方叠加一个透明渐变层实现了文字底部的渐隐效果，并提供了相应的 HTML 和 CSS 代码以及调整效果的方法。
+
+- trunk.io 网站上的文字渐变效果吸引了我的注意，可以通过 CSS 创建类似效果。
+- 通过在文字上叠加一个透明渐变层，并设置其位置和颜色，可以实现文字底部的渐变效果。
+- 调整渐变层的高度和颜色，可以控制文字的渐变程度和最终效果。
+
+### [Better form UX with the CSS property `field-sizing`](https://blog.stephaniestimac.com/posts/2024/01/css-field-sizing/)
+
+这篇文章讨论了在网页上填写固定宽度表单输入时遇到的问题，并介绍了 Chrome 团队提出的解决方案——使用 CSS 的 field-sizing 属性来自动调整表单输入框的大小。文章还提到了该属性的两个可选值，以及在开发者试用阶段的可用性和资源链接。最后，作者表达了对这一功能的看法，并鼓励减少 JavaScript 的使用。
+
+- 网页上填写固定宽度的表单输入框是一种令人痛苦的体验，输入的内容会被截断，无法看到完整输入的文字。
+- Chrome 团队的工程师提出了一个 CSS 解决方案，即 field-sizing 属性，可以应用于`<textarea>`、`<input type="text">`、`<input type="number">`、`<input type="file">`、`<select>`等元素，以解决表单输入框大小自适应的问题。
+- field-sizing 属性有两个值：fixed 会保持当前行为，而 content 则允许表单大小根据内容自适应，这将改善表单用户体验，但需要注意设置最小和最大宽度以避免横向无限扩展。
+
 ## 工具
 
 ### [tiny-rdm](https://github.com/tiny-craft/tiny-rdm)
@@ -70,6 +94,33 @@ Node.js 的缓存模块
 
 在 Node.js 中轻松对 PDF 进行签名
 
+### [react-snap-carousel](https://github.com/richardscarrott/react-snap-carousel)
+
+React 中的 DOM 优先、无头轮播组件
+
+### [sparkly-text](https://github.com/stefanjudis/sparkly-text)
+
+小型的 Web 组件，可以让你的文本闪闪发光。
+
+### [worker-timers](https://github.com/chrisguttandin/worker-timers)
+
+可以在失去焦点的窗口中正常工作的 setInterval 和 setTimeout 的替代方案。它解决了在窗口失去焦点时这两个函数无法按预期工作的问题。
+
+### [wxt](https://github.com/wxt-dev/wxt)
+
+⚡ 下一代 Web 扩展框架
+
+### [vscode-use](https://github.com/vscode-use/utils)
+
+vscode lodash
+
+### [google-indexing-script](https://github.com/goenning/google-indexing-script)
+
+快速让您的网站在 Google 上被索引的脚本，不到 48 小时搞定
+
+### [pretty-ms](https://github.com/sindresorhus/pretty-ms)
+
+将毫秒转换为易读的字符串：1337000000 → 15 天 11 小时 23 分钟 20 秒
 
 ## 更新
 
@@ -90,11 +141,46 @@ Node.js 的缓存模块
 - 性能大幅提升，安装和启动速度显著缩短，使开发者体验更加顺畅。
 - 新增组件和部署至 Vercel 功能，同时提供更好的 monorepo 支持，让部署更简便，同时解决了依赖管理问题。
 
-## 设计
+### [Expo Router v3: API Routes, bundle splitting, speed improvements, and more](https://expo.dev/changelog/2024/01-23-router-3)
+
+这篇文章介绍了 Expo Router v3 的新功能和改进，包括 API Routes（API 路由）、Bundle splitting（包分割）、速度提升、测试库、Web <Link /> props（Web 链接属性）、相对 Fetch 请求、404 处理、配置化应用目录、静态字体优化、新的路由导航行为、Expo Router 测试库、新的 Link 属性、更快速的构建和更小的包、稳定性和支持、其他亮点以及已知问题。文章还提供了升级到 Expo Router v3 的指南和兼容性信息。
+
+- Expo Router v3 是一款全新的、功能强大的 React 框架，支持 Servers 平台，并引入了 API Routes 和 Bundle splitting 等新功能。
+- API Routes 是 Expo Router v3 的一个重要新功能，通过添加 +api.js 扩展名的路由可以创建服务器端端点，支持各种 HTTP 方法，并支持相对的 Fetch 请求。
+- Expo Router v3 还带来了更快的构建速度、更小的 JS bundle 大小、新的 Link 组件属性、静态字体优化等功能，同时解决了一系列问题并提供了更好的稳定性和支持。
+
+### [Next.js 14.1](https://nextjs.org/blog/next-14-1)
+
+Next.js 14.1 引入了开发者体验改进，包括改进的自托管、Turbopack 改进、开发体验改进、并行和拦截路由、next/image 改进等。自托管文档进行了全面改进，Turbopack 通过了 5600 个开发测试，开发体验得到了改善，next/image 现在支持更多高级用例。此外，对并行和拦截路由进行了 20 项改进，修复了来自社区的多个高赞 bug。
+
+- Next.js 14.1 带来了自托管方面的改进，包括新文档和自定义缓存处理程序。
+- Turbopack 得到了改进，通过 next dev --turbo 已通过了 5600 个测试，提高了可靠性和性能。
+- 开发者体验也得到了改善，包括改进的错误消息、pushState 和 replaceState 支持，以及并行和拦截路由。
+
+### [The Bun Shell](https://bun.sh/blog/the-bun-shell)
+
+这篇文章讨论了在 JavaScript 中运行 shell 脚本的困难之处，并介绍了新的 Bun Shell，它是一个实验性的嵌入式语言和解释器，可以在 JavaScript 和 TypeScript 中运行跨平台的 shell 脚本。文章还探讨了现有 shell 在 JavaScript 中的限制，以及 Bun Shell 的特性和用法。
+
+- JavaScript 在运行 shell 脚本时遇到困难，因为不同操作系统有不同的 shell 语法和命令，导致现有的 shell 无法简单地在 JavaScript 中运行。
+- 为了解决这一问题，推出了新的实验性嵌入式语言和解释器——Bun Shell，它允许在 JavaScript 和 TypeScript 中运行跨平台的 shell 脚本，并提供了类似于常规 JavaScript 的使用体验。
+- Bun Shell 内置了许多常见命令和功能，如通配符、环境变量、重定向、管道等，可作为简单 shell 脚本的替代品，并在 Bun for Windows 中用于支持 package.json 中的"scripts"。
+
+### [Build a Next.js app in Storybook with React Server Components and Mock Service Worker](https://storybook.js.org/blog/build-a-nextjs-app-with-rsc-msw-storybook/)
+
+这篇文章介绍了 Storybook 8 版本的新功能，即 React Server Component (RSC) 兼容性，并演示了如何在 Storybook 中构建和测试完整的 Next.js 应用程序。文章还详细介绍了如何在 Storybook 中进行页面的独立构建，并利用 Mock Service Worker (MSW) 进行数据模拟和控制。通过这种方式，可以在 Storybook 中开发和测试各种 UI 状态，包括模拟用户交互和处理实际场景中难以模拟的网络请求。文章最后指出，将应用程序的页面也纳入 Storybook 中，可以带来类似于组件开发的诸多好处，包括开发文档的维护和 UI 状态的快速测试。
+
+- Storybook 8 带来了 React Server Component (RSC) 兼容性，让开发者可以在 Storybook 中构建和测试完整的 Next.js 应用程序。
+- 通过在 Storybook 中重建 Hacker Next 示例，可以在 Next.js App Router 中构建整个应用程序，并解决页面状态的复杂性问题。
+- 使用 Mock Service Worker (MSW) 来模拟网络请求，以便在 Storybook 中测试不同的数据状态和生成一致的结果。
 
 ## AI
 
 ### [pdftochat](https://github.com/Nutlope/pdftochat)
 
-## 其他
+### [Ranked: The Most Popular AI Tools](https://www.visualcapitalist.com/ranked-the-most-popular-ai-tools/)
 
+2023 年人工智能工具大热，其中 ChatGPT 成为最受欢迎的人工智能工具，其网站访问量达 146 亿次。除了大型语言模型外，人工智能图像生成器 Midjourney 也受到广泛关注。人工智能的早期采用阶段已经创造出备受欢迎的软件产品，类似于互联网和智能手机的早期采用情况。这些软件产品的推出对于推动突破性技术的用户采用起到了关键作用。
+
+- 2023 年最受欢迎的人工智能工具包括 ChatGPT、Character.AI 和 QuillBot，它们统计的网站访问量占据了 80% 以上。
+- 人工智能的早期采用阶段已经产生了受欢迎的软件产品，这些产品吸引了数十亿次访问和成千上万的付费用户。
+- 人工智能工具的推出和传播是推动突破性技术用户采用的关键驱动力，类似于 Uber 和 Airbnb 对智能手机的实用性所起的作用。
