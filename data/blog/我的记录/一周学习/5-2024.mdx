@@ -1,0 +1,126 @@
+---
+title: 2024-第五周
+date: '2024-01-31'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [译：如何避免 SSR 渲染本地日期时的 FOUC 问题](https://sorrycc.com/ssr-local-dates-without-fouc/)
+
+本文讨论了在使用 React 进行服务器端渲染日期时可能出现的水合不匹配问题，以及针对该问题的解决方案。作者介绍了传统的解决方法，然后提出了一种新的方法，该方法利用了在浏览器解析和执行`<head>`时将日期格式化函数添加到全局作用域的技巧。文章指出这种解决方案虽然有些 hacky 和容易出现 bug，但也提供了一些改进的可能性，并希望未来 React 能够提供官方解决方案。
+
+- 如果你在使用 React 进行服务器端渲染日期，并且遇到了水合不匹配的问题，可以使用 suppressHydrationWarning 属性或者 useIsSSR 钩子来解决。
+- 服务器无法知道用户的时区，导致渲染的日期与客户端不匹配，可能会引发错误。
+- 作者提出了一个新的解决方案，通过在客户端添加一个同步脚本来替换服务器端渲染的日期，从而避免水合不匹配问题。
+
+### [译：危险的注水](https://sorrycc.com/danger-rehydration/)
+
+这篇文章主要介绍了在使用 React 进行服务器端渲染时可能出现的问题以及解决方法。首先解释了服务器端渲染和客户端渲染的区别，以及在使用 Gatsby 等框架时可能出现的问题。然后详细讨论了如何避免在 React 应用程序中出现“hydration”不匹配的问题，并提出了解决方案。最后，作者分享了关于 React 的个人经验和心得，并提到了自己创建的 React 在线学习课程。
+
+- React 在服务器端渲染时和客户端渲染时的不同之处，以及如何解决因此而产生的问题。
+- 服务器端渲染 `(SSR)` 和客户端渲染的性能影响，以及采用两次渲染的方法来解决动态内容的问题。
+- 作者提出的解决方案，包括使用 useState 和 useEffect 来在客户端渲染时进行第二次渲染，以确保与初始 HTML 的匹配。
+
+### [译：React 19 计划推出的新 Hooks](https://sorrycc.com/react-19-new-hooks/)
+
+这篇文章介绍了即将推出的 React 19 中的新特性，包括针对数据获取和表单处理的新客户端钩子。这些钩子将大大提高 React 开发者的生产力，尤其是那些专注于单页面应用开发的开发者。除此之外，还介绍了一些关于 React 19 中的新特性，如使用 Promise 进行数据获取、使用 Context 进行上下文读取、表单操作、以及乐观更新等。文章还提到这些特性仅适用于 React 的 Canary 和实验性渠道，可能在最终发布前会发生变化。
+
+- React 19 将引入新的客户端端钩子，解决 React 中的数据获取和表单处理两大痛点。
+- 新的钩子包括 use(Promise) 用于数据获取，use(Context) 用于读取 React Context，以及用于表单处理的 Form Actions 等。
+- 这些新特性将显著改善 React 中数据获取和表单处理的开发体验，但需要谨慎使用，因为它们可能还会发生 API 变化。
+
+### [译：context 选择器的未来是 React.use + React.useMemo](https://sorrycc.com/context-selector/)
+
+这篇文章讲述了作者如何优化了一个应用程序中有问题的 React 上下文，并介绍了他是如何倾向于使用上下文选择器来防止不必要的重新渲染，以及他如何通过与 Dan Abramov 的互动，认识到自己构建的抽象是错误的。文章还讨论了作者的尝试解决上下文选择器的可组合性问题，并最终认识到直接使用 React.useMemo 可能是更好的选择。文章最后总结了 React 的未来发展，并表达了对其充满信心的态度。
+
+- 我如何通过 Daishi Kato 的 use-context-selector 库优化了一个应用程序的问题 React 上下文，以及如何开发了一种偏好使用上下文选择器来防止不必要的重新渲染。
+- 为什么我更喜欢使用上下文选择器，以及如何通过优化 React.useContext 来解决性能问题，并且采用了上下文选择器模式。
+- 为什么我最终转变了对上下文选择器的偏好，以及如何尝试构建一个可组合的 useContextSelector，并最终意识到直接使用 React.useMemo 可能是更好的选择。
+
+### [使用 Puppeteer 测试网络蓝牙](https://developer.chrome.com/blog/test-web-bluetooth-with-puppeteer?hl=zh-cn)
+
+本文介绍了如何使用 Puppeteer 操作和测试支持蓝牙的 Web 应用。首先介绍了启动浏览器的参数设置和打开蓝牙设备提示的方法，然后讲解了如何选择蓝牙设备、从设备读取数据以及创建测试。最后提供了一个参考资源链接，供读者深入学习。
+
+- 从 Chrome 56 开始，系统就一直支持网络蓝牙，让开发者能够编写可直接与用户的蓝牙设备通信的 Web 应用。
+- 使用 Puppeteer 操作和测试支持蓝牙的 Web 应用的关键在于 Puppeteer 能够操作 Chrome 的蓝牙设备选择器，可以通过 Puppeteer 连接到蓝牙设备读取数据，并创建测试来验证数据读取和报告。
+- 通过 Puppeteer，可以自动使用支持蓝牙的 Web 应用，并将信息从 Web 应用获取到测试脚本中，验证数据是否符合预期。
+
+### [Optimizing images for Next.js sites with imgproxy and docker](https://mxd.codes/articles/optimizing-images-for-next-js-sites-with-imgproxy-and-docker#deploy-imgproxy-with-docker-compose)
+
+这篇文章介绍了如何使用 Next.js Image Component 和 imgproxy 来优化图像，提高网站性能。它讨论了如何部署 imgproxy 和调整 Nginx 配置，以及如何在 Next.js 网站中使用自定义图像加载器来整合 imgproxy。文章还提及了如何使用 Docker 部署个人网站和 imgproxy。
+
+- Next.js Image Component 是 Next.js 10.0.0 版本引入的功能，用于优化图像并提高网页应用性能。
+- imgproxy 是一个开源的图像处理服务器，可实现实时调整、裁剪和处理图像，具有高效交付优化尺寸和质量的图像的功能。
+- 自定义图像加载器可配置在 Next.js 网站中，使用 imgproxy 来转换和优化图像，提高网站性能。
+
+## 工具
+
+### [create-dmg](https://github.com/sindresorhus/create-dmg)
+
+几秒钟内为您的 macOS 应用程序创建一个外观精美的 DMG 安装包
+
+### [unlazy](https://github.com/johannschopplich/unlazy)
+
+🪧 一款利用原生浏览器 API 实现的通用延迟加载库，用于加载占位图像
+
+### [next-image-export-optimizer](https://github.com/Niels-IO/next-image-export-optimizer)
+
+使用 Next.js 的高级 `<Image />` 组件，并结合静态导出功能。在 Next.js 静态导出完成后，通过额外的步骤对所有静态图像进行优化。
+
+### [Gimli Tailwind](https://chromewebstore.google.com/detail/fojckembkmaoehhmkiomebhkcengcljl)
+
+增强 tailwind 开发体验的 Chrome 插件
+
+### [hodiday](https://github.com/tomandjerry136/hodiday)
+
+国定节假日安排信息接口
+
+## 更新
+
+### [Announcing TypeScript 5.4 Beta](https://devblogs.microsoft.com/typescript/announcing-typescript-5-4-beta/)
+
+这篇文章介绍了 TypeScript 5.4 Beta 的新功能和变化。包括闭包中的类型细化、新的 NoInfer 实用类型、Object.groupBy 和 Map.groupBy 方法的添加、对 require() 调用的支持、检查导入属性和断言、添加缺失参数的快速修复以及即将弃用的功能。同时还提到了一些重大变化，包括 lib.d.ts 的变化、更准确的条件类型约束、对交叉类型变量和原始类型的更积极的缩减、模块导入冲突时的错误处理等。最后还提到了 TypeScript 5.4 的发展计划和未来方向。
+
+- TypeScript 5.4 Beta 带来了许多新功能，包括在闭包中保留变量的类型细化和新的 NoInfer 实用类型。
+- 新增了 Object.groupBy 和 Map.groupBy 静态方法，支持 require() 调用，以及快速修复缺少参数的功能。
+- 未来的变化包括将对 TypeScript 5.0 中一些选项和行为的弃用进行硬性错误处理，以及一些对类型推断和条件类型的更改。
+
+### [Astro 4.3](https://astro.build/blog/astro-430/)
+
+Astro 4.3 发布了新的实验性 i18n 功能，并改进了构建输出、组件属性类型、Markdown 图片等方面。新功能包括 i18n 域支持、对 HTML 文件输出的更多控制、组件属性类型实用工具等。此外，修复了 Markdown 中使用图片时的问题，还包括其他 bug 修复。
+
+- Astro 4.3 发布了新的实验性 i18n 功能，支持域名配置，让用户可以为不同的支持语言指定不同的域名或子域名。
+- 新版本改进了 HTML 文件输出控制，新增了保留格式选项，更好地兼容某些对文件结构有严格要求的网络服务器。
+- Astro 现在包含了一个新的 ComponentProps 类型实用程序，可以获取 Astro 组件的 props 类型，同时还修复了 Markdown 文件中使用图片时的问题，并包含了其他 bug 修复。
+
+### [Deno 1.40: Temporal API](https://deno.com/blog/v1.40)
+
+这篇文章介绍了 Deno 1.40 版本的新特性和改进。其中包括引入了强大的 Temporal API、最新的装饰器语法、更简单的 deno.json 导入语法等功能。此外，还对一些旧 API 进行了弃用、稳定化和移除，为 Deno 2 做准备。文章还提到了 Web API、Node.js API 更新、LSP 改进、deno lint 更新和不稳定特性处理方式的改变。最后，还感谢了为 Deno 1.40 做出贡献的开发者。
+
+- Deno 1.40 发布了，引入了强大的 Temporal API 和最新的装饰器语法，还对 deno.json 中的导入进行了简化。
+- 引入了 Temporal API，用于处理 JavaScript 中日期和时间的操作，以及 import.meta.filename 和 import.meta.dirname 属性的支持。
+- 还对不稳定特性的处理方式进行了改变，引入了更精细的标志位，同时对一些旧的 API 进行了废弃和移除。
+
+## 设计
+
+### [Highlight Text When a User Scrolls Down to That Piece of Text](https://frontendmasters.com/blog/highlight-text-when-a-user-scrolls-down-to-that-piece-of-text/)
+
+这篇文章介绍了一个在网页设计中使用滚动驱动动画的技巧。作者通过 CSS 中的动画和关键帧来实现在滚动到特定位置时对文本进行标记和突出显示的效果。这种技术在当前主流浏览器中有良好的支持，可以为网页设计增加视觉效果。
+
+- Lene Saile 的博客上有一个很酷的设计特色，可以在滚动到文字时突出显示该行文字。
+- 通过在 HTML 中使用`<mark>`元素和 CSS 中的背景图像和动画，可以实现无需 JavaScript 的滚动驱动动画效果。
+- 通过使用 animation-range 属性，可以精确控制动画何时开始和结束，提供了对滚动驱动动画的强大控制能力。
+
+
+## 其他
+
+AI 会首先取代创意工作者。没错，人类艺术家可以创造出伟大的作品，AI 不行。但问题是，市场并不需要伟大的作品，只需要一些可以用的作品，用于游戏、影视剧等等。
+
+-- Hacker News 读者
