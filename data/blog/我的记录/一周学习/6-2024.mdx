@@ -1,0 +1,44 @@
+---
+title: 2024-第六周
+date: '2024-02-05'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [HTTP/3 From A To Z: Core Concepts](https://www.smashingmagazine.com/2021/08/http3-core-concepts-part1/)
+
+这篇文章介绍了新的 HTTP/3 协议以及它所基于的传输层协议 QUIC。文章讨论了为什么需要 HTTP/3 以及它相对于 HTTP/2 的改进。它详细解释了 TCP 存在的问题以及 QUIC 如何解决这些问题。文章还介绍了 QUIC 的核心概念，包括深度集成的 TLS、支持多个独立字节流和连接迁移。最后提到了 QUIC 的灵活性和可扩展性。
+
+- 为什么我们需要 HTTP/3，因为 TCP 需要更新，而 QUIC 是 TCP 的升级版本。
+- QUIC 有多个独立的字节流，解决了 TCP 的 Head-of-Line (HoL) blocking 问题。
+- QUIC 支持连接迁移，使连接能够在网络变化时保持活动状态。
+
+## 工具
+
+## 更新
+
+## 设计
+
+### [Direction-aware animations in Framer Motion](https://sinja.io/blog/direction-aware-animations-in-framer-motion)
+
+这篇文章讨论了在网站或应用程序中添加动画时，如何根据上下文的不同方向进行动画效果的处理。作者介绍了如何通过 Framer Motion 库实现根据用户导航方向改变动画效果的解决方案，并提供了代码示例和交互演示。最后，作者还提出了通过使用上下文和自定义钩子来实现动画相关属性的重复使用解决方案。
+
+- 动画在网站或应用中的应用场景，如导航时需要根据不同的上下文方向进行动画展示，比如向左滑动或向右滑动。
+- 解决动画方向问题的方法是通过 Framer Motion 传递方向，确保组件能够获取最新的方向数值，即使已经卸载。
+- 可以通过使用上下文传递方向并创建自定义钩子来使动画相关属性更清晰可重用，实现方向感知的动画。
+
+## AI
+
+### [gpt-games](https://github.com/JimLiu/gpt-games)
+
+利用 GPT 构建游戏
+
+## 其他
+
