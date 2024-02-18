@@ -20,9 +20,49 @@ summary: ''
 - QUIC 有多个独立的字节流，解决了 TCP 的 Head-of-Line (HoL) blocking 问题。
 - QUIC 支持连接迁移，使连接能够在网络变化时保持活动状态。
 
+### [How to stream files from Next.js Route Handlers](https://www.ericburel.tech/blog/nextjs-stream-files)
+
+这篇文章介绍了如何在 Next.js 中使用 API 路由和路由处理程序来流式传输文件。它强调了在处理定制、私人或生成的文件时，使用流是避免服务器内存膨胀的必要手段。文章还讨论了 Node.js 流和 Web 平台流之间的转换，并提供了相应的代码示例。最后，它总结了 API 路由和路由处理程序之间的区别，并强调了在处理非常规操作时可能需要特定于运行时的代码。
+
+- 通过 API 端点提供文件是必要的，特别是对于定制、私有或生成的文件。
+- 使用流是为了避免服务器 RAM 过度膨胀，它可以避免将整个文件加载到内存中，而是将其作为块返回。
+- Next.js 的 API 路由使用 Node.js 语法和数据结构，很容易流式传输文件。Next.js Route Handlers 则努力依赖于更通用的 JavaScript 内置结构，即来自 fetch API 的 Request 和 Response 对象。
+
+### [OpenTask: A Next.js App Router Case Study](https://flsilva.com/blog/opentask-nextjs-app-router-case-study/)
+
+这段文字主要讲述了如何使用 React 18 和 Next.js App Router 构建了一个全栈组件，并演示了如何创建和编辑项目页面。文章还介绍了新的 React API，包括`<form action={}>`、`useFormStatus()`和`useFormState()`，以及如何在客户端和服务器端验证数据。文章还提到了构建表单的改进体验，以及创建新项目时如何提交表单数据到服务器。
+
+- "OpenTask"是一个基于 React 18 和 Next.js 的全功能、开源的任务管理应用。
+- 应用采用了 React Server Components 和新的 Next.js App Router 功能，提供了更简单的数据获取和无缝的服务器渲染体验。
+- 应用的架构和实现基于新的技术特性，包括数据库访问、表单设计和数据验证。
+
+### [FIX NEXT.JS ROUTING TO HAVE FULL TYPE-SAFETY](https://www.flightcontrol.dev/blog/fix-nextjs-routing-to-have-full-type-safety)
+
+这篇文章介绍了如何在 Next.js 中实现类型安全的路由系统，使用了 Zod 库对路由和查询参数进行静态类型验证和运行时验证。文章还提供了一个 makeRoute() 实用程序来构建路由，并展示了如何在 Next.js 中使用类型安全的路由系统来提高开发效率和代码健壮性。
+
+- Typescript 等类型系统可以解决 Next.js 中的错误链接、格式错误的查询字符串和缺失的路由参数问题。
+- Next.js 有一个实验性特性可以开启静态类型链接，但存在许多限制，包括对路由和查询字符串参数的类型验证以及运行时验证。
+- 为了实现类型和运行时验证，可以使用 Zod 库来创建完整的类型安全路由系统，支持静态类型验证和运行时参数验证，同时解耦路由名称和 URL，提供类型安全的 useParams() 和 useSearchParams()。
+
+### [Enhanced version of](https://enhanced-button.vercel.app/)
+
+可以轻松地通过扩展常规的 shadcn-button 组件来添加新的按钮样式，而无需创建额外的按钮组件
+
 ## 工具
 
+### [merge-streams](https://github.com/sindresorhus/merge-streams)
+
+将多个流合并为一个统一的流
+
 ## 更新
+
+### [Vite 5.1 is out!​](https://vitejs.dev/blog/announcing-vite5-1.html)
+
+Vite 5.1 发布了，新增了 Vite Runtime API、改进了对.css?url 的支持、性能提升等多项功能和改进。此外，还有一些已弃用的功能和新的参与方式。感谢社区和赞助商的支持。
+
+- 新增了 Vite Runtime API，支持 HMR 和运行任何代码。
+- 改进了对.css?url 的支持，提供了回调选项和性能改进，如循环导入的 HMR 优化。
+- 还带来了性能提升，包括运行 CSS 预处理器的线程支持和服务器冷启动的改进选项。
 
 ## 设计
 
@@ -42,3 +82,10 @@ summary: ''
 
 ## 其他
 
+### [The psychology of site speed and human happiness](https://www.speedcurve.com/blog/psychology-site-speed/)
+
+这篇文章探讨了网页速度对用户体验和品牌认知的重要性。作者指出，人类对等待的感知和记忆是不可靠的，而网页速度直接影响用户的情绪和行为。研究表明，超过 2 秒的等待会打断用户的注意力，而超过 10 秒的等待会导致用户难以重新专注。此外，网页速度还会影响用户对品牌整体的看法，不仅包括性能方面，还涉及内容、设计和导航等方面。因此，文章呼吁技术人员和企业关注网页性能，以提供令用户愉悦且无摩擦的在线体验。
+
+- 时间是一个关键的可用性因素，等待时间的感知比实际时间更重要，并且我们的记忆是不可靠的。
+- 我们对网页速度的期望是固定的，人类对于页面加载速度的反应有着长期的一致性，即使在不同设备、应用或连接条件下也是如此。
+- 网络压力是可以衡量的，网页速度的慢会对我们对品牌的整体认知产生负面影响，甚至会影响到与网站性能无关的方面，如内容、设计和导航。
