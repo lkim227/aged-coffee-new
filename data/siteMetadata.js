@@ -9,7 +9,6 @@ const siteMetadata = {
   siteUrl: 'https://aged-coffee.me',
   siteRepo: 'https://github.com/klaaay/aged-coffee-new',
   siteLogo: '/static/images/logo.png',
-<<<<<<< HEAD
   socialBanner: '/static/images/banner.png',
   // mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'klaaaywu@163.com',
@@ -20,19 +19,6 @@ const siteMetadata = {
   // youtube: 'https://youtube.com',
   // linkedin: 'https://www.linkedin.com',
   locale: 'zh-CN',
-=======
-  socialBanner: '/static/images/twitter-card.png',
-  mastodon: 'https://mastodon.social/@mastodonuser',
-  email: 'address@yoursite.com',
-  github: 'https://github.com',
-  twitter: 'https://twitter.com/Twitter',
-  facebook: 'https://facebook.com',
-  youtube: 'https://youtube.com',
-  linkedin: 'https://www.linkedin.com',
-  threads: 'https://www.threads.net',
-  instagram: 'https://www.instagram.com',
-  locale: 'en-US',
->>>>>>> abfa4b6940cb1617927bec0a09ec49dd33c70120
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
