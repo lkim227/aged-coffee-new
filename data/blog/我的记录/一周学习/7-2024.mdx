@@ -12,13 +12,96 @@ summary: ''
 
 ## 技术
 
+### [译：React Labs：我们最近的工作 – 2024 年 2 月](https://sorrycc.com/react-labs-2024-02/)
+
+这篇文章介绍了 React 团队在 2024 年 2 月份的工作进展。他们详细介绍了 React 编译器的应用和优化，以及新功能 Actions、React Canary 中的新功能、React 19 的发布计划，并解释了将 Offscreen 功能更名为 Activity 的原因。同时，他们还分享了团队成员在不同会议和播客中的活动和演讲。
+
+- React 编译器已在 Instagram 生产环境中得到应用，并将推广到更多平台并准备首次开源发布。
+- 新功能 Actions 允许将函数传递给 DOM 元素，以管理客户端和服务器端数据传输，并提供了一些新的钩子和功能。
+- React Canary 中的新功能包括 React Server Components、资源加载、文档元数据和 Actions，已准备好发布到下一个 React 主要版本 React 19。
+
+### [Union, intersection, difference, and more are coming to JavaScript Sets](https://www.sonarsource.com/blog/union-intersection-difference-javascript-sets/)
+
+这篇文章介绍了 ES2015 版本的 JavaScript Set 的基本功能，以及最新的 Set 方法提案所新增的 7 个方法。这些新方法包括了集合的并集、交集、差集、对称差集、子集、超集和不相交判定。文章还说明了这些新功能的用法，并介绍了它们在现有 JavaScript 引擎中的支持情况。最后，文章提到了对于那些需要旧版 JavaScript 引擎支持的情况，可以使用 polyfill 来实现这些新功能。文章最后指出，JavaScript Set 因为新增的这 7 个新功能而变得更加完善，从而减少了对外部依赖或自行实现功能的需求。
+
+- ES2015 版本的 JavaScript Set 提供了创建、添加、删除和检查成员资格的功能，以及将可迭代对象转换为 Set 的便捷方式。
+- 新的 Set 方法扩展了 Set 实例的功能，包括 union、intersection、difference 等操作，使得 Sets 之间的操作更加方便。
+- 这些新功能已经在 Chrome 122+ 和 Safari 17+ 中得到支持，为 JavaScript 语言的完善和发展提供了更多可能性。
+
+### [Immutable array updates with Array.prototype.with](https://web.dev/blog/array-with)
+
+这篇文章介绍了 JavaScript 中的新方法 Array.prototype.with()，它可以在不改变原始数组的情况下返回数组的副本，并且提供了一些示例和用例。同时还介绍了其他几个新的不可变方法，这些方法可以更轻松地实现数组的不可变更新。
+
+- Array.prototype.with() 方法可以在数组上调用，返回一个新的数组副本，并且可以更新指定索引位置的值，而不改变原始数组。
+- 这个方法对于保持数组的不可变性很有用，可以避免直接修改原始数组，符合许多前端库和框架对于不可变性的要求。
+- 除了 .with() 方法之外，还有 Array.prototype.toReversed()、Array.prototype.toSorted() 和 Array.prototype.toSpliced() 这三个新的不可变方法，可以更方便地实现数组的不可变更新。
+
+### [The New CSS Math: pow(), sqrt(), and exponential friends](https://danielcwilson.com/posts/mathematicss-powers/)
+
+2024 年 2 月，CSS 新增了多个数学函数，包括 pow()、sqrt()、exp()、log() 和 hypot()，这些函数可以在 CSS 中进行数学计算并生成数值。其中 pow() 用于计算幂，sqrt() 用于计算平方根，exp() 用于计算 e 的幂，log() 用于计算对数，hypot() 用于计算直角三角形的斜边长度。这些函数可以在 CSS 中用于动画、字体大小等方面，也可以与自定义属性结合使用。
+
+- CSS 新增了许多数学函数，包括 pow()、sqrt()、exp()、log() 和 hypot() 等，用于处理数字值。
+- 这些函数在 CSS 中与 JavaScript 中的数学函数类似，但有一些细微差别，比如 pow() 只适用于纯数字，而 sqrt() 只能计算平方根。
+- 这些新的数学函数可以用于 CSS 动画、字体大小控制、自定义属性等，为网页设计师提供了更多的设计和动画效果选择。
+
+### [Syntax Highlighting with Shiki, React Server Components, and Next.js](https://www.luckymedia.dev/blog/syntax-highlighting-with-shiki-react-server-components-and-next-js)
+
+这篇文章介绍了如何使用 Shiki、React Server Components (RSC) 和 Next.js，在不增加额外 JavaScript 负担的情况下为读者提供语法高亮显示。它包括了安装 Shiki、创建 React Server Component、编写辅助函数、实现语法高亮以及添加支持双主题的必要 CSS 样式等步骤。通过这种集成，可以为用户提供无缝且视觉上吸引人的轻量级语法高亮显示体验。
+
+- 使用 Shiki、React Server Components 和 Next.js，我们可以在不增加额外 JavaScript 负担的情况下向读者提供语法高亮显示。
+- 通过创建 React Server Component 和编写辅助函数，我们能够利用 Shiki 进行语法高亮处理，同时支持自定义语言和双主题模式。
+- 通过添加相应的 CSS 样式，我们可以根据用户的主题偏好提供无缝的视觉体验，从而成功实现美观的代码块语法高亮显示。
+
 ## 工具
+
+### [magika](https://github.com/google/magika)
+
+利用深度学习技术来检测文件的内容类型。
+
+### [canvas-size](https://github.com/jhildenbiddle/canvas-size)
+
+确定 HTML 画布元素的最大面积、高度、宽度以及自定义尺寸。
+
+### [nsfwjs](https://github.com/infinitered/nsfwjs)
+
+在客户端对图片进行敏感检测
 
 ## 更新
 
+### [vue-devTools v6.6.0](https://github.com/vuejs/devtools/releases/tag/v6.6.0)
+
+这篇文章介绍了一次界面更新，包括前端完全迁移到了 Vue 3，Chrome 和 Edge 扩展迁移到了 Manifest V3。还列举了许多增强和修复功能，以及性能优化和重构。同时还包括了更新的文档和对贡献者的感谢。
+
+- 更新的 UI 设计和全面迁移前端至 Vue 3。
+- Chrome 和 Edge 扩展迁移到 Manifest V3，包括新的导航 UX 和暗黑模式主题。
+- 性能提升，修复了多个问题，并进行了重构和文档更新。
+
+### [Astro 4.4](https://astro.build/blog/astro-440/)
+
+Astro 4.4 发布了，增加了性能审核、改善了流媒体性能、远程图片尺寸自动推断功能等。此外，还包括了升级说明、性能审核列表、流媒体性能改进、远程图片尺寸自动推断功能的使用方法，以及 Bug 修复。
+
+- Astro 4.4 发布了，包括性能审计、改进的流媒体性能和自动推断远程图片尺寸等功能。
+- 性能审计可帮助发现和解决 Astro 网站的性能问题，同时新增的小型 UI 界面可快速查看问题列表并提供更多解决方案。
+- 通过 inferSize 属性，Astro 4.4 现在能够自动推断远程图片的尺寸，但在 SSR 时会有性能损耗，建议在必要时使用，并在可能的情况下手动指定宽度和高度属性。
+
 ## 设计
 
-## AI
+### [Guidelines for Brutalist Web Design](https://brutalist-web.design/)
+
+这篇文章介绍了什么是 Brutalist Web Design（布鲁塔利主义网络设计），它强调网站设计应该专注于内容、优先考虑访客体验，并遵循几项设计指南，包括内容在各种屏幕和设备上可读、只有超链接和按钮可响应点击、超链接要有下划线、按钮要有按钮样式、返回按钮功能正常、通过滚动查看内容、必要时进行装饰但不要无关内容、网站性能是一个特性。文章最后呼吁大家 embrace Brutalist Web Design，并提供了一些具体的设计建议。
+
+- 布鲁塔力主义网页设计强调网站内容的可读性和访客的优先考虑，而不是过度装饰和误导性内容。
+- 网站设计应该遵循 HTML 元素的语义含义，注重排版设计和小屏幕用户体验，同时尊重访客的时间和带宽。
+- 布鲁塔力主义网页设计的核心理念是专注于内容，尊重访客，拒绝过度装饰和欺骗性内容，使得网站更忠实于自身材质和目的。
+
+### [How I Solved My Font Rendering Problem](https://css-irl.info/how-i-solved-my-font-rendering-problem/)
+
+文章讲述了作者在重新设计网站后，发现在 iOS 的 Safari 浏览器上，标题字体呈现模糊的问题，并最终通过学习@font-face 规则和设置 font-weight 以及 font format 的方式解决了这个问题。
+
+- 在 iOS 的 Safari 浏览器上，网站标题字体出现了模糊的问题，经过一番研究和学习，作者最终找到了解决方法。
+- 作者通过@font-face 规则对字体进行了设置，包括字体族、来源 URL 和格式以及字体显示。
+- 对于变量字体，作者特别指出了需要设置字体重量范围和推荐的字体格式，最终实现了在不同浏览器上优美的字体显示效果。
 
 ## 其他
 
+<Tweet id="1756859029471797681" />
