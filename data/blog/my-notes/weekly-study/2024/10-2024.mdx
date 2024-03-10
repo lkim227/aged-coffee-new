@@ -1,0 +1,107 @@
+---
+title: 2024-第十周
+date: '2024-03-06'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [译：为什么需要 React 服务器组件](https://sorrycc.com/why-react-server-components/)
+
+这篇文章介绍了 React 渲染的演进历程，从客户端渲染和服务器端渲染到新的 React 服务器组件（RSC）架构。文章解释了客户端渲染（CSR）和服务器端渲染（SSR）的优缺点，引入了新的 React 服务器组件（RSC）架构，其中服务器组件在服务器上运行，负责数据获取和静态渲染，而客户端组件在客户端上运行，负责渲染应用程序的交互元素。该架构旨在结合服务器渲染和客户端渲染的优点，并解决传统 SSR 的性能缺陷。
+
+- React 服务器组件架构引入了双组件模型，将组件分为客户端组件和服务器组件，通过服务器组件实现数据获取和静态渲染，而客户端组件负责渲染应用程序的交互元素。
+- 通过服务器组件的设计选择，React 应用程序在包大小、访问服务器端资源、安全性、数据获取效率、缓存、初始页面加载速度、SEO 以及流式传输等方面获得了多重好处。
+- React 18 引入了 Suspense for SSR，通过服务器端 HTML 流式传输和客户端的选择性水合，解决了传统 SSR 的性能缺陷，使得页面可以更快地展示部分内容并优化用户交互体验。
+
+### [译：React Suspense 基础指南](https://sorrycc.com/a-fundamental-guide-to-react-suspense/)
+
+本文介绍了 React 18 中即将发布的重大特性——Suspense。它解释了 Suspense 的本质，为什么我们需要它以及它是如何解决数据获取问题的。文中还详细说明了 Suspense 带来的好处，包括尽早开始获取数据、更直观的加载状态、避免竞态条件和更加集成的错误处理。文章强调了 Suspense 将如何提升 React 开发的体验，特别是在并发渲染方面的应用。
+
+- Suspense 是一种机制，让 React 开发者可以向 React 表示组件正在等待数据准备就绪，从而让 React 知道它应该等待数据被获取，同时向用户显示回退内容，然后继续渲染应用程序的其余部分。
+- 传统的数据获取流程存在问题，包括 fetch-on-render 和 fetch-then-render 方法，它们可能导致组件之间的数据获取顺序阻塞或者需要等待所有数据请求完成后才能渲染内容。
+- Suspense 引入了 render-as-you-fetch 方法，允许组件在 React 到达时立即开始数据获取，不会阻塞渲染，避免了传统数据获取流程中的一些问题，并带来了更早开始获取数据、更直观的加载状态、避免竞态条件和更加集成的错误处理等好处。
+
+### [JavaScript Stream 终极指南](https://ssshooter.com/stream/)
+
+Stream API 让你能够处理数据流，并用 JavaScript 进行处理。可读流和可写流分别代表数据源和数据目的地。转换流能对数据进行实时转换。通过管道连接可读流和可写流。还有分流、背压、可读字节流等重要概念。可读流通过队列和控制器管理数据，可写流通过内部队列和排队策略管理数据。同时介绍了创建可读流、可写流、以及可读字节流的方法。
+
+- 流处理技术允许通过可读流和可写流以及转换流来处理网络获取或本地产生的数据流，实现实时处理和转换。
+- 可读流表示数据源，可写流表示数据目的地，转换流则可以实时将一种数据类型转换成另一种数据类型，形成流处理管道。
+- 可读字节流提供了更高效的处理字节形式的流数据的方式，可以使用 BYOB 读取器进行零拷贝读取，提高性能并降低资源消耗。
+
+
+### [Coroutines and web components](https://lorenzofox.dev/posts/component-as-infinite-loop/)
+
+这篇文章介绍了使用 JavaScript 中的生成器函数（generators）来建模 Web 组件的方法。它讨论了生成器函数的特性和用法，以及如何利用生成器函数的功能性和状态性来创建灵活而简单的 UI 组件抽象。文章中还介绍了如何将生成器函数转换为自定义元素类，以及如何将组件的生命周期映射到生成器函数的不同部分。最后，文章强调了生成器函数的并发更新限制，以及如何结合生成器函数的特性来构建可重复使用的 UI 组件。
+
+- 使用协程可以将 web 组件建模为函数，使得组件的行为和视图能够被简单地拆分并重用。
+- 协程的函数性质和状态维护特性可以帮助在闭包中保持组件的内部状态，并控制组件的渲染调度。
+- 通过协程的特性，在生成器函数中可以将组件的生命周期映射到特定位置，使得组件的行为和生命周期管理更加清晰和可控。
+
+### ["react-strict-dom", why it's so great?](https://szymonrybczak.dev/blog/react-strict-dom)
+
+这段文字介绍了 Meta 开源的新库 react-strict-dom，旨在改善和标准化在 Web 和 Native 上编写 React 组件的方式。文章回顾了构建共享组件的通用代码库的历史背景，并介绍了 react-strict-dom 如何改变了这种做法。它使用 Web API 来渲染组件，同时也引入了新的样式解决方案 stylex，使得可以使用相同的组件构建通用应用程序。这一新方法将使得可以在多个平台上交付具有原生体验的应用程序，而且能够加速功能发布并减少工程师的投入。
+
+- react-strict-dom 是 Meta 开源的新库，旨在改进和标准化在 Web 和 Native 平台上编写 React 组件的方式，为构建通用应用提供了新的可能性。
+- 相比于 React Native for Web 的方法，react-strict-dom 采用了相反的方式，利用 Web API 来渲染组件，并通过小型 polyfill 实现了对 React Native 和 react-dom 原语的转换。
+- react-strict-dom 的应用使得开发人员可以使用 Web 平台熟悉的 API 来构建通用应用，同时保持了对原生平台的支持，为跨平台开发提供了更便捷的解决方案。
+
+### [Password protecting routes in Next.js App Router](https://www.alexchantastic.com/password-protecting-next)
+
+这段文字讲述了作者在构建网站时为作品页面添加密码保护的过程。作者使用了 NextAuth.js 和 App Router 来实现简单的密码保护，并分享了配置 NextAuth、保护路由以及创建自定义登录页面的步骤。此外，作者还介绍了如何在中间件中使用验证会话来保护路由，并在最后讨论了如何安全地管理密码和 JWT 密钥。整体而言，这篇文章是作者通过实践学习认证技术的经历分享。
+
+- 通过 NextAuth.js 添加简单的密码保护，实现对敏感项目页面的访问限制。
+- 使用 App Router 和 NextAuth.js 配置认证方式，实现用户统一使用相同密码进行认证。
+- 通过服务器组件和客户端组件的方式保护页面，同时使用中间件拦截请求以实现路由保护。
+
+## 工具
+
+### [click-spark](https://github.com/hexagoncircle/click-spark)
+
+
+### [finder](https://github.com/antonmedv/finder)
+
+CSS 选择器生成器🗺
+
+### [react-barcode](https://github.com/kciter/react-barcode)
+
+一个用于在 React 中使用的`<Barcode/>`条形码组件。
+
+### [react-custom-scrollbars](https://github.com/malte-wessel/react-custom-scrollbars)
+
+React 滚动条组件
+
+### [next-cache-toolbar](https://github.com/KajSzy/next-cache-toolbar/)
+
+nextjs 缓存工具栏
+
+## 更新
+
+### [mermaid 10.9.0](https://github.com/mermaid-js/mermaid/releases/tag/v10.9.0)
+
+增加了 Katex 支持，提升了数学公式的展示效果
+
+### [Introducing AI SDK 3.0 with Generative UI support](https://vercel.com/blog/ai-sdk-3-generative-ui#a-new-user-experience-for-ai)
+
+这篇文章介绍了 Vercel AI SDK 3.0 的发布，其中包括了生成式 UI 技术的开源，以及使用 React Server Components (RSC) 来实现从语言模型生成的组件化界面。这个更新使得开发者能够更方便地将人工智能集成到应用程序中，构建更具交互性和响应性的用户界面。AI SDK 3.0 支持从语言模型中直接流式传输 UI 组件，无需依赖大量客户端 JavaScript 代码，为开发 AI 功能的应用程序提供了更多便利。
+
+- Vercel AI SDK 3.0 开源了生成式 UI 技术，使开发者能够将语言模型的响应转换为 React UI 组件，实现富有交互性的界面呈现。
+- 通过 React Server Components (RSC) 和 React Server Actions，开发者可以将实时数据与 LLMs 响应关联，从而构建更强大、更丰富的应用程序，提升用户体验。
+- Vercel AI SDK 3.0 采用了 React Server Components，可以直接从 LLMs 中流式传输 UI 组件，使应用程序更具交互性和响应性，同时无需牺牲性能。
+
+## AI
+
+### [Design2Code: How Far Are We From Automating Front-End Engineering](https://salt-nlp.github.io/Design2Code/)
+
+这篇论文介绍了最近生成式人工智能在多模态理解和代码生成方面取得的快速进展，并探讨了一种名为 Design2Code 的任务，即将视觉设计转换为代码实现。论文提供了人工评估和自动评估的结果，展示了 GPT-4V 在这一任务中的优越表现，并讨论了模型在不同维度上的性能比较。同时，论文还提供了具体的测试示例和引用信息。
+
+- 生成式人工智能在多模态理解和代码生成方面取得了巨大进展，为前端开发带来全新的范式，可以将视觉设计直接转换为代码实现。
+- 作者通过手动筛选了 484 个真实网页作为测试用例，并开发了一套自动评估指标，以评估当前多模态生成式语言模型在将视觉设计转换为代码实现时的表现。
+- GPT-4V 在视觉外观和内容方面的生成效果获得了人工评估者的认可，在 49% 的情况下甚至被认为能替代原始参考网页，而在 64% 的情况下被认为比原始参考网页更优秀。
