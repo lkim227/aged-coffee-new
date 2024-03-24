@@ -1,0 +1,110 @@
+---
+title: 2024-第十二周
+date: '2024-03-18'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [Seeding a Database with Prisma (TypeScript)](https://www.robinwieruch.de/prisma-seeding-database/)
+
+这篇文章介绍了在 TypeScript 应用程序中使用 Prisma 对数据库进行种子数据填充的方法。它包括了创建种子数据的模型、编写种子数据的 TypeScript 代码、配置 package.json 文件以及运行种子数据填充的步骤。
+
+- 使用 Prisma Client 和 TypeScript 编写 seed.ts 文件，通过 Prisma 客户端与数据库交互，实现数据库的初始化数据填充。
+- 通过 npm 安装 tsx 依赖，配置 package.json，并执行 npm run prisma-seed 命令，以在 TypeScript 应用中执行数据库的初始化数据填充。
+- 使用 npx prisma studio 命令查看数据库中的填充数据，验证成功完成了在 TypeScript 应用中使用 Prisma 完成数据库初始化数据填充的过程。
+
+### [译：require(esm) in Node.js](https://sorrycc.com/require-esm-in-node-js/)
+
+这篇文章讨论了在 Node.js 中加载同步 ES 模块的进展。作者探讨了导致此问题长期未解决的文化、技术和沟通障碍，并详细描述了他如何重新启动了同步 require(esm) 的实现，并提出了未来可能需要解决的问题。文章还指出了目前实验性支持的一些限制和未来的改进方向。
+
+- Node.js 中的同步 ES 模块的 require() 功能是一个长期期待的功能，可以通过实验性支持解决 ERR_REQUIRE_ESM 的烦恼，使得 CJS 和 ESM 的用户都能使用包。
+- 长期以来，人们误以为 ES 模块具有无条件的异步执行性，但实际上只有在包含顶级 await 时才是有条件的异步，因此支持不包含顶级 await 的 ESM 图在 require() 中加载是合理的。
+- ESM 加载器的复杂性和技术问题导致了对同步 require(esm) 功能的延迟，但最近的尝试表明可以通过专用例程支持同步 require(esm)，从而减轻了这一问题。
+
+### [A Beginner's Guide to Node.js Worker Threads](https://betterstack.com/community/guides/scaling-nodejs/nodejs-workers-explained/)
+
+这篇文章主要介绍了 Node.js 在处理 CPU 密集型任务方面的挑战，以及如何通过 worker threads 和 worker pool 来改善 CPU 密集型任务的执行效率。文章首先解释了 I/O-bound 和 CPU-bound 任务的区别，然后演示了如何使用 Node.js 计算 Fibonacci 序列，并讨论了 CPU-bound 任务对 Node.js 性能的影响。接着详细介绍了如何使用 worker threads 来在 Node.js 中执行 CPU-bound 任务，并最后探讨了使用 worker pool 来改善 CPU-bound 任务处理效率的方法。文章强调了 Node.js 对 I/O 密集型操作的优势，同时指出了其在处理 CPU-bound 任务方面的劣势，并提供了解决方案。
+
+- Node.js 在处理 CPU 密集型任务时性能较差，因为其架构针对 I/O 密集型活动进行了优化，导致经典的软件折衷情况。
+- Node.js 通过使用 worker 线程来改善执行 CPU 密集型任务的能力，避免阻塞主线程，提高应用程序的整体响应性。
+- 使用 worker 线程池可以有效管理 CPU 密集型任务的执行，避免创建和销毁大量 worker 线程，提高性能并避免资源消耗。
+
+### [Using localStorage in Modern Applications: A Comprehensive Guide](https://rxdb.info/articles/localstorage.html)
+
+这篇文章介绍了 web 应用中的客户端存储解决方案，重点介绍了 localStorage API。文章首先阐述了 localStorage API 的基本原理和用法，包括存储简单数据和复杂数据的方法。接着指出了 localStorage 的优势和局限性，以及在现代应用中的替代存储选项。文章还比较了 localStorage 与 IndexedDB、Cookies、WebSQL 等不同存储方式的适用场景和特点，并提出了相应的建议。最后，总结了在不同应用场景下如何选择合适的存储解决方案。
+
+- localStorage API 是一种在浏览器中存储小型数据的工具，可以通过简单的键 - 值对实现数据持久化，但存在一些限制和适用场景。
+- 尽管 localStorage 在处理小型键 - 值数据时速度较快且简单易用，但对于复杂查询、大型 JSON 文档和频繁读写操作等需求，应考虑使用 IndexedDB 或其他替代方案。
+- 对于不同的 JavaScript 运行环境，如 React Native、Node.js 和浏览器扩展，存在相应的替代方案或扩展 API，开发者需要根据具体情况选择合适的存储解决方案。
+
+## 工具
+
+### [react-content-loader](https://github.com/danilowoz/react-content-loader)
+
+⚪ 使用 SVG 技术创建骨架加载的组件。
+
+### [unplugin-parcel-macros](https://github.com/devongovett/unplugin-parcel-macros)
+
+在 build 的时候替换函数运行结果到打包产物
+
+### [vine](https://github.com/vinejs/vine)
+
+VineJS 是一个用于 Node.js 的表单数据验证库。
+
+### [css2wind](https://www.css2wind.com/)
+
+原子组件类练习网站
+
+### [sql-formatter](https://github.com/sql-formatter-org/sql-formatter)
+
+不同查询语言的空格格式化程序
+
+### [atrament](https://github.com/jakubfiala/atrament)
+
+一款用于在 HTML 画布上实现漂亮绘图和手写效果的小型 JavaScript 库。s
+
+## 更新
+
+### [Nuxt 3.11](https://nuxt.com/blog/v3-11)
+
+这篇文章介绍了 Nuxt v3.11.0 的最新功能和改进，包括在服务器端渲染时将日志传递到浏览器控制台、预览模式的使用、自定义中间件、数据清除工具、服务器和客户端页面的新功能、性能优化、公共资源处理的重新实现以及类型修复。
+
+- Nuxt v3.11.0 增加了服务器日志传递功能，使得在刷新页面时，与请求相关的日志能够在浏览器控制台中显示，方便调试。
+- 新增 usePreviewMode 组合式函数，简化 Nuxt 应用中预览模式的使用，当启用预览模式时，所有数据获取函数将重新运行，避免使用缓存数据。
+- 引入了服务器端和客户端端页面分离功能，通过在页面文件名中添加 .server.vue 或 .client.vue 后缀，可以自动决定页面的渲染方式，提升灵活性和性能。
+
+## 设计
+
+### [CSS Button Styles You Might Not Know](https://dbushell.com/2024/03/10/css-button-styles-you-might-not-know/)
+
+这篇文章主要介绍了在网页设计中对按钮进行美化和优化的一些 CSS 技巧，包括处理触摸操作、禁用文本选择、处理文件上传按钮样式、改进焦点状态样式等。同时作者还分享了一些关于按钮样式的个人偏好和经验，以及一些相关的技术细节和建议。
+
+- CSS 可以通过一些不太常见的样式来优化按钮的交互体验，比如通过 touch-action 和 user-select 属性来避免意外的缩放和文本选择。
+- 使用 ::file-selector-button 伪元素可以定制文件上传按钮的样式，使其在各种现代浏览器中都能生效。
+- 通过使用 inline-size 和 focus-visible 属性，可以改善按钮的逻辑尺寸和焦点状态，从而提升按钮的可访问性和用户体验。
+
+## AI
+
+## 其他
+
+有一种程序员，技术非常好，但创建的项目过于复杂，其他人很难完成。他们选择自己完成大部分工作，并将不太重要的任务交给其他人。当他们退出时，由于代码的复杂性和缺乏理解，团队陷入了巨大的困境。
+
+有些人认为，这种程序员是大牛，但我认为他们实际上是很糟糕的，因为他们的工作不易被其他人接手或维护。
+
+-- 《最糟糕的程序员》
+
+---
+
+痛苦能滋养勇气。如果只有美好的事情发生在你身上，你就不可能变得勇敢。
+
+-- 玛丽·泰勒·摩尔（Mary Tyler Moore），美国电影女演员
+
+
+
