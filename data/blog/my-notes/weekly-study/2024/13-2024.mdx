@@ -1,0 +1,119 @@
+---
+title: 2024-第十三周
+date: '2024-03-25'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [一次构建多处部署 - Next.js Runtime Env](https://innei.in/posts/tech/nextjs-runtime-env-and-build-once-deploy-many)
+
+这段文字主要介绍了在 Next.js 中如何通过 next-runtime-env 实现一次构建多处部署的方法。文章首先介绍了 Next.js 环境变量的两种类型，然后详细讲解了如何使用 next-runtime-env 库来实现一次构建多处部署，包括更换客户端环境变量的使用方式和深入了解 Runtime Env 的原理。接着介绍了如何构建一个无环境变量依赖的产物，以及通过 Dockerfile 构建无环境变量依赖的镜像，并使用 Docker 容器的路径映射来实现多环境部署。
+
+- Next.js 中的环境变量分为 Client 侧和 Server 侧，通过 next-runtime-env 库可以实现一次构建多处部署，避免因修改环境变量而需要重新构建。
+- 使用 next-runtime-env 库可以在 Client 侧通过 window['__ENV'] 获取环境变量，而在 Server 侧则通过 process.env 获取，从而实现一次构建多处部署的灵活性。
+- 通过在 Docker 中构建无环境变量依赖的镜像，并通过容器路径映射实现在不同环境中部署相同构建的项目，实现了一次构建多处部署的目标。
+
+### [All in Vite](https://blog.rxliuli.com/p/ccdf84366137442c95bacac5d9ecd81d/)
+
+这段文字主要介绍了关于 Vite 及其周边工具的使用体验和应用情况。作者分享了个人对 Vite 的喜爱之情，并介绍了一些基于 Vite 的常用工具。同时还提到了一些流行的前端框架也在向 Vite 转向，最后表达了对 Vite 发展的期待。
+
+- Vite 是一个前端工具链，提供极速响应和优秀的开发体验，已经被广泛应用于各种前端项目。
+- Vite 及其周边工具解决了前端开发中的诸多开发体验和性能问题，为开发者提供了更好的 DX（开发体验）。
+- 除了 Vite 本身，基于 Vite 的工具和框架如 vitest、vitepress、preact、solid 等也在不同领域得到广泛应用，并且 Vite 在不断发布更新以满足不同框架的需求。
+
+### [Optimizing Javascript for fun and for profit](https://romgrk.com/posts/optimizing-javascript#final-notes)
+
+这篇文章总结了 JavaScript 代码优化的常见技巧，包括避免字符串比较、避免不同形状的对象、避免数组/对象方法、避免间接性操作等。文章强调了性能优化需要基于基准测试，并提供了一些优化技巧的运行示例。另外，还介绍了避免缓存未命中、避免大型对象、使用 eval 进行特定模式优化、专门化以及数据结构的重要性。最后，强调了正确的性能分析工具和方法的重要性。文章以希望读者从中获得一些有用的技巧，并欢迎反馈和讨论。
+
+- 优化 JavaScript 代码的关键在于避免不必要的工作，如记忆化、惰性和增量计算。
+- 避免字符串比较，尤其是使用枚举和整数代替字符串，以提高性能。
+- 注意数据结构的选择，使用合适的数据结构能够对性能产生重大影响。
+
+### [What You Need to Know about Modern CSS (Spring 2024 Edition)](https://frontendmasters.com/blog/what-you-need-to-know-about-modern-css-spring-2024-edition/)
+
+这段文字总结了最新的 CSS 功能和特性，包括容器查询、容器单位、:has() 伪选择器、视图过渡、嵌套、滚动驱动动画、锚点定位、作用域 CSS、层叠层次、逻辑属性、P3 颜色空间、颜色混合、外边距修剪、文本换行和子网格等。同时，还提到了一些即将到来的 CSS 功能，如 CSS mixins & functions、相对颜色语法和 Interop 2024。
+
+- CSS 最新进展包括容器查询、样式容器查询、容器单位和其他新特性，这些特性为网页设计和布局提供了更灵活的选择。
+- 这些新特性有助于改善网页设计系统和组件化网站的样式控制，特别是容器查询可根据元素大小进行样式调整。
+- 未来还有更多新特性，如 CSS Mixins & Functions、相对颜色语法和其他互操作性改进，将进一步丰富 CSS 的功能和灵活性。
+
+### [Introducing “pages router”](https://waku.gg/blog/introducing-pages-router)
+
+Waku 引入了基于文件的“页面路由”系统，旨在支持最新的 React 特性，包括服务器组件和动作。它的简洁 API 旨在加快初创公司和代理机构开发小到中型 React 项目的工作效率，例如营销网站、轻量级电子商务和 Web 应用程序。通过简单地在./src/pages 目录中创建文件和文件夹，开发人员可以快速制作 Waku 网站，包括首页、关于页面、博客和全局布局。同时，还介绍了文件路由 API、布局、页面渲染选项以及下一步计划。
+
+- Waku 的新文件路由 API 简化了 React 项目的开发流程，支持静态预渲染和服务器端渲染，适用于小到中型的 React 项目。
+- 页面和布局可以通过创建文件来实现，通过默认的 React 组件和返回配置对象的 named getConfig 函数来指定渲染方法和其他选项。
+- 路由支持单一路由、段路由、嵌套段路由和通配符路由，同时提供了根布局和其他布局的创建方法，为开发者提供了灵活而高效的工具。
+
+### [Accessible Forms with Pseudo Classes](https://css-tricks.com/accessible-forms-with-pseudo-classes/)
+
+这段文字介绍了使用语义化 HTML 和 CSS 伪类:focus-within 创建简单的联系表单，并讨论了 Web 可访问性的重要性。文章重点介绍了:focus-within 伪类的用法，以及如何利用 CSS 来增强表单的可访问性，以确保网页对所有用户都更加友好和易用。
+
+- Web accessibility 包括物理世界和数字世界，需要考虑到色彩对比、辅助技术和语义标记等，以满足不同用户的需求。
+- CSS 伪类:focus-within 可以通过样式改变来强调用户与表单交互，提高可访问性和用户体验。
+- 通过使用:focus-within 伪类，可以让表单元素在获得焦点时进行样式变化，例如改变标签的粗细、颜色或大小，从而帮助视力较差的用户更好地使用网页。
+
+### [Add Superpowers to Your CSS Variables with Style Queries](https://thathtml.blog/2024/03/superpowered-container-style-queries/)
+
+这篇文章讨论了最新的 CSS 革命，介绍了样式查询的新特性，并说明了它们能够如何改变 CSS 编程的方式。文章还解释了样式查询的基本语法，以及如何利用它们来根据 CSS 变量设置不同的样式。作者认为样式查询将为前端开发带来许多新的可能性，但也指出火狐浏览器目前尚未开始支持这一功能。
+
+- CSS 革命：引入了样式查询，使得可以根据 CSS 变量设置不同的样式规则，实现更灵活的样式控制。
+- 变量应用：样式查询首先专注于 CSS 变量，可以根据主题和断点类型变量设置不同的样式，实现更灵活的主题切换和组件样式控制。
+- 跨浏览器支持：尽管 Firefox 尚未支持样式查询，但 Chromium 和 Safari 已经着手支持，未来可能会在渐进增强的方式下得到应用。
+
+
+## 工具
+
+### [react-only-when](https://github.com/uiwjs/react-only-when)
+
+一个用于条件渲染的声明性组件
+
+### [superjson](https://github.com/blitz-js/superjson)
+
+安全地将 JavaScript 表达式序列化为 JSON 的超集，其中包括日期、大整数等更多内容。
+
+### [relative-time-element](https://github.com/github/relative-time-element)
+对标准的 `<time>` 元素进行 Web 组件扩展。
+
+### [glaze](https://github.com/dnnsjsk/glaze)
+
+Web 上的实用动画框架
+
+### [use-hot-module-reload](https://github.com/rexxars/use-hot-module-reload)
+
+在热模块重载完成后触发回调的 React Hook（不仅限于使用它的模块）
+
+## 更新
+
+### [Announcing VitePress 1.0](https://blog.vuejs.org/posts/vitepress-1.0)
+
+VitePress 是一个静态网站生成器，使用 Markdown 写作内容并应用主题生成静态 HTML 页面，可用于文档、博客、作品集和营销站点。它基于 Vite 和 Vue，提供优秀的开发体验和性能，支持快速初次加载和后续页面间的快速导航。VitePress 1.0 版本得益于多位贡献者的辛勤工作，特别感谢设计者 Kia King Ishii 和维护者 Divyansh Singh。
+
+- VitePress 是一个静态网站生成器，使用 Markdown 写作源内容，应用主题并生成静态 HTML 页面，适用于技术文档、博客、作品集和营销网站等各种用途。
+- VitePress 以 Vite 和 Vue 为基础，提供了出色的开发者体验，支持即时编辑和反映、内置 Markdown 扩展和 Vue 增强的 Markdown 功能，以及优化的性能模型，实现快速加载和无需完整页面重载的后续导航。
+- VitePress 1.0 的发布离不开贡献者们的辛勤工作，特别是设计美丽的默认主题的 Kia King Ishii 和不知疲倦地主持维护和推动新功能的 Divyansh Singh。
+
+### [React Server Components now in RedwoodJS](https://redwoodjs.com/blog/rsc-now-in-redwoodjs)
+
+RedwoodJS Bighorn 是 Redwood v1.0 后的下一个时代，引入了 React Server Components (RSC) 和 Server-side Rendering (SSR)。该文介绍了使用 RSC 构建 Redwood 应用的变化，并指出了从 GraphQL 转换为 RSC 所需的步骤很少。同时，强调了 RSC 对提高开发人员生产力的重要性。文章还讨论了 Redwood 中 GraphQL 的未来，并提供了关于 RSC 工作原理和切换到 RSC 的示例。文章最后列举了 RSC 存在的一些问题和解决方案，并展望了 RSC 的未来发展方向和下一步计划。
+
+- RedwoodJS Bighorn 是下一个 Redwood 框架的重大更新，引入了 React Server Components (RSC) 和 Server-side Rendering (SSR) 技术，将极大改变 Redwood 应用的构建方式。
+- RSC 的出现是为了提高开发者的生产力，避免 GraphQL 带来的额外心智和逻辑负担，以及解决安全性和性能等方面的问题，因此成为 Redwood 框架的默认选项。
+- 在使用 RSC 时，需要将传统的 Cell 转换为 Server Cell，并且需要注意一些临时的工作需求，如手动添加路由条目、调整 URL 结构等。Redwood 团队也在继续完善 SSR 和 Server Actions，并计划更新生成器和文档以适应 RSC。
+
+## 其他
+
+### [现代打工人如何获得幸福？](https://sspai.com/post/86697)
+
+这段文字主要在探讨幸福的定义和实现方式。首先，它提出了幸福是一个以快乐、满足或满足感为特征的主观体验状态，受到个体内心的解读和理解的影响。其次，作者认为幸福是一个过程，强调了通过寻找能够赋予自身意义感和幸福感的工作来实现幸福，哪怕这种工作本身是艰苦的、具有挑战性的，甚至不会导致传统意义上的良好结果。作者还提到了在过程中体验快乐和满足的重要性，认为稳步上升和小步下滑的人生路径可能不会带来很强烈的不幸感。
+
+- 时间是限制我们获得任何东西的唯一障碍，因此将人生中的一切以时薪反算成时间作为价签是至关重要的。
+- 幸福是一种以快乐、满足或满足感为特征的主观体验状态，受客观因素影响但难以被客观衡量，因此个体的内心如何解读这个世界至关重要。
+- 幸福人生不应被定义为追求一个特定的幸福结果，而是追求一个幸福的过程，即在追求目标的过程中每一天都感到快乐和幸福。
