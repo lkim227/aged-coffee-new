@@ -1,7 +1,7 @@
 ---
 title: 工作日作息表
 date: '2024-01-01'
-tags: ['生活']
+tags: ['life']
 draft: true
 summary: ''
 ---
