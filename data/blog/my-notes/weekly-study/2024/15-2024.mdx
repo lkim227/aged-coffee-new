@@ -1,0 +1,168 @@
+---
+title: 2024-第十五周
+date: '2024-04-07'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [译：Async vs Defer 在 JavaScript 中：哪个更好](https://sorrycc.com/async-vs-defer-in-javascript-which-is-better/)
+
+这篇文章讨论了在 HTML 文档中包含外部 JavaScript 文件时使用的 async 和 defer 属性。它解释了这两种属性对浏览器加载和执行脚本的影响，并指出它们的区别和最佳使用场景。async 允许脚本在后台下载并在下载完成后立即执行，而 defer 则推迟脚本执行直到文档解析完成。文章强调了在脚本可以独立运行且不依赖于 DOM 结构时使用 async，在需要保持脚本执行顺序或依赖于 DOM 结构时使用 defer。
+
+- async 属性可以使脚本在下载完成后立即执行，不会阻塞 HTML 文档解析过程。
+- defer 属性可以延迟脚本的执行，直到 HTML 文档解析完成后再执行，适合需要保持脚本执行顺序或依赖于 DOM 结构的情况。
+- 无论是 async 还是 defer 属性，都可以让 HTML 解析过程在不等待脚本下载的情况下继续进行，但需要根据脚本的特性和依赖做出选择。
+
+
+### [⭐️⭐️⭐️译：基础的东西](https://sorrycc.com/basic-things/)
+
+这篇文章介绍了开源项目中的基本事项，包括 README、开发者文档、用户网站、内部网站、过程文档、风格指南、Git 使用、构建与持续集成、测试、基准测试、模糊测试和发布。作者提到了许多反模式和成功实践，强调了自动化检查的重要性，以及持续集成、版本控制和发布等方面的最佳实践。文章强调了简洁、清晰和可重复性的核心理念，并鼓励在项目的各个阶段都保持高度的自动化和开发准备就绪状态。
+
+- 项目管理中的基本要点包括清晰的文档结构、易于访问的用户网站以及内部网站，以及明确的代码审查流程。
+- 构建系统应当是自包含的、可复现的，并且承担下载所有外部依赖项的任务，使得项目能够快速、可靠地构建。
+- 测试应当是数据导向的，关注输入数据的指定/生成方式、断言输出数据的属性，以及快速运行许多单独检查的方式。
+
+
+### [译：用 React Testing Library 编写测试的最佳实践](https://sorrycc.com/improving-react-testing-library-tests/)
+
+这篇文章讨论了使用 React Testing Library 时常见的错误，并提供了一些改进测试的最佳实践和技巧。其中包括默认使用 *ByRole 查询、使用 userEvent 方法模拟用户互动、*ByRole 与 ByLabelText 查询的比较、使用 findBy 查询和 waitForElementToBeRemoved 进行异步测试等。通过遵循这些提示和技巧，我们可以编写更健壮、可靠且高质量的 React 测试。
+
+- 使用 *ByRole 查询来确保测试不仅提供了良好的覆盖范围，还提供了宝贵的可访问性改进。
+- 使用 userEvent 方法而非 fireEvent，以提供更可靠的测试体验，符合 React Testing Library 的理念，同时简化设置。
+- 使用 findBy* 查询和 waitForElementToBeRemoved 来编写更健壮和可靠的测试，尤其在处理异步操作时，能够提供更具可读性的测试。
+
+### [React Server Components in a Nutshell](https://thenewstack.io/react-server-components-in-a-nutshell/)
+
+这段文字主要讨论了 React Server Components（RSCs）和使用 Waku 框架进行组件级数据获取的方法。作者对 RSCs 进行了解释，并与其他框架（如 Next.js、Gatsby、Remix 和 Astro）进行了比较。他指出了 RSCs 的优势和使用场景，并与 Gatsby 的 useStaticQuery 进行了类比。最后，作者表达了对 RSCs 的喜好，并鼓励读者尝试使用 Waku 进行实验。
+
+- React Server Components (RSCs) 允许 React 开发人员在组件级别上访问异步服务器端请求和相应数据，而不是在路由级别上进行。
+- Waku 是一个精简的 React 框架，支持 React Server Components，旨在加速初创公司和代理机构构建中小型 React 项目的开发工作。
+- RSCs 提供了在组件级别进行数据获取的选项，尽管在某些情况下仍需思考何时使用组件级别数据获取，而何时使用路由级别数据获取。
+
+### [Building an Image Editor with DALL-E and Next.js](https://reflowhq.com/learn/image-editor-dall-e-next/)
+
+这篇文章是关于如何构建一个由 OpenAI 的 DALL-E 2 模型驱动的 AI 图像编辑器的详细指南。该编辑器允许用户通过编写提示来修改图像，并具有用户账户和与 Stripe 订阅支付集成的功能。文章提供了从项目设置到图像编辑和订阅功能的逐步指导，并提供了开源代码在 GitHub 上进行自由使用。
+
+- 本文介绍了如何使用 OpenAI 的 DALL-E 2 模型构建一个基于 AI 的图像编辑器，该编辑器允许用户通过编写提示来修改图片。
+- 文中详细介绍了构建图像编辑器的步骤，包括设置项目、创建图像编辑 UI、与 DALL-E 图像生成 API 通信以及处理用户帐户和订阅。
+- 在最后部分，文中还介绍了如何添加身份验证和订阅功能，并通过 Prisma 和 SQLite 设置了一个数据库来存储用户的编辑次数。
+
+## 工具
+
+### [morphic](https://github.com/miurla/morphic)
+
+一款拥有生成式用户界面的人工智能答案引擎
+
+### [use-gesture](https://github.com/pmndrs/use-gesture)
+
+React 和原生 JavaScript 中用于组件绑定的鼠标/触摸手势的基本实用工具。
+
+### [lux](https://github.com/iawia002/lux)
+
+👾 用 Go 语言编写的快速简单的视频下载库和命令行工具
+
+### [madge](https://github.com/pahen/madge)
+
+根据你的 CommonJS、AMD 或 ES6 模块依赖关系生成图形化展示
+
+### [PythonMonkey](https://github.com/Distributive-Network/PythonMonkey)
+
+将 Mozilla 的 SpiderMonkey JavaScript 引擎嵌入到 Python 虚拟机中，利用 Python 引擎提供 JS 主机环境。
+
+### [yet-another-react-lightbox](https://github.com/igordanchenko/yet-another-react-lightbox)
+
+现代化的 React 灯箱组件
+
+### [barbajs](https://github.com/barbajs/barba)
+
+打造令人惊叹、流畅自如的页面过渡效果，让您的网站在不同页面之间切换时更加平滑。
+
+## 更新
+
+### [jotai 2.8.0](https://github.com/pmndrs/jotai/releases/tag/v2.8.0)
+
+这个版本引入了新的特性 atomWithLazy，并弃用了 useReducerAtom 和 freezeAtomCreator。同时，还在 jotai/experimental 中引入了一个实验性的 store 实现。selectAtom 不再内部解析 promises，在迁移到新 api 时，需要使用 jotai/utils 包中的 unwrap 实用工具。此外，还有一些变更和新的贡献者。
+
+- Jotai 2.8.0 版本引入了新功能 atomWithLazy，并且弃用了 useReducerAtom 和 freezeAtomCreator。
+- selectAtom 不再内部解析 promises，需要使用 jotai/utils 包中的 unwrap 工具来迁移代码。
+- 该版本还引入了 jotai/experimental 中的实验性 store 实现，并对 selectAtom、useReducerAtom 和 freezeAtomCreator 进行了改动和弃用。
+
+### [Astro 4.6](https://astro.build/blog/astro-460/)
+
+Astro 4.6 发布了，带来了新的手动国际化路由策略、开发工具栏位置可移动的功能、实验性的 CSRF 保护支持、Cookie 改进以及废弃对旧版 Node.js 的支持。此外，还包括其他小改进和 bug 修复。
+
+- Astro 4.6 引入了手动国际化路由策略，使用户可以完全控制国际化网站的路由。
+- 新的开发者工具栏功能允许用户将工具栏移动到屏幕底部的不同位置，以解决页面顶部固定导航栏遮挡工具栏的问题。
+- 实验性支持 CSRF 保护的功能添加了对现代浏览器自动传递的“origin”头的检查，用于保护服务器端渲染页面。
+
+### [ESLint v9.0.0 released](https://eslint.org/blog/2024/04/eslint-v9.0.0-released/)
+
+这是关于从 ESLint v8.x 升级到 ESLint v9.0.0 的重要变化摘要。升级包括 Node.js < v18.18.0, v19 不再支持，引入了平面配置作为默认配置格式，移除了多个格式化程序，移除了两个规则，更新了 eslint:recommended 配置，增加了一个新的规则，以及对现有规则进行了更新。此外，还对如何编写规则、API、范围分析等方面进行了多项更改。
+
+- ESLint v9.0.0 的重大变化包括默认采用 Flat 配置格式、移除了多个格式化工具、以及引入了新的规则和 API。
+- 对于 Node.js 的支持要求升级至 v18.18.0 或更高版本，并且不再支持 v19.x 以及 v18.18.0 之前的版本。
+- 在规则编写方面进行了多项改进，包括更严格的 RuleTester 验证、更好的作用域分析、以及更准确的配置文件处理。
+
+## 设计
+
+### [Why UI designers should understand Flexbox and CSS Grid](https://uxdesign.cc/why-ui-designers-should-understand-flexbox-and-css-grid-e236a9dec37a)
+
+CSS 布局对 UI 设计师的影响
+大多数设计师熟悉响应式设计，这是一种基于列的布局方法，利用固定的断点来适应所有屏幕尺寸。然而，现代 CSS 布局可以让我们摆脱刚性结构，打造更灵活、动态的设计，能够无缝适应不同的屏幕尺寸。设计师和开发人员在讨论布局时存在不同的心智模型，特别是在使用网格时，这导致了协作中的许多误解。本文不是关于完美的交付（我仍然怀疑这样的事情是否应该存在），而是更多关于理解彼此的工具及其限制，找到共同的谈话和协作基础。  
+理解 CSS Flexbox 和 CSS Grid
+我们可以通过理解 CSS Flexbox 和 CSS Grid 来更好地处理现代 CSS 布局。Flexbox 可以整齐地堆叠元素并控制它们的对齐方式，同时精确调整它们的行为和大小以适应可用空间和变化的内容。另一方面，CSS Grid 则像是一个超级灵活的便当盒，可以在任何行或列中自由排列元素。它让我们能够创建网格区域，允许出现重叠效果和更复杂的布局结构。此外，我们还可以利用 CSS 中的 clamp() 函数来实现排版在指定范围内的流动调整，以确保其响应性。
+
+- 从响应式列布局转向现代 CSS 布局，设计师可以利用 Flexbox 和 CSS Grid 创造更灵活、动态的设计，适应不同的屏幕尺寸。
+- 理解 CSS Flexbox 和 CSS Grid 作为设计师的工具，可以帮助设计师更好地控制页面布局和元素排列。
+- 在现代 CSS 布局中，设计师可以更自由地平衡设计的创意自由度和结构化规则，同时需要理解 CSS 的潜力和限制，以促进与开发人员的合作和对话。
+
+### [Chrome 开发者工具 for Designer](https://fyze31atzb.feishu.cn/docx/Lfjwdp3JEoZm0dxK5hqcfR4lnOe)
+
+## AI
+
+### [suno-api](https://github.com/gcui-art/suno-api)
+
+通过使用 API，可以调用 suno.ai 的音乐生成人工智能，并且可以轻松地将其整合到像 GPT 这样的代理程序中。
+
+### [我为什么想要研究 AI 美学](https://justgoidea.com/posts/2024-013/)
+
+这段文字主要阐述了作者对于研究 AI 美学的动机和看法。作者认为 AI 美学源自人工智能技术，挑战传统艺术观念，并可能重塑美学观念。同时，作者也提到了 AI 技术在艺术领域的作用与局限，以及 AI 在美学创造和评价上的挑战。最后，作者呼吁在探索 AI 美学的过程中，保持开放与审慎的态度，以人为本，警惕可能带来的伦理和社会风险。
+
+- AI 美学挑战人们对艺术、创造力和审美的认知，促使人们重新思考什么是真正的创造性和原创性，以及人的感知与审美在认定艺术时所扮演的角色。
+- 技术的进步在 AI 美学中带来了新的不平等，可能削弱传统艺术家的权力和自由，引发了人们对技术发展带来的信息和权力不平等的担忧。
+- AI 在美学领域的发展为艺术创作开辟了新的可能性，扩展了艺术形式和表达方式，但同时也需要保持开放和审慎的态度，避免 AI 美学可能带来的伦理和社会风险。
+
+
+### [Introducing Rerank 3: A New Foundation Model for Efficient Enterprise Search & Retrieval](https://txt.cohere.com/rerank-3/)
+
+这篇文章介绍了最新的基于企业搜索和检索增强生成（RAG）系统的基础模型 Rerank 3。该模型具有 4k 上下文长度、多方面和半结构化数据搜索能力、100 多种语言的多语言覆盖、改进的延迟和更低的总体拥有成本等先进功能。文章还讨论了 Rerank 3 在企业搜索、代码检索和多语言检索方面的性能，并强调了其对 RAG 系统的性能和效率提升。此外，文章还介绍了使用 Rerank 3 进行 JSON 数据和表格数据检索的方法，以及如何开始使用该模型。
+
+- Cohere 最新推出的 Rerank 3 模型专为增强企业搜索和检索增强生成（RAG）系统而设计，可大幅提高搜索性能和降低成本，支持多种语言和多方面的数据搜索。
+- Rerank 3 在企业搜索中展现出卓越性能，能够处理多方面和半结构化数据，如邮件、JSON 文档、代码和表格，提供更精准的排名和检索结果。
+- Rerank 3 还支持对多语言数据进行搜索，并通过长上下文长度和更低的延迟，进一步提升了企业搜索系统的效率和性能。
+
+
+## 其他
+
+如何实现差异化？创作者不必过于担心差异化，因为差异化会自动发生。无论你做什么，都会不由自主地留下自己的印记。所以，不要再担心差异化了。
+
+---
+
+我唯一能建议的是，对任何声称有答案的人持怀疑态度。你可以选择随心所欲地生活。
+
+如果你不确定如何过你的生活，那就继续漂泊，不要内疚。
+
+–生命的意义是不可想象的（英文）
+
+---
+
+节省几次击键的工具被高估了，保持注意力专注的工具被低估了。
+
+-- 《小型自动化》
