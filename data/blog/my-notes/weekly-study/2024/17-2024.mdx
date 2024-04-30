@@ -1,0 +1,129 @@
+---
+title: 2024-第十七周
+date: '2024-04-23'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [Get your codebase ready for React 19](https://thoughtbot.com/blog/get-your-codebase-ready-for-react-19)
+
+React 自 2013 年首次发布以来取得了长足的发展，最新的 19 版本带来了许多重大变化。新版本中将会有一些 API 的变化，包括 Hooks 和 Context 的更新，以及 React 编译器的新功能。此外，还有 React 服务器操作、指令、资源加载 API 和 Activity 等新特性。这些变化对开发者来说意味着需要对现有代码进行调整，以适应 React 19 的更新。同时也提到了可能的不兼容性变化，需要开发者留意相关信息并做好准备。
+
+- React 19 将引入许多重大的 API 变化，包括替代 memoization 的 React 编译器、新的服务器操作和对组件树中任何位置的标题、meta 和链接标签的支持。
+- 开发者需要准备好应对 React 19 的变化，包括了解新的 API 和功能以及可能影响他们代码库的变化，例如使用 Canary 版本和 React 编译器。
+- React 19 还将引入 Activity 功能，这将解决组件显示和隐藏时的性能问题，同时保留其状态。同时，React 19 还可能会对 WebAssembly 组件产生一些破坏性的变化，开发者需要关注 React 核心团队的进一步信息。
+
+### [An Interactive Guide to CSS Container Queries](https://ishadeed.com/article/css-container-query-guide/)
+
+这段文字介绍了 CSS 容器查询的概念、语法、常见问题以及用例。它解释了如何使用容器查询来根据元素的容器大小实现动态样式变化，以及如何结合 CSS 变量和上下文来实现更灵活的样式定义。同时还介绍了 CSS 容器查询的相关资源和未来的趋势。
+
+- CSS container queries 解决了根据容器大小而不是视口大小来调整组件样式的问题，使得页面布局更加灵活和动态。
+- 通过定义容器类型和名称，可以使用`@container`规则来应用容器查询，实现对组件样式的动态控制。
+- 容器查询和样式查询为开发者提供了更加精细和动态的样式控制，可以根据具体容器的大小和上下文来调整组件的表现形式。
+
+### [Building an npm package compatible with ESM and CJS in 2024](https://snyk.io/blog/building-npm-package-compatible-with-esm-and-cjs-2024/)
+
+本文介绍了如何在 JavaScript 包中实现 ECMAScript 模块（ESM）和 CommonJS（CJS）的兼容性，并探讨了在 package.json 中使用 main 和 module 字段来区分入口点的最佳实践。此外，还讨论了 exports 字段的作用，以及在 TypeScript 项目中整合包清单导出和模块类型的方法。文章强调了避免在 npm 包的 package.json 中定义"Type: Module"，并提供了几个实际的示例。
+
+- JavaScript 包的发布需要同时兼容 ESM 和 CJS，避免在 package.json 中声明"type: module"，而是使用 main 和 module 字段来区分入口点，确保向上游 ESM 和 CJS 项目提供兼容性。
+- exports 字段在 package.json 中提供更精细的控制，可以指定 Node.js 运行时在 require('math-add') 和 import .. from 'math-add'时分别加载的入口文件。
+- TypeScript 项目可以结合 exports 字段和 module 类型，使用 tsup 进行编译和捆绑，并利用 Node.js 运行时的新功能监视文件更改，以实现 ESM 和 CJS 的兼容性和类型安全。
+
+
+### [关于视频你需要知道的基本概念：码率（Bitrate）、帧率（FPS）、分辨率和清晰度](https://www.taoweng.site/posts/%E5%85%B3%E4%BA%8E%E8%A7%86%E9%A2%91%E4%BD%A0%E9%9C%80%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%A0%81%E7%8E%87bitrate%E5%B8%A7%E7%8E%87fps%E5%88%86%E8%BE%A8%E7%8E%87%E5%92%8C%E6%B8%85%E6%99%B0%E5%BA%A6/)
+
+这段文字主要介绍了选择视频参数时需要考虑的封装格式、编码格式、码率、帧率和分辨率，以及这些参数对于用户体验和开发者关心的影响。同时强调了在不同场景下需要权衡各方面因素，以提升用户体验和降低成本。
+
+- 视频参数选择要考虑清晰度、流畅度和设备资源消耗，需要在用户体验和开发成本之间权衡。
+- 封装格式和编码格式是视频参数中重要的两个方面，封装格式影响数据存储和传输，编码格式则影响视频压缩和解压缩。
+- 视频分辨率、帧率和码率是影响视频清晰度和流畅度的重要参数，需要根据实际场景进行选择和优化。
+
+
+### [Ditch dotenv: Node.js Now Natively Supports .env File Loading](https://javascript.plainenglish.io/ditch-dotenv-node-js-now-natively-supports-env-file-loading-8b9b2d49b2d2)
+
+这篇文章介绍了 Node.js 中新的内置功能，使得管理环境变量变得更简单和更集成化。最新版本的 Node.js 引入了对.env 文件的原生支持，包括--env-file 标志、process.loadEnvFile() 方法和 util.parseEnv() 实用工具函数。此外，Node.js 还支持在.env 文件中使用多行数值。这些新特性使得项目设置更快速，并减少了对外部包（如 dotenv）的依赖。
+
+- Node.js 新版本引入了原生的 .env 文件处理功能，使得设置环境变量更加集成化和不再依赖第三方包如 dotenv。
+- Node.js 21.7.0 版本新增了 process.loadEnvFile() 方法，简化了环境变量的加载过程，无需通过命令行标志。
+- 引入了 util.parseEnv() 函数用于解析包含环境变量定义的字符串，并支持在 .env 文件中使用多行值，使得复杂配置的管理更加清晰和简单。
+
+### [译：React 19 Beta Upgrade Guide](https://sorrycc.com/react-19-upgrade-guide/)
+
+这篇文章是 React 团队发布的关于 React 19 升级指南的翻译版本。文章介绍了 React 19 中的一些重大更改，如安装新的 JSX 转换、移除废弃的 React API、弃用旧版 Context 和其他新的弃用警告。同时，还提到了对 TypeScript 的一些变更以及其他一些突破性变更和注意事项。文章还提到了一些突破性变更和其他值得注意的变更。
+
+- React 19 引入了重大更改，包括移除废弃的 API、改进错误处理方式和更新 Strict Mode 等，需注意对应的升级指南。
+- TypeScript 的变化包括移除废弃的类型、对 JSX 命名空间的更改以及对 useRef 和 useReducer 的改进，需要开发者注意并进行适当的迁移。
+- React 19 移除了一些废弃的 React DOM APIs，包括 ReactDOM.render、ReactDOM.hydrate 等，开发者需进行相应的迁移以适应新的变化。
+
+
+### [译：React 19 Beta](https://sorrycc.com/react-19/)
+
+React 19 引入了 Actions（异步函数处理）、新的 use 钩子、React Server 组件、ref 作为属性、样式表和预加载资源的支持等新功能。此外，对错误报告进行了改进，并且加强了对自定义元素的支持。需要注意的是，这是一个 beta 版本，开发者应该在库准备好 React 19 之前先升级到 18.3.0 并等待稳定版本的发布。
+
+- React 19 新增了 Actions 功能，使得处理异步数据变更、错误、表单提交和乐观更新更加简单和自动化。
+- 引入了新的 use hook，支持读取资源，包括 Promise 和 Context，以及有条件调用，提升了对上下文的灵活读取。
+- React 19 支持 Server 组件和 Server Action，允许在打包前渲染组件，以及在客户端组件中调用在服务器上执行的异步函数。
+
+### [How to Simplify Global State Management in React Using Jotai](https://thenewstack.io/how-to-simplify-global-state-management-in-react-using-jotai/)
+
+这篇文章介绍了如何在 React 应用程序中使用 Jotai 进行全局状态管理。Jotai 是一个基本灵活的 React 状态管理解决方案，可以用来处理全局状态、对象状态、服务器端状态和 LocalStorage 状态。文章详细介绍了 Jotai 的基本用法，并提供了示例和比较。
+
+- Jotai 是一个用于 React 应用的简单而直观的全局状态管理解决方案，可以通过定义原子 (atom) 来实现全局状态控制。
+- Jotai 的使用方式类似于 React 的 useContext，但提供了更简洁的 API，并能解决 React 中的额外渲染问题。
+- Jotai 不仅可以处理基本数据类型的全局状态，还可以处理对象、服务器端数据和本地存储数据，使全局状态管理变得更加灵活和便捷。
+
+### [译：用 Promise.try 改进错误处理以及同异步的互操作性](https://sorrycc.com/promise-try-to-improve-error-handling-and-sync-async-interoperability/)
+
+这篇文章介绍了即将到来的 Promise.try，它能统一处理同步和异步函数的错误，避免了在混合使用它们时出现的问题。作者解释了 Promise.try 的作用和解决的问题，并展示了使用它的示例。文章强调了 Promise.try 的便利性，同时指出了现有解决方案和该提案的发展前景。
+
+- Promise.try 提供了一种统一的方式来处理同步和异步函数，避免了在混合使用它们时出现的错误处理问题。
+- 通过 Promise.try，可以在不关心函数是同步还是异步的情况下混合使用它们，同时统一错误处理，提高了代码的可读性和可维护性。
+- Promise.try 是一个在 ECMAScript 提案阶段推进的原生解决方案，有望成为语言规范的一部分，解决了混合同步和异步函数时的繁琐问题。
+
+## 工具
+
+### [get-windows](https://github.com/sindresorhus/get-windows)
+
+获取有关当前活动窗口以及已打开窗口的元数据，包括标题、标识符、位置大小、所有者等信息。
+
+### [browser-or-node](https://github.com/flexdinesh/browser-or-node)
+
+请确认您的代码运行环境，即是在浏览器中还是在 Node.js 环境中。
+
+
+## 更新
+
+### [Astro 4.7](https://astro.build/blog/astro-470/)
+
+Astro 4.7 发布了，包括了对 API 的改进、项目升级方式的增加、以及对工具栏应用程序的改进。其中 API 改进包括对开发工具栏 API 的显著改进和更新检查器的添加，项目升级可以使用自动化工具或手动方式进行，工具栏应用程序方面有更多的辅助工具和新的构建起始项目。同时修复了一些 bug 和小的改进。
+
+- Astro 4.7 发布了 API 改进，包括更易于构建和维护工具栏应用程序的功能，以及更新检查器和允许在严格的 TypeScript 预设中使用.js 文件。
+- 新版本引入了 defineToolbarApp() 辅助工具，新的应用程序和服务器助手，以及构建工具栏应用程序的全新起始项目和逐步指南。
+- 开发者可以期待 Astro 现在在运行开发服务器时进行更新检查，并且可以通过禁用功能或设置环境变量来控制更新消息的显示频率。
+
+## AI
+
+### [reader](https://github.com/jina-ai/reader)
+
+通过在 URL 前面加上简单的前缀 [https://r.jina.ai/]，可以将任何网址转换为适合大语言模型使用的输入。
+
+## 其他
+
+社交媒体就是一个水族馆，网红和名人是那里的展品----水母、鲨鱼、章鱼、小丑鱼等等。普通访问者就是游客，对展品的形状和颜色惊叹不已。
+
+-- 《社交媒体是隐喻的水族馆》
+
+---
+
+敏捷开发有一个问题，就是它要求"新的冲刺在上一个冲刺结束后立即开始。"
+
+有了这个规则，程序员就陷入了永远冲刺的陷阱。
+
+-- 《永远冲刺》
