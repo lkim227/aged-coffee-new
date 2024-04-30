@@ -1,6 +1,6 @@
 {
   "name": "aged-coffee",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "private": true,
   "scripts": {
     "start": "next dev",
@@ -13,7 +13,8 @@
     "md2mdx": "sh ./scripts/migrate-md2mdx.sh"
   },
   "dependencies": {
-    "@next/bundle-analyzer": "14.1.4",
+    "@headlessui/react": "1.7.19",
+    "@next/bundle-analyzer": "14.2.1",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.12",
     "autoprefixer": "^10.4.13",
@@ -21,9 +22,10 @@
     "esbuild": "0.20.2",
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.2",
+    "hast-util-from-html-isomorphic": "^2.0.0",
     "image-size": "1.0.0",
     "mermaid": "^10.6.1",
-    "next": "14.1.4",
+    "next": "14.2.1",
     "next-contentlayer2": "0.4.4",
     "next-themes": "^0.3.0",
     "pliny": "0.2.0",
@@ -52,7 +54,7 @@
     "@typescript-eslint/parser": "^6.1.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.45.0",
-    "eslint-config-next": "14.1.0",
+    "eslint-config-next": "14.2.1",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^5.0.0",
     "husky": "^9.0.0",
