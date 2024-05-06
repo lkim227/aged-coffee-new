@@ -12,7 +12,35 @@ summary: ''
 
 ## 技术
 
+### [Detect JavaScript Support in CSS](https://ryanmulligan.dev/blog/detect-js-support-in-css/)
+
+这段文字介绍了 CSS 媒体查询特性中的 scripting 属性，该特性可以根据浏览器中 JavaScript 的可用性提供不同的 CSS 样式。文章展示了如何使用这一特性来优化用户体验，同时提到了一些使用该特性时需要注意的问题。
+
+- CSS scripting 媒体特性能根据浏览器是否支持 JavaScript 来提供不同的 CSS 规则，有助于解决页面加载时出现未样式化内容或布局变化的问题。
+- 通过 CSS scripting 媒体特性，可以根据用户的偏好设置和 JavaScript 支持情况，为用户提供更适合其体验的 CSS 规则，如在动画库未加载时提供静态版本。
+- 尽管 CSS scripting 媒体特性在现代浏览器中被广泛支持，但在使用浏览器扩展如 NoScript 或 uBlock Origin 禁用页面脚本时，仍存在一些问题，需要通过 JavaScript 处理。
+
+### [Using Vite To Rebuild Local Dependencies in an NPM Workspace](https://prosopo.io/articles/using-vite-to-rebuild-local-dependencies-in-an-npm-workspace/)
+
+这篇文章介绍了如何在使用 Vite 构建应用的过程中，通过创建 Vite 插件来实现在 NPM 工作区中重新构建本地依赖项的方法。文章讲述了解决问题的过程，并提供了代码示例和实际操作视频。
+
+- Vite 在 NPM workspace 中无法自动重新构建本地依赖包，需要通过自定义 Vite 插件来实现这一功能。
+- 通过创建一个 Vite 插件，可以在 buildStart 事件中将本地依赖包的文件添加到监视列表，并在 handleHotUpdate 事件中使用 esbuild 重新构建这些文件，从而解决了 Vite 无法自动重新构建本地依赖包的问题。
+- 这种自定义 Vite 插件对于在 monorepo 结构中具有相互依赖的多个包的开发流程非常有用，可以提高开发效率并改善工作流程。
+
+### [An alternative proposal for CSS masonry](https://developer.chrome.com/blog/masonry?hl=en)
+
+这篇文章讨论了 Chrome 团队对于在网页上实现砌砖式布局的看法。他们认为将砌砖式布局作为 CSS Grid 规范的一部分并不明智，提出了将砌砖式布局定义为独立的布局方法，并讨论了在性能和功能上将砌砖式布局与网格布局区分开的优势。文章还提出了 Chrome 团队的替代方案，以及对于未来规范的展望。
+
+- Chrome 团队认为将砌体布局作为 CSS Grid 规范的一部分实现会带来性能和功能上的问题，因此他们建议将砌体布局定义为独立的布局方法，而不是与网格布局捆绑在一起。
+- 他们担心砌体布局与网格布局在性能和功能上的差异会导致开发者困惑，并且可能会限制布局方法的灵活性和可靠性。
+- Chrome 团队提出了将砌体布局定义为独立规范的替代方案，并展示了一些示例代码，以解决性能和功能上的问题，并保持网格布局和砌体布局的清晰区分。
+
 ## 工具
+
+### [divz](https://github.com/lewhunt/divz)
+
+这是一个 React 组件，它可以让您在三维空间的 z 轴上通过滚动、滑动和缩放来浏览 HTML 内容。
 
 ### [unocss-ui](https://github.com/cherryful/unocss-ui)
 
@@ -31,7 +59,6 @@ summary: ''
 
 ## 设计
 
-## AI
+### [kickstartDS](https://www.kickstartds.com/docs/intro/)
 
-## 其他
-
+kickstartDS 是一个开源的设计系统起步工具和 UI 工具包，帮助您打造独一无二的设计系统。通过使用核心 Web 技术（HTML、CSS 和 JavaScript）和最佳实践，它可以让您和团队高效地构建符合品牌要求的网站和应用程序。
