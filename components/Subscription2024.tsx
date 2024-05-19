@@ -15,13 +15,21 @@ export const DOLLAR2RMB = 7.5
 
 export const toFixed2Number = (num: number) => parseFloat(num.toFixed(2))
 
+const daysUntilExpiry = (expiryDate: string) => {
+  const today = new Date()
+  const expiry = new Date(expiryDate)
+  const difference = expiry.getTime() - today.getTime()
+  const days = Math.ceil(difference / (1000 * 3600 * 24))
+  return days > 0 ? days : 0
+}
+
 export const Subscription2024 = () => {
   const [subscriptions, setSubscriptions] = useState<SubscriptionItem[]>(
     [
       {
         name: 'Raycast Pro',
         yearly: toFixed2Number(192 * DOLLAR2RMB),
-        expiry: '2024-05-19',
+        expiry: '2025-05-19',
         type: '效率',
         extra: '续订',
       },
@@ -90,6 +98,7 @@ export const Subscription2024 = () => {
             <th>名称</th>
             <th>套餐</th>
             <th>到期时间</th>
+            <th>剩余天数</th>
             <th>类型</th>
             <th>备注</th>
           </tr>
@@ -102,6 +111,7 @@ export const Subscription2024 = () => {
                 ￥{sub.yearly} / year (￥{sub.monthly} / month)
               </td>
               <td>{sub.expiry}</td>
+              <td>{daysUntilExpiry(sub.expiry)}</td>
               <td>{sub.type}</td>
               <td>{sub.extra}</td>
             </tr>
