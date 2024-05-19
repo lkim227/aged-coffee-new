@@ -1,0 +1,152 @@
+---
+title: 2024-第二十周
+date: '2024-05-13'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [Snappy UI Optimization with useDeferredValue](https://www.joshwcomeau.com/react/use-deferred-value/?from=newsletter)
+
+这篇文章介绍了 React 中的优化性能工具之一——useDeferredValue。作者通过解释实际问题、提供了解决方案，并详细展示了 useDeferredValue 的工作原理和实际应用。文章还涉及了使用 useDeferredValue 的技巧、注意事项以及在 React 19 中的新功能。通过实际案例展示了这个工具如何能够显著改善应用程序的性能体验。
+
+- 通过 useDeferredValue 钩子，可以将 UI 分为高优先级和低优先级部分，从而提高程序性能和用户体验。
+- 通过使用 React.memo() 包裹低优先级组件，可以确保在高优先级更新时避免不必要的低优先级组件重新渲染。
+- useDeferredValue 在 React 19 中获得了新的初始化数值功能，可以加速初始渲染，提升应用整体的响应速度。
+
+### [Hardest Problem in Computer Science: Centering Things](https://tonsky.me/blog/centering/)
+
+这段文字讨论了在网页设计和开发中，居中对齐文本、图标和元素的挑战和问题。它强调了字体、行高、图标、水平和垂直居中的复杂性，并提出了解决方案，呼吁开发者和设计师关注这些问题，以创造更美观、平衡的用户界面。
+
+- 我们作为一个文明社会，似乎忘记了如何正确地对齐元素，尤其是文字和图标等。
+- 在实际应用中，许多公司和开发者在文字和图标的对齐上存在问题，导致界面出现不美观的情况。
+- 解决这一问题需要从字体设计、网页开发和视觉平衡等多个方面入手，以确保文字和图标能够正确对齐，从而打造出优美的用户界面。
+
+### [The Times You Need A Custom @property Instead Of A CSS Variable](https://www.smashingmagazine.com/2024/05/times-need-custom-property-instead-css-variable/)
+
+这篇文章介绍了 CSS 自定义属性和变量的区别，以及如何使用自定义属性实现复杂、精致的动画效果。作者通过示例演示了如何使用@property 规则定义自定义属性，以及如何利用这些属性创建复杂的动画效果，同时强调了自定义属性与标准变量的区别和适用场景。文章还提供了进一步阅读和学习的资源。
+
+- CSS 变量和自定义属性虽然经常被混用，但它们是不同但相关的概念，自定义属性更适合于设计复杂、精致动画的自由度和灵活性。
+- 使用@property 规定自定义属性时，可以定义变量的语法、初始值和继承方式，从而实现例如渐变颜色的动画效果，使得 CSS 可以实现类似 JavaScript 的动画效果。
+- 自定义属性的定义和规范赋予了 CSS 新的动画能力，使得在设计复杂动画时能够更高效地更新多个数值，并且为代码精简、设计精美的动画效果提供了新的可能性。
+
+### [Build Your Own React.js in 400 Lines of Code](https://webdeveloper.beehiiv.com/p/build-react-400-lines-code)
+
+这段文字介绍了 React v19 beta 的发布及其新功能。文章详细解释了 React 的工作原理，并提供了大约 400 行代码的简化版本来支持异步更新和中断功能。同时，还介绍了 Fiber 架构和并发模式的作用，以及如何使用 requestIdleCallback 实现异步中断。文章还解释了使用 useState 触发更新的具体实现。
+
+- React v19 beta 发布，提供了许多用户友好的 API，但核心原则基本保持不变，同时支持异步更新和中断。
+- 通过实现大约 400 行代码的简化版 React，可以了解其基本工作原理，包括 JSX 的编译和 DOM 的渲染。
+- 引入了 Fiber 架构和并发模式，以解决渲染过程中无法中断的问题，同时介绍了 requestIdleCallback 和 useState 等实现细节。
+
+### [The carcinization of web frameworks](https://toddle.dev/blog/the-carcinization-of-web-frameworks)
+
+本文比喻描述了在 Web 开发领域中出现的“癌变现象”，即不同的 Web 框架似乎正在趋同，拥有相似的特性，并且越来越难以在概念上区分。作者指出，虽然每个项目都有不同的要求，需要采用新的解决方案和工具，但大部分的框架可能最终会采纳一套接近完美的特性。文章总结了当前各种 Web 框架普遍具备的特性，包括不变性、单向数据流、信号和服务器端渲染，并对未来可能的发展趋势进行了预测，如可恢复性和 Web 组件的普及应用。作者认为，框架已经趋同许多，但仍有创新的空间，而 Web 组件的普及可能会带来更多的改进和便利。文章最后展望了框架发展的未来，提出了一种可能的趋势：当框架趋同之后，最终可能会回归到纯粹的浏览器特性，成为“无框架”的时代。
+
+- Web 开发框架正在趋于同质化，多个框架开始拥有共同的特征，如不可变性、单向数据流和信号机制，以及服务器端渲染的支持。
+- 框架的发展已经趋于收敛，但仍有创新空间，未来可能会出现更多基于可恢复性和 Web 组件的改进。
+- 框架的同质化趋势也影响了浏览器功能的发展，未来可能会出现更多基于浏览器原生功能而非整个框架的开发方式。
+
+### [Execa 9: our biggest release](https://medium.com/@ehmicky/execa-9-release-d0d5daaa097f)
+
+Execa 是一个用于在脚本、应用程序或库中运行命令的工具，采用现代的 JavaScript 方法，旨在简化执行命令、安全性强、跨平台且易于调试。它支持迭代读取命令输出、映射/过滤输入和输出、流转换、管道操作等特性，提供了详细的错误信息和调试信号，同时支持模板字符串和全局选项设置。该工具还通过文档全面更新和用户指南的增加，旨在帮助用户更好地了解和利用其功能。
+
+- execa 是一个现代化的 JavaScript 命令执行工具，提供了简单、安全、跨平台和易于调试的执行命令的方式。
+- 它支持对命令的输出进行逐行迭代和处理，并且可以对输入和输出进行映射、过滤和流式处理。
+- Execa 还提供了管道操作、详细的错误信息和调试功能，以及支持模板字符串和全局选项绑定等特性，使得命令执行更加灵活和可控。
+
+## 工具
+
+### [eslint-plugin-regexp](https://github.com/ota-meshi/eslint-plugin-regexp)
+
+ESLint 插件，帮助您发现正则表达式错误和风格指南违规
+
+### [tsconfig](https://github.com/total-typescript/tsconfig)
+
+设置 tsconfig.json 最简单的方式
+
+### [better-sse](https://github.com/MatthewWid/better-sse)
+
+这是一个用于 Node.js 的服务器端发送事件（Server-Sent Events, SSE）的简单、无依赖、符合规范的实现，使用 TypeScript 编写。
+
+### [hot-hook](https://github.com/julien-R44/hot-hook)
+
+Hot Hook 是一个用于 Node.js 和 ESM（ECMAScript Modules）的简单且轻量级的热模块替换（HMR）库。它允许开发者在开发过程中，对文件进行编辑后页面自动更新，无需手动刷新，类似于 React 或 Vue.js 框架中的自动刷新功能。
+
+### [OverlayScrollbars](https://github.com/KingSora/OverlayScrollbars)
+
+一个 JavaScript 滚动条插件，可以隐藏原生滚动条，提供自定义样式的覆盖滚动条，并保持原生功能和体验。
+
+### [fuzzysort](https://github.com/farzher/fuzzysort)
+
+快速的类似 SublimeText 的 JavaScript 模糊搜索功能。
+
+### [znv](https://github.com/lostfictions/znv)
+
+使用 Zod 模式在 Node.js 中进行类型安全的环境解析和验证
+
+### [abort-utils](https://github.com/fregante/abort-utils)
+
+使用实用函数结合 `AbortSignal` 和 `AbortController` 与 Promises
+
+### [tailwindcss-signals](https://github.com/brandonmcconnell/tailwindcss-signals)
+
+Tailwind CSS 的 Signals 功能通过样式查询简化了基于祖先元素状态的样式设定。它采用声明性 API 来标记不同状态，避免了复杂的选择器，让代码更加清晰易读、易于维护。
+
+## 更新
+
+### [React Compiler](https://react.dev/learn/react-compiler)
+
+这篇文档介绍了新的实验性 React 编译器，并提供了成功尝试该编译器的方法。文档涵盖了编译器的安装、使用、故障排除和报告问题的方法。此外，还提到了编译器的工作原理、使用示例和与其他工具的集成方法。虽然编译器还处于实验阶段，但已经可以在一些项目中使用，且建议有兴趣的开发者试用并提供反馈。
+
+- React 编译器是一个实验性的编译工具，可以自动优化 React 应用程序，但仍处于实验阶段，需要早期反馈。
+- 编译器可以通过理解纯 JavaScript 语义和 React 规则，在不重写代码的情况下自动执行优化，如自动进行 memoization。
+- 为了成功采用编译器，建议在现有项目中先在小范围内试用，并逐步扩大覆盖范围；对于新项目，可以直接启用编译器。
+
+### [Merging Remix and React Router](https://remix.run/blog/merging-remix-and-react-router)
+
+这篇文章介绍了 React Router 和 Remix 之间的关系以及它们在未来的发展计划。它提到了 Remix 框架的特点，并宣布了 React Router v7 将融合 Remix 的优秀特性。同时，文章还强调了对 React 生态系统的责任，并分享了未来计划，包括推出更多的 React Router 功能以及 Remix 的发展方向。
+
+- React Router 和 Remix 合并，将使 React Router v7 拥有 Remix 的优秀特性，为 React 生态系统带来更多优秀的功能和体验。
+- Remix 团队将专注于完成 React Router v7 的发布和平滑的升级过程，同时计划在未来推出更强大和更加服务器端中心化的 Remix 版本。
+- 通过 React Router v7，Remix 团队希望让数百万的 React Router 项目能够轻松升级，并为开发者提供更简单、更可扩展的创建 React 应用的方式。
+
+### [ECMAScript proposal: Promise.withResolvers()](https://2ality.com/2024/05/proposal-promise-with-resolvers.html)
+
+这篇博文介绍了 ECMAScript 2024 中的新特性“Promise.withResolvers”，提供了一种直接创建 Promise 的新方法，并提供了具体示例和常见问题解答。文章讨论了“revealing constructor pattern”和 Promise.withResolvers() 的实现，以及如何应用于不同情况下的异步编程需求，最后指出了相关的进阶阅读材料。
+
+- ECMAScript 2024 提出了 Promise.withResolvers 方法，提供了一种新的直接创建 Promise 的方式，相比于传统的 new Promise(...)。
+- Promise.withResolvers 方法解决了传统构造函数模式的局限性，使得 settlement 函数 resolve 和 reject 可以在 Promise 构造函数回调外部被单独使用。
+- 该方法可以用于实现各种异步操作，例如将基于回调的函数转化为 Promise-based 函数，创建队列以及实现异步迭代等功能。
+
+### [The CSS stepped value math functions are now in Baseline 2024](https://web.dev/blog/css-stepped-value-functions)
+
+这段文字介绍了 CSS 中的 stepped value math 函数，包括 round`()`、mod`()` 和 rem`()` 的用法和功能。其中，round`()` 函数用于对数值进行四舍五入，可以指定取整的间隔和取整策略；rem`()` 和 mod`()` 函数类似于 JavaScript 的求余运算符，用于计算两个数相除后的余数。
+
+- CSS stepped value math functions 包括 round`()`、mod`()` 和 rem`()`，可以根据指定的步进值对数值进行转换和取余操作。
+- round`()` 函数可以按照指定的取整策略和取整间隔对数值进行四舍五入操作，其中取整间隔可以是 CSS 自定义属性。
+- rem`()` 和 mod`()` 函数类似于 JavaScript 中的取余操作，但它们对于正负数的处理方式不同，rem`()` 取决于被除数的符号，而 mod`()` 取决于除数的符号。
+
+## AI
+
+### [MindChat](https://github.com/X-D-Lab/MindChat)
+
+🐋MindChat（漫谈）——心理大模型：漫谈人生路，笑对风霜途
+
+## 其他
+
+### [查看 Jotai 原子和 TC39 信号之间的比较](https://x.com/dai_shi/status/1791412433485185418)
+
+![](https://cdn.jsdelivr.net/gh/klaaay/pbed1@master/uPic/FqCXmN.png)
+
+---
+
+不要将技术博客的写作视为打造“个人品牌”，它肯定对此有所帮助。但是，写作最重要的功能是，它是提升个人知识和批判性思维的一个工具。
+
+-- 《为别人而写，但主要是为自己而写》
+
