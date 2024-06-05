@@ -56,7 +56,7 @@ export const Subscription2024 = () => {
       { name: '多邻国', yearly: 588, expiry: '2024-12-04', type: '娱乐', extra: '续订' },
       { name: 'Apple Music', yearly: 110, expiry: '2025-01-03', type: '娱乐', extra: '续订' },
       { name: '阿里云盘', yearly: 168, expiry: '2025-03-12', type: '效率', extra: '续订' },
-      { name: '胃之书', yearly: 98, expiry: '2025-05-8', type: '效率', extra: '续订' },
+      { name: '胃之书', yearly: 98, expiry: '2025-05-08', type: '效率', extra: '续订' },
       { name: '芒果会员', yearly: 195, expiry: '2025-05-17', type: '效率' },
       { name: 'FoodCa', yearly: 28, expiry: '2024-08-01', type: '娱乐' },
       { name: '知乎盐选', yearly: 198, expiry: '2024-06-21', type: '娱乐' },
