@@ -108,7 +108,7 @@ export const Subscription2024 = () => {
             <tr key={index}>
               <td>{sub.name}</td>
               <td>
-                ￥{sub.yearly} / year (￥{sub.monthly} / month)
+                ￥{sub.yearly} / 年 (￥{sub.monthly} / 月)
               </td>
               <td>{sub.expiry}</td>
               <td>{daysUntilExpiry(sub.expiry)}</td>
@@ -119,9 +119,9 @@ export const Subscription2024 = () => {
         </tbody>
       </table>
       <div>
-        <p>效率总计：¥{totals.efficiencyTotal.toFixed(2)}/month</p>
-        <p>娱乐总计：¥{totals.entertainmentTotal.toFixed(2)}/month</p>
-        <p>总计：¥{totals.total.toFixed(2)}/month</p>
+        <p>效率总计：¥{totals.efficiencyTotal.toFixed(2)}/月</p>
+        <p>娱乐总计：¥{totals.entertainmentTotal.toFixed(2)}/月</p>
+        <p>总计：¥{totals.total.toFixed(2)}/月</p>
       </div>
     </div>
   )
