@@ -12,6 +12,22 @@ summary: ''
 
 ## 技术
 
+### [译：我今天尝试了 React Compiler，你猜怎么着…… 😉](https://sorrycc.com/i-tried-react-compiler/)
+
+这篇文章探讨了 React 编译器的实际应用效果。作者尝试了编译器在简单示例和实际应用中的表现，并指出对于简单情况和简单组件，编译器表现令人惊叹。然而，在复杂实际情况下，编译器只能修复少部分不必要的重新渲染。文章强调了即使使用编译器，开发人员仍然需要深入了解优化技术，如 memo、useMemo 和 useCallback，并对 React 算法有深入掌握。文章还提到了对编译器的理想化假设，以及使用组合技巧解决性能问题的必要性。
+
+- React 编译器在简单场景中表现良好，但在真实场景中只能解决少数不必要的重新渲染问题，需要进一步优化。
+- 在实际应用中，即使启用了 React 编译器，仍需要了解和使用 memo、useMemo 和 useCallback 等记忆化技术，以便对性能有影响的重渲染进行调试和修复。
+- 调查和修复 React 编译器的记忆化问题需要深入了解 React 算法和记忆技术，以进行创造性的思考和代码优化，因为编译器当前的状态下并不能完全取代手动的记忆化技术。
+
+### [译：HTML 脚本元素属性：async 与 defer 与 type=’module’](https://sorrycc.com/html-script-element-attributes-async-vs-defer-vs-typemodule/)
+
+这篇文章介绍了 HTML 中 script 元素的属性——async、defer 和 type="module"的用法和区别。它解释了经典脚本和模块脚本的加载机制，并指出了它们之间的异同。文章最后总结了这些属性之间的差异，并附有一张图表以便更直观地理解。
+
+- script 元素的属性 async、defer 和 type="module" 可以优化页面加载和脚本执行顺序，有助于减少页面空白时间。
+- 经典脚本的 async 属性会立即获取并执行脚本，可能阻塞 HTML 解析；defer 属性会延迟执行脚本，阻塞 DOMContentLoaded 事件。
+- 模块脚本使用 type="module"，可以实现只执行一次、跨域获取需要使用 CORS 协议，async 和 defer 属性的效果与经典脚本有所不同。
+
 ### [Remix for Next.js Developers](https://remixfornextdevs.com/)
 
 这段文字主要是比较了 Next.js 和 Remix 两个框架中的路由定义、动态路由、路由组、页面布局、数据获取和页面跳转等方面的差异和对应关系。同时还介绍了在 Remix 中处理错误、API 路由、页面加载过程中显示骨架屏等方面的操作方法。
@@ -39,6 +55,10 @@ summary: ''
 - 页面渲染所需的各种处理时间也会影响用户体验，如解析 CSS、HTML 和 JavaScript 的时间，以及用户对输入响应的感知时间。
 
 ## AI
+
+### [mi-gpt](https://github.com/idootop/mi-gpt)
+
+🏠 将小爱音箱接入 ChatGPT 和豆包，改造成你的专属语音助手。
 
 ## 其他
 
