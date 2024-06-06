@@ -18,7 +18,11 @@ const siteMetadata = {
   // facebook: 'https://facebook.com',
   // youtube: 'https://youtube.com',
   // linkedin: 'https://www.linkedin.com',
-  locale: 'zh-CN',
+  x: 'https://x.com/__middle__child',
+  // twitter: 'https://twitter.com/Twitter',
+  // threads: 'https://www.threads.net',
+  // instagram: 'https://www.instagram.com',
+  locale: 'en-US',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
