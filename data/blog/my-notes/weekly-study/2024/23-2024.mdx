@@ -12,6 +12,60 @@ summary: ''
 
 ## 技术
 
+### [React 19 - Part 1: The Backstory; My journey writing a framework from scratch!](https://www.cmrg.me/blog/rsc-part-1-the-backstory)  
+### [React 19 - Part 2: The Code; How it works under the hood!](https://www.cmrg.me/blog/rsc-part-2-the-code)
+
+这篇文章介绍了 React 19 的开发过程。涉及了构建步骤、页面、组件和资源的处理方式，以及运行时的处理逻辑。文章还讨论了 RSC 和 RSA 的处理，服务器状态管理等内容。最后，作者分享了对 React 和 Web 开发未来的期待，并提到了一个 React 19 引用的可视化工具。
+
+- 构建步骤：文章介绍了项目的构建步骤，包括使用 Bun 作为打包工具，对页面、组件和资源进行分类处理，以及通过自定义插件 rsc-register 处理页面引用的文件。
+- 运行时工作方式：文章详细描述了 RSC 和 RSA 的处理方式，以及 RSC 服务器和 SSR 服务器的作用，展示了如何处理服务器状态和管理 RSC 流。
+- 完整的堆栈：文章最终展示了如何在一个项目中实现服务器端渲染、客户端渲染、服务器动作和静态页面，以及通过导出 HTML 文件来实现静态页面服务的解决方案。
+
+### [CSS Length Units](https://css-tricks.com/css-length-units/)
+
+绝对单位：cm（厘米）、mm（毫米）、in（英寸）、pc（皮卡）、pt（点）、px（像素）。  
+字体单位：em（元素或其父容器的字体大小）、ex（元素字体的 x-height）、cap（大写字母高度）、ch（字体中 0 字符的宽度）、ic（使用 U+6C34 字形的平均宽度）、rem（根元素上的 font-size 值）、lh/rlh（元素/根元素上的 line-height 值）。  
+视口单位：vw（视口宽度的 1%）、vh（视口高度的 1%）、vi/vb（视口在根元素的 inline/block 轴上的大小的 1%）、vmin/vmax（视口宽度或高度的 1%，取较小或较大值）。  
+容器单位：cqw/cqh/cqi/cqb（查询容器的宽度/高度/inline size/block size 的 1%）、cqmin/cqmax（cqi 或 cqb 的较小或较大值）。  
+角度单位：deg（度）、grad（格）、rad（弧度）、turn（圈）。  
+时间单位：s（秒）、ms（毫秒）。  
+分数单位：fr（网格容器中空闲空间的一部分）。  
+分辨率单位：dpi（每英寸点数）、dpcm（每厘米点数）、dppx/x（每像素点数）、Hz/kHz（每秒发生次数）。  
+
+整数：无单位的数字（例如 3）。  
+数字：十进制数（例如 3.2）。  
+维度：带单位的数字或整数（例如 3.2rem）。  
+比例：两个数的商（例如 3/2）。  
+百分比：例如 3%。  
+
+
+
+### [译：React 服务器组件 (RSCs) 的深入分析](https://sorrycc.com/forensics-react-server-components/)
+
+这篇文章介绍了 React 服务器组件（RSC），解释了传统 CSR 和 SSR 的优缺点，以及新的 SSG、ISR、RSC 的工作原理和影响。它详细探讨了 RSC 的渲染生命周期、流式传输和页面加载时间线。文章深入解释了 RSC 的内部工作原理，包括服务器组件和客户端组件的区别、RSC 负载的含义以及挂起的组件和组件懒加载。整体来说，文章深入探讨了 RSC 是如何工作的，并解释了在浏览器中访问 RSC 页面时的发生情况。
+
+- React 服务器组件（RSC）结合了客户端渲染和服务器端渲染的优势，允许开发者选择合适的渲染策略，减少发送给客户端的 JavaScript 量，并提供更多控制和灵活性。
+- RSC 在服务器上执行，生成静态 HTML 输出，可以将大型依赖项保留在服务器端，利用服务器的计算能力加速计算密集型渲染任务，并在后续请求之间缓存和重用渲染结果。
+- 流式传输允许服务器逐步渲染 UI，包括挂起的组件，同时 Next.js 触发挂起的异步组件，并将它们格式化为 HTML 并包含在流式传输到浏览器的 RSC 负载中，实现逐步页面加载。
+
+### [Full Stack Web Push API Guide](https://www.bocoup.com/blog/full-stack-web-push-api-guide)
+
+这篇文章介绍了如何在 web 应用中实现推送通知功能。通过使用 service workers、web-push npm 包和后端订阅管理，作者展示了如何在 remix.run 应用中实现推送通知。文章还涵盖了订阅管理、推送服务器和后端逻辑等方面的详细步骤，同时提到了隐私和加密问题。文章还包括了一些关于服务工作进程和通知订阅的实用函数。
+
+- 推送通知是一种在网页上实现的重要功能，需要使用服务工作线程、web-push npm 包和后端订阅管理等技术来实现。
+- 实现推送功能时，需要注意订阅管理的重要性，包括订阅和取消订阅功能的实现，以及避免无效订阅。
+- 在实现推送功能时，需要考虑隐私和加密问题，以及如何管理订阅和推送的全栈架构。
+
+### [How to Make a CSS Timer](https://frontendmasters.com/blog/how-to-make-a-css-timer/)
+
+这段文字介绍了如何使用 CSS 技术来实现网页上的倒计时效果，包括使用 CSS 计数器、@property、伪元素、@keyframes 等技术来创建定时器，并展示了实现效果的代码和效果展示。文字还提到了在 JavaScript 不可用时，使用 CSS 来实现定时器的可能性，以及对 CSS 自定义属性在 JavaScript 中的应用和支持情况。
+
+- CSS 计时器可以使用 CSS 技术实现，包括@property、伪元素和@keyframes，实现从 5 到 0 的倒计时效果。
+- 通过使用自定义属性（custom property）和计数器（counter），可以将倒计时的数字动态显示在页面上。
+- CSS 自定义属性（custom properties）也可以在 JavaScript 中进行更新，从而实现与 JavaScript 的互动，增强交互性。
+
+
+
 ### [译：我今天尝试了 React Compiler，你猜怎么着…… 😉](https://sorrycc.com/i-tried-react-compiler/)
 
 这篇文章探讨了 React 编译器的实际应用效果。作者尝试了编译器在简单示例和实际应用中的表现，并指出对于简单情况和简单组件，编译器表现令人惊叹。然而，在复杂实际情况下，编译器只能修复少部分不必要的重新渲染。文章强调了即使使用编译器，开发人员仍然需要深入了解优化技术，如 memo、useMemo 和 useCallback，并对 React 算法有深入掌握。文章还提到了对编译器的理想化假设，以及使用组合技巧解决性能问题的必要性。
@@ -42,7 +96,9 @@ summary: ''
 
  基于 ScreenCapture Kit 的轻量化多功能 macOS 录屏工具
 
-## 更新
+ ### [vite-plugin-pages](https://github.com/hannoeru/vite-plugin-pages)
+
+ 基于文件系统的路由生成器，适用于⚡️Vite
 
 ## 设计
 
@@ -60,9 +116,22 @@ summary: ''
 
 🏠 将小爱音箱接入 ChatGPT 和豆包，改造成你的专属语音助手。
 
+### [Stable Diffusion 图片生成原理简述](https://blog.cnbang.net/tech/3766/)
+
+这段文字主要介绍了图片生成中的扩散模型原理和相关概念。其中包括了使用 UNet 模型从噪声图生成清晰图的步骤，训练过程中的时间步控制以及控制生成过程使其与文本描述匹配的方法。此外，还涉及了隐空间、VAE 模型、CLIP 模型以及采样器等相关概念。最后，详细介绍了 Stable Diffusion 模型的原理及在图像生成领域的应用。
+
+- 扩散模型是通过逐步去除噪点来生成与输入文本描述匹配的图片，利用 UNet 模型对随机噪点图片进行训练和去噪。
+使 - 用 VAE（变分自编码器）实现对图片的降维压缩，将图片数据转换到低维的隐空间，从而降低计算成本并保留足够的信息。
+
 ## 其他
 
 ### [《城市租房生存指南》省钱、安心、避坑](https://zufang.ababtools.com/)
 
 租房小白修炼手册，掌握租房硬核知识，找到理想住所！
 
+
+---
+
+不要欺骗自己说，公司会照顾每个人。公司的性质决定了，它必须确保缺少任何特定个人的情况下，还能正常运作。对于那些想从公司的工作中获取自我认同的人来说，结局可能是很残酷的。
+
+-- 《我的职业生涯即将结束，我学到了什么》
