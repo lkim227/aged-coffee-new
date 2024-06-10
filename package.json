@@ -10,7 +10,8 @@
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts",
     "prepare": "husky",
-    "md2mdx": "sh ./scripts/migrate-md2mdx.sh"
+    "md2mdx": "sh ./scripts/migrate-md2mdx.sh",
+    "mdxwithmd": "sh ./scripts/mdxwithmd.sh"
   },
   "dependencies": {
     "@headlessui/react": "1.7.19",
