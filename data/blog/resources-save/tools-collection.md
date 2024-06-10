@@ -1,0 +1,262 @@
+---
+title: tools-collection
+date: '2022-08-21'
+tags: ['resources-save']
+draft: false
+summary: ''
+---
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## Mac 常用软件
+
+### 通用
+
+- ⭐网易邮箱大师
+- ⭐微信
+- ⭐谷歌浏览器
+- ⭐网易云音乐
+- ⭐QQ 音乐
+- ⭐VSCODE
+- ⭐[bitcomet - torrent 下载](https://www.bitcomet.com/en)
+- ⭐阿里云盘
+- uTorrent
+- Eagle
+
+### 效率
+
+- ⭐Notion - 内容管理
+- ⭐[Markwhen - 任务进度管理](https://markwhen.com/)
+- ⭐[Linear - 任务进度管理](https://linear.app/)
+- ⭐[Raycast - 启动器](https://www.raycast.com/)
+- ⭐[Appcleaner - 软件卸载](https://freemacsoft.net/appcleaner/)
+- ⭐[Flomo - 笔记](https://flomoapp.com/)
+- ⭐[Markwhen - 进度管理](https://app.markwhen.com/)
+- Paste - 粘贴板工具
+- Alfred 4 - 搜索增强
+- [Fluent Reader - RSS 阅读](https://github.com/yang991178/fluent-reader)
+- Ego Reader - RSS 阅读
+- [Eagle - 图片管理](https://eagle.cool/)  
+
+### 工具
+
+- ⭐Beyond-Compare - 文件对比
+- ⭐eZip - 压缩工具
+- ⭐zsh - 命令行
+- ⭐[wrap - 命令行扩展](https://www.warp.dev/)
+- ⭐Shottr - 截屏工具
+- ⭐Jump-Desktop - 远程连接
+- ⭐[OpenInTerminal - terminal 工具](https://github.com/Ji4n1ng/OpenInTerminal)
+- ⭐[Input Source pro - 输入法切换](https://inputsource.pro/zh-CN?utm_source=appinn.com)
+- ⭐[TinyPNG4Mac - 图片压缩](https://github.com/kyleduo/TinyPNG4Mac)
+- ⭐[uPic - 图床](https://github.com/gee1k/uPic)
+- ⭐[ShadoShadowsocksX-NG-R8 - 翻墙](https://github.com/shadowsocks/ShadowsocksX-NG)
+- ⭐[clashx-pro - 翻墙](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public)
+- ⭐[Bartender - Mac 菜单栏管理](https://www.macbartender.com/)
+- ⭐[Hidden Bar](https://github.com/dwarvesf/hidden)
+- ⭐[Downie 4 - 视频下载](https://software.charliemonroe.net/downie/)
+- ⭐[stats - 系统监控](https://github.com/exelban/stats)
+- ⭐[proxyman - App 抓包调试](https://proxyman.io/)
+- ⭐[command-x](https://apps.apple.com/us/app/command-x/id6448461551?mt=12)
+- ⭐[PushDeer-信息推送](PushDeerhttps://github.com/easychen/pushdeer)
+- ⭐[rime-auto-deploy-输入法](https://github.com/Mark24Code/rime-auto-deploy)
+- ⭐[termius-remote ssh](https://www.termius.com/free-ssh-client-for-mac-os)
+- ⭐[openai-translator](https://github.com/openai-translator/openai-translator)
+- ⭐[PopClip](https://www.popclip.app/)
+- [Mac-CLI](https://github.com/guarinogabriel/Mac-CLI)
+- Magnet - 分屏工具
+- [GifCapture](https://github.com/onmyway133/GifCapture)- Gif 图片制作
+- [BBackupp](https://github.com/Lakr233/BBackupp)- IOS 备份工具具
+- [SwitchKey - 输入法自动切换](https://github.com/itsuhane/SwitchKey)
+- [KeepingYouAwake - 电脑休眠](https://github.com/newmarcel/KeepingYouAwake)
+- [Dropover - 文件拖拽中转](https://apps.apple.com/cn/app/dropover/id1355679052?mt=12)
+- [Omi 录屏专家](https://apps.apple.com/cn/app/+%BD%95%E5%B1%8F%E4%B8%93%E5%AE%B6omi-%E5%B1%8F%E5%B9%95%E5%BD%95%E5%88%B6%E5%B7%A5%E5%85%B7/id1592987853?mt=12)
+- [Cursor-pro - 光标优化](https://apps.apple.com/us/app/cursor-pro/id1447043133?mt=12)
+
+### AI
+
+- ⭐[Cody](https://about.sourcegraph.com/cody)
+- ⭐[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web)
+- ⭐[Chat2db](https://chat2db.ai/)  
+- ⭐[LM Studio](https://lmstudio.ai/)
+- ⭐[notesollama - 苹果 Note 增强](https://github.com/andersrex/notesollama)
+
+### 开发
+
+- ⭐[Orbstack](https://orbstack.dev/)
+- ⭐[sequel-ace](https://sequel-ace.com/)
+- ⭐[VirtualBuddy](https://github.com/insidegui/VirtualBuddy)
+- ⭐[Apifox](https://apifox.com/)
+- ⭐[Coteditor](https://coteditor.com/)  
+- ⭐[Applite - homebrew UI 管理](https://github.com/milanvarady/Applite)  
+- [Fig 自动补全](https://fig.io/)
+- [virtualbox](https://www.virtualbox.org/)
+- Docker
+
+### 娱乐
+
+- ⭐IINA - 视频播放器
+- ⭐[弹弹 play](https://www.dandanplay.com/index.html) - 弹幕播放器
+- ⭐[parallels-Desktop - Win 虚拟机](https://www.parallels.com/)
+
+## 命令行工具
+
+### 开发常用
+
+- [ni](https://github.com/antfu/ni)  
+- [git-open](https://github.com/paulirish/git-open)
+
+### 常见替代
+
+- [procs](https://github.com/dalance/procs)  
+   查看系统运行的进程
+
+```shell
+procs vscode
+```
+
+- [bat](https://github.com/sharkdp/bat)  
+   cat 的高亮替代版本用于查看文件
+
+```shell
+bat README.md
+```
+
+- [fd](https://github.com/sharkdp/fd)  
+   find 的替代版本用于查找文件
+
+```shell
+fd passwd /etc
+/etc/default/passwd
+/etc/pam.d/passwd
+/etc/passwd
+```
+
+- [exa](https://github.com/ogham/exa)  
+   ls 的替代版本查看文件夹文件信息
+
+```shell
+exa -l
+exa --tree --level=2
+```
+
+### 功能
+
+- [rg](https://github.com/BurntSushi/ripgrep)  
+   正则查找文件夹或者文件中的内容
+
+```shell
+rg 'fast\w*' README.md
+```
+
+- [ctop](https://github.com/bcicen/ctop)  
+   运行程序资源分布查看
+
+- [mac-cleanup](https://github.com/mac-cleanup/mac-cleanup-sh)
+  Mac OS Cleanup
+
+- [upscayl](https://www.upscayl.org/)  
+  AI 提升图片画质
+
+## VSCODE 插件
+
+### 视觉
+
+- [Peacock](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock)  
+   给 vscode 上色
+- [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer)
+- [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
+- [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl)
+- [One Dark Pro](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme)
+- [styled-jsx](https://marketplace.visualstudio.com/items?itemName=blanu.vscode-styled-jsx)
+
+### 效率
+
+- [Auto Close Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag)
+- [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag)
+- [ES7 React/Redux/GraphQL/React-Native snippets](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)
+- [VS Code JavaScript ES6 snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets)
+- [Less IntelliSense](https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-less)
+- [IntelliSense for CSS class names in HTML](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion)
+- [Turbo Console Log](https://marketplace.visualstudio.com/items?itemName=ChakrounAnas.turbo-console-log)
+- [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
+
+### 风格
+
+- [Codelf](https://marketplace.visualstudio.com/items?itemName=unbug.codelf)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [Document This](https://marketplace.visualstudio.com/items?itemName=oouo-diogo-perdigao.docthis)
+- [koroFileHeader](https://marketplace.visualstudio.com/items?itemName=OBKoro1.korofileheader)
+- [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager)  
+   git 项目的归类管理
+
+### 提示
+
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [VersionLens](https://marketplace.visualstudio.com/items?itemName=pflannery.vscode-versionlens)
+
+### 功能
+
+- [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+- [Import Cost VSCode Extension](https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost)
+- [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+- [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+- [MDX](https://marketplace.visualstudio.com/items?itemName=silvenon.mdx)
+- [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+- [TODO+](https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-todo-plus)
+- [TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight)
+- [i18n Ally](https://marketplace.visualstudio.com/items?itemName=Lokalise.i18n-ally)
+
+### AI
+
+- [codeium](https://codeium.com/)
+- [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
+
+## 快捷键
+
+### control + option + command
+
+用 openInTerminal 在当前目录打开 terminal  
+`control + option + command + t`
+
+用 openInTerminal 在当前目录打开 vscode  
+`control + option + command + v`
+
+用 openInTerminal 复制当前的文件地址  
+`control + option + command + c`
+
+### control + option
+
+用 DropOver 打开一个空的文件暂存区域  
+`alt + option + blank-space`
+
+控制 Hidden Bar 的显示与否  
+`alt + option + h`
+
+### command + shift
+
+打开剪贴板管理工具 Paste  
+`command + shift + v`
+
+使用 uPic 选择文件上传  
+`command + shift + y`
+
+使用 uPic 上传剪贴板的图片内容
+`command + shift + u`
+
+使用 uPic 选择裁剪区域并上传  
+`command + shift + i`
+
+### command
+
+使用 input source pro 切换输入法搜狗中文  
+`command + ]`
+
+使用 input source pro 切换输入法英文  
+`command + [`
+
+### alt
+
+打开 Alfred 全局搜索框  
+`alt + blank-space`

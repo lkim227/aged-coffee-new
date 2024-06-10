@@ -1,0 +1,543 @@
+---
+title: 我们通过动手构建一个现代 JavaScript 框架来了解其工作原理
+date: '2023-12-18'
+tags: ['article-translate']
+draft: false
+summary: ''
+---
+
+[lets-learn-how-modern-javascript-frameworks-work-by-building-one](https://nolanlawson.com/2023/12/02/lets-learn-how-modern-javascript-frameworks-work-by-building-one/)
+
+
+# 【译】我们通过动手构建一个现代 JavaScript 框架来了解其工作原理
+
+在我的日常工作中，我主要负责开发 JavaScript 框架[（LWC）](https://lwc.dev/)。尽管我已经从事这项工作将近三年，但依然感到自己只是个门外汉。每当了解更广泛的框架领域时，总会被那些未知的内容所压倒。
+
+然而，了解事物运作的最佳方式之一是亲自动手构建它。另外，我们也要继续传播那些“距上次推出 JavaScript 框架已经多少天”的梗。
+所以，让我们来编写自己的现代 JavaScript 框架吧！
+
+## 什么是“现代 JavaScript 框架”？
+
+React 是一个出色的框架，我并非要贬低它。但在本文中，“现代 JavaScript 框架”指的是“React 之后的新一代框架”，比如 Lit、Solid、Svelte 和 Vue 等。
+
+React 在前端领域占据主导地位已经很久了，以至于每个新出现的框架都在其阴影之下茁壮成长。这些框架虽然深受 React 启发，但它们却以惊人的相似方式逐渐偏离了原先模式。尽管 React 本身一直在不断创新，但我发现最近出现的各种框架更多地彼此相似，并且与 React 相比有着更多共通之处。
+
+为了简单起见，我也不打算讨论像 Astro、Marko 和 Qwik 这样的首选服务器框架。虽然这些框架各有所长，但它们源自略有不同的思维传统，与专注于客户端的框架有所区别。
+因此，在本文中，我们只谈论客户端渲染。
+
+## 现代框架有何特别之处？
+
+在我看来，后续的 React 框架都集中在相同的基本理念上：
+
+1. 利用响应性（比如[信号](https://dev.to/this-is-learning/the-evolution-of-signals-in-javascript-8ob)）进行 DOM 更新。
+2. 采用克隆模板进行 DOM 渲染。
+3. 利用现代 Web API，比如 `<template>` 和 Proxy，使得以上所有操作变得更加简单易行。
+
+现在明白了吧，在微观层面上这些框架之间有很大的不同，比如它们处理 web 组件、编译以及用户界面 API 的方式等。甚至，并非所有的框架都使用代理（Proxys）。但总体来说，大多数框架的作者似乎对上述思路表示认同或者正在朝着这个方向发展。
+
+所以针对我们自己的框架来说，让我们试着最基本地去实现这些思路吧，首先从响应性开始。
+
+## 响应式
+
+有人经常说[“React 不是真正的响应式”](https://dev.to/this-is-learning/how-react-isn-t-reactive-and-why-you-shouldn-t-care-152m)。
+
+这意味着 React 采用的是一种拉取式的模型，而不是推送式的模型。简单来说，在最糟糕的情况下，React 假设整个虚拟 DOM 树都需要从头开始重新构建，唯一的方法是通过实现 React.memo（或在旧版本中使用 shouldComponentUpdate）来防止这些更新。
+
+虽然使用虚拟 DOM 可以减少“全盘重建”的成本，但并不能完全解决这个问题。
+要求开发者编写正确的 memo 代码是一场徒劳的斗争（可以参考 [React Forget](https://react.dev/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023)，这是一个持续尝试解决这个问题的项目）。
+
+相反，现代框架采用了一种推送式的响应式模型。在这种模型中，组件树的各个部分订阅状态更新，只有在相关状态发生变化时才更新 DOM。这种模型以“默认高性能”为设计目标，但需要一些额外的开销（特别是内存方面），以跟踪哪些状态与 UI 的哪些部分相关联。
+
+需要注意的是，这种技术不一定与虚拟 DOM 方法相矛盾：像 [Preact Signals](https://preactjs.com/guide/v10/signals/) 和 [Million](https://million.dev/) 这样的工具表明，可以实现一种混合系统。如果你的目标是保留现有的虚拟 DOM 框架（如 React），但在对性能敏感的场景中有选择地应用推送式模型，那么这将非常有用。
+
+在本文中，我不会详细讨论信号本身的细节，以及更复杂的话题，如[细粒度的响应性](https://dev.to/ryansolid/a-hands-on-introduction-to-fine-grained-reactivity-3ndf)，但我会假设我们将使用一种响应式系统。
+
+需要注意的是，关于[“什么情况下可以称为‘响应式’”](https://news.ycombinator.com/item?id=38512412)有很多细微之处。我在这里的目标是将 React 与后续的框架进行对比，特别是 Solid、Svelte v5 的[“runes”模式](https://svelte.dev/blog/runes)和 [Vue Vapor](https://github.com/vuejs/core-vapor)。
+
+## 克隆 DOM 树
+很长一段时间以来，JavaScript 框架中的共识是，渲染 DOM 最快的方法是逐个创建和挂载每个 DOM 节点。换句话说，你可以使用 createElement、setAttribute 和 textContent 等 API 逐个构建 DOM：
+
+```js
+const div = document.createElement('div')
+div.setAttribute('class', 'blue')
+div.textContent = 'Blue!'
+```
+
+另一种方法是将一个大的 HTML 字符串直接放入 innerHTML 中，让浏览器为你解析：
+
+```js
+const container = document.createElement('div')
+container.innerHTML = `
+  <div class="blue">Blue!</div>
+`
+```
+
+这种简单粗暴的方法有一个很大的缺点：如果你的 HTML 中有任何动态内容（例如，红色而不是蓝色），那么你需要一遍又一遍地解析 HTML 字符串。此外，每次更新时都会重置 DOM，这将重置诸如 `<input>` 的值之类的状态。
+
+注意：[使用 innerHTML 也会存在安全问题](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML#replacing_the_contents_of_an_element)。但是在本文中，让我们假设 HTML 内容是可信任的。
+
+然而，有一天，人们发现，解析一次 HTML，然后在整个 DOM 上调用 cloneNode(true) 是非常快的：
+
+```js
+const template = document.createElement('template')
+template.innerHTML = `
+  <div class="blue">Blue!</div>
+`
+template.content.cloneNode(true) // 这很快！
+```
+
+这里我使用了 [\<template\>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template) 标签，它的好处是创建了一个“惰性”的 DOM。换句话说，像 `<img>` 或 `<video autoplay>` 这样的元素不会自动开始下载任何内容。
+
+这种克隆节点的技术与手动使用 DOM API 相比有多快？为了演示，这里有一个[小型基准测试](https://github.com/nolanlawson/template-clone-demo)。根据 Tachometer 的报告，在 Chrome 中，克隆技术大约快 50%，在 Firefox 中快 15%，在 Safari 中快 10%。（这会根据 DOM 大小和迭代次数而有所变化，但你可以大致了解情况。）
+
+有趣的是，`<template>` 是一个相对较新的浏览器 API，在 IE11 中不可用，最初设计用于 Web 组件。有点讽刺的是，无论 JavaScript 框架是否使用 Web 组件，现在都会使用这种技术。
+
+注意：以下是 [Solid](https://github.com/ryansolid/dom-expressions/blob/998e60384e31dc335290299e78f19e995f828b07/packages/dom-expressions/src/client.js#L75)、[Vue Vapor](https://github.com/vuejs/core-vapor/blob/42d2f3dd9876c1c5f898c6507df1a845c7045d35/packages/runtime-dom/src/nodeOps.ts#L68) 和 [Svelte v5](https://github.com/sveltejs/svelte/blob/7f237c2e41115b420f0d6432c51c85ec3b5ecaf5/packages/svelte/src/internal/client/reconciler.js#L101) 中在 `<template>` 上使用 cloneNode 的示例。
+
+这种技术有一个主要的挑战，即如何高效地更新动态内容而不重置 DOM 状态。在我们构建玩具框架时，我们将在后面讨论这个问题。
+
+## 现代 JavaScript API
+
+我们已经遇到了一个非常实用的新 API，它就是 `<template>`。另一个越来越受欢迎的 API 是 [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)，它可以使构建响应式系统变得更加简单。
+
+当我们构建我们的示例时，我们还会使用[标记模板字面量](https://nolanlawson.com/2023/12/02/lets-learn-how-modern-javascript-frameworks-work-by-building-one/)来创建一个像这样的 API：
+
+```js
+const dom = html`
+  <div>Hello ${ name }!</div>
+`
+```
+
+并非所有的框架都使用这个工具，但一些著名的框架，如 Lit、[HyperHTML](https://viperhtml.js.org/hyper.html) 和 [ArrowJS](https://www.arrow-js.com/)，都在使用。标记模板字面量可以让构建人性化的 HTML 模板化 API 更加简单，而无需使用编译器。
+
+## 步骤 1：构建响应性
+响应性是我们构建框架的基础，它定义了状态的管理方式以及当状态改变时如何更新 DOM。
+
+让我们从一些[“理想的代码”](https://nobackend.org/2013/05/welcome-to-noBackend.html)开始，以说明我们想要的效果：
+
+```js
+const state = {}
+
+state.a = 1
+state.b = 2
+
+createEffect(() => {
+  state.sum = state.a + state.b
+})
+```
+
+简单来说，我们希望有一个“魔法对象”叫做 state，有两个属性：a 和 b。每当这些属性发生变化时，我们希望将 sum 设置为两者的和。
+
+假设我们事先不知道这些属性（或者没有编译器来确定它们），一个普通的对象无法满足这个需求。所以让我们使用 Proxy，它可以在设置新值时做出响应：
+
+```js
+const state = new Proxy({}, {
+  get(obj, prop) {
+    onGet(prop)
+    return obj[prop]
+  },
+  set(obj, prop, value) {
+    obj[prop] = value
+    onSet(prop, value)
+    return true
+  }
+})
+```
+
+目前，我们的 Proxy 并没有做太多有趣的事情，只是给了我们一些 onGet 和 onSet 钩子。所以让我们在微任务之后刷新更新：
+
+```js
+let queued = false
+
+function onSet(prop, value) {
+  if (!queued) {
+    queued = true
+    queueMicrotask(() => {
+      queued = false
+      flush()
+    })
+  }
+}
+```
+
+注意：如果你对 [queueMicrotask](https://developer.mozilla.org/en-US/docs/Web/API/queueMicrotask) 不熟悉，它是一个较新的 DOM API，基本上与 Promise.resolve().then(...) 相同，只是更简洁。
+
+为什么要刷新更新？主要是因为我们不想运行太多的计算。如果我们在 a 和 b 都改变时进行更新，那么我们将无谓地计算两次 sum。通过将刷新合并为单个微任务，我们可以提高效率。
+
+接下来，让我们让 flush 更新 sum：
+
+```js
+function flush() {
+  state.sum = state.a + state.b
+}
+```
+
+这很好，但它还不是我们的“理想代码”。我们需要实现 createEffect，以便只在 a 和 b 改变时计算 sum（而不是在其他属性改变时也计算）。
+
+为了做到这一点，让我们使用一个对象来跟踪哪些 effect 需要针对哪些属性运行：
+
+```js
+const propsToEffects = {}
+```
+
+接下来是关键的部分！我们需要确保我们的 effects 可以订阅正确的属性。为此，我们将运行 effect，记录它所调用的任何 get，然后创建属性和 effect 之间的映射关系。
+
+来分解一下，记住我们的“理想代码”是：
+
+```js
+createEffect(() => {
+  state.sum = state.a + state.b
+})
+```
+
+当这个函数运行时，它调用了两个 getter：state.a 和 state.b。这些 getter 应该触发响应系统注意到这个函数依赖于这两个属性。
+
+为了实现这一点，我们将从一个简单的全局变量开始，用来跟踪“当前”effect 是什么：
+
+```js
+let currentEffect
+```
+
+然后，createEffect 函数将在调用函数之前设置这个全局变量：
+
+```js
+function createEffect(effect) {
+  currentEffect = effect
+  effect()
+  currentEffect = undefined
+}
+```
+
+这里重要的是，effect 立即被调用，全局变量 currentEffect 在调用之前被设置。这是我们可以追踪它可能调用的任何 getter 的方式。
+
+现在，我们可以在我们的 Proxy 中实现 onGet，它将建立全局 currentEffect 和属性之间的映射关系：
+
+```js
+function onGet(prop) {
+  const effects = propsToEffects[prop] ??
+      (propsToEffects[prop] = [])
+  effects.push(currentEffect)
+}
+```
+
+运行一次后，propsToEffects 应该看起来像这样：
+
+```js
+{
+  "a": [theEffect],
+  "b": [theEffect]
+}
+```
+
+...其中 theEffect 是我们想要运行的“sum”函数。
+
+接下来，我们的 onSet 应该将需要运行的任何 effect 添加到一个 dirtyEffects 数组中：
+
+```js
+const dirtyEffects = []
+
+function onSet(prop, value) {
+  if (propsToEffects[prop]) {
+    dirtyEffects.push(...propsToEffects[prop])
+    // ...
+  }
+}
+```
+
+此时，我们已经准备好让 flush 调用所有的 dirtyEffects：
+
+```js
+function flush() {
+  while (dirtyEffects.length) {
+    dirtyEffects.shift()()
+  }
+}
+```
+
+将所有这些组合起来，现在我们有一个完全功能的响应性系统！你可以自己尝试并在 DevTools 控制台中设置 state.a 和 state.b - 只要其中一个发生变化，state.sum 就会更新。
+
+[code-pen](https://codepen.io/nolanlawson-the-selector/embed/qBgKywJ?)
+
+现在，这里有许多高级情况我们在这里没有涉及到：
+
+- 使用 try/catch 处理 effect 抛出的错误
+- 避免运行相同的 effect 两次
+- 防止无限循环
+- 在后续运行中订阅新属性的 effects（例如，如果某些 getter 仅在 if 块中调用）
+然而，对于我们的示例来说，这已经足够了。让我们继续进行 DOM 渲染。
+
+## 第二步：DOM 渲染
+我们现在有了一个功能完备的响应式系统，但它实际上是“无头”的。它可以追踪变化并计算效果，但仅限于此。
+
+然而，在某个时刻，我们的 JavaScript 框架需要将一些 DOM 实际渲染到屏幕上。（这才是整个目的所在。）
+
+在本节中，让我们暂时忘记响应性，想象我们只是试图构建一个函数，该函数能够 1）构建一个 DOM 树，并且 2）高效地更新它。
+
+再次，让我们从一些理想的代码开始：
+
+```js
+function render(state) {
+  return html`
+    <div class="${state.color}">${state.text}</div>
+  `
+}
+```
+
+正如我之前提到的，我使用了标记模板字面量（tagged template literals），就像 Lit 一样，因为我发现它们是一种不需要编译器就能编写 HTML 模板的好方法。
+（我们马上就会看到为什么实际上我们可能需要一个编译器。）
+
+我们重新使用之前的状态对象，这次加上颜色和文本属性。也许状态对象是这样的：
+
+```js
+state.color = 'blue'
+state.text = 'Blue!'
+```
+
+当我们将这个状态对象传递给 `render` 函数时，它应该返回应用了状态的 DOM 树：
+
+```js
+<div class="blue">Blue!</div>
+```
+
+在我们继续之前，我们需要快速了解一下标记模板字面量。我们的 `html` 标签实际上是一个函数，它接收两个参数：`tokens`（静态 HTML 字符串的数组）和 `expressions`（计算后的动态表达式）：
+
+```js
+function html(tokens, ...expressions) {
+}
+```
+
+在这种情况下，`tokens` 是这样的（去除了空格）：
+
+```js
+[
+  "<div class=\"",
+  "\">",
+  "</div>"
+]
+```
+
+而 `expressions` 是这样的：
+
+```js
+[
+  "blue",
+  "Blue!"
+]
+```
+
+`tokens` 数组的长度总是比 `expressions` 数组多 1，因此我们可以简单地将它们一一对应起来：
+
+```js
+const allTokens = tokens
+      .map((token, i) => 
+      (expressions[i - 1] ?? '') + token)
+```
+
+    
+这将给我们一个字符串数组：
+
+```js
+[
+  "<div class=\"",
+  "blue\">",
+  "Blue!</div>"
+]
+```
+
+我们可以将这些字符串拼接在一起生成我们的 HTML：
+
+```js
+const htmlString = allTokens.join('')
+```
+
+然后我们可以使用 `innerHTML` 将其解析为 `<template>`：
+
+```js
+function parseTemplate(htmlString) {
+  const template = document.createElement('template')
+  template.innerHTML = htmlString
+  return template
+}
+```
+
+这个模板包含了我们的静态 DOM（实际上是一个 [DocumentFragment](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment)），我们可以随意克隆它：
+
+```js
+const cloned = template.content.cloneNode(true)
+```
+
+当然，每次调用 `html` 函数时都解析完整的 HTML 对性能来说并不理想。幸运的是，标记模板字面量具有内置的功能，可以在这里提供很大的帮助。
+
+对于每个唯一使用的标记模板字面量，无论何时调用函数，`tokens` 数组[都是相同的](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates) - 实际上，它们是完全相同的对象！
+
+例如，考虑这个例子：
+
+```js
+function sayHello(name) {
+  return html`<div>Hello ${name}</div>`
+}
+```
+
+无论何时调用 `sayHello`，`tokens` 数组都是相同的：
+
+```js
+[
+  "<div>Hello ",
+  "</div>"
+]
+```
+
+只有在完全不同的标记模板位置时，`tokens` 才会不同：
+
+```js
+html`<div></div>`
+html`<span></span>` // 与上面不同
+```
+
+我们可以利用这一点，使用 `WeakMap` 来将 `tokens` 数组映射到生成的模板：
+
+```js
+const tokensToTemplate = new WeakMap()
+ 
+function html(tokens, ...expressions) {
+  let template = tokensToTemplate.get(tokens)
+  if (!template) {
+    // ...
+    template = parseTemplate(htmlString)
+    tokensToTemplate.set(tokens, template)
+  }
+  return template
+}
+```
+
+这是一个令人惊叹的概念，`tokens` 数组的唯一性实际上意味着我们可以确保每次调用 `html` `...` 只解析一次 HTML。
+
+接下来，我们只需要一种方法来使用 `expressions` 数组（与 `tokens` 不同，它每次可能都不同）来更新克隆的 DOM 节点。
+
+为了简单起见，让我们用占位符替换每个索引的 `expressions` 数组：
+
+```js
+const stubs = expressions.map((_, i) => `__stub-${i}__`)
+```
+
+如果我们像之前一样将它们一一对应起来，将会生成这样的 HTML：
+
+```js
+<div class="__stub-0__">
+  __stub-1__
+</div>
+```
+
+我们可以编写一个简单的字符串替换函数来替换这些占位符：
+
+```js
+function replaceStubs (string) {
+  return string.replaceAll(/__stub-(\d+)__/g, (_, i) => (
+    expressions[i]
+  ))
+}
+```
+
+现在每次调用 `html` 函数时，我们可以克隆模板并更新占位符：
+
+```js
+const element = cloned.firstElementChild
+for (const { name, value } of element.attributes) {
+  element.setAttribute(name, replaceStubs(value))
+}
+element.textContent = replaceStubs(element.textContent)
+```
+
+注意：我们使用 `firstElementChild` 来获取模板中的第一个顶级元素。对于我们的玩具框架，我们假设只有一个。
+
+现在，这仍然不是非常高效的 - 特别是，我们正在更新不一定需要更新的 `textContent` 和属性。但对于我们的玩具框架来说，这已经足够好了。
+
+我们可以通过使用不同的状态进行渲染来进行测试：
+
+```js
+document.body.appendChild(render({ color: 'blue', text: 'Blue!' }))
+document.body.appendChild(render({ color: 'red', text: 'Red!' }))
+```
+
+这运行正常！
+
+[code-pen](https://codepen.io/nolanlawson-the-selector/embed/WNPyqEb?)
+
+## Step 3: 结合响应性和 DOM 渲染
+既然我们已经有了上面渲染系统中的 `createEffect`，现在我们可以将两者结合起来根据状态更新 DOM：
+
+```js
+const container = document.getElementById('container')
+ 
+createEffect(() => {
+  const dom = render(state)
+  if (container.firstElementChild) {
+    container.firstElementChild.replaceWith(dom)
+  } else {
+    container.appendChild(dom)
+  }
+})
+```
+这实际上是有效的！我们可以将其与响应性部分的“sum”示例结合起来，只需创建另一个 effect 来设置文本：
+
+```js
+createEffect(() => {
+  state.text = `Sum is: ${state.sum}`
+})
+```
+这将渲染出“Sum is 3”：
+
+你可以尝试一下这个玩具示例。如果你设置 `state.a = 5`，那么文本将自动更新为“Sum is 7”。
+
+## 下一步
+这个系统有很多改进的空间，特别是 DOM 渲染部分。
+
+最明显的是，我们缺少一种更新深层 DOM 树中元素内容的方法，例如：
+
+```js
+<div class="${color}">
+  <span>${text}</span>
+</div>
+```
+为此，我们需要一种方法来唯一标识模板中的每个元素。有很多方法可以做到这一点：
+
+Lit 在解析 HTML 时使用一套[正则表达式和字符匹配的系统](https://github.com/lit/lit/blob/1af7991c27456c7e6073a3ee6f18f102c2adc026/packages/lit-html/src/lit-html.ts#L779-L857)，以确定占位符是在属性还是文本内容中，以及目标元素的索引（深度优先 [TreeWalker](https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker) 顺序）。
+像 Svelte 和 Solid 这样的框架在编译期间可以解析整个 HTML 模板，从而提供相同的信息。它们还会生成调用 firstChild 和 nextSibling 遍历 DOM 的代码，以找到要更新的元素。
+注意：使用 firstChild 和 nextSibling 进行遍历类似于 TreeWalker 的方法，但比 element.children 更高效。这是因为浏览器在底层使用[链表](https://viethung.space/blog/2020/09/01/Browser-from-Scratch-DOM-API/#Choosing-DOM-tree-data-structure)来表示 DOM。
+
+无论我们决定使用 Lit 风格的客户端解析还是 Svelte/Solid 风格的编译时解析，我们想要的是像这样的映射：
+
+```js
+[
+  {
+    elementIndex: 0, // 上面的 <div>
+    attributeName: 'class',
+    stubIndex: 0 // 表达式数组中的索引
+  },
+  {
+    elementIndex: 1 // 上面的 <span>
+    textContent: true,
+    stubIndex: 1 // 表达式数组中的索引
+  }
+]
+```
+这些绑定将告诉我们需要更新的元素，需要设置的属性（或 textContent），以及替换占位符的表达式的位置。
+
+下一步是避免每次克隆模板，直接基于表达式更新 DOM。换句话说，我们不仅希望只解析一次，还希望只克隆和设置绑定一次。这将将每次更新减少到最低限度的 setAttribute 和 textContent 调用。
+
+注意：你可能会想知道克隆模板的目的是什么，如果我们最终还是需要调用 setAttribute 和 textContent。答案是，大多数 HTML 模板基本上是静态内容，只有少数动态的“空洞”。通过使用模板克隆，我们克隆了绝大部分的 DOM，只为“空洞”做了额外的工作。这是使该系统运行得如此出色的关键洞察。
+
+另一个有趣的模式是实现迭代（或重复器），它们带来了一系列的挑战，比如在更新之间协调列表和处理高效替换的“键”。
+
+不过，我已经有点累了，这篇博文已经够长了。所以我将剩下的部分留给读者自己去探索！
+
+## 结论
+就是这样了。在这篇（冗长的）博文中，我们亲自实现了自己的 JavaScript 框架。如果你想要打造全新的 JavaScript 框架，并且向世界展示，激起 Hacker News 社区的讨论，那么请放心使用本文所提供的内容作为基础。
+
+就我个人而言，我发现这个项目非常有教育意义，这也是我最初开始的原因之一。我还希望用一个更小、更符合自定义需求的解决方案来替换当前的表情选择器组件框架。在这个过程中，我成功编写了一个小型框架，通过了所有现有的测试，并且比当前实现要小约 6kB，这让我感到非常骄傲。
+
+未来，如果浏览器的 API 功能足够完善，可以更轻松地构建自定义框架，那将是非常棒的。例如，DOM Part API 提案可以减少我们上面所构建的 DOM 解析和替换系统的很多繁琐工作，同时也为浏览器性能优化提供了可能。我还可以想象（带着一些夸张的手势）通过对 Proxy 进行扩展，可以更容易地构建完整的响应性系统，而无需担心刷新、批处理或循环检测等细节。
+
+如果所有这些都能实现，那么你可以想象在浏览器中有效地拥有一个“类似于 Lit”的框架，或者至少能够快速构建自己的“类似于 Lit”的框架。与此同时，我希望这个小练习能帮助你了解一些框架作者所思考的问题，以及你最喜欢的 JavaScript 框架内部的一些机制。
+
+感谢 [Pierre-Marie Dartus](https://pm.dartus.fr/) 对本文草稿的反馈。
