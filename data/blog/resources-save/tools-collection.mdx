@@ -79,7 +79,8 @@ summary: ''
 - ⭐[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web)
 - ⭐[Chat2db](https://chat2db.ai/)  
 - ⭐[LM Studio](https://lmstudio.ai/)
-- ⭐[notesollama - 苹果 Note 增强](https://github.com/andersrex/notesollama)
+- ⭐[notesollama - 苹果 Note 增强](https://github.com/andersrex/notesollama)  
+- ⭐[reor - 本地 RAG](https://github.com/reorproject/reor)
 
 ### 开发
 
