@@ -8,7 +8,7 @@ import CustomLink from './Link'
 import TableWrapper from './TableWrapper'
 import TOCInlineWithSticky from './TOCInlineWithSticky'
 import Mermaid from './Mermaid'
-import { Subscription2024 } from './Subscription2024'
+import { Subscription } from './Subscription'
 
 export const components: MDXComponents = {
   Image,
@@ -20,5 +20,5 @@ export const components: MDXComponents = {
   TOCInlineWithSticky,
   Tweet,
   Mermaid,
-  Subscription2024,
+  Subscription,
 }

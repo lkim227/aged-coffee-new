@@ -23,7 +23,7 @@ const daysUntilExpiry = (expiryDate: string) => {
   return days > 0 ? days : 0
 }
 
-export const Subscription2024 = () => {
+export const Subscription = () => {
   const [subscriptions, setSubscriptions] = useState<SubscriptionItem[]>(
     [
       {
@@ -72,19 +72,21 @@ export const Subscription2024 = () => {
           yearly: item.yearly ? item.yearly : item.monthly! * 12,
         }
       })
-      .sort((a, b) => b.yearly - a.yearly)
+      .sort((a, b) => daysUntilExpiry(b.expiry) - daysUntilExpiry(a.expiry))
   )
 
   const calculateTotal = () => {
     let efficiencyTotal = 0
     let entertainmentTotal = 0
-    subscriptions.forEach((sub) => {
-      if (sub.type === '效率') {
-        efficiencyTotal += parseFloat(String(sub.monthly))
-      } else {
-        entertainmentTotal += parseFloat(String(sub.monthly))
-      }
-    })
+    subscriptions
+      .filter((item) => daysUntilExpiry(item.expiry) > 0)
+      .forEach((sub) => {
+        if (sub.type === '效率') {
+          efficiencyTotal += parseFloat(String(sub.monthly))
+        } else {
+          entertainmentTotal += parseFloat(String(sub.monthly))
+        }
+      })
     return { efficiencyTotal, entertainmentTotal, total: efficiencyTotal + entertainmentTotal }
   }
 
@@ -105,7 +107,7 @@ export const Subscription2024 = () => {
         </thead>
         <tbody>
           {subscriptions.map((sub, index) => (
-            <tr key={index}>
+            <tr className={daysUntilExpiry(sub.expiry) > 0 ? `` : `line-through`} key={index}>
               <td>{sub.name}</td>
               <td>
                 ￥{sub.yearly} / 年 (￥{sub.monthly} / 月)

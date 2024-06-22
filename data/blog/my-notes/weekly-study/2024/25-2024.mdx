@@ -12,7 +12,71 @@ summary: ''
 
 ## 技术
 
+⭐️### [Cleaner components with useSuspenseQuery](https://swizec.com/blog/cleaner-components-with-use-suspense-query/)
+
+这段文字讨论了代码阅读和思考的困难之处，指出了将所有内容放入组件中导致的问题，并介绍了使用 React Suspense 来解决这些问题的方法。作者强调了将组件的功能划分为快乐路径、加载状态和错误处理的重要性，以及如何使用 React Suspense 和相关工具来实现这一目标。文章还提到了一些相关的组件和工具，并最后分享了作者的个人资料和其他相关资源。
+
+- React Suspense 可以帮助解决组件中的数据加载、错误处理和加载状态，使代码更易读和维护。
+- 通过将数据加载、渲染和错误处理分离到不同的组件中，可以避免出现“上帝组件”和“上帝钩子”，使代码更清晰易懂。
+- 使用 React Suspense 和 ErrorBoundary 可以有效地处理数据加载和错误状态，提高了组件的可维护性和性能。
+
+### [Structured logging for Next.js](https://blog.arcjet.com/structured-logging-in-json-for-next-js/)
+
+这篇文章介绍了在使用 Next.js 构建现代 Web 应用时，如何实现结构化日志记录。作者首先介绍了使用 console.log 进行日志记录的常见做法，然后提出了使用 next-logger 和 pino 两种不同的结构化日志记录方法。最后总结了 pino 的高性能和灵活性，以及在生产环境中实现一致的 JSON 日志记录的好处。
+
+- Next.js 默认不提供强大的日志记录解决方案，但可以通过使用 next-logger 或者自定义 Pino 实现结构化 JSON 日志记录。
+- 使用 next-logger 可以方便地自动格式化日志为 JSON，并添加有用的元数据，但在某些平台上无法控制 NODE_OPTIONS。
+- Pino 是一个高性能的日志记录库，可以通过自定义配置实现对 Next.js 的日志记录，并在生产环境中输出 JSON 格式以方便检索，同时在开发环境中进行漂亮的打印。
+
+### [MOBX MEMOIZES COMPONENTS (YOU DON'T NEED REACT COMPILER)](https://www.mikejohnson.dev/posts/2024/06/mobx-react-compiler)
+
+这段文字主要介绍了使用 Mobx 和 React 时的一些最佳实践和经验。它强调了 Mobx 已经自动为你做了组件的记忆化处理，因此不需要额外的 React 编译器。文中还介绍了如何使用 Mobx 帮助管理前端应用的逻辑和状态，并提到了一些关于 Mobx 的最佳实践和与 React 编译器的比较。同时，作者还分享了自己在使用 Mobx 时的一些经验与见解。
+
+- Mobx 可以自动跟踪状态变化并更新组件，避免了组件中复杂逻辑和重新渲染的问题。
+- Mobx 将业务逻辑集中管理，使得组件更简单、易于重用和调试，同时提供了方便的单元测试和全局变量调试功能。
+- Mobx 和 React Compiler 可以结合使用，但在处理复杂逻辑和状态时，Mobx 的设计优势更加明显，而 React Compiler 更适合简单应用的性能优化。
+
+### [How React 19 (Almost) Made the Internet Slower](https://blog.codeminer42.com/how-react-19-almost-made-the-internet-slower/)
+
+这段文字主要讨论了 React 19 中一个不起眼的改变，即禁用了在同一 Suspense 边界内兄弟组件的并行渲染，导致可能对依赖此模式的网站性能产生重大影响。文章解释了这一改变的影响、背景和社区反应，最终提到 React 团队决定暂缓这一改变。文章还涉及了 React 的 Suspense、数据获取等方面的内容，并探讨了性能与开发体验之间的权衡以及社区与 React 团队的关系。
+
+- React 19 引入的改变可能会影响到依赖 React 的许多网站的性能，主要是因为禁用了同一 Suspense 边界内兄弟组件的并行渲染，导致数据获取出现串行瀑布效应。
+- 这一改变影响到了 Suspense 的数据获取和 React.lazy 的用法，改变背后的理念是“渲染即获取”，从而提高性能，但也带来了组件和数据需求协同的困难。
+- 在经历了社区的反对和讨论后，React 团队决定暂时搁置这一改变，表明了在 Meta 和 Vercel 之外使用 React 的情况与团队的理念之间存在沟通不畅的问题。
+
+### [Live types in a TypeScript monorepo](https://colinhacks.com/essays/live-types-typescript-monorepo)
+
+这篇文章讨论了在 TypeScript monorepo 中实现“活跃类型”（live types）的几种方法。作者推荐使用自定义导出条件，这能够简洁、易于配置，并与现代工具配合良好。同时，他还介绍了其他方法，如使用 tsconfig 路径和 publishConfig。这些方法旨在使 TypeScript 代码在开发过程中能够“活跃”起来，无需频繁运行构建步骤。
+
+- TypeScript 单体库的开发中，使用自定义导出条件可以让 TypeScript 和其他工具识别并使用特定的导出配置，使开发过程更加流畅。
+- 通过在 package.json 中使用 "publishConfig" 字段，结合 pnpm 工具，可以在开发和生产环境中分别指定 .ts 和 .js 文件，实现开发过程中的即时反馈。
+- 使用 TypeScript 的 compilerOptions.paths 选项，结合其他工具如 tsx 或 Vite 的配置，可以重写模块的解析路径，实现即时的 TypeScript 开发体验。
+
+### [Next.js security checklist](https://blog.arcjet.com/next-js-security-checklist/)
+
+这段文字介绍了通过在 Next.js 应用中实施多层安全措施来提高安全性的方法。它涵盖了依赖更新、数据验证和清理、环境变量管理、避免代码暴露、安全标头配置、集中安全功能以及代码编辑器的使用。同时提到了一些工具和库，如 Socket、zod、Valibot、HCP Vault Secrets 等，以帮助加强 Next.js 应用的安全性。
+
+- Next.js 提供了跨站脚本攻击（XSS）防护，但仍需额外的安全保护措施，包括及时更新依赖和数据验证。
+- 数据验证和清理是确保数据符合应用程序预期的重要步骤，应结合 React 的安全机制使用专门的验证库。
+- 集中化安全功能，如身份验证、授权、输入验证和错误处理，有助于简化管理、减少漏洞并提升应用程序的安全性。
+
+### [Creating a Reusable SubmitButton with UseFormStatus](https://aurorascharff.no/posts/creating-a-reusable-submitbutton-with-useformstatus/)
+
+这篇博文介绍了如何使用 React 19 的 useFormStatus 钩子创建可重复使用的 SubmitButton，以及如何创建渐进增强的表单和按钮，使其即使在禁用 JavaScript 或页面尚未完成加载时仍能正常工作。文章还讨论了利用 React 19 的组件和服务器操作来实现逐步增强按钮的技术，并提供了实际的代码示例。
+
+- React 19 的 useFormStatus hook 是处理表单提交的强大工具，可以创建可重用的 SubmitButton，并实现逐步增强的表单功能。
+- SubmitButton 利用 useFormStatus hook 来处理表单提交状态，可以在表单提交时自动禁用并显示"Submitting..."文本，同时也支持加载状态和自定义文本。
+- 使用 React 19 的`<form>`组件结合服务器操作，可以创建逐步增强的表单和按钮，使其即使在 JavaScript 被禁用或页面还未加载完全时仍能正常工作。
+
 ## 工具
+
+### [revideo](https://github.com/redotvideo/revideo)
+
+用代码创作视频
+
+### [Create React Content Loader](https://skeletonreact.com/)
+
+一款工具，可以轻松创建动态骨架屏组件，取代传统的加载方式，为用户提供更好的体验，在页面上呈现出内容和图片的占位框架。支持 React、React Native、Vue 和原生 HTML。
 
 ## 更新
 
@@ -22,3 +86,10 @@ summary: ''
 
 ## 其他
 
+### [白泽工具箱开源规范](https://baize.plume.vip/contribute)
+
+---
+
+我不记得读过的书，就像不记得吃过的饭一样；即便如此，它们还是造就了我。
+
+-- 爱默生

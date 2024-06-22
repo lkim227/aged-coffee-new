@@ -6,6 +6,4 @@ draft: false
 summary: ''
 ---
 
-## 2024
-
-<Subscription2024 />
+<Subscription />
