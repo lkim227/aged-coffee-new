@@ -11,7 +11,30 @@ summary: ""
 [Jotai](https://jotai.org/) 是 React 的一个数据管理库，Jotai 是专门为解决 React Context 中额外重新渲染问题而开发的工具，同时支持了 Suspense 和 Concurrent 渲染。
 
 Jotai 主要是基于原子类似于 useState 和 useReducer 这样的使用方式设计的，但不同点在于 jotai 的 atom 原子是跨组件面向整个 App 的，同时他也可以手动设定一个 Provider 的 Scope 人为的约束这些 atom 数据生效的范围，类似于 React Context，不同于 React Context 的点是他内部做了渲染优化，只渲染当前 atom 值发生变化的相关组件。  
-不同于其他主流基于外部 Store 的实现方式，例如 Zustand 和 Redux toolkit，因此他是 useTransition 和内部 Suspense 有好的，内部实现也没有用到 useSyncExternalStore。
+不同于其他主流基于外部 Store 的实现方式，例如 Zustand 和 Redux toolkit，因此他是 useTransition 和内部 Suspense 友好的，内部实现也没有用到 useSyncExternalStore。
+
+## Jotai 和 React Context 的关系
+
+Jotai 是经过优化的 React Context 实现，在下面的核心实现中也可以直观的看到这一点，通过将全局状态拆分为多个独立的原子，使状态更新的粒度更细。每个原子的变动只会引起依赖它的组件重新渲染，避免了不必要的性能开销。这一优化解决了 React Context 在频繁更新情况下可能带来的性能问题，使得状态管理更加细致灵活，同时保持了简洁易用的 API 接口。
+
+Jotai 相较于 React Context 的主要优化点
+
++ 分片状态：Jotai 将状态分割成多个原子，每个原子的改变只会影响相关的组件，将全局状态的更新粒度降到最低。
++ 避免不必要的渲染：只有依赖了相应原子的组件会在该原子更新时重新渲染，而不会影响不相关的组件。
++ 简洁的 API: Jotai 提供了简单直观的接口，降低了状态管理的复杂度。
+
+```mermaid
+graph TD
+  A[React Context] --> |全局状态|B{组件A}
+  A --> |全局状态|C{组件B}
+  B --> D[重新渲染]
+  C --> E[重新渲染]
+
+  F[Jotai] --> |原子状态1|G{组件A}
+  F --> |原子状态2|H{组件B}
+  G --> I[最小渲染]
+  H --> J[最小渲染]
+```
 
 ## Jotai 技巧
 
@@ -207,7 +230,6 @@ export const todoInputAtom = atom<string>('');
 
 ```tsx
 // hooks.ts
-// hooks.ts
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useSetAtom, useAtomValue } from 'jotai';
 import { todosAtom, todoInputAtom } from './atoms';
@@ -363,6 +385,81 @@ const TodoComponent = () => {
 
 export default TodoComponent;
 ```
+
+## 核心实现
+
+下面是模拟的一个最小 jotai 的实现，用于简单说明 jotai 的工作原理  
+这个例子只是以最简单的方式演示了内部实际是基于 useReducer、Context 来实现状态管理的，有很多优化的细节都没有给出
+
+```tsx
+import React, { createContext, useContext, useReducer } from 'react';
+
+// 创建 Atom 的函数，每个 Atom 都有一个初始值
+const createAtom = (initialValue) => {
+  const atom = { value: initialValue }; // Atom 定义为一个对象，保存初始值
+  return atom;
+};
+
+// 创建一个 React 上下文，用于在组件树中共享状态
+const StateContext = createContext();
+
+// 定义一个 reducer 函数，根据 action 类型更新状态
+const stateReducer = (state, action) => {
+  switch (action.type) {
+    case 'SET': // 当 action 类型为 'SET' 时
+      return {
+        ...state, // 复制当前状态
+        [action.atom]: action.value, // 更新指定 Atom 的值
+      };
+    default:
+      return state; // 默认返回当前状态
+  }
+};
+
+// 状态提供者组件，用于包装应用并提供初始状态
+export const Provider = ({ children, initialState = {} }) => {
+  const [state, dispatch] = useReducer(stateReducer, initialState); // 使用 useReducer 管理状态
+  return (
+    <StateContext.Provider value={{ state, dispatch }}> 
+      {children} 
+    </StateContext.Provider>
+  );
+};
+
+// 自定义 Hook，用于组件中使用 Atom
+export const useAtom = (atom) => {
+  const { state, dispatch } = useContext(StateContext); // 获取当前状态和 dispatch 函数
+  const setValue = (value) => {
+    dispatch({ type: 'SET', atom, value }); // 定义设置新值的函数
+  };
+  return [state[atom] !== undefined ? state[atom] : atom.value, setValue]; // 返回当前值和设置函数
+};
+
+// 示例 Atom，用于计数
+const countAtom = createAtom(0);
+
+function Counter() {
+  const [count, setCount] = useAtom(countAtom); // 使用自定义 Hook 获取当前计数值和设置函数
+  return (
+    <div>
+      <button onClick={() => setCount(count + 1)}>Increment</button> 
+      <p>Count: {count}</p> 
+    </div>
+  );
+}
+
+// 应用根组件，使用 Provider 包装并提供初始状态
+function App() {
+  return (
+    <Provider initialState={{ [countAtom]: countAtom.value }}>
+      <Counter />
+    </Provider>
+  );
+}
+
+export default App;
+```
+
 
 ## 参考资料
 
