@@ -389,7 +389,7 @@ export default TodoComponent;
 ## 核心实现
 
 下面是模拟的一个最小 jotai 的实现，用于简单说明 jotai 的工作原理  
-这个例子只是以最简单的方式演示了内部实际是基于 useReducer、Context 来实现状态管理的，有很多优化的细节都没有给出
+这个例子只是以最简单的方式演示了内部实际是基于 useReducer、Context 来实现状态管理的，本身他是基于 vanilla 来实现核心功能的，以及有很多优化的细节都没有给出
 
 ```tsx
 import React, { createContext, useContext, useReducer } from 'react';
