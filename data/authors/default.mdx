@@ -10,4 +10,6 @@ github: https://github.com/klaaay
 
 A place to record books, movies, and reflections on life~
 
+[笔记](/blog/resources-save/tech-note)  
+[相册簿](/blog/photo-gallery/photos)  
 [个人订阅管理记录](/blog/life/subscription)
