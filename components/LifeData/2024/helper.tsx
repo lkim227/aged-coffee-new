@@ -316,7 +316,7 @@ export const calculateChanges = (months: MonthData[]): string[][] => {
       if (value.includes(':') && previousMonth[index].includes(':')) {
         const diff = parseTime(value) - parseTime(previousMonth[index])
         if (isNaN(diff) || diff === 0) return '-'
-        return (diff > 0 ? '+' : '') + diff + '分钟'
+        return (diff > 0 ? '+' : '') + diff
       }
       const diff = parseFloat(value) - parseFloat(previousMonth[index])
       if (isNaN(diff) || diff === 0) return '-'

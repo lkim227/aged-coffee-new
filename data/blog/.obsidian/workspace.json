@@ -11,12 +11,8 @@
             "id": "de00873f42a71f3f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "read-note/zhe-cai-shi-xin-li-xue.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "graph",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "read-note/zhe-cai-shi-xin-li-xue.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "read-note/zhe-cai-shi-xin-li-xue.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "read-note/zhe-cai-shi-xin-li-xue.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -148,6 +140,12 @@
   },
   "active": "de00873f42a71f3f",
   "lastOpenFiles": [
+    "tech-blog/yuan-gou-jian-gong-ju-vite-chu-tan.md",
+    "life/zou-zou-ting-ting.md",
+    "life/subscription.md",
+    "life/schedule.md",
+    "my-notes/yearly-notes/2024/index.md",
+    "read-note/zhe-cai-shi-xin-li-xue.md",
     "tech-blog/jotai-user-guide.md",
     "tech-blog/jotai-zustand-rtk-overview.md",
     "tech-blog/zustand-rtk-single-store-or-multi.md",
@@ -161,18 +159,12 @@
     "my-notes/moth-notes/2024/6.md",
     "my-notes/moth-notes/2024/3.md",
     "my-notes/moth-notes/2024/1.md",
-    "my-notes/yearly-notes/2024/index.md",
     "read-note/yan-yuan-de-xiang-ri-kui-di.md",
     "read-note/99-you-guai.md",
     "photo-gallery/2023/hangzhou-longjingwu.md",
     "photo-gallery/2023/huzhou-12.3.md",
     "photo-gallery/2023/ao-men.md",
     "my-notes/moth-notes/2023/10.md",
-    "life/zou-zou-ting-ting.md",
-    "life/subscription.md",
-    "life/schedule.md",
-    "comic-note/guan-yu-di-qiu-de-yun-dong.md",
-    "comic-note/dian-ju-ren.md",
-    "article-translate/chong-xin-si-kao-react-zui-jia-shi-jian.md"
+    "comic-note/guan-yu-di-qiu-de-yun-dong.md"
   ]
 }
