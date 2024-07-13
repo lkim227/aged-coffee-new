@@ -9,6 +9,11 @@ import TableWrapper from './TableWrapper'
 import TOCInlineWithSticky from './TOCInlineWithSticky'
 import Mermaid from './Mermaid'
 import { Subscription } from './Subscription'
+import {
+  SleepTable2024,
+  DietAndExerciseTable2024,
+  BooksAndMediaTable2024,
+} from './LifeData/2024/index'
 
 export const components: MDXComponents = {
   Image,
@@ -21,4 +26,7 @@ export const components: MDXComponents = {
   Tweet,
   Mermaid,
   Subscription,
+  SleepTable2024,
+  DietAndExerciseTable2024,
+  BooksAndMediaTable2024,
 }
