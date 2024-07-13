@@ -1,0 +1,164 @@
+{
+  "main": {
+    "id": "ec33048a27ce3ba3",
+    "type": "split",
+    "children": [
+      {
+        "id": "1e2b29bbf005fdee",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "de00873f42a71f3f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "read-note/zhe-cai-shi-xin-li-xue.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "78d351462e9f7c7e",
+    "type": "split",
+    "children": [
+      {
+        "id": "e7fae85ec9ab62c6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a089344f5d245228",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "92617ae1f6cba3b4",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "0cd72bf1dd44b34f",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "638b2f41f2296358",
+    "type": "split",
+    "children": [
+      {
+        "id": "ecea6fe8b8bc454a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4979c01dc436209b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "read-note/zhe-cai-shi-xin-li-xue.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "0b3ef3cb00b22814",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "read-note/zhe-cai-shi-xin-li-xue.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "9516a76800d9aff5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "ea77644c864eac15",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "read-note/zhe-cai-shi-xin-li-xue.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "de00873f42a71f3f",
+  "lastOpenFiles": [
+    "read-note/yan-yuan-de-xiang-ri-kui-di.md",
+    "read-note/99-you-guai.md",
+    "photo-gallery/2023/hangzhou-longjingwu.md",
+    "photo-gallery/2023/huzhou-12.3.md",
+    "photo-gallery/2023/ao-men.md",
+    "my-notes/moth-notes/2023/10.md",
+    "life/zou-zou-ting-ting.md",
+    "life/subscription.md",
+    "life/schedule.md",
+    "comic-note/guan-yu-di-qiu-de-yun-dong.md",
+    "comic-note/dian-ju-ren.md",
+    "article-translate/chong-xin-si-kao-react-zui-jia-shi-jian.md"
+  ]
+}
