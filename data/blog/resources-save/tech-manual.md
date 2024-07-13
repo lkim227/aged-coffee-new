@@ -24,7 +24,8 @@ summary: ''
 [编程面试大学](https://github.com/jwasham/coding-interview-university/blob/main/translations/README-cn.md)  
 [小林 x 图解计算机基础](https://www.xiaolincoding.com/)  
 [一站式解决大部分 Mac 问题](https://44maker.github.io/wiki/Mac/index.html)  
-[动画算法与数据结构](https://anime.yufan.io/)
+[动画算法与数据结构](https://anime.yufan.io/)  
+[全栈 DS/DA 养成手册](https://jace-yang.github.io/Full-Stack_Data-Analyst/intro.html)  
 
 ## css
 
@@ -37,6 +38,7 @@ https://github.com/csstools/cssdb
 
 ## react
 
+[React Common Tools and Practices](https://react-community-tools-practices-cheatsheet.netlify.app/)  
 [react-philosophies](https://github.com/mithi/react-philosophies)  
 [awesome-react](https://github.com/enaqx/awesome-react#mobx-tutorials)  
 [useful-custom-react-hooks](https://github.com/WebDevSimplified/useful-custom-react-hooks)  
@@ -81,6 +83,7 @@ https://github.com/csstools/cssdb
 
 ## 运维
 
+[nginx-tutorial](https://github.com/jaywcjlove/nginx-tutorial)  
 [docker-course](https://github.com/adrianhajdin/docker-course)  
 [Docker -从入门到实践](https://yeasy.gitbook.io/docker_practice/)
 

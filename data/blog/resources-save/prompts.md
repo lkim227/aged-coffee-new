@@ -50,6 +50,10 @@ summary: ''
 
 ### 日常工具
 
+**渐进解释**
+
+用逐渐增加复杂度的方式解释 XXX
+
 **专业翻译**
 
 https://twitter.com/yetone/status/1733564208917438838

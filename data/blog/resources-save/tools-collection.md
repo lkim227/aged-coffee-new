@@ -53,7 +53,8 @@ summary: ''
 - ⭐[ShadoShadowsocksX-NG-R8 - 翻墙](https://github.com/shadowsocks/ShadowsocksX-NG)
 - ⭐[clashx-pro - 翻墙](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public)
 - ⭐[Bartender - Mac 菜单栏管理](https://www.macbartender.com/)
-- ⭐[Hidden Bar](https://github.com/dwarvesf/hidden)
+- [Hidden Bar](https://github.com/dwarvesf/hidden)  
+- ⭐[Ice - 菜单隐藏](https://github.com/jordanbaird/Ice)  
 - ⭐[Downie 4 - 视频下载](https://software.charliemonroe.net/downie/)
 - ⭐[stats - 系统监控](https://github.com/exelban/stats)
 - ⭐[proxyman - App 抓包调试](https://proxyman.io/)
@@ -80,7 +81,9 @@ summary: ''
 - ⭐[Chat2db](https://chat2db.ai/)  
 - ⭐[LM Studio](https://lmstudio.ai/)
 - ⭐[notesollama - 苹果 Note 增强](https://github.com/andersrex/notesollama)  
-- ⭐[reor - 本地 RAG](https://github.com/reorproject/reor)
+- ⭐[reor - 本地 RAG](https://github.com/reorproject/reor)  
+- ⭐[Memo - 音视频总结和字幕](https://memo.ac/zh/)  
+- [dataline - 本地基于大模型的数据分析](https://github.com/RamiAwar/dataline)
 
 ### 开发
 
