@@ -20,5 +20,8 @@
   },
   "peacock.color": "#68B984",
   "autocorrect.formatOnSave": true,
-  "cSpell.words": ["Zustand"]
+  "cSpell.words": ["Zustand"],
+  "files.exclude": {
+    "data/blog/**/*.md": true
+  }
 }
