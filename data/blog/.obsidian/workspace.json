@@ -4,14 +4,14 @@
     "type": "split",
     "children": [
       {
-        "id": "1e2b29bbf005fdee",
+        "id": "2db434fa2c86d318",
         "type": "tabs",
         "children": [
           {
-            "id": "de00873f42a71f3f",
+            "id": "0918ee36feceeaca",
             "type": "leaf",
             "state": {
-              "type": "graph",
+              "type": "empty",
               "state": {}
             }
           }
@@ -120,13 +120,29 @@
               "type": "outline",
               "state": {}
             }
+          },
+          {
+            "id": "3d7fc27313dbc867",
+            "type": "leaf",
+            "state": {
+              "type": "smart-connections-view",
+              "state": {}
+            }
+          },
+          {
+            "id": "38ef1d12fbfcfdc2",
+            "type": "leaf",
+            "state": {
+              "type": "smart-connections-chat-view",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -135,11 +151,16 @@
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false
+      "command-palette:打开命令面板": false,
+      "smart-connections:Open: View Smart Connections": false,
+      "smart-connections:Open: Smart Chat Conversation": false,
+      "mermaid-tools:Open Mermaid Toolbar": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "de00873f42a71f3f",
+  "active": "0918ee36feceeaca",
   "lastOpenFiles": [
+    "smart-chats",
     "tech-blog/yuan-gou-jian-gong-ju-vite-chu-tan.md",
     "life/zou-zou-ting-ting.md",
     "life/subscription.md",
@@ -164,7 +185,6 @@
     "photo-gallery/2023/hangzhou-longjingwu.md",
     "photo-gallery/2023/huzhou-12.3.md",
     "photo-gallery/2023/ao-men.md",
-    "my-notes/moth-notes/2023/10.md",
-    "comic-note/guan-yu-di-qiu-de-yun-dong.md"
+    "my-notes/moth-notes/2023/10.md"
   ]
 }

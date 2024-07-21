@@ -8,6 +8,8 @@ summary: ''
 
 <TOCInlineWithSticky toc={props.toc} />
 
+## web3
+[面向 Web2 工程师的 Web3 入门](https://s3.laisky.com/public/slides/web3-101.slides.html#/)
 
 ## 综合-integrated
 

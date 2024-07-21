@@ -1,0 +1,113 @@
+---
+title: 2024-第二十九周
+date: '2024-07-15'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [Get The Screen Width & Height Without JavaScript](https://css-tip.com/screen-dimension/)
+
+这段文字介绍了如何使用 CSS 获取屏幕宽度和高度的像素值，通过一些 CSS 代码和三角函数，以及使用@property 属性实现。这种方法可以实现在屏幕调整大小时自动更新数值，而无需使用 JavaScript。
+
+- 通过 CSS 可以使用 @property 和三角函数来获取屏幕宽度和高度的像素数值，而且这些值是无单位的，可以方便地用于任何公式计算。
+- 在不需要 JavaScript 的情况下，可以通过 CSS 实现屏幕尺寸变化时数值的实时更新。
+- 通过调整下方的演示，可以实时查看数值的更新情况，这对网页设计和布局具有重要意义。
+
+
+### [An update on invokers: Invoker commands in HTML](https://utilitybend.com/blog/an-update-on-invokers-invoker-commands-in-html)
+
+在这篇文章中，作者介绍了 HTML 中的一个实验性特性：Invoker Commands。该特性使得通过 HTML 元素与命令来控制与交互，涵盖了对话框、自定义计数按钮、视频控制等功能。作者展示了如何通过命令来触发和控制这些交互，并介绍了特性的未来发展方向。文章强调了这一特性对于提升一致性和可读性的重要性，并鼓励人们参与尝试和反馈。
+
+- Invoker Commands 是一个实验性特性，通过 HTML 标签和属性可以实现对话框、弹出框、表单控件等元素的交互控制，为网页交互带来新的可能性。
+- 未来的发展计划中，Invoker Commands 将支持对 `<details>` 元素、表单控件（如 `<select>`、`<input>`）的交互控制，为 Web 开发带来更多便利。
+- 通过使用 Invoker Commands，可以简化网页开发中一些常规交互控制的实现，提高代码的一致性和可读性，为 HTML 增加更多质量生活的功能。
+
+
+### [网页中文字体加载速度优化 - 字体分包](https://www.hehehai.cn/posts/chinese-web-font-optimize#%E4%BD%95%E4%B8%BA%E5%88%87%E7%89%87%E5%AD%97%E4%BD%93)
+
+这篇文章介绍了在网页中优化中文字体加载速度的方法，包括直接引入字体文件、字体子集化和字体分包。作者介绍了使用 woff2 格式的优点，并详细讨论了字体子集化和字体分包的操作和原理。最后，作者分享了使用字体分包插件和高级子集分包方案的方法，并描述了如何在项目中应用这些优化技术。
+
+- 使用字体子集或分包技术可以优化网页加载速度，减少字体文件大小，提高性能。
+- 字体子集化适合于固定字符集的场景，而字体分包则适用于保留所有字符的情况，两种技术各有优势。
+- 通过工具和服务，如 subset-font 和 cn-font-split，可以轻松实现字体子集和分包的处理，提高网页字体加载效率。
+
+### [The React useRef Hook: Not Just for DOM Elements](https://dev.to/opensauced/the-react-useref-hook-not-just-for-html-elements-3cf3)
+
+这篇文章介绍了 React 中的 useRef hook 的用法和示例。useRef 可以创建一个可变的引用对象，用于引用 DOM 元素或其他对象，并且不会触发组件的重新渲染，从而提高性能。文章还提供了示例，包括引用 DOM 元素和非 DOM 元素的用法。最后提到了推荐阅读 useRef hook 的 React 文档，并分享了作者在开源项目中的工作。
+
+- useRef 是 React 中的一个 hook，用于创建可变值的引用对象，不会触发组件重新渲染，适合引用 DOM 元素或非 DOM 元素。
+- 通过 useRef 可以引用 DOM 元素，比如在 useEffect 中设置焦点，同时通过检查 current 属性确保只在初始渲染后执行一次。
+- useRef 也适用于引用非 DOM 元素，比如引用可读流对象，用于取消正在进行的流操作而不触发重新渲染，提高性能。
+
+### [审核平台前端新老仓库迁移](https://mp.weixin.qq.com/s/Do59GE7wHstw_U00FVdnyg)
+
+本文介绍了一个大型复杂项目前端迁移的实践经验，包括整洁架构的应用、使用 AST 进行代码迁移、视觉辅助 UI 自动化测试等技术探索与解决方案。文章重点讨论了如何保障稳妥的迁移，以及迁移后的收益和展望。
+
+- 迁移大型复杂项目时，采用基于 AST 的自动化迁移工具和视觉辅助 UI 自动化测试，确保稳妥迁移和系统稳定性。
+- 整洁架构思想的引入，带来了核心模块重构和“巨石 store”轻量化，提高了可维护性和可演进性。
+- 持续优化迁移过程，制定合理的灰度策略，优先验证并保证及时的反馈渠道，同时将迁移的结束看作起点，持续推进优化和改进新架构。
+
+### [A guide to reading and writing Node.js streams](https://blog.platformatic.dev/a-guide-to-reading-and-writing-nodejs-streams)
+
+本文介绍了 Node.js 中流（streams）的核心概念和使用方法。流能够以增量方式处理数据，优化内存使用，适用于处理大型数据集和实时数据传输。流的事件驱动架构使其能够高效处理实时 I/O，同时流还具备管理数据流量的机制，如背压（backpressure）来避免内存超载和数据丢失。文章还讨论了可读流（readable streams）、可写流（writable streams）的基本操作方法和事件，并介绍了如何使用异步迭代器来简化流的处理。最后，文章提到了一些在处理流时需要注意的问题，以及如何有效地处理错误和使用异步迭代器与管道组合来管理流的转换。
+
+- Node.js 流提供了处理大型数据集和实时数据传输的强大抽象，通过流处理数据的分块方式，显著减少内存占用，提高性能。
+- 使用流可以有效管理数据的后压力，避免生产者发送数据速度超过消费者处理能力，从而防止数据丢失和性能问题。
+- 异步迭代器是处理流数据的现代化、更易读的方式，简化了异步数据流的处理和错误处理。
+
+### [How to make complex Chrome extensions: a zero gravity guide](https://evilmartians.com/chronicles/how-to-make-complex-chrome-plugins-a-zero-gravity-guide)
+
+这篇文章讲述了如何创建一个功能丰富的 Chrome 浏览器扩展，以 Playbook 的案例为例。文章涵盖了创建扩展所需的基本功能，如授权、内容脚本和错误处理，还介绍了在 Chrome Web Store 发布扩展的准备工作。整体来说，文章着重介绍了创建 Chrome 扩展的关键步骤和技术细节。
+
+- 创建 Chrome 扩展需要处理 OAuth 授权、内容脚本以及上下文菜单等特定功能，并且需要注意安全性和权限设置。
+- Chrome 扩展的开发流程包括与客户合作确定功能，实现内容脚本保存图片功能，以及使用 Sentry 进行错误处理和报告。
+- 发布 Chrome 扩展到 Chrome Web Store 需要遵守官方政策、注册开发者账号、准备上传文件，并经过审查流程。
+
+## 工具
+
+### [⭐️unplugin-turbo-console](https://github.com/unplugin/unplugin-turbo-console)
+
+🚀 提升控制台的开发者体验
+
+### [animata](https://github.com/codse/animata)
+
+使用简单易用的动画和交互代码让您的网站生动起来。复制、粘贴、添加动画效果。
+
+### [react-geiger](https://github.com/kristiandupont/react-geiger)
+
+React 性能的声音化展示
+
+### [egjs-infinitegrid](https://github.com/naver/egjs-infinitegrid)
+
+一个模块，可在网格布局上无限制地排列各种卡片元素和内容。
+
+### [why-is-node-running](https://github.com/mafintosh/why-is-node-running)
+
+你知道 Node 正在运行，但不清楚原因吗？why-is-node-running 将为您提供帮助。
+
+### [annotree](https://github.com/itchaox/annotree)
+
+一款生成带注释的目录树工具
+
+## 更新
+
+### [Astro 4.12: Server Islands](https://astro.build/blog/astro-4120/)
+
+Astro 4.12 发布了首个实验性版本的 Server Islands，这是一个新的解决方案，用于集成高性能的静态 HTML 和动态服务器生成的组件。此外，还包括了对分页和语法高亮的改进。Server Islands 允许将高性能静态 HTML 与动态服务器生成的组件结合在一起，提供了更好的缓存策略和性能表现。同时，还新增了对分页数据中的第一个和最后一个 URL 的支持，以及对 Shiki 的 defaultColor 选项和新的 inferRemoteSize 函数的增强。
+
+- Astro 4.12 发布了“服务器岛”实验功能，将高性能的静态 HTML 和动态服务器生成的组件整合在一起，以提高页面性能和用户体验。
+- 发布了关于分页数据的改进，新增了第一个和最后一个页面的 URL，并对 Shiki 的 defaultColor 选项提供了支持，以增强页面的样式定制能力。
+- 引入了新的 inferRemoteSize 函数，使得开发者可以独立获取远程图片的尺寸信息，同时还包括了更多的 bug 修复和改进，以提升 Astro 框架的稳定性和功能性。
+
+## AI
+
+### [⭐️openui](https://github.com/wandb/openui)
+
+OpenUI 允许您凭借想象描述界面，随后即可实时查看其呈现效果。
