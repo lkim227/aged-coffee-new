@@ -8,14 +8,22 @@ const CustomLink = ({ href, ...rest }: LinkProps & AnchorHTMLAttributes<HTMLAnch
   const isAnchorLink = href && href.startsWith('#')
 
   if (isInternalLink) {
-    return <Link href={encodeURI(href)} {...rest} />
+    return <Link className="break-words" href={encodeURI(href)} {...rest} />
   }
 
   if (isAnchorLink) {
-    return <a href={encodeURI(href)} {...rest} />
+    return <a className="break-words" href={encodeURI(href)} {...rest} />
   }
 
-  return <a target="_blank" rel="noopener noreferrer" href={encodeURI(href)} {...rest} />
+  return (
+    <a
+      className="break-words"
+      target="_blank"
+      rel="noopener noreferrer"
+      href={encodeURI(href)}
+      {...rest}
+    />
+  )
 }
 
 export default CustomLink
