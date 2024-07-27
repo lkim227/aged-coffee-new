@@ -1,0 +1,140 @@
+---
+title: 2024-第三十周
+date: '2024-07-22'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+### [⭐️STATE OF REACT 2023]https://2023.stateofreact.com/zh-Hans/
+
+### [DRY – the common source of bad abstractions](https://swizec.com/blog/dry-the-common-source-of-bad-abstractions/)
+
+这段文字探讨了编程中的一个设计原则：DRY（Don't Repeat Yourself）。它描述了在追求 DRY 时可能出现的问题，以及如何通过合适的抽象和分离关注点来解决这些问题。文章指出了 DRY 原则的潜在误用，并提出了更好的抽象方法，以便在代码的演进过程中更好地适应需求变化。文章强调了简单直观的代码结构和分离关注点的重要性，最终呼吁读者在编程时要注意避免过度追求 DRY 原则所带来的问题。
+
+- DRY 原则（不要重复自己）在代码中的过度追求，可能导致维护困难、阅读复杂，甚至产生不良的抽象化。
+- 当代码中出现重复模式时，使用循环等方式可以提高代码的效率和可维护性，但过度追求 DRY 可能导致代码复杂度和抽象化程度的提高。
+- 合理的抽象和分离关注点可以帮助解决 DRY 原则带来的问题，例如将相关功能分成不同的组件，从而降低代码复杂度并支持定制化需求。
+
+### [How Airbnb Smoothly Upgrades React](https://medium.com/airbnb-engineering/how-airbnb-smoothly-upgrades-react-b1d772a565fd)
+
+Airbnb 的前端团队成功升级了所有网页界面从 React 16 到 React 18，并创建了 React 升级系统来实现渐进式升级和测试。他们解决了模块别名和环境定位的问题，通过测试验证升级的安全性，并逐步在不同应用中推出新版本。他们计划利用这一系统持续升级，测试 React 19 的 beta 版，并强调了 React 团队在保持向后兼容性方面的努力。
+
+- Airbnb 使用 React Upgrade System 逐步升级其前端基础设施，以实现对 React 版本的平稳升级，并通过 A/B 测试和性能度量来确保升级的效果和安全性。
+- 通过模块别名和环境定位，Airbnb 设计了理想的升级系统架构，使得可以在同一代码库中管理两个不同版本的 React，并能够逐步测试和部署升级。
+- Airbnb 通过 React Upgrade System 成功将 React 18 推广到所有 web 界面，实现了平稳的升级过程，并计划利用该系统继续测试和部署未来的 React 版本。
+
+### [【3D】Building an interactive 3D event badge with React Three Fiber](https://vercel.com/blog/building-an-interactive-3d-event-badge-with-react-three-fiber)
+
+这篇文章介绍了如何为 Vercel Ship 2024 网站制作下落挂绳，包括灵感来源、技术堆栈和代码实现。涉及的技术栈包括 Blender、React、Three.js、Drei 等，通过详细的代码和解释展示了如何实现交互式下落挂绳，并介绍了一些物理学和数学概念。
+
+- 该文章介绍了如何利用技术堆栈和代码制作 Vercel Ship 2024 网站的下拉挂绳，包括利用 Blender 制作模型、使用 React 和 React Three Fiber 进行渲染，以及使用 MeshLine 等库实现交互元素。
+- 文章详细解释了构建下拉挂绳的过程，包括设置 Canvas 和 Physics 环境、定义物理连接点、创建平滑曲线、实现交互卡片，并介绍了用于动态名称显示的 Drei 库的使用。
+- 最终，文章呈现了基于 Three.js 和 React Three Fiber 的原型制作过程，包括用 Blender 模型替换基本网格、优化模拟稳定性和使用 Levva 控件进行调试。
+
+## 工具
+
+### [markdown-link-check](https://github.com/tcort/markdown-link-check)
+
+扫描 Markdown 文本中的所有超链接，判断它们是否有效或无效。
+
+### [fetch-super-headers](https://github.com/mjackson/fetch-super-headers)
+
+一个可替换 JavaScript 中的 `Headers` 对象，并具有类型安全访问功能的解决方案
+
+### [magic-esquery](https://github.com/auvred/magic-esquery)
+
+🪄 类型级别的 ESQuery 选择器解析器和匹配器！
+
+### [react-native-filament](https://github.com/margelo/react-native-filament)
+
+🐧 一款专为 React Native 设计的实时物理 3D 渲染引擎
+
+### [Drag-and-Drop-Email-Designer](https://github.com/SendWithSES/Drag-and-Drop-Email-Designer)
+
+拖放式 HTML 电子邮件设计工具 - 真正免费且开源。
+
+### [next-static-utils](https://github.com/zdenham/next-static-utils)
+
+使用静态方式托管带有应用程序路由器的 Next.js 网站的工具
+
+## 更新
+
+### [Astro 4.12: Server Islands](https://astro.build/blog/astro-4120/)
+
+Astro 4.12 发布了新版本，首次实验性发布了 Server Islands，这是一个整合高性能静态 HTML 和动态服务器生成组件的新解决方案。此外，还包括对分页和语法高亮的改进。Server Islands 允许在页面中结合高性能的静态 HTML 和动态服务器生成的组件，提供更好的缓存性能。新版本还增加了对分页数据的支持和一些新的函数，如 inferRemoteSize。详细信息可查看完整的发布说明。
+
+- Astro 4.12 发布了首个实验性版本的 Server Islands，这是一个新的解决方案，用于将高性能静态 HTML 和动态服务器生成的组件整合在一起。
+- Server Islands 能够将页面的静态内容和动态个性化内容分离加载，提高了页面的缓存性能，并在用户界面和核心 Web 指标方面取得更好的表现。
+- 除了 Server Islands，Astro 4.12 还包括了对分页和语法高亮的改进，以及新的 inferRemoteSize 函数，用于独立获取远程图片的尺寸。
+
+### [What’s New for JavaScript Developers in ECMAScript 2024](https://thenewstack.io/whats-new-for-javascript-developers-in-ecmascript-2024/)
+
+ECMAScript 2024 的新功能包括改进了的 Promise，新增了 Array 分组功能，Unicode 处理的改进，以及针对多线程编程的新选项。这些功能的加入旨在提高开发人员的幸福感，并更好地支持现代 JavaScript 编程。
+
+- ECMAScript 2024 引入了 Promise.withResolvers 静态方法，让开发者更轻松地处理 Promise 的解析和拒绝，提高了 JavaScript 开发的效率。
+- 新增的 Array grouping 功能使开发者能够更容易地对对象进行分类和分组，简化了对数据进行分类和整理的操作。
+- 引入了新的正则表达式标志 /v flag，解决了 Unicode 处理中的一些奇怪问题和缺失功能，提高了 JavaScript 对 Unicode 的处理能力。
+
+## 设计
+
+### [Readability: The Optimal Line Length](https://baymard.com/blog/line-length-readability)
+
+这篇文章探讨了文本行长度对网站可读性和用户体验的影响。研究发现，文本行长度过长会让用户感到不友好和难以阅读，从而影响其对产品或服务的理解和决策。最佳文本行长度为每行 50-75 个字符，超过这个范围会对用户造成阅读困难。此外，针对电子商务网站，根据无障碍原则建议将每行文本限制在 80 个字符以内，以提升用户体验。
+
+- 优化的文本行长度对于提升文本可读性至关重要，过长的行会让用户感到压力，影响他们对产品或服务的理解和决策。
+- 在电子商务网站上，过长的文本行会阻碍用户阅读和获取产品或服务的信息，因此最佳的文本行长度应该控制在 80 个字符以内，以支持所有用户的可访问性和阅读体验。
+- 通过限制文本行长度，并在设计中使用合适的文本块和项目符号列表，可以帮助用户更容易地阅读和理解产品或服务信息，从而增强用户对产品或服务的兴趣，提高购买决策的可能性。
+
+### [So you think you know box shadows?](https://dgerrells.com/blog/how-not-to-use-box-shadows)
+
+这段文字描述了作者对盒阴影特性的深入探索，从盒阴影的基本概念到利用盒阴影进行艺术创作和复杂渲染的实验。作者展示了如何利用盒阴影创建艺术作品、进行仿真渲染，甚至尝试使用盒阴影进行光线追踪。整篇文章以轻松幽默的语气展现了作者对 CSS 盒阴影的不同玩法和创意思路
+
+- 盒子阴影是一种在图形设计和网页开发中非常灵活的工具，借助 CSS 技术可以创造出丰富的深度感和各种视觉效果。
+- 本文将探讨盒子阴影的创新和独特应用，包括如何实现 3D 渲染、互动动画，甚至光线追踪等效果。
+- 通过实验、互动演示和技术分析，作者展示了盒子阴影的无限可能性，充分体现了在网页设计和视觉效果方面的趣味性和探索精神。
+
+### [Bluescreen Day](https://dribbble.com/shots/24554561)
+
+![Fy4Cwl](https://cdn.jsdelivr.net/gh/klaaay/pbed1@master/uPic/Fy4Cwl.png)
+
+## AI
+
+### [aide](https://github.com/nicepkg/aide)
+
+一键注释和语言转换 VSCODE 插件
+
+### [raycast-g4f](https://github.com/XInTheDark/raycast-g4f)
+
+Raycast 扩展：免费使用 GPT-4、Llama-3 等功能，无需 API 密钥！
+
+### [zerox](https://github.com/getomni-ai/zerox)
+
+使用 gpt-4o-mini 进行零射击 PDF 光学字符识别
+
+### [揭秘 DeepSeek:一个更极致的中国技术理想主义故事](https://mp.weixin.qq.com/s/r9zZaEgqAa_lml_fOEZmjg)
+
+这篇文章讲述了中国大模型创业公司 DeepSeek 在技术创新方面的不凡之处，以及其创始人对创新和全球技术发展的独特看法。文章强调了 DeepSeek 在模型架构方面的创新取得了突破，以及其坚持专注于技术研究与创新的决心。同时，也强调了 DeepSeek 创始人对于国产大模型公司积极参与全球技术创新的理念和信念。
+
+- DeepSeek 是中国的一家大模型创业公司，通过创新技术降低大模型的成本，引发了中国大模型的价格战。
+- DeepSeek 专注于对模型架构进行全方位创新，提出了一种新的多头潜在注意力机制（MLA），成功降低成本并获得硅谷的好评。
+- 梁文锋作为 DeepSeek 的创始人，坚持技术创新和开源路线，表达了对中国大模型领域加入全球技术创新浪潮的信心和决心。
+
+## 其他
+
+### [译：固执的正确方式](https://sorrycc.com/persistence/)
+
+这段文字主要讨论了坚持和执拗的区别。作者认为，成功的人通常表现出坚持不懈的特征，他们持续尝试并最终找到有效的解决办法。相比之下，执拗的人则表现为顽固和固执，他们不愿意倾听他人意见，执意坚持自己的想法。作者认为坚持和执拗有着重要的区别，坚持者通常注重目标、拥有想象力、适应力和判断力，而执拗者则倾向于固守错误的想法。文章指出，正确的坚持是稀有且宝贵的，它需要能量、想象力、适应力、良好判断力和专注于目标。
+
+- 坚持和固执是不同的，坚持是基于目标的能量、想象力、韧性、判断力和专注力的结合，而固执则是对自己想法的盲目坚持，忽视了问题的复杂性和信息的变化。
+- 解决复杂问题需要坚持而非固执，因为坚持者会根据问题的不同层次有所取舍，保持开放心态并且具备好的判断力，而固执者却倾向于执着于错误的想法，并且无法灵活调整。
+- 坚持者和固执者在面对挫折时的心态不同，坚持者会以目标为导向，依靠能量和韧性不断尝试，而固执者则是盲目坚持自己的想法，将坚持变成了一种武断的愚蠢。
+
+---
+
+“简单”和“容易”之间的区别很重要。简单是复杂的对立面。复杂性来自多个东西捆绑在一起。

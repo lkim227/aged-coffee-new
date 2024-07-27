@@ -63,7 +63,10 @@ summary: ''
 - ⭐[rime-auto-deploy-输入法](https://github.com/Mark24Code/rime-auto-deploy)
 - ⭐[termius-remote ssh](https://www.termius.com/free-ssh-client-for-mac-os)
 - ⭐[openai-translator](https://github.com/openai-translator/openai-translator)
-- ⭐[PopClip](https://www.popclip.app/)
+- ⭐[PopClip](https://www.popclip.app/)  
+- ⭐[NotchDrop - 文件暂存](https://github.com/Lakr233/NotchDrop)  
+- ⭐[BetterDisplay - 屏幕扩展](https://github.com/waydabber/BetterDisplay)  
+- ⭐[pearcleaner - 软件管理](https://itsalin.com/appInfo/?id=pearcleaner)  
 - [Mac-CLI](https://github.com/guarinogabriel/Mac-CLI)
 - Magnet - 分屏工具
 - [GifCapture](https://github.com/onmyway133/GifCapture)- Gif 图片制作
