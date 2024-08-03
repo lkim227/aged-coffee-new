@@ -1,0 +1,152 @@
+---
+title: 2024-第三十一周
+date: '2024-07-29'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [⭐️React Conf 2024 Talks](https://conf.react.dev/talks)
+
+### [Flexible network data preloading in large SPAs](https://mmazzarolo.com/blog/2024-07-29-data-preloading-script/)
+
+该文介绍了在客户端渲染的单页应用（SPA）中，如何通过预加载网络数据来优化性能。作者提出了预加载网络请求的方法，并提供了基本实现和更可扩展的预加载模式。同时强调了该模式的好处和考虑事项。
+
+- 在客户端渲染的单页应用程序中，预加载网络数据可以通过自定义实现来优化性能，而不是依赖浏览器提示。
+- 可以通过将函数包装成“可预加载”的形式，使得在应用程序中任何部分都可以预加载数据，并在需要时消耗这些数据，从而提高应用程序的效率和用户体验。
+- 预加载模式的实现需要考虑细节问题，如预加载过期逻辑、支持参数匹配等，以确保适合特定的使用场景并避免引入过多的依赖。
+
+### [Why Unknown Types Are Useful](https://michaeluloth.com/programming-types-unknown-why-useful/)
+
+这段文字讨论了在程序中处理外部数据时，对数据类型进行验证的重要性。如果未经验证就假定数据类型，可能导致程序在运行时出现错误。作者介绍了使用“unknown”类型进行数据验证的方法，以及警惕使用“any”类型可能带来的隐患。最终强调了在处理外部数据时，不应假定已知数据类型的重要性。
+
+- 当程序接收外部数据时，不能确定其类型，因此在使用前需要进行验证，否则将会存在安全风险。
+- 使用"unknown"类型可以帮助程序员避免对数据类型的假设，通过显式验证数据的相关特征来确保安全使用。
+- 在处理外部数据时，避免使用"any"类型，因为它会禁用类型检查，而使用"unknown"类型可以帮助程序员更加谨慎地验证数据类型。
+
+### [How Google handles JavaScript throughout the indexing process](https://vercel.com/blog/how-google-handles-javascript-throughout-the-indexing-process)
+
+
+这段文字总结了针对搜索引擎优化的一些常见误解，并介绍了关于谷歌搜索引擎对 JavaScript 内容和现代网页应用的渲染能力的最新研究发现。研究结果表明，谷歌能够有效渲染 JavaScript 内容和处理动态加载内容，同时也提出了一些建议，帮助网站优化其渲染性能和提升在搜索引擎中的可见性。
+
+- 谷歌能够有效渲染和索引 JavaScript 内容，包括复杂的单页应用程序、动态加载内容和流式内容。
+- 谷歌处理 JavaScript 重的页面与静态 HTML 页面没有根本区别，所有页面都会被渲染。
+- JavaScript 对页面发现的影响较小，谷歌能够成功发现和爬取渲染完成的页面中的链接。Google 区分链接发现和链接价值评估，并在完整渲染页面后进行后者。
+
+### [Patterns for Memory Efficient DOM Manipulation with Modern Vanilla JavaScript](https://frontendmasters.com/blog/patterns-for-memory-efficient-dom-manipulation/)
+
+这篇文章探讨了现代纯 JavaScript 编程中优化 DOM 操作的最佳实践，从而提升应用程序的性能。作者介绍了一系列操作 DOM 的技巧和方法，包括隐藏元素、使用文本内容替代 innerText、使用 insertAdjacentHTML 代替 innerHTML 等。此外，还介绍了如何使用 WeakMap 和 WeakRef 等工具来管理 DOM 节点的引用，以避免内存泄漏。最后，文章提到了使用 Chrome DevTools 进行性能分析和调试的方法，并强调了了解和应用这些低级技术对于提高应用性能的重要性。
+
+- 优先修改现有元素而不是创建新元素，以提高 DOM 操作的效率。
+- 使用高效的方法，如 textContent、insertAdjacentHTML 和 appendChild，来进行 DOM 操作。
+- 谨慎管理引用，利用 WeakMap 和 WeakRef 避免内存泄漏。
+
+### [Demystifying cookies and tokens](https://tommihovi.com/2024/05/demystifying-cookies-and-tokens/)
+
+这篇文章介绍了网页 Cookies 和 Tokens 的相关概念和用法。首先解释了 Cookies 是网站在用户设备上存储的文本文件，用于管理 HTTP 会话、个性化和跟踪。介绍了不同类型的 Cookies，包括会话 Cookies 和持久 Cookies。然后详细介绍了 Tokens，特别是 JSON Web Tokens（JWTs），以及在 Microsoft Identity Platform 中使用的 OAuth 2.0 和 OpenID Connect 协议。最后讨论了 JWT 的安全性问题和关于 Cookies 和 Tokens 的未来博客主题。
+
+- Cookies 是网站用来存储用户信息的小文本文件，用于管理 HTTP 会话、个性化用户体验和跟踪用户行为。
+- Tokens 是用于在软件之间交换信息的自包含 JSON 对象，包括 ID token、Access token 和 Refresh token，用于解决传统身份验证和授权过程中的性能和安全问题。
+- JWT 是一种常用的 Token 格式，包含头部、载荷和签名部分，用于安全地在两方之间传递数据，但存在大小限制和存储安全性等方面的挑战。
+
+
+### [How to Build Horizontal Marquee Effects With GSAP](https://webdesign.tutsplus.com/how-to-build-horizontal-marquee-effects-with-gsap--cms-108794t)
+
+这段文字介绍了如何使用 GSAP JavaScript 动画库创建无限滚动的跑马灯效果。作者展示了不同类型的水平滚动跑马灯，包括基本的水平滚动、带有停止效果的水平滚动、反向滚动的水平跑马灯、以及根据视图播放的水平滚动。文字还提到了使用 GSAP 插件实现类似滑块的水平跑马灯，并呼吁读者通过查看 CodePen 合集来了解更多示例。
+
+- 通过 GSAP JavaScript 动画库可以创建水平和垂直无限滚动的跑马灯效果，为网站提供常见的用户体验模式。
+- GSAP 的辅助函数和插件可以实现暂停、自适应布局和交互功能，为跑马灯效果增加更多特性。
+- 跑马灯效果在网页设计中需要谨慎使用，因为移动的文本可能对阅读造成干扰，并且存在较大的无障碍访问难题。
+
+
+### [Flags as code in Next.js](https://vercel.com/blog/flags-as-code-in-next-js)
+
+这篇文章介绍了一个新的 Flags SDK，可以在 Next.js 和 SvelteKit 中使用特性标志，并且与任何特性标志提供者兼容，甚至可以不使用任何特性标志提供者。该 SDK 旨在帮助遵循特性标志和实验的最佳实践，同时保持网站的快速加载。文章从基本开始介绍了 Flags SDK，然后讨论了特性标志的原则、基本形式和进展，并说明了它们之间的权衡。文章还提供了具体的代码示例和模板，让读者可以快速开始使用 Flags SDK。
+
+- Flags SDK 是一个功能强大的工具，能够帮助开发者在应用程序和特性标志源之间实现最佳实践，支持各种特性标志使用案例，保持网站性能优异。
+- Flags SDK 的设计原则包括将特性标志转换为函数、只在服务器端计算特性标志、以及在调用端不接受任何参数，从而带来灵活性，减少客户端性能问题，并简化维护和删除特性标志的过程。
+- 通过 Flags SDK，可以从简单的特性标志开始，逐渐演进为基于 Vercel Toolbar 的覆盖、环境变量控制和 Edge Config 集成，甚至接入现有的特性标志提供商，以满足不同的特性标志需求和用例。
+
+### [译：不要将 DTO 传递给用户界面组件](https://sorrycc.com/do-not-pass-dtos-to-ui-components/)
+
+这篇文章讨论了不应该直接将后端数据传输对象（DTOs）传递给前端 UI 组件，而是建议引入数据访问层作为抽象边界。数据访问层可以将后端 DTOs 转换为简化的 UI 视图模型，以保护组件免受后端数据模型变化的影响。通过保持抽象边界和合理建模组件接口，可以构建更加模块化和可维护的 UI 架构。
+
+- 不要直接将后端数据传输对象（DTOs）传递给 UI 组件，而是应该引入数据访问层，以简化对象模型，避免耦合和数据泄漏。
+- 数据访问层应该将后端的 DTOs 转换为适合 UI 的视图模型，并且可以派生新字段、扁平化嵌套对象，或者选择一部分属性，以满足 UI 渲染的需要。
+- 通过保持抽象边界和有意识地建模组件接口，可以构建更加模块化和可维护的 UI 架构，这有助于保护组件不受后端数据模型的变化影响，并促进更好的重用和组合。
+
+### [译：关于 Git 提交，我知道的 89 件事](https://sorrycc.com/things-know-commits/)
+
+这篇文章总结了作者在使用 Git 进行提交和管理提交历史时学到的一些经验和教训。文章涵盖了提交消息、提交历史、合并策略、撤销和强制推送等方面的最佳实践，并强调了提交消息的重要性和原子性提交的价值。同时，文章还提到了使用常规提交、规范提交和自动化发布工具等对提交流程的改进，以及对团队合作和提交信息编写的重视。
+
+- 提交信息比代码变更本身更重要，因为它们帮助理解为什么进行了更改，而不仅仅是什么改变了。
+- 原子提交非常重要，每个提交都应该是原子的，包含完整的代码、测试和配置更改。
+- 学会使用 git reflog 和撤销强制推送等技能是至关重要的，可以帮助在出错时快速恢复。
+
+## 工具
+
+### [typeschema](https://github.com/decs/typeschema)
+
+🛵 一种用于 TypeScript 模式验证的通用适配器。
+
+### [node-fluent-ffmpeg](https://github.com/fluent-ffmpeg/node-fluent-ffmpeg)
+
+一个便捷易用的 FFMPEG 接口 (http://www.ffmpeg.org)
+
+### [react-range](https://github.com/tajo/react-range)
+
+🎚️使用滑块进行范围输入。这种方式便于访问，您可以自定义样式和标记。
+
+## 更新
+
+### [Astro 4.12: Server Islands](https://astro.build/blog/astro-4120/)
+
+Astro 4.12 发布了，首次实验性推出了 Server Islands，能够整合高性能静态 HTML 和动态服务器生成的组件。此外，还改进了分页和语法高亮功能。Server Islands 可用于处理动态内容，提高页面缓存性能，而且具有良好的可移植性。Astro 4.12 还增加了对分页数据的支持、Shiki 的 defaultColor 选项和新的 inferRemoteSize 函数。
+
+- Astro 4.12 发布了全新的实验性版本，引入了 Server Islands，这是一种将高性能的静态 HTML 和动态服务器生成的组件整合在一起的解决方案。
+- 通过 Server Islands，用户可以在页面中结合高性能的静态 HTML 和动态服务器生成的组件，实现个性化内容展示，并提升页面缓存效果。
+- 除了 Server Islands，Astro 4.12 还包括对分页和语法高亮的改进，以及新增的 inferRemoteSize 函数，为用户提供更多选择和更好的性能体验。
+
+### [Storybook 8.2](https://storybook.js.org/blog/storybook-8-2/)
+
+这篇文章介绍了 Storybook 8.2 的新功能和改进，主要包括增加更多测试钩子、支持可移植的故事测试、整合依赖管理、简化入门流程以及改进文档站点。文章还提到了对 JS 生态系统的调查结果，以及未来版本的计划。
+
+- Storybook 8.2 增强了测试功能，引入了新的测试钩子，使得编写复杂、有状态的组件测试更加灵活和可靠。
+- Storybook 8.2 推出了“可移植故事”功能，可以将故事在不同测试和文档工具中重复使用，提高了组件测试和文档编写的灵活性。
+- Storybook 8.2 进行了依赖管理的整合，大幅减少了安装依赖的大小和时间，同时更新了官方文档，以及改进了新用户的入门体验。
+
+## 设计
+
+### [跟着 Apple Watch 初识产品工业设计](https://sspai.com/post/90882)
+
+这篇文章主要介绍了产品工业设计中的细节和原理，以 Apple Watch 为例，详细讲解了圆角设计和曲线的重要性，以及工业设计中曲线的等级和连接连续性。同时，文章也提到了对产品细节的追求和设计上的严谨性。
+
+- 产品工业设计的流程包括市场调研、概念设计、详细设计、工业设计、验证、生产量产和品控，旨在满足用户需求、提升产品竞争力。
+- 苹果通过在产品设计中运用高阶、高连续性的曲线来实现圆润的外观，展示了其在设计上的严谨程度。
+- Apple Watch 的设计细节体现了产品设计的精湛工艺，包括利用同等级的曲线绘制生成每个部件，以及保持精确和一致性的生产制作。
+
+## AIGC
+
+### [开源图像有救了！前 Stability AI 核心成员开源 12B 图像生成模型，内含测评](https://quail.ink/op7418/p/open-source-image-saves-former-stability-ai-core-members-released-12b-image-generation-model-includes-evaluation)
+
+## 其他
+
+React 框架的问题是，它的关注重点不是让事情变得简单，而是扩张主义——征服新的知识前沿。
+
+-- DHH，Ruby on Rails 框架的作者
+
+---
+
+心理学家做过一个实验，让实验者长期处于半饥饿状态。结果，这些实验者的心理发生了永久变化。
+
+实验结束后，很多人喜欢上了烹饪书和餐馆菜单，会认真比较报纸上的水果和蔬菜价格，甚至开始重新考虑自己的职业，改为从事农业或餐饮。
+
+心理学家说，这证明了人被自己缺乏的东西所吸引。
+
+--《一种乌托邦式的经济思想》
