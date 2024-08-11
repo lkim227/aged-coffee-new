@@ -1,0 +1,132 @@
+---
+title: 2024-第三十二周
+date: '2024-08-05'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [HTML Web 组件让渐进式增强和 CSS 封装变得更加简单！](https://css-tricks.com/html-web-components-make-progressive-enhancement-and-css-encapsulation-easier/)
+
+这段文字介绍了 HTML Web Components 的概念和使用方法，强调了其在渐进增强和样式封装方面的优势。作者通过三个具体例子展示了 HTML Web Components 的功能和优势，并说明了它们的依赖程度可根据需要而定。
+
+- HTML Web Components 基于 HTML，支持渐进增强，使得页面元素更具可移植性和单一职责原则。
+- Web 组件的样式和行为可以得到有效封装和隔离，从而支持渐进增强并且不会与页面中的其他样式冲突。
+- JavaScript 在 Web 组件中可以提供额外的功能和增强体验，但 HTML Web Components 仍然可以在不依赖 JavaScript 的情况下正常工作。
+
+### [网络上的带有 alpha 透明效果的视频](https://jakearchibald.com/2024/video-with-transparency/)
+
+这篇文章讨论了在网页上使用视频的透明度（alpha channel）的问题，介绍了目前存在的一些解决方案和技术挑战，比如使用 AVIF 格式、VP9 和 HEVC 编码等。作者也分享了自己发现的一种基于 WebGL 的解决方案，并提供了一个处理这种视频播放的 NPM 包。
+
+- Web 视频格式中的透明通道支持存在问题，导致用于 UI 动画的视频在网页中展示时遇到了诸多挑战，包括性能问题和浏览器兼容性。
+- 尽管某些格式支持透明通道，但在不同浏览器和设备上的表现存在差异，例如 AVIF 在 Safari 中无法正确支持透明通道，同时在 Chrome 和 Firefox 上性能也有限。
+- 通过自行处理视频透明通道数据，并利用 WebGL 来有效地应用透明度遮罩，可以在避免浏览器兼容性问题的同时显著减小视频文件大小，提升网页性能和用户体验。
+
+### [你在电脑上看到的字到底是怎么显示出来的？](https://ssshooter.com/font-and-charcode/)
+
+这段文字主要介绍了字符编码的基础知识，包括 ASCII 码表、各国扩展码表、Unicode 的出现和作用，以及字符编码与字体、复杂编码与编程的关系。文章还涉及了字符编码到字体的映射、JavaScript 中的字符操作，以及一些相关的术语和扩展阅读。
+
+- 码表是用来将字符映射到数字的表格，不同地区使用不同的码表，会导致乱码和字符编码问题。
+- Unicode 是一个统一了地球上所有语言字符的表格，解决了不同编码方式的混乱，大大简化了字符编码问题。
+- 字体是显示字符的关键，不同地区的字符可能有不同的字形，而字体必须维护编码到文字的映射。
+
+### [谁才是速度之王？Node.js、Bun.js 还是 Deno.js？](https://www.trevorlasn.com/blog/benchmarks-for-node-bun-deno)
+
+这段文字介绍了 JavaScript 运行时（runtime）的概念，以及 Node.js、Deno 和 Bun.js 这三种 JavaScript 运行时在性能评测中的表现。其中提到了 JavaScript 引擎（engine）和运行时（runtime）之间的关系，以及通过 Autocannon 和 Artillery 工具进行的基准测试结果。结果显示，Deno 在性能方面表现最佳，具有最高的请求率、最低的响应时间和处理的数据吞吐量。然而，最佳的运行时选择也需要考虑生态成熟度、社区支持和易用性等因素。
+
+- JavaScript 运行时的性能对用户体验至关重要，能够影响响应时间、可伸缩性和开发效率。
+- 在使用 AutoCannon 和 Artillery 等工具对 Node.js、Deno 和 Bun.js 进行基准测试时，Deno 表现出最佳的请求率、最低的响应时间和处理的数据吞吐量。
+- 考虑到生态成熟度、社区支持和易用性等因素，选择适合特定项目需求和环境的运行时很重要。
+
+## 工具
+
+### [quickjs](https://github.com/sebastianwessel/quickjs)
+
+这是一个 TypeScript 包，可以在 WebAssembly 的 QuickJS 沙箱中运行 JavaScript 和 TypeScript 代码。
+
+### [firecrawl](https://github.com/mendableai/firecrawl)
+
+🔥 一键将整个网站转化为适合大语言模型使用的 markdown 格式或结构化数据。只需一个 API，就能轻松实现抓取、爬虫和数据提取。
+
+### [Pongo](https://github.com/event-driven-io/Pongo)
+
+Pongo - 一种基于 Postgres 的 MongoDB，具备显著的一致性优势
+
+### [lenis](https://github.com/darkroomengineering/lenis)
+
+平滑滚动
+
+### [SVGViewer](https://www.svgviewer.dev/)
+
+SVG 可视化
+
+## 更新
+
+### [现在是讨论“CSS5”的时刻了](https://www.smashingmagazine.com/2024/08/time-to-talk-about-css5/)
+
+这篇文章讨论了 CSS3 发布后新功能的命名和发布方式。作者介绍了 CSS-Next 社区组的目标和作用，以及他们重新定义 CSS 版本并招募社区参与讨论的努力。文章呼吁开发者参与并就 CSS 版本命名和发展方向提供意见。
+
+- CSS-Next 社区团体致力于重新定义 CSS 的发展阶段，将不同时间段内引入的 CSS 功能进行分类，并打算以 CSS4、CSS5 等命名来标识各个阶段。
+- CSS3 过时的术语已经不足以清晰描述当下及未来 CSS 的发展情况，因此有必要重新定义 CSS 的版本和功能的命名方式。
+- CSS-Next 鼓励开发者参与讨论，以建立一个共享的 CSS 功能演进认知，并为 CSS 的发展提供更清晰的描述和命名方式。
+
+## 设计
+
+### [penpot](https://github.com/penpot/penpot)
+
+Penpot: 一款开源的设计工具，旨在促进设计与代码之间的协作
+
+## AI
+
+### [Vercel AI SDK 3.3](https://vercel.com/blog/vercel-ai-sdk-3-3)
+
+Vercel AI SDK 是一个用于使用 JavaScript 和 TypeScript 构建 AI 应用的工具包。该 SDK 引入了四个主要功能：追踪、多模态文件附件、useObject 钩子和额外的 LLM 设置。此外，还添加了 AWS Bedrock 和 Chrome AI (community) 模型提供程序以及许多其他功能和增强。同时，SDK 通过实验性功能支持最新的功能，包括追踪、发送文件附件以及流式生成结构化对象。这些功能使得在构建 AI 应用时更加灵活和可控，同时提供了更好的观测性和用户界面集成。
+
+- Vercel AI SDK 3.3 推出了四项重要功能：追踪（实验性功能）、多模态文件附件（实验性功能）、useObject 钩子（实验性功能）和额外的 LLM 设置，提供更多功能和灵活性。
+- 追踪功能支持 OpenTelemetry，帮助理解和开发 AI 应用程序，可以使用 Vercel 的观测集成或 LLM 的观测提供商对 AI SDK 追踪数据进行分析。
+- 新增的 useObject 钩子允许在 React 中直接向客户端流式传输结构化对象生成，为构建动态界面提供了可能。
+
+### [dom-to-semantic-markdown](https://github.com/romansky/dom-to-semantic-markdown)
+
+将 DOM 转换为语义化的 Markdown 格式，以便在大语言模型中使用
+
+### [LangGraph Studio: 首个 Agent 开发环境](https://blog.langchain.dev/langgraph-studio-the-first-agent-ide/)
+
+LLM 应用的发展为新型主体应用程序的开发铺平了道路，而随着 LLM 应用的演进，必须相应地开发高效的工具。LangGraph Studio 是第一个专为主体开发设计的集成开发环境（IDE），目前处于公开测试阶段。该工具为开发 LLM 应用提供了一种新的方法，能够可视化、交互和调试复杂的主体应用程序。LangGraph Studio 旨在简化主体应用程序的开发过程，通过可视化和交互主体图形，帮助开发者快速迭代。同时，LangGraph Studio 提供了 Desktop 应用，支持 Apple Silicon 系统，并计划在更多平台上提供支持。用户可以登录 LangSmith 账户后，通过打开目录和创建 langgraph.json 文件来使用 LangGraph Studio。通过该工具，用户可以实时获取主体运行的信息，进行交互和调试主体应用程序的状态。LangGraph Studio 是朝着为主体设计的 IDE 工具方向迈出的一步，期待看到它如何提升工作流程。
+
+- LangGraph Studio 是专门为代理开发而设计的首个集成开发环境（IDE），可可视化、交互和调试复杂的代理应用程序，有助于简化代理应用程序的开发过程。
+- LangGraph Studio 可以让开发者在代理应用程序的图形结构上进行可视化和交互操作，甚至可以在代理运行的过程中修改状态或特定节点下的逻辑，从而实现快速迭代和交互。
+- LangGraph Studio 是一个桌面应用程序，目前支持苹果芯片设备，允许用户通过 LangSmith 账户登录并免费试用，为代理应用程序的开发提供了全新的工具和体验。
+
+### [对向量搜索的研究与探讨](https://blog.shalvah.me/posts/an-exploration-of-vector-search)
+
+这段文字介绍了向量搜索的基本原理、向量的概念和计算相似度的方法。它还讨论了特征、维度选择、向量搜索测量方法的选择以及在实践中的应用。文章还涉及了向量数据库的实现和在数据科学中的特征工程。最后，它介绍了基于转换器的向量嵌入和搜索引擎的构建。
+
+- 向量搜索是一种基于向量表示的搜索方式，可用于寻找与输入最接近的项目。
+- 向量搜索中的相似性度量包括欧氏距离、曼哈顿距离、点积和余弦相似度，不同度量方法会影响搜索结果。
+- 向量搜索的维度选择和特征工程对搜索结果影响重大，合理选择维度和特征尺度是关键。
+
+## 其他
+
+### [语言学习进入瓶颈期，如何突破？](https://sspai.com/post/91068)
+
+这段文字主要记录了作者自学日语的经历和心得体会。他分享了自学过程中遇到的瓶颈，以及是如何解决这些问题的。同时，作者还提到了学习外语的长期性和学习目标的重要性，以及如何设计学习流程和巧用外界反馈来提高学习效果。文章侧重个人经验，着重强调了坚持和持续努力的重要性。
+
+- 语言学习需要长期投入，不应该急于求成，因为真正的进步需要经历长时间的积累和坚持。
+- 设计自己的学习流程，包括探索学习方式和习惯的养成，帮助自己持续学习并克服学习中的瓶颈。
+- 寻找有效的外界反馈和评价，包括知识点的反馈、学习策略的反馈和综合反馈，以确保自己的学习方向和方法是正确的。
+
+
+---
+
+AI 的危险在于，它让你跳过思考，让机器填补思想的空白。我们需要 AI 使我们增加思考，而不是减少思考。
+
+我们每外包一个想法，就会错失一次成长的机会。
+
+-- 《扭转人工智能局面》
