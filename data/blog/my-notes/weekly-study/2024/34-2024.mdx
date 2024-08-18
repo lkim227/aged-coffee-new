@@ -1,0 +1,125 @@
+---
+title: 2024-第三十四周
+date: '2024-08-14'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [相对颜色语法 — 应用场景](https://frontendmasters.com/blog/relative-color-syntax-basic-use-cases/)
+
+最新版本的 Firefox（128）已全面支持相对颜色语法，使得在 CSS 中操作颜色变得更加强大和灵活。相对颜色语法可以通过自定义属性轻松地增加透明度、调暗、调亮现有的颜色，同时避免产生过多变量，并且可用于创建色彩变化的变量。这种语法的应用范围广泛，极大地增强了 CSS 的颜色处理能力。
+
+- 相对颜色语法是 CSS 中一种强大的颜色操作方式，可以在现有颜色基础上进行透明度、变暗和变亮的调整，而无需创建过多的变量。
+- 使用相对颜色语法可以通过自定义属性来管理主要颜色，并在需要时根据需求进行微调，使得代码更加简洁和可维护。
+- 相对颜色语法的灵活性和强大功能使得设计师和开发者可以更便捷地进行颜色操作，从而创造出更丰富多彩的界面设计效果。
+
+### [Firefox 的 Puppeteer 工具](https://hacks.mozilla.org/2024/08/puppeteer-support-for-firefox/)
+
+Puppeteer 浏览器自动化库的最新版本（版本 23）现已正式支持 Firefox 浏览器，用户可以轻松地使用 Puppeteer 进行自动化和端到端测试，并在 Chrome 和 Firefox 上运行。新功能包括日志消息捕获、设备模拟、网络拦截和预加载脚本等，同时介绍了 WebDriver BiDi 协议的技术背景和未来改进计划。
+
+- Puppeteer 现在通过 WebDriver BiDi 协议支持 Firefox，使得开发者可以方便地使用 Puppeteer 进行自动化测试和端到端测试，而不仅仅局限于 Chrome 浏览器。
+- WebDriver BiDi 协议使用跨浏览器协议，大大简化了支持多种浏览器的难度，为未来提供了更多扩展性和灵活性。
+- Puppeteer 在 Firefox 下实现了一些新功能，如捕获日志消息、设备仿真、网络拦截和预加载脚本，为开发者提供了更丰富的自动化测试功能。
+
+### [利用现代原生 JavaScript 实现高效内存管理的 DOM 操作方法](https://frontendmasters.com/blog/patterns-for-memory-efficient-dom-manipulation/)
+
+这篇文章讨论了现代原生 JavaScript 中操作 DOM 的最佳实践，以避免过度内存使用，从而使应用程序变得更快。它分享了如何优化 DOM 操作、管理引用、清理事件监听器，并提供了性能调试工具和建议。文章强调了在特定情况下，了解和应用底层技术可以显著提高应用程序性能，尤其是在对性能要求严格的场景下。
+
+- 优先修改现有元素而不是创建新元素，避免不必要的 DOM 操作，提高性能。
+- 使用高效的方法如 textContent、insertAdjacentHTML 和 appendChild，以减少 DOM 操作的开销。
+- 谨慎管理引用，利用 WeakMap 和 WeakRef 来避免内存泄漏，确保及时清理事件监听器，以提高效率。
+
+### [使用 React 测试库进行单元测试的小贴士](https://spin.atomicobject.com/react-testing-library-unit-tests/)
+
+这篇文章介绍了在使用 React Testing Library 包编写单元测试时的一些建议。包括如何选择正确的查询方法、避免在 waitFor 中使用多个断言、使用 screen 对象而不是从 render 中导出函数、以及建议使用 eslint-plugin-testing-library 包来避免常见错误。文章强调了编写良好的测试对于软件开发项目的重要性，以及使用测试驱动开发（TDD）的优势。
+
+- 使用 React Testing Library 时，选择正确的查询方式很重要，包括 getBy、findBy 和 queryBy 三种查询方法，应根据需要进行选择。
+- 在使用 waitFor 进行断言时，避免在一个 waitFor 中包含多个断言，以加快错误或失败的捕捉速度。
+- 不要从 render 中导出函数，而是直接使用 screen 对象来进行查询和断言，以保持代码的可读性和维护性。
+
+### [Jeremy Bernier](https://www.jbernier.com/p?id=nodejs-stream-async-iterator)
+
+
+### [sconfig.json 配置介绍](https://kettanaito.com/blog/one-thing-nobody-explained-to-you-about-typescript)
+
+这段文字主要介绍了在使用 TypeScript 过程中对于 tsconfig.json 配置文件的误解和正确使用方式。作者讲述了对 tsconfig.json 的误解以及其实际作用，详细解释了如何通过正确配置 tsconfig.json 实现对不同环境和模块的类型安全管理。同时，还介绍了使用 references 属性来处理不同配置之间的交叉影响，并解释了 include 和 references 属性的区别。最后，强调了对 TypeScript 工具的深入理解和正确使用的重要性。
+
+- **tsconfig.json 的作用**：tsconfig.json 不仅仅是一个配置文件，它定义了 TypeScript 的作用范围，影响着项目中的模块及类型定义。
+- **多环境配置**：合理地使用 tsconfig.json 的 references 和 include 属性可以实现针对不同环境的 TypeScript 配置，保证类型安全性并避免类型定义的混乱。
+- **理解 TypeScript 工具**：虽然某些框架可能会处理 TypeScript 配置，但理解 TypeScript 的工具对于开发人员仍然很重要，有助于更好地使用它并避免潜在的问题。
+
+
+## 工具
+
+### [react-call](https://github.com/desko27/react-call)
+
+使用调用的方式包装 React 组件
+
+### [ono](https://github.com/JS-DevTools/ono)
+
+在不丢失原始信息、堆栈追踪或相关属性的情况下对错误进行封装
+
+### [react-figma](https://github.com/react-figma/react-figma)
+
+一款专为 Figma 设计的 React 渲染工具
+
+### [body-scroll-lock](https://github.com/willmcpo/body-scroll-lock)
+
+body 滚动锁定，完美兼容各种场景
+
+### [convertfast-ui](https://github.com/ObservedObserver/convertfast-ui)
+
+利用预先设计好的代码块，轻松创建精美的着陆页面，基于 shadcn-ui 和 tailwind
+
+## 更新
+
+### [ECMAScript 错误安全赋值运算符](https://github.com/arthurfiorette/proposal-safe-assignment-operator)
+
+### [Astro 4.14](https://astro.build/blog/astro-4140/)
+
+Astro 4.14 发布了 Content Layer API 的实验性版本，该 API 为 Astro 项目中的内容管理提供了新的灵活解决方案。此外，还增加了对内容文件的智能感知支持，废弃了对动态预渲染值的支持，添加了新的 injectTypes 集成 API，并对 Code 组件中的 meta 属性进行了支持。该版本还包括了性能改进、使用方法、内容加载器、共享加载器、区域注入类型集成 API 和特定页面预渲染控制等方面的内容。
+
+- 发布了 Content Layer API，为 Astro 项目提供了更灵活的内容管理解决方案，支持从任何地方获取内容，包括远程 API。
+- 支持内容文件内的 Intellisense，通过提供自动完成、验证和悬停信息等功能，提高了内容文件的编写效率。
+- 弃用了对动态 prerender 值的支持，引入了新的 astro:route:setup hook 来动态控制特定页面的预渲染。
+
+### [Bun v1.1.23](https://bun.sh/blog/bun-v1.1.23)
+
+Bun v1.1.23 发布，修复 27 个 bug，新增 TextEncoderStream 和 TextDecoderStream 支持，console.log(string) 速度提升 50%，支持 Float16Array，改进内存管理，优化 Node.js 兼容性。还招聘旧金山的系统工程师。之前版本 v1.1.22 修复 72 个 bug，加速 30% 的 fetch() 解压缩，新增--fetch-preconnect 标志，改进 Remix 支持，Linux 下 Bun 减小 4MB 等。Bundows v1.1.0 发布，增加了 Windows 支持。
+
+- Bun v1.1.23 发布了，修复了 27 个 bug，提供了 TextEncoderStream 和 TextDecoderStream 支持，让`console.log(string)`速度提升 50%，还增加了对 Float16Array 的支持。
+- 该版本改进了内存错误处理，优化了 Node.jsBun IPC 在 Windows 上的兼容性，并修复了各种 bug，包括文本编码、文件读取、WebSocket 模块和跨运行时 IPC 等方面的问题。
+- Bun 正在寻找在旧金山的系统工程师，以构建 JavaScript 的未来，同时介绍了安装和升级 Bun 的方法，以及新功能和 Bug 修复的细节。
+
+### [ESLint v9.9.0 released](https://eslint.org/blog/2024/08/eslint-v9.9.0-released/)
+
+这篇文章是关于 ESLint v9.9.0 的发布说明，介绍了这个版本的一些重要变化，包括对 TypeScript 配置文件的实验性支持、修改了 require-await 规则以及一些文档和其他变化。同时还提到了之前版本的发布情况，并预告了 ESLint 未来的重大变化。
+
+- ESLint v9.9.0 发布了，增加了对实验性 TypeScript 配置文件的支持，需要使用 unstable_ts_config 特性标志启用。
+- 新版本中，require-await 规则现在建议删除可能不必要的 async 关键字的使用。
+- 文档更新和其他日常工作的变化，包括升级依赖项和更新 README 等。
+
+## 其他
+
+如果你在旅行中花很多钱，住非常昂贵的酒店，你就可以消除旅行中几乎所有的挫败感和不确定性。但是，这也会让你感觉，永远不会离开全球资本主义的单一文化。
+
+-- 《显而易见的旅行建议》
+
+---
+
+公交车有一个地铁没有的优点，那就是公交车上看到的东西比地铁有趣得多。
+
+-- 《显而易见的旅行建议》
+
+---
+
+旅行揭示了稳定生活、日常作息、社区、人际关系、在家烹饪的价值。
+
+-- 《显而易见的旅行建议》
