@@ -1,0 +1,134 @@
+---
+title: 2024-第三十五周
+date: '2024-08-19'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [利用 React 和 Framer Motion 创建滑动操作组件](https://sinja.io/blog/swipe-actions-react-framer-motion)
+
+这篇文章介绍了如何使用 React 和 Framer Motion 构建可在网页上使用的 Swipe Actions 组件。这个组件类似于 iOS 上常见的滑动操作，可以在滑动列表项时显示上下文操作。文章主要介绍了 Swipe Actions 组件的构建过程，包括根组件、触发器、动作和动作按钮等部分的实现细节。文章还提到了一些优化和扩展的想法，以及提供了完整的组件代码和用例示例。
+
+- 创建可复用的 Web 端 Swipe Actions 组件：通过 React 和 Framer Motion，创建一个可用于 Web 端的 Swipe Actions 组件，使用户能够通过向左或向右滑动列表项来触发上下文操作。
+- 使用 React Context 共享状态：利用 React Context 在 Root 组件中共享状态，以便 Trigger 和 Actions 组件能够访问共享状态并与之交互。
+- 实现可扩展的组件结构：创建一个由 Root、Trigger、Actions 和 Action 组件组成的可自由组合的组件结构，从而使 Swipe Actions 组件更加灵活和可扩展。
+
+### [React 作为全栈框架的演进](https://www.robinwieruch.de/react-full-stack-framework/)
+
+这段文字讨论了 React 框架的发展，以及前端和后端之间的演变。它回顾了从 2010 年到 2020 年前端开发的历程，探讨了 TypeScript 和 REST API 在行业中的影响，以及新的全栈 React 框架引入的 Server Components 和 Server Actions。文章还展望了 React 开发者在全栈环境中实现垂直功能的新时代，并强调了对于全栈开发的学习和教育的重要性。
+
+- React 正在演变成一个全栈框架，引入了 Server Components 和 Server Actions，实现前端和后端的无缝连接，开启了全新的全栈开发时代。
+- TypeScript 的普及影响了前端开发，使得生成的类型接口对于开发人员来说变得不那么理想，而远程过程调用（RPC）成为了一个备受欢迎的解决方案。
+- Server Components 和 Server Actions 的引入让 React 转变为一个全栈框架，允许在服务器端执行 React 组件，并创建 HTTP API 端点，为前端开发者开启了直接访问后端资源的可能性。
+
+### [在 Chrome 扩展的 Shadow DOM 中使用 shadui/cn 渲染弹窗组件](https://blog.rxliuli.com/p/7e7a1dd99853473ab2af10fdd23dc488/)
+
+使用 WXT 创建 Chrome 扩展时，通过 shadui/cn UI 组件库解决了注入 UI 时受原有网页 CSS 影响的问题，但发现弹窗组件存在渲染位置和 CSS 隔离的挑战。通过使用 Shadow DOM 解决了 CSS 隔离问题，但弹窗组件仍需在指定位置渲染。针对 Dialog 组件和 Toast 组件分别给出了解决方法。
+
+- 使用 Shadow DOM 可以将组件的 CSS 与网页的 CSS 隔离开，解决 Chrome 扩展向网页中注入 UI 时受网页原有 CSS 影响的问题。
+- shadui/cn 组件库中的弹窗组件使用 Portal 渲染，默认渲染在 document.body 中，导致与使用 Shadow DOM 的组件无法应用样式。
+- 通过设置 Dialog 组件的 container 字段和在根组件中添加 Toaster 组件的方式，可以在指定的 Shadow DOM 中渲染弹窗组件，解决样式无法应用的问题。
+
+### [考虑路由来源的 Vue 页面缓存逻辑](https://ssshooter.com/vue-page-cache/)
+
+这段文字主要讲述了在 Vue 项目中实现页面缓存的方法，作者通过介绍了初版和新方案两种实现方式，指出了初版的问题并提出了新方案的改进方法。新方案通过在页面离开前更新 include 来实现页面缓存，简化了逻辑并解决了初版中的问题。整体思路是构建目标页面和来源页面的关系，然后在离开前更新 include，从而实现页面缓存。
+
+- 实现特定页面间的缓存关系：需要通过构建页面间的关联关系，在离开前更新缓存条件，实现特定页面间的缓存控制。
+- 利用 include 来动态设置缓存条件：通过在离开页面前设置 include 来实现动态缓存条件的更新，避免复杂的条件逻辑。
+- 解放思路，简化逻辑：通过解放初次进入页面的动作，仅在进入新页面前检测当前页面是否需要缓存，从而简化缓存控制逻辑，实现更清晰的代码。
+
+### [使用 JavaScript 创建 PoeAI 的 服务端 bot](https://blog.rxliuli.com/p/958e1a550f804fb8b755040bbd040bd2/)
+
+本文介绍了如何使用 JavaScript 实现一个 Poe AI 聊天机器人的 Server Bot，并将其部署到 Cloudflare Workers。文中涵盖了基于 hono.js 创建项目、实现 Poe 协议规范、发布到 Cloudflare Workers、验证请求、主动调用 Bot 设置和调用其他 Bot 的过程。同时，还提供了完整的代码示例和相关的协议类型定义，以帮助读者理解和实践。
+
+- 实现 Poe 的 Server Bot 需要遵循特定的协议规范，包括处理不同类型的请求和返回多种类型的响应，同时还需要对请求进行验证和处理异常情况。
+- 通过 Cloudflare Workers 和 JavaScript 实现了一个基本的 Server Bot，包括处理设置请求和查询请求，并且可以主动调用 Poe 的 API 来刷新设置和调用其他 Bot。
+- 为了处理复杂的 SSE 流式响应，需要实现一个 TransformStream 来将 SSE 文本流转换为结构化的数据，并处理不同 Bot 的响应格式差异。
+
+## 工具
+
+### [react-embed-devtools](https://github.com/steelydylan/react-embed-devtools)
+
+可在 React 中使用的嵌入式开发工具
+
+### [swapy](https://github.com/TahaSh/swapy)
+
+一个不依赖于特定框架的工具，您只需用几行代码就能把任何布局变成可以拖拽交换的形式
+
+### [instant](https://github.com/instantdb/instant)
+
+实时运行的客户端数据库
+
+### [reactive-vscode](https://github.com/KermanX/reactive-vscode)
+
+使用 Vue 响应式 API 开发 VSCode 扩展程序
+
+### [es-toolkit](https://github.com/toss/es-toolkit)
+
+这是一个现代化的 JavaScript 工具库，其运行速度比 lodash 快 2 到 3 倍，文件大小也缩减至原来的 3%——这标志着对 lodash 的一次重要改进。
+
+## 更新
+
+### [CSS 在 2024 年终于实现了垂直居中的功能](https://build-your-own.org/blog/20240813_css_vertical_center/)
+
+2024 年默认布局中的 CSS 属性 align-content 得到支持，可以实现垂直居中对齐，无需使用 flexbox 或 grid，大大简化了垂直对齐的操作。文章还总结了历史上各种垂直对齐的方法，并讨论了 CSS 属性命名的混乱和学习 CSS 的难点。
+
+- 2024 年，CSS 中的 align-content 属性在默认布局下开始生效，实现了垂直居中对齐，只需一个 CSS 属性即可。
+- CSS 在垂直对齐上经历了多种复杂的方法和布局方式，如表格布局、绝对定位、内联内容等，直到 align-content 属性的出现才实现了简洁的垂直居中对齐。
+- CSS 中的对齐属性命名和使用方式相对混乱，而 align-content 属性的出现为垂直对齐带来了更简单、更统一的解决方案。
+
+
+### [Waku 支持 Server actions](https://waku.gg/blog/server-actions-are-here)
+
+Waku 发布了 v0.21 版本，完全支持 React 服务器动作 API。这使得可以在 React 组件中定义和执行服务器端逻辑，无需手动设置 API 端点或发送 POST 请求。文章介绍了服务器动作 API 的定义、保护、创建、使用、调用和增强，以及其与其他 React API 的整合。
+
+- Waku 的 v0.21 发布版本全面支持 React 服务器操作 API，可在 React 组件中直接定义和安全执行服务器端逻辑，无需手动设置 API 端点和发送 POST 请求。
+- 通过'use server'指令标记异步函数为服务器操作，可将其作为 props 传递或导入到客户端组件，并在事件处理程序或 useEffect hook 中调用。
+- 服务器操作还与其他 React API 集成，如 useTransition hook 处理挂起状态、useActionState hook 访问返回值、useOptimistic hook 执行乐观 UI 更新，加速常见用例的开发。
+
+## AI
+
+### [transformer-explainer](https://github.com/poloclub/transformer-explainer)
+
+Transformer 的视觉解析：通过互动式可视化，深入了解大语言模型 Transformer 是如何运作的
+
+### [NarratoAI](https://github.com/linyqh/NarratoAI)
+
+利用 AI 大模型，一键解说并剪辑视频
+
+### [CopilotKit](https://github.com/CopilotKit/CopilotKit)
+
+这是一个专门为创建定制化 AI 助手 🤖 而设计的框架，适用于应用内的聊天机器人、AI 代理以及智能文本输入区域
+
+### [现在可以对 GPT-4 进行微调了](https://openai.com/index/gpt-4o-fine-tuning/)
+
+这篇文章介绍了针对开发者的 GPT-4o 模型的细化调优功能，以提高在特定应用场景下的性能和准确性。文章列举了几个成功案例，并强调了数据隐私与安全措施。文章还提到了细化调优的费用和如何开始使用这一功能。
+
+- GPT-4o 推出了精细调整功能，使开发者可以根据自定义数据集来提高模型性能，降低成本。
+- 通过精细调整，开发者可以让 GPT-4o 定制响应的结构和语气，或遵循复杂的领域特定指令，对于编程和创意写作等领域都有重大影响。
+- 通过两家合作伙伴的案例，展示了 GPT-4o 精细调整在软件工程辅助和文本转 SQL 等领域取得的最新成果。
+
+## 其他
+
+团队越是大，就越要避免“隐形知识”，所有知识尽量文档化，让团队成员能够方便地查阅。
+
+---
+
+通用人工智能（AGI）令人深感不安。因为人类是唯一比其他生物更聪明的生物，但是人类并没有善待其他不太聪明的生物。
+
+AGI 发明出来后，万一它对待人类，就像人类对待其他生物一样，那可怎么办？
+
+-- 《通用人工智能可能是人类最后的发明》
+
+---
+
+科幻小说越来越难写，因为我们每天都生活在科幻世界中。
+
+-- 卡梅隆，著名电影导演
