@@ -1,0 +1,196 @@
+---
+title: 2024-第三十六周
+date: '2024-08-26'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [全面了解 Node.js 中的 AbortController：详尽指南](https://betterstack.com/community/guides/scaling-nodejs/understanding-abortcontroller/)
+
+这篇文章介绍了在 Node.js 中使用 AbortController 来取消异步操作的方法。它首先解释了 AbortController API 的作用，并展示了如何在 Node.js 中使用 AbortController 来取消网络请求和处理流操作。同时还介绍了如何处理 AbortError 和 TimeoutError，以及一些内置方法如何支持 AbortSignal。文章以此展示了如何使用 AbortController 来改善 Node.js 应用程序的性能和可靠性。
+
+- Node.js 引入了 AbortController API，使得取消异步操作变得更加简单和可控，可以有效管理网络请求的超时、数据库查询的执行时间以及资源密集型计算的运行时间。
+- 通过使用 AbortController，可以在 Node.js 中轻松取消网络请求，避免请求无限期挂起，并且可以通过设置超时机制来提高应用程序的响应性。
+- AbortController 还支持组合多个信号以及处理不同类型的错误，使得在 Node.js 中处理长时间运行的异步操作更加灵活和可靠。
+
+### [弹性溢出滚动效果](https://css-tricks.com/elastic-overflow-scrolling/)
+
+这篇文章主要讨论了模拟移动设备上的“橡皮筋”滚动行为的方法。作者介绍了在网页中使用 CSS 和 JavaScript 实现类似 iOS Safari 中的滚动效果的方法，并提供了一个基于 CSS 的解决方案示例。文章还提到了一些相关资源和链接，总体来说，是一篇介绍网页滚动效果实现方法的技术文章。
+
+- 移动设备上的“橡皮筋”滚动行为是指页面在滚动到顶部或底部时，会超出视口边缘并自动弹回。
+- 作者介绍了使用 CSS 和 scroll-snap 属性实现移动端“橡皮筋”效果的方法，避免了使用 JavaScript 的复杂性。
+- 文章强调了这种效果并非特别惊艳，但在特定情况下解决了实际问题，为需要实现类似效果的开发者提供了有用的解决方案。
+
+
+### [自定义范围滑块：利用锚点定位和滚动驱动的动画效果](https://frontendmasters.com/blog/custom-range-slider-using-anchor-positioning-scroll-driven-animations/)
+
+这篇文章介绍了 2024 年最受欢迎和令人兴奋的 CSS 功能之一：锚点定位和滚动驱动动画。作者展示了如何使用这些功能创建自定义滑块和提示工具，以及如何使用滚动驱动动画实现动态内容和交互效果。文章深入解释了 CSS 的进步和新特性，并鼓励读者积极探索和尝试这些功能。
+
+- 使用 CSS 的锚点定位和滚动驱动动画可以实现令人惊叹的效果，无需 JavaScript 的参与。
+- 在创建自定义滑块时，可以利用 CSS 的新特性和小技巧实现动态的提示框和滑块动画效果。
+- 通过 CSS 的新特性，可以实现滑块提示框的位置、内容和动画效果，为网页设计增加更多可能性，减少了对 JavaScript 的依赖。
+
+### [如何在优化网站](https://blog.sentry.io/how-to-make-your-web-page-faster-before-it-even-loads/)
+
+这篇文章讨论了在网页加载前发生的各种事件，以及如何通过测量和优化这些事件来提高网页和应用程序的加载速度。文章涵盖了从浏览器接收第一个字节到网页内容加载完成之前的所有事件，包括浏览器缓存、DNS 查询、连接建立、TLS/SSL 协商、请求发送和响应接收等。同时，文章还提供了一些关于如何优化这些事件的建议，例如通过优化数据库查询、利用缓存和使用 HTML 流等方式来加快网页加载速度。
+
+- 性能优化不仅关注页面加载后的体验，还要关注页面加载前的事件，包括缓存、DNS 查询、连接、TLS/SSL 协商、请求和响应等，以实现更快的页面加载速度。
+- 通过浏览器提供的 Performance API 和 Navigation Timing API，可以捕获并分析页面加载前的关键事件，从而优化页面加载过程。
+- 开发者可以通过优化 DNS 缓存、TLS 协商、请求响应等事件，以及利用 HTML streaming 和缓存策略等手段，来加速页面加载并优化用户体验。
+
+
+### [译：如何创建 NPM 包](https://sorrycc.com/how-to-create-an-npm-package/)
+
+这篇文章详细介绍了如何将一个 TypeScript 包发布到 npm。它包括设置 Git、package.json、TypeScript、Prettier、@arethetypeswrong/cli、tsup、Vitest、GitHub Actions 和 Changesets。文章逐步指导如何安装和配置这些工具，以及如何在 GitHub Actions 中设置持续集成流程，并最终使用 Changesets 将包发布到 npm。
+
+- 详细讲解如何为 TypeScript 包进行全面设置，包括设置 Git、package.json、TypeScript、Prettier 等工具和配置，并介绍了发布过程中的多个关键步骤。
+- 指导如何使用 `@arethetypeswrong/cli` 工具来检查包的导出是否正确，并使用 tsup 来实现双重发布（CJS 和 ESM）。
+- 展示了如何使用 vitest 进行现代测试运行，并使用 GitHub Actions 运行 CI 流程，最后介绍了如何使用 Changesets 进行版本控制和发布。
+
+### [译：使用 React Query 和 Zod 使 REST API 类型安全](https://sorrycc.com/typesafe-rest-api/)
+
+这篇文章介绍了如何结合使用 React Query 和 Zod，以一种类型安全的方式调用 REST API。它强调了 tRPC 方案的缺点，提出了手动 API 类型安全和使用 Zod 验证的解决方法，同时还强调了使用 React Query 进行数据获取的便利性。文章指出了这些技术的优点，并提供了一些示例来说明如何在实际项目中应用这些技术。
+
+- tRPC 是一个强大的类型安全 API 构建库，但其要求前后端都使用 TypeScript 编写，限制了其应用范围。
+- React Query 是一个帮助处理异步状态同步化的工具，可以简化数据获取和管理，并且可以自动处理多种数据获取情况。
+- 使用 Zod 验证能够保证 API 响应的一致性和类型安全，通过定义模式和自动生成类型定义来提高代码质量和可靠性。
+
+### [使用 React-Router 实现类型安全的路由：深入探索高级 TypeScript](https://iamsahaj.xyz/blog/typesafe-routing-with-react-router/)
+
+本文介绍了如何在 React 应用中使用 TypeScript 和 react-router-dom 构建具有类型安全性的 URL。通过使用 generatePath 函数和自定义的 buildPath 函数，可以实现对 URL 中动态参数的类型安全替换，并将其与路由定义结合起来。文章还说明了如何利用 TypeScript 的类型系统和 react-router-dom 的功能，以及如何创建类型安全的路径构建和导航方法。文章最后指出，虽然可以进一步改进支持查询参数和数字参数等功能，但基本概念保持不变。
+
+- 使用 generatePath 函数和常量定义的路由类型，可以实现在 TypeScript 中构建类型安全的 URL。
+- 使用 PathParam 和 Params 类型，结合 buildPath 函数，可以在 TypeScript 中实现动态参数替换的类型安全路径构建。
+- 利用 React-Router 中的 generatePath 函数以及自定义的 buildPath 函数，可以实现类型安全的页面跳转路径构建，并在应用中实现类型安全的导航。
+
+## 工具
+
+### [better-sse](https://github.com/MatthewWid/better-sse)
+
+⬆ 这是一个为 Node 提供的非常简单且不需要任何依赖的服务器推送事件实现，采用 TypeScript 编写，并符合相关规范
+
+### [paint-board](https://github.com/LHRUN/paint-board)
+
+一个功能强大的多平台绘图工具，集合了各种创意画笔，让您能够体验到全新的绘画效果
+
+## 更新
+
+### [Material UI v6 is out now 🎉](https://mui.com/blog/material-ui-v6-is-out/#optimized-runtime-performance)
+
+新功能
+- CSS 主题变量：使用 CSS 变量生成可序列化主题值。
+- 色彩方案：简化了支持浅色和暗色模式的过程。
+- CSS 媒体查询 prefers-color-scheme：使用媒体查询作为生成 CSS 变量的默认方法。
+- 容器查询：基于父容器宽度定义样式。
+- 应用样式的新方法：theme.applyStyles 用于创建特定模式的样式。
+
+改进
+- 运行时性能优化：进行了多项优化以提高性能。
+- 免费模板改进：展示了 v6 新特性，提供定制主题。
+- Grid v2 组件稳定：使用 CSS gap 属性创建网格项之间的空间。
+- 包大小减少：移除 UMD 构建，减小了包大小。
+
+实验性功能
+- Pigment CSS 集成：零运行时开销的样式库。
+- React Server Components：与 Pigment CSS 集成，提供兼容的布局组件。
+- 内置 sx 属性支持：所有 JSX 元素支持 sx 属性，简化样式应用。
+- React 19 支持：确保与 React 19 的兼容性。
+
+### [React Email 3.0](https://resend.com/blog/react-email-3)
+
+React Email 3.0 发布了，包括全新组件库、11 倍的性能提升、对 React 19 RC 的支持、弃用 renderAsync、以及 Supabase Email Hook。更新包括升级指南，以及对新功能和性能提升的详细说明。
+
+- React Email 3.0 发布了全新的组件库和 11 倍的性能提升，支持 React 19 RC，并废弃了 renderAsync，同时推出了 Supabase Email Hook。
+- 新的组件库让开发者可以轻松创建优雅的邮件 UI，性能提升让本地开发体验更高效，而对 React 19 RC 的支持确保了未来的兼容性。
+- 废弃 renderAsync 并推出新的 render 函数，为未来 React 升级铺平了道路，而 Supabase Email Hook 让 Supabase 用户可以直接在 Supabase 中使用 React Email 模板。
+
+
+### [Rspack 1.0 发布公告](https://rspack.dev/zh/blog/announcing-1-0)
+
+Rspack 1.0 是基于 Rust 编写的 JavaScript 打包工具，兼容 webpack 的 API 和生态，并提供 10 倍于 webpack 的构建性能。该版本带来了诸多新特性和优化，包括更极致的性能、更好的兼容性、更小的包体积、支持模块联邦 2.0、稳定的 API 和新官网。未来的目标包括更快的 HMR、可移植的缓存、基于 TypeScript 的优化、稳定的 Rust API 和 React Server Components 支持。
+
+- 基于 Rust 编写的下一代 JavaScript 打包工具，性能优越、兼容 webpack，并支持更多的用户。
+- 推出了更极致的性能、更好的兼容性和更小的包体积，提供了更好的开发体验和构建效率。
+- 将在未来的迭代中持续改进，包括更快的热模块替换、可移植的缓存、基于 TypeScript 的优化等功能，以满足不断变化的开发需求。
+
+### [正式发布 Code Hike 1.0](https://codehike.org/blog/v1)
+
+Code Hike 1.0 发布了，这是一个开源库，能够将 Markdown 转换成丰富的交互式体验。它结合了 Markdown 和 React，可用于技术内容、文档和演示。新功能包括细粒度 Markdown 和无头代码块，可用于构建组件库。Code Hike 可用于各种用途，包括文档、博客、内容创作和任何内容网站。它依赖于 React 和 MDX，适用于多个框架。同时，还介绍了与其他工具的关系和感谢赞助。
+
+- Code Hike 是一个开源库，通过将 Markdown 和 React 结合，帮助创建技术内容并充分利用现代 Web 特性。
+- Code Hike 1.0 引入了细粒度 Markdown 和无头代码块两个新特性，使得内容渲染更加灵活，可以自定义 React 组件。
+- Code Hike 不仅适用于代码教程和交互式文档，也可以用于各种内容和呈现方式，适合于构建现代布局和组件，可在任何支持 React 渲染的地方使用。
+
+## 设计
+
+## AI
+
+## 其他
+
+我不喜欢现场听技术演讲，95% 的情况收获非常少。我更喜欢看技术演讲的录像，可以仔细思考，推荐给他人。我还可以将播放速度提高到 1.5 倍或 2 倍，如果演讲不是那么好，这样至少可以减少浪费的时间。
+
+-- 《我如何准备技术演讲》
+
+---
+
+敏捷宣言提出四大原则，其中之一是“正常工作的软件胜过详尽的文档”。
+
+这条原则造成的结果，就是敏捷开发的项目，文档普遍很简陋。一项研究发现，敏捷开发的项目比不采用敏捷开发的项目，失败可能性高出 268%。
+
+-- theregister.com
+
+---敏捷宣言提出四大原则，其中之一是“正常工作的软件胜过详尽的文档”。
+
+这条原则造成的结果，就是敏捷开发的项目，文档普遍很简陋。一项研究发现，敏捷开发的项目比不采用敏捷开发的项目，失败可能性高出 268%。
+
+-- theregister.com
+
+大家都认为 Nvidia 是销售 GPU（显卡）的公司，但是实际上他们是在销售 CUDA 加速运算库，GPU 只是非常昂贵又必不可少的独家配件。
+
+-- Hacker News 读者
+
+---
+
+### [译：One Thing Better：如何赢得他人的信任，并保持住](https://sorrycc.com/how-to-earn-people-s-trust-and-keep-it/)
+
+这篇文章探讨了信任的重要性，并介绍了“信任电池”的概念。作者解释了信任电池是如何根据个人行为而充电或放电的，并强调了信任是渐变的。文章还提到了作者对于如何维护信任和个人品牌所做出的思考，并列举了 18 种建立信任的方法。最终，文章呼吁人们在日常生活中不断努力去充实和维护自己的信任电池。
+
+- 信任是一个渐变体，可以通过行为来充电或放电，并且需要持续的关注和谨慎来维持和增加。
+- 人们常常高估哪些行为会耗尽他们的信任电池，因此需要审视自己的行为，并考虑哪些行为实际上会增加信任。
+- 通过无偿给予、深度沟通、保持耐心等方式，可以每天多次给信任电池充电，从而建立和维持信任关系。
+
+---
+
+### [超越基因编辑婴儿：改变人类进化的潜在途径](https://www.technologyreview.com/2024/08/22/1096458/crispr-gene-editing-babies-evolution/)
+
+这段文字讲述了人类基因编辑技术的发展和可能带来的影响。文章提及了一些科学家对于利用基因编辑技术改良人类基因的设想和实践，探讨了这一技术可能带来的医学和伦理挑战。同时，还涉及了对未来人类基因编辑可能走向的思考，包括编辑胚胎和成年人体细胞以及技术带来的政策和伦理问题。
+
+- 2016 年后，随着 CRISPR 的出现，人类获得了改变基因的能力，引发了对人类基因编辑的可能性和危险性的讨论。
+- 中国的一个生物物理学家成功进行基因编辑的胚胎，引发了社会和科学界的广泛关注和争议，因此对基因编辑的道德和法律问题产生了更多的思考和讨论。
+- 未来，基因编辑技术可能会扩展到对成年人进行基因编辑治疗，包括用于治疗罕见疾病和增强人类能力，但这也会带来公平分配、伦理和安全等方面的问题。
+
+---
+
+### [译：我的 7 条幸福法则](https://sorrycc.com/7-rules-happiness/)
+
+这篇文章讲述了幸福的七项准则，包括接受当前的生活状态、追求目标的过程比实现目标更重要、关心他人和主动道歉、避免受到负面情绪影响、寻找小小的新奇和记住一切都是选择。文章提到要接受当前的生活状态，并寻求最大限度地利用自己所能控制的事物来获得幸福。同时，作者还强调了关心他人、积极道歉、避免受到负面情绪影响以及寻找小小的新奇这几个准则对幸福也有积极的影响。文章最后提到一切都是选择，我们可以在自己的选择空间内寻找幸福。
+
+- 接受现实，努力最大化当前生活阶段所提供的机会，而不是对限制感到绝望。
+- 实现目标并不能带来持久的快乐，但朝着目标奋斗却是积极的，因为追求幸福在于追求本身。
+- 在人际关系中，向他人多走一半的路，经常道歉，以及不听从那些让你生气的人，能够促进和谐，并避免争端扩大。
+
+
+### [开发者赚钱的 10 种方法](https://yufengbiji.com/posts/how-to-make-money-as-coder/)
+
+这段文字主要讨论了开发者可能的赚钱方式，其中包括通过体力劳动赚钱和通过自身杠杆赚钱两种途径。通过体力劳动赚钱的方式包括打工、接外包、做开源项目、海外兼职等，而通过自身杠杆赚钱则主要讨论了通过开发代码、做网站、技术自媒体和开发 Chrome 插件等方式来实现被动收入。
+
+- 开发者可以通过体力劳动赚钱：包括打工、接外包、做开源项目、主动出击小公司、和海外兼职等方式。
+- 开发者可以通过自身技能杠杆赚钱：利用代码和媒体的复制边际成本低的特点，通过开发产品、做网站、技术自媒体和开发 Chrome 插件等方式赚取收入。
+- 躺着赚钱的可能性是真实存在的：通过开发产品并持续赚取被动收入的案例展示，表明开发者可以利用自己的技能和杠杆实现持续收入。
