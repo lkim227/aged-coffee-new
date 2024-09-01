@@ -2,6 +2,7 @@ import React from 'react'
 import {
   booksAndMediaData,
   calculateChanges,
+  calculateAverage,
   dietAndExerciseData,
   MonthData,
   sleepData,
@@ -14,6 +15,7 @@ interface TableProps {
 
 const Table: React.FC<TableProps> = ({ headers, months }) => {
   const changes = calculateChanges(months)
+  const averageData = calculateAverage(months)
   return (
     <table style={{ textAlign: 'left' }}>
       <thead>
@@ -38,6 +40,14 @@ const Table: React.FC<TableProps> = ({ headers, months }) => {
             ))}
           </tr>
         ))}
+        {averageData && (
+          <tr style={{ fontWeight: 'bold' }}>
+            <td>平均</td>
+            {averageData.map((average, index) => (
+              <td key={index}>{average}</td>
+            ))}
+          </tr>
+        )}
       </tbody>
     </table>
   )

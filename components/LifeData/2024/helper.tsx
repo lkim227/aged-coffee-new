@@ -432,3 +432,36 @@ export const calculateChanges = (months: MonthData[]): string[][] => {
   }
   return changes
 }
+
+const formatTime = (minutes: number): string => {
+  const hours = Math.floor(minutes / 60)
+  const mins = minutes % 60
+  return `${hours}:${mins.toString().padStart(2, '0')}`
+}
+
+export const calculateAverage = (months: MonthData[]): string[] => {
+  const average: string[] = []
+  for (let i = 0; i < months[0].data.length; i++) {
+    let sum = 0
+    let count = 0
+    for (let j = 0; j < months.length; j++) {
+      const value = months[j].data[i]
+      if (value.includes(':')) {
+        sum += parseTime(value)
+      } else {
+        const numValue = parseFloat(value)
+        if (!isNaN(numValue)) {
+          sum += numValue
+        }
+      }
+      count++
+    }
+    const avg = sum / count
+    if (months[0].data[i].includes(':')) {
+      average.push(formatTime(Math.round(avg)))
+    } else {
+      average.push(avg.toFixed(2))
+    }
+  }
+  return average
+}
