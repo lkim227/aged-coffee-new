@@ -1,0 +1,32 @@
+---
+title: 2024-第三十七周
+date: '2024-09-01'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [ShadowDOM 中样式隔离和继承](https://cn.innei.ren/posts/tech/ShadowDOM-style-isolation-and-inheritance)
+
+这段文字主要讲了在 Web Component 中使用 Shadow DOM 时，样式无法在 Shadow DOM 中继承的问题，并提出了一种解决方案：通过将宿主样式注入到 Shadow DOM 中，以及利用 MutationObserver 实现宿主样式的响应式更新。同时强调了不要被现代前端工具禁锢思维，因为这只是普通的 DOM 操作，不需要依赖特定框架或插件。
+
+- Shadow DOM 可以创建与外部隔离的 DOM 树，在微前端中常见，可在内部定义样式而不污染外部样式，但不会继承外部样式。
+- 在使用 Shadow DOM 和组件库样式时，样式无法正确应用于 ShadowRoot 中，仍然是浏览器的默认样式。
+- 通过将 CSS 样式注入到 ShadowRoot 中，可以实现在 ShadowDOM 中继承宿主样式，同时利用 MutationObserver 实现宿主样式的响应式更新。
+
+## 工具
+
+## 更新
+
+## 设计
+
+## AI
+
+## 其他
+

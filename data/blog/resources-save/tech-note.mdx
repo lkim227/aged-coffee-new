@@ -122,6 +122,104 @@ git pull upstream main --allow-unrelated-histories
 
 ## CSS 样式相关
 
+### 创建独立堆叠上下文的方法
+1.  根元素 `(<html>)`
+2.  有 position 属性且 z-index 值不为 auto 的元素
+3.  opacity 小于 1 的元素
+4.  transform 属性且值不为 none 的元素
+5.  filter 属性且值不为 none 的元素
+6.  perspective 属性且值不为 none 的元素
+7.  clip-path 属性且值不为 none 的元素
+8.  mask 属性且值不为 none 的元素
+9.  isolation: isolate 的元素
+10.	will-change 属性且值为 opacity、transform 等的元素
+11.	mix-blend-mode 属性且值不为 normal 的元素
+12.	`<iframe>` 元素
+
+
+```mermaid
+graph TB
+    subgraph Stacking Contexts
+        A[root-html]
+        B[position & z-index]
+        C[opacity < 1]
+        D[transform != none]
+        E[filter != none]
+        F[perspective != none]
+        G[clip-path != none]
+        H[mask != none]
+        I[isolation: isolate]
+        J[will-change]
+        K[mix-blend-mode != normal]
+        L[iframe]
+    end
+```
+
+**html 示例**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .parent {
+            position: relative;
+            z-index: 1;
+            background-color: lightgrey;
+            width: 200px;
+            height: 200px;
+        }
+        .child1 {
+            position: relative;
+            z-index: 2;
+            background-color: red;
+            width: 100px;
+            height: 100px;
+        }
+        .child2 {
+            position: relative;
+            z-index: 1;
+            background-color: blue;
+            width: 100px;
+            height: 100px;
+            margin-top: -50px; /* 使其与 .child1 部分重叠 */
+        }
+        .sibling {
+            position: relative;
+            z-index: 3;
+            background-color: green;
+            width: 100px;
+            height: 100px;
+            margin-top: -150px; /* 使其与 .parent 部分重叠 */
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child1"></div>
+        <div class="child2"></div>
+    </div>
+    <div class="sibling"></div>
+</body>
+</html>
+```
+
+```mermaid
+graph TD
+    subgraph Root Stacking Context
+        P[".parent (z-index: 1)"]
+        S[".sibling (z-index: 3)"]
+    end
+    subgraph Parent Stacking Context
+        C1[".child1 (z-index: 2)"]
+        C2[".child2 (z-index: 1)"]
+    end
+    P --> C1
+    P --> C2
+```
+
 ### 在 js 中等待 css 的动画执行结束
 
 ```ts
