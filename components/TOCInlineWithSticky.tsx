@@ -96,7 +96,8 @@ const TOCInlineWithSticky = ({
     <>
       <div
         style={{
-          display: hiddenToc ? 'none' : 'block',
+          opacity: hiddenToc ? 0 : 1,
+          height: hiddenToc ? '20px' : 'auto',
         }}
         ref={tocRef}
       >
