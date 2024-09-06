@@ -12,6 +12,7 @@ export interface TOCInlineProps {
   exclude?: string | string[]
   collapse?: boolean
   noSticky?: boolean
+  hiddenToc?: boolean
 }
 
 const TOCInlineWithSticky = ({
@@ -23,6 +24,7 @@ const TOCInlineWithSticky = ({
   exclude = '',
   collapse = false,
   noSticky = false,
+  hiddenToc = false,
 }: TOCInlineProps) => {
   const tocRef = useRef<HTMLDivElement>(null)
   const [isSticky, setIsSticky] = useState(false)
@@ -92,7 +94,14 @@ const TOCInlineWithSticky = ({
 
   return (
     <>
-      <div ref={tocRef}>{tocMarkup}</div>
+      <div
+        style={{
+          display: hiddenToc ? 'none' : 'block',
+        }}
+        ref={tocRef}
+      >
+        {tocMarkup}
+      </div>
       {!innerNoSticky && (
         <div
           style={{
