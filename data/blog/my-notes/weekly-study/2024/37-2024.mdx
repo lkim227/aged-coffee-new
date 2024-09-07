@@ -12,6 +12,54 @@ summary: ''
 
 ## 技术
 
+### [⭐️如何使用 React 编译器 – 全面指南](https://www.freecodecamp.org/news/react-compiler-complete-guide-react-19/)
+
+本文介绍了 React 编译器如何帮助优化 React 应用程序，以及 React 19 带来的新特性和增强。文章讨论了 React 编译器的架构、配置方法以及优化效果，还深入解释了编译器的工作原理。此外，还提到了如何选择性地启用和禁用 React 编译器，以及与 React 18.x 的兼容性和解决方案。文章最后还提到了相关的资源和下一步的学习方向。
+
+- React 编译器是 React 19 的一个新特性，可以在构建时自动优化组件和钩子函数，减少不必要的重新渲染和提高性能。
+- React 编译器的工作原理类似于传统编译器，包括词法分析、语法分析、语义验证、中间代码生成和优化等步骤。
+- 使用 React 编译器可以避免过度使用 memo、useMemo() 和 useCallback() 等优化技术，同时在 React DevTools 中能够直观地查看编译器的优化效果。
+
+### [⭐️为开发者提供的网页排版简易指南](https://sinja.io/blog/web-typography-quick-guide#line-height-or-leading)
+
+这篇文章介绍了网页开发中的排版设计原则和 CSS 样式设置，包括字体选择、大小与间距、颜色搭配、文本换行等内容。同时强调了良好的排版设计对于用户体验的重要性，并提供了一些实际的建议和技巧。
+
+- 选择合适的字体：在网站和应用程序中使用系统字体或自定义字体，并考虑加载速度和定制性。
+- 设置文字大小和间距：使用相对单位设置字体大小和行高，避免使用绝对单位，同时限制文本容器的宽度和调整字距。
+- 建立文本层级和选择颜色：通过字体大小、颜色和字重等方面建立清晰的文本层级结构，同时选择合适的文本颜色以保证阅读体验。
+
+### [推出 TypedSQL：通过 Prisma ORM，让您的原始 SQL 查询更具类型安全性](https://www.prisma.io/blog/announcing-typedsql-make-your-raw-sql-queries-type-safe-with-prisma-orm)
+
+Prisma ORM 发布了新版本 v5.19.0，引入了 TypedSQL，这是一种全面类型安全的原生 SQL 查询解决方案。开发者可以通过在.primsa/sql 目录下编写 SQL 文件，并使用--sql 标志来生成查询函数，并通过 Prisma Client 调用这些函数来获得完全类型化的结果。这个新特性让开发者可以在需要直接编写 SQL 查询时获得更好的开发体验，同时保留了 Prisma ORM 的高级抽象和灵活性。
+
+- Prisma ORM 的 TypedSQL 提供了完全类型安全的原始 SQL 查询，让开发人员能够更轻松地编写复杂和高性能的查询。
+- TypedSQL 可以在 .sql 文件中编写带参数的 SQL 查询，并且通过 prisma generate 命令生成查询函数，从而实现自动完成和类型安全。
+- Prisma ORM 的 TypedSQL 为开发团队提供了高层抽象和类型安全的 SQL 逃生口，使开发人员既能享受高生产力又能进行高复杂性查询。
+
+### [如何轻松快捷地将 Chrome 扩展程序迁移到 Safari 浏览器](https://evilmartians.com/chronicles/how-to-quickly-and-weightlessly-convert-chrome-extensions-to-safari)
+
+在这篇文章中，作者分享了如何将 Chrome 浏览器扩展快速转换为 Safari 扩展，并且介绍了在转换过程中可能遇到的问题以及解决方法。文章以实际案例为例，详细说明了转换过程和实施步骤，并且提供了关于 Safari 扩展发布和分发的准备工作。同时，还分享了在转换过程中可能遇到的常见问题以及针对这些问题的解决方案。
+
+- 怎样将 Chrome 浏览器扩展转换为 Safari 扩展，包括使用 XCode 中的 Safari Web Extension 转换器和针对 Safari 不支持的功能进行修正。
+- 转换过程中需解决的常见问题，如在 Safari 中替代 browser.identity 进行认证、处理 browser.cookies.onChanged 的不支持以及在 macOS 中对 browser.webRequest API 的限制。
+- 必要的额外实现，包括使用 Swift 实现 ASWebAuthenticationSession 进行认证，准备 Safari Web Extension 进行分发和发布，以及将项目分配给团队、添加 App 图标和准备 App Store 图标等。
+
+### [React 19 新特性](https://vercel.com/blog/whats-new-in-react-19)
+
+React 19 是一次重大更新，引入了服务器组件、新指令、动作、钩子等功能，以提高性能和开发体验。此外，还新增了资源预加载、样式表支持、异步脚本等特性，为开发者和用户提供了更流畅的体验。
+
+- React 19 引入了服务器组件，通过在服务器上渲染组件，减少前端加载时间，提高性能和搜索引擎优化。
+- 引入了新的指令和动作，使开发人员能够更好地区分客户端和服务器端代码，并简化事件处理和异步函数调用。
+- 新增了几个钩子函数和 API，如处理表单状态、资源预加载等，以改善开发体验和页面加载性能。
+
+### [如何在使用 App Router 的 Node 环境中处理 Next.js 错误](https://blog.appsignal.com/2024/08/28/how-to-handle-errors-in-nextjs-for-node-with-the-app-router.html)
+
+这篇文章讨论了在 Next.js 应用程序中实现错误处理的重要性，并介绍了默认错误处理逻辑的不足之处。文章详细解释了使用 error.js 文件约定来处理错误的方法，以及如何定义自定义逻辑来处理 Next.js 中的客户端和服务器端错误。同时，还提供了创建 error.js 文件和 global-error.js 文件的步骤，并展示了如何整合它们以实现自定义错误处理逻辑。最后，文章总结了处理 Next.js 错误的最佳实践。
+
+- Next.js 默认的错误处理机制不够友好，需通过自定义 error.js 文件来处理客户端和服务器端错误，并提供恢复机制。
+- 错误处理机制通过 error.js 文件在路由段内实现局部错误处理，而 global-error.js 文件在根级别实现全局错误处理。
+- 最佳实践包括始终定义 global-error.js 文件、避免泄露实现细节和敏感信息、以及添加恢复逻辑，以确保安全有效的 Next.js 错误处理。
+
 ### [ShadowDOM 中样式隔离和继承](https://cn.innei.ren/posts/tech/ShadowDOM-style-isolation-and-inheritance)
 
 这段文字主要讲了在 Web Component 中使用 Shadow DOM 时，样式无法在 Shadow DOM 中继承的问题，并提出了一种解决方案：通过将宿主样式注入到 Shadow DOM 中，以及利用 MutationObserver 实现宿主样式的响应式更新。同时强调了不要被现代前端工具禁锢思维，因为这只是普通的 DOM 操作，不需要依赖特定框架或插件。
@@ -22,11 +70,44 @@ summary: ''
 
 ## 工具
 
+### [style-observer](https://github.com/bramus/style-observer)
+
+MutationObserver 是用于监测 CSS 的工具。当某个 CSS 属性的计算值发生变化时，它会及时通知你。
+
+### [zod-validation-error](https://github.com/causaly/zod-validation-error)
+
+把 zod 验证错误转换为易于理解的用户友好信息
+
 ## 更新
 
-## 设计
+### [Vue 3.5 发布](https://blog.vuejs.org/posts/vue-3-5)
 
-## AI
+Vue 3.5 发布，带来了对响应性系统的优化、响应式 Props 解构、SSR 改进、自定义元素改进以及其他新功能。此次更新没有破坏性变化，包含了内部改进和有用的新特性，提升了性能和开发体验。
+
+- Vue 3.5 发布，通过重构提升了响应系统的性能和内存利用率，解决了 SSR 中计算值的过期和内存问题。
+- 在 3.5 中，引入了 Reactive Props Destructure 特性，使得通过 defineProps 声明带默认值的属性变得更加简单和高效。
+- 此外，3.5 还带来了 SSR 改进、Lazy Hydration、useId() 等新特性，以及 Custom Elements 改进和其他值得关注的功能。
+
+### [Astro 4.15](https://astro.build/blog/astro-4150/)
+
+Astro 4.15 发布了，此版本稳定了 Astro Actions，支持 libSQL 远程，新增 client:idle 超时选项，并提供了 ViewTransitions 的交换助手。还有 i18n 回退重写，Astro DB 中的 libSQL 远程，以及一些 Bug 修复和特别感谢。
+
+- Astro 4.15 发布稳定了 Astro Actions，可帮助构建后端功能，减少繁琐模板代码。
+- i18n 回退重定向可选项增加了国际化路由的控制，提供更灵活的内容处理方式。
+- 在 Astro DB 中支持 libSQL 远程功能，让用户可以自行搭建 libSQL 服务器，自由选择数据库解决方案。
 
 ## 其他
 
+我的职业建议是，任何工作要么让你学习（learn），要么让你赚钱（earn）。如果既学不到新东西，又赚不到钱，你就应该走了。
+
+-- Garry Tan，硅谷风险投资家
+
+---
+
+### [🙏少读点书，多刷刷抖音吧](https://1q43.blog/post/2233)
+
+这段文字主要探讨了阅读书籍和观看短视频的不同体验和价值。作者分享了自己如何利用短视频平台进行信息获取、知识管理和观点探索。文章提出了通过多渠道策略、连续时间策略、地理伪装策略、群体伪装策略和知识管理等方法，将短视频纳入个人知识管理系统的建议。文章强调了短视频作为一种了解时代潮流、真实生活和社会观察的重要工具。
+
+- 阅读观点：作者主张通过观看短视频而不是阅读书籍来发现问题，认为短视频可以帮助人们更主动地发现感兴趣的话题和问题。
+- 技巧应用：提出了利用多账号策略、时间连续策略、地理伪装策略、群体伪装策略以及将短视频纳入知识管理的五个方法，以更有效地利用短视频平台作为信息和知识获取工具。
+- 观点支持：通过使用短视频平台获取信息，作者认为可以更直接、感性地发现问题的形状，这对于解决问题和深入思考问题更有价值。
