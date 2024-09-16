@@ -1,0 +1,126 @@
+---
+title: 2024-第三十八周
+date: '2024-09-08'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [JavaScript 中 setImmediate() 和 setTimeout() 的区别](https://www.trevorlasn.com/blog/setimmediate-vs-settimeout-in-javascript)
+
+这篇文章介绍了 JavaScript 中 setTimeout() 和 setImmediate() 两个函数的异步行为及其在 Node.js 环境中的影响。文章解释了它们在事件循环中的操作方式，以及它们在不同情况下的执行顺序。通过深入探讨这些异步函数的工作原理，帮助读者更好地控制代码的执行时机，尤其在大型应用程序中，正确的时机和效率至关重要。
+
+- setTimeout() 和 setImmediate() 在 Node.js 中的行为差异源于它们被放置在不同的事件循环阶段，导致 setImmediate() 优先于 setTimeout() 执行。
+- setTimeout() 即使设定为 0 延迟，仍需等待下一个事件循环迭代才能执行，而 setImmediate() 则在当前事件循环中立即执行。
+- 当没有 I/O 操作时，连续的 setImmediate() 回调会在下一个 setTimeout() 回调之前执行，理解这些差异有助于控制代码执行的时机，特别是在高性能应用中。
+
+### [网络剪贴板及其如何存储各种类型的数据](https://alexharri.com/blog/clipboard)
+
+这篇文章详细介绍了剪贴板的工作原理以及在 Web 开发中如何操作剪贴板。文章讨论了剪贴板 API 的发展历程、异步剪贴板 API 和剪贴板事件 API 的特点，以及如何通过点击按钮执行 execCommand 方法来实现复制和粘贴操作。此外，文章还介绍了不同浏览器对剪贴板数据格式的处理方式，以及对 Web Custom Formats 提案的展望。文章深入浅出地解释了剪贴板相关的技术细节，对于想深入了解剪贴板工作原理的读者来说，具有很高的参考价值。
+
+- Web Clipboard APIs 的限制：Web Clipboard APIs 有一些数据类型的限制，只支持纯文本、HTML 和 PNG 图像格式，而其他数据类型如 JSON 则无法直接写入剪贴板。
+- 剪贴板事件 API 和 execCommand 的特性：通过剪贴板事件 API 和 execCommand 方法，可以实现在点击事件触发时，以用户代理方式向剪贴板写入任意数据类型，而非受到 Web Clipboard APIs 的限制。
+- Web Custom Formats 提案的前景：Web Custom Formats 提案为解决跨浏览器的自定义数据类型剪贴板写入问题提供了一个有前景的解决方案，通过在浏览器和操作系统剪贴板之间进行数据格式映射，实现了安全且便捷的自定义数据类型写入。
+
+### [React and FormData](https://reacttraining.com/blog/react-and-form-data)
+
+本文介绍了在 React 中如何访问表单数据，包括控制和非控制字段的概念。它讨论了使用 FormData 来获取表单数据的方法，并介绍了在处理类型安全性方面可能出现的问题。此外，文章还提到了使用 Zod 进行数据验证和 React 19 版本中对 FormData 的应用。最后，还提及了在 Remix 框架和 React Router 7 中对 FormData 的应用。
+
+- React 中的表单数据处理方式包括控制字段和非控制字段，以及现代方式使用 FormData。
+- 使用 FormData 可以直接从事件目标中获取表单数值，而不需要使用 refs 或 getters。
+- TypeScript 和 FormData 结合使用时可能会出现类型问题，但可以通过 Zod 进行更好的类型验证和安全处理。
+
+### [CSS :has 选择器的强大实用性](https://www.joshwcomeau.com/css/has/)
+
+这篇文章介绍了 CSS 中的新特性:has 伪类，以及在实际应用中的有趣用例。作者分享了:has 的基本用法，浏览器支持情况，以及如何通过@supports 规则和其他特性检测来处理兼容性。文章详细探讨了:has 在状态、全局事件监听、JavaScript-free Dark Mode 等方面的应用，以及对比了使用 JavaScript 和 CSS 解决问题的复杂性。同时，作者还提到了自己在实际开发中的应用经验。
+
+- CSS 中的:has 伪类允许我们基于元素的后代元素来选择父元素，开启了许多新的 CSS 选择器用法和实现方式。
+- :has 伪类在现代 CSS 中具有广泛的应用，如基于状态的样式变化、全局事件监听和无 JS 的暗黑模式切换等。
+- 虽然:has 伪类强大，但在实际应用中需要谨慎选择使用它，有时候使用 JavaScript 解决问题可能更为简单和灵活。
+
+### [CSS 的 display：contents](https://ishadeed.com/article/display-contents/#)
+
+这段文字介绍了 CSS 中的 display: contents 属性的用法及其作用。它可以使子元素脱离父级容器，解决了在使用 flexbox 或 grid 布局时的一些布局问题。文章举例说明了 display: contents 的使用场景，并提到了一些注意事项，如避免在 HTML 表格、标题、按钮和列表等元素上使用 display: contents 可能引起的无障碍问题。
+
+- 使用 display: contents 可以将子元素从父容器中分离出来，改变它们的布局方式，有助于解决复杂布局排列的问题。
+- display: contents 可以帮助处理生成的 HTML 中的样式问题，例如对包含图片的 p 元素进行样式设置。
+- 使用 display: contents 时需要注意避免对 HTML 表格、标题、按钮和列表等元素造成无障碍性问题。
+
+### [关于版本支持的政策以及 ESLint v8.x 的结束使用期限](https://eslint.org/blog/2024/09/eslint-v8-eol-version-support/)
+
+ESLint 宣布了 v8.x 版本的维护结束时间，并与 HeroDevs 合作提供商业支持。他们还采用了正式的版本支持政策，以解决之前对主要发布的支持政策不清晰所导致的困惑和不满。在 v8.x 版本维护结束后，用户可以联系 HeroDevs 获取商业支持。同时，ESLint 发布了 v9.10.0 和 v9.9.1 版本，引入新功能并修复了一些 bug。
+
+- ESLint v8.x 将于 2024 年 10 月 5 日停止维护，用户可以联系 HeroDevs 获取商业支持和安全更新。
+- ESLint 团队采用了正式的版本支持政策，区分了当前、维护和生命周期结束三种状态，以解决以往版本更新带来的混乱和困扰。
+- 为满足无法在六个月内升级到新版本的用户需求，ESLint 团队与 HeroDevs 合作，提供 EOL 版本的商业支持，并希望通过合作伙伴关系简化用户的升级过程。
+
+## 工具
+
+### [k-colors.js](https://github.com/ppzreboot/k-colors.js)
+
+这是一个 JavaScript 库，可以从图片中提取出 k 种主要颜色。
+
+### [fabricjs-react](https://github.com/asotog/fabricjs-react)
+
+在 React 中支持使用 fabricjs 库
+
+### [staticrypt](https://github.com/robinmoisson/staticrypt)
+
+给静态 HTML 页面添加密码保护，通过 JavaScript 在浏览器内进行解密，不需要任何外部依赖，也不需要服务器端的逻辑处理。
+
+### [hackingtool](https://github.com/Z4nzu/hackingtool)
+
+一体化黑客工具 供黑客使用
+
+## 更新
+
+### [ESLint v9.10.0 released](https://eslint.org/blog/2024/09/eslint-v9.10.0-released/)
+
+这篇文章是关于 ESLint v9.10.0 的发布说明，介绍了新版本的亮点、功能更新和修复的问题，还包括了文档更新和一些杂项任务。其中包括了 ESLint 自身发布类型定义、新功能的添加以及对之前版本中存在的问题进行修复。
+
+- ESLint v9.10.0 进行了次要版本升级，新增了类型定义，并修复了之前版本中的一些 bug。
+- 新版本中的 require-unicode-regexp 规则现在可以强制使用正则表达式的 v 标志，进一步增强了规则的灵活性。
+- 除了代码更新外，还进行了文档、配置和其他工程方面的改进和优化。
+
+### [Chrome DevTools 新增的性能功能介绍](https://www.debugbear.com/blog/fix-web-performance-devtools)
+
+这篇文字介绍了 Chrome DevTools 的新性能面板功能，重点是核心网络要素的优化和网页性能改进。内容涵盖了如何访问和使用这些功能，配置 CrUX 访问，解释核心网络要素的概念以及使用性能面板来调试和优化网页性能的实践方法。同时还介绍了如何利用性能面板来识别和解决核心网络要素问题，提供了一些网页性能优化的示例。
+
+- 新版 Chrome DevTools 的性能面板提供了实验性能功能，包括核心 Web 体验数据显示、交互元素链接和加载速度分析，有助于优化网页性能。
+- 核心 Web 体验数据可以分为实验室数据和实际用户数据，通过性能面板可以分析这两种数据并进行比较，为网页性能优化提供指导。
+- 利用性能面板中的工具和功能可以监测网页性能、开发调试中持续改进、进行比较分析和特定设备优化，帮助开发者全面提升网页性能。
+
+## 设计
+
+### [你可能不知道的字体特性](https://sinja.io/blog/get-maximum-out-of-your-font)
+
+这篇文章介绍了如何利用高质量字体中的 OpenType 功能来改善网页排版。它详细解释了可变字体轴、替代字符、字形替代、花边装饰、数字、小型大写字母和上下文替代等功能，以及如何在 CSS 中应用这些特性。文章还提供了进一步阅读建议，并分享了相关资源链接。
+
+- 高质量的字体包含了丰富的功能，如变体轴和替代字形，可以通过 CSS 属性或 OpenType 特性来激活。
+- 数字字形、小型大写字母和上下文替代是高质量字体的常见特性，它们可以提升网页排版的美感和可读性。
+- 在使用字体特性时，需要注意一些 CSS 属性的层叠和继承问题，以及如何利用 CSS 变量来解决这些问题。
+
+## AI
+
+### [promptfoo](https://github.com/promptfoo/promptfoo)
+
+测试你的提示语、代理程序以及 RAGs（检索增强生成）。对大语言模型进行红队评估、渗透测试和漏洞扫描，比较 GPT、Claude、Gemini 和 Llama 等模型的表现。提供简单易用的声明式配置，并支持命令行及 CI/CD 集成。
+
+## 其他
+
+如果你一生只看过两部电影，那么你很可能会认为这两部电影都相当不错。  
+但如果你看过一千部电影，你就会真正知道如何分辨优秀电影。这就是为什么多看可以提高辨别力。
+
+-- 《提升品味以打造更好的产品》
+
+---
+
+一个人千万不能习惯于舒适，因为久而久之，一点点的不适都会变得难以忍受。
+
+-- gabe.rocks
