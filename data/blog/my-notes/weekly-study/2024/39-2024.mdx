@@ -1,0 +1,145 @@
+---
+title: 2024-第三十九周
+date: '2024-09-17'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [⭐️React 19 使用指南](https://www.epicreact.dev/react-19-cheatsheet)
+
+### [在任意服务器上将 Next.js 应用程序部署到生产环境](https://www.saybackend.com/blog/04-deploy-nextjs-to-production-without-vercel)
+
+这篇文章介绍了如何在生产环境中部署 Next.js 应用程序，而不使用 Vercel 等服务商。它详细讲解了如何优化 Docker 镜像大小和构建时间，以及如何使用缓存处理程序实现类似 Vercel 的行为。文章还展望了下一篇关于如何在 AWS 上发布应用程序的主题。
+
+- 本文介绍了如何将 Next.js 应用部署到生产环境，以及如何优化 Docker 镜像大小和构建时间。
+- 作者展示了使用 Docker 运行 Next.js 应用，避免了使用昂贵且有限制的服务器 less 函数服务提供商。
+- 文中还讨论了如何使用缓存处理程序实现类似于 Vercel 的行为，以及如何在 AWS 上发布此类应用。
+
+### [TanStack Router 中 TypeScript 性能取得的重要进展](https://tanstack.com/blog/tanstack-router-typescript-performance)
+
+这篇文章介绍了针对 TanStack Router 的 TypeScript 性能优化，以提高编辑器体验。通过对路由树的生成和类型推断的优化，解决了当路由定义累积成大型路由树时出现的性能瓶颈。文章还强调了在使用 TanStack Router 时，通过使用 from 和 to 属性以及严格模式，可以获得更好的类型安全性和编辑器性能。未来，他们计划继续改进 TypeScript 性能，同时保持路由定义的类型推断质量。
+
+- TanStack Router 通过文件路由生成方式优化了 TypeScript 性能，实现了更快的语言服务性能，提高了编辑器体验。
+- 在大型路由树中，TanStack Router 通过声明必要类型来避免整个路由树的类型推断，从而显著提高了语言服务速度。
+- 使用 TanStack Router 的开发人员可以在不牺牲类型安全的情况下获得更好的编辑器性能，并且在文件路由定义中仍然保持类型推断的质量。
+
+### [译：TanStack Router 介绍](https://sorrycc.com/introducing-tanstack-router/)
+
+这篇文章介绍了 TanStack Router，一个客户端 JavaScript 应用程序框架，提供了成熟的路由和导航系统，嵌套布局以及高效的数据加载能力。文章涵盖了如何创建根路由、布局、路径、搜索参数以及如何实现类型安全性。同时还介绍了高级路由规则、基于目录的路由以及类型安全的查询字符串的处理。文章强调了 TanStack Router 的类型安全性和灵活性，以及对服务器端集成的承诺。
+
+- TanStack Router 是一个功能齐全的客户端 JavaScript 应用程序框架，具有成熟的路由和导航系统，并以类型安全的方式实现。
+- 通过 TanStack Router，我们可以轻松处理路由、布局、路径参数和搜索参数，同时实现静态类型的查询字符串，使得客户端应用开发更加高效。
+- 该框架还支持高级路由规则，包括基于目录的路由和自定义组件层次结构，同时提供了灵活的搜索参数验证和更新机制，使得 URL 美化和管理更加便捷。
+
+### [译：TanStack 的虚拟文件路由](https://sorrycc.com/virtual-file-routes/)
+
+这篇文章介绍了如何使用虚拟文件路由在项目中创建路由树，它提供了一种编程式的接口，使我们能够以编程方式构建路由树而不必在代码中写全文件路径。文章介绍了创建虚拟文件路由的方法、配置虚拟文件路由的方式，以及如何在 TanStack 路由器的文件基础路由中使用虚拟路由配置。同时，还介绍了物理虚拟路径的概念以及通过 TanStack Router CLI 进行虚拟文件路由的配置。
+
+- 虚拟文件路由是一种强大的概念，允许使用引用项目中真实文件的代码，以编程方式构建路由树，适用于保留现有路由组织结构、自定义路由文件位置和覆盖基于文件的路由生成等需求。
+- 创建虚拟文件路由需要使用 @tanstack/virtual-file-routes 包提供的函数，例如 rootRoute、route、index、layout 和 physical，用于创建虚拟根路由、虚拟路由、虚拟索引路由、虚拟布局路由和物理虚拟路由。
+- 虚拟文件路由可以通过 TanStackRouter 插件进行配置，也可以在 TanStack 路由器 CLI 的 tsr.config.json 文件中定义虚拟路由，从而实现灵活地配置和管理项目中的虚拟路由。
+
+### [两个去除文本框中的多余空白的 CSS 属性](https://css-tricks.com/two-css-properties-for-trimming-text-box-whitespace/)
+
+这篇文章介绍了 CSS 中的 text-box-trim 和 text-box-edge 属性，它们可以帮助开发者解决文字框内外的空白区域处理问题。文章详细介绍了这两个属性的用法和取值，以及它们对文字在不同位置的修剪效果。同时，作者也提出了一些对这两个属性的看法和建议。
+
+- CSS 的 text-box-trim 和 text-box-edge 属性帮助开发人员控制文本框的垂直大小和修剪，使得处理文本框间距变得更加简单和一致。
+- text-box-trim 属性可以控制文本框的修剪位置，包括从文本框的起始、结束、两者或者不修剪。
+- text-box-edge 属性用于控制文本框边缘的修剪，包括对文本框上方和下方的修剪，可以通过这些属性进行样式控制以实现更好的排版效果。
+
+### [JavaScript 的位运算符及何时使用它们](https://8hob.io/posts/bitwise-operations-when-use-them/)
+
+JavaScript 中的位运算符是对语言至关重要的。这些运算符对操作数的每一位应用逻辑运算，包括位取反（~）、位与（&）、位或（|）、位异或（^），以及它们的赋值变体（&=、|=、^=）。文章介绍了位运算符的作用及最佳实践，包括整数在内存中的表示方法、位运算符的操作以及 JavaScript 中的使用情况。文章还指出，在 JavaScript 中，通常使用对象来表示一组布尔变量，而不是位运算，除非特殊情况需要使用位掩码。
+
+- 位运算符在 JavaScript 中对操作数的每个位应用逻辑操作，包括按位非、按位与、按位或和按位异或，以及它们的赋值变体。
+- JavaScript 中的位运算符只适用于 32 位整数和 BigInt，而其他类型的操作数会首先转换为这两种类型。
+- 在 JavaScript 中，通常优先选用由布尔值组成的对象来表示一组布尔变量，而不是使用位掩码（bitmasking）的方式。
+
+### [你需要使用 jotai-tanstack-query 吗？](https://blog.thiskali.com/jotai-tanstack-query/)
+
+这段文字讲述了作者维护的 jotai-tanstack-query 库，以及它在 web 开发中的特定用途。该库允许在 jotai 的依赖树中创建 tanstack-query 原子，用于处理客户端状态和服务器状态之间的依赖关系，特别适用于处理服务器端分页数据等常见用例。文章还比较了在使用 jotai 和 @tanstack/react-query 与使用 jotai-tanstack-query 时的不同之处。
+
+- jotai-tanstack-query 解决了 Web 开发中特定且常见的使用场景，通过在依赖树中创建 tanstack-query 原子，让服务器状态依赖于客户端状态，同时客户端状态可以衍生自服务器状态。
+- 该工具适用于处理服务器端分页数据等常见用例，通过让 React 组件仅访问它们需要的状态而无需管理状态，将客户端状态逻辑从 React 中移出，实现了高效的状态管理。
+- 使用 jotai-tanstack-query 可以让开发者在 React 之外使用 tanstack/query，使 jotai 原子能够随着查询/变异的更新而更新，从而改变了使用 jotai 和 @tanstack/react-query 的方式。
+
+### [在 Next.js 中查找 URL 状态的搜索参数](https://www.robinwieruch.de/next-search-params/)
+
+这篇文章介绍了如何在 Next.js 应用程序中使用搜索参数来管理 URL 状态。它探讨了如何使用 nuqs 库改进开发人员体验，并演示了如何在应用程序中实现搜索和排序功能。同时还讨论了如何使用 use-debounce 库进行输入防抖处理。文章提供了一个完整的示例，展示了如何将搜索和排序参数存储在 URL 状态中，并可与他人共享、进行标记或以后再次使用。
+
+- 本教程介绍了如何在 Next.js 中使用 Search Params 管理 URL 状态，包括搜索参数和排序参数的处理。
+- 使用 nuqs 库提供的解析和更新 URL 状态的方法，改善了开发者的体验，使得处理 URL 参数更加简洁和可靠。
+- 教程还介绍了如何在 Next.js 应用中使用 use-debounce 库来处理搜索输入的防抖效果，以及如何使用 useQueryStates 处理复杂的排序参数。
+
+### [Next-Form](https://nextjs.org/docs/app/api-reference/components/form)
+
+这段文字介绍了 Next.js 中的 `<Form>` 组件，该组件可以扩展 HTML `<form>` 元素，提供预取加载 UI、提交时的客户端导航和渐进增强功能。它可用于更新 URL 查询参数的表单，减少了实现上述功能所需的样板代码。文中还介绍了 `<Form>` 组件的基本用法、行为取决于 action 属性是字符串还是函数的不同情况、以及一些注意事项和示例用法。
+
+- `<Form>`组件通过扩展 HTML `<form>`元素，提供了预取加载 UI、提交时的客户端导航和渐进增强功能，有助于简化需要更新 URL 搜索参数的表单的代码量。
+- `<Form>`组件的行为取决于 action 属性是字符串还是函数，当 action 是字符串时，`<Form>`类似于使用 GET 方法的原生 HTML 表单，将表单数据编码为搜索参数，并在提交时导航到指定的 URL。
+- 在使用`<Form>`组件时，需要注意一些限制和注意事项，比如覆盖 action 属性的行为、处理表单提交逻辑、以及在执行函数 action 时无法自动预取共享 UI 等。
+
+## 工具
+
+### [fetchgit](https://github.com/tr1ckydev/fetchgit)
+
+简单地从 GitHub 仓库中下载文件和文件夹。
+
+### [spin-delay](https://github.com/smeijer/spin-delay)
+
+为 React 提供的智能旋转器助手，帮助管理加载状态的持续时间。
+
+## 更新
+
+### [hono 4.6.0](https://github.com/honojs/hono/releases/tag/v4.6.0)
+
+Hono v4.6.0 发布了。其中一个重要的更新是引入了上下文存储中间件，可以在处理程序之外处理当前上下文对象。除此之外，还介绍了其他新功能和一些改进，以及新贡献者的信息。
+
+- Hono v4.6.0 发布了 Context Storage Middleware，通过 AsyncLocalStorage 实现处理当前上下文对象的功能，使得在处理程序之外也可以处理当前上下文对象。
+- 新功能包括添加 Permissions-Policy 头到安全头中间件、在 handleMiddleware 中启用 Cloudflare Pages 的 c.env.eventContext、为 WSContext 添加泛型类型。
+- 新的贡献者包括 @kbkn3、@hayatosc 和 @inetol，他们在此版本中进行了他们的首次贡献。
+
+### [Astro 5.0 Beta Release](https://astro.build/blog/astro-5-beta/)
+
+这段文字是关于 Astro 5.0 beta 版本的介绍，包括了新功能和改进，如稳定的 Astro 内容层、服务器岛、静态与混合输出模式的合并、astro:env 环境变量等。此外，还介绍了如何升级现有项目以及如何利用新功能。
+
+- Astro 5.0 beta 发布的主要新特性包括 Astro Content Layer 和 Server Islands，分别提供了内容管理和静态与个性化内容混合展示的新方式。
+- Astro Content Layer 通过加载器提供统一、类型安全的 API，可以从任何源头获取并定义项目中的内容，使得管理内容变得更加灵活和可扩展。
+- Server Islands 是 Astro 5 引入的新概念，允许在初始页面加载后延迟呈现动态内容，从而实现了静态页面与个性化动态内容的最佳结合，适用于那些需要混合静态和动态内容的网站。
+
+## 其他
+
+### [聊聊未来技术趋势](https://tw93.fun/2024-09-09/future.html)
+
+我们的软件产品，总是有客户要求我们编写自定义模块，我们的回答一律是：
+
+“我们不会为个别公司编写自定义模块，因为无法在代码中维护如此多的分支，后面根本顾不过来。”
+
+-- codingrequired.com
+
+---
+
+一位教育专家建议，要允许孩子们感到无聊，这会鼓励他们想象、观察、探索周围的世界，从而激发想象力和独立思考。
+
+-- BBC
+
+---
+
+如果没有月球，地球就是一颗非常孤独的星球，最近的天体将是金星和火星，距离为 3800 万到 5600 万公里，是地月距离的一百倍甚至更多。地球与它们的往返通信需要几分钟而不是几秒钟，单程旅行需要几个月而不是几天，往返旅程至少需要一年而不是一周左右。
+
+正是月球，让我们感到地球在宇宙中不是那么孤独。
+
+-- 《月球消失会给地球带来 7 大变化》
+
+---
+
+即使身处最冷的寒冬，我知道自己的内心深处，有一个不可战胜的夏天。
+
+-- 加缪，著名法国小说家
