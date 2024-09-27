@@ -1,0 +1,44 @@
+---
+title: react
+date: '2022-03-03'
+tags: ['resources-save']
+draft: false
+summary: ''
+---
+
+<TOCInlineWithSticky toHeading={3} toc={props.toc} />
+
+### React 专业名词
+
+**tearing**
+
+在 React 中，"tearing" 指的是在渲染过程中，不同部分的 UI 组件无法同步更新，导致 UI 显示不一致的现象。具体来说，当出现 tearing 时，一些组件显示的是新的状态，而另一些组件则仍显示旧的状态。这通常发生在复杂状态更新或多个组件依赖相同状态的情况下。
+
+示例问题：
+
+- 在异步操作完成后，只更新部分组件，而没有更新所有相关组件
+- 状态更新不原子化，导致 UI 部分更新
+
+解决方案包括：
+
+- 使用上下文（Context）或状态管理库（如 Redux、Recoil 等）确保状态更新的一致性
+- 使用 React 的钩子（如 useSyncExternalStore）来确保状态的读取和渲染是一致的
+
+**Time Slicing**
+
+时间切片（Time Slicing）是 React 中一种性能优化技术，通过将任务分成较小的单元，并在多帧之间分配这些单元来执行，从而避免长时间占用主线程，提升应用的响应性。
+
+- 通过将渲染任务分割成多个小任务，并在多个帧之间执行，避免了主线程的长时间占用
+- 提高应用在复杂操作下的响应速度，减少卡顿
+
+### 使用 ZOD 来定义 type
+
+![](https://cdn.jsdelivr.net/gh/klaaay/pbed1@master/uPic/JoxvvQ.png)
+
+### CSSPropertles 的类型定义支持 css 变量
+
+![](https://cdn.jsdelivr.net/gh/klaaay/pbed1@master/uPic/38zDoV.png)
+
+### FixedForwardRef
+
+![](https://cdn.jsdelivr.net/gh/klaaay/pbed1@master/uPic/KNsTNK.png)

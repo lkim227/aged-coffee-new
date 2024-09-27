@@ -1,0 +1,29 @@
+---
+title: compatibility
+date: '2022-03-03'
+tags: ['resources-save']
+draft: false
+summary: ''
+---
+
+<TOCInlineWithSticky toHeading={3} toc={props.toc} />
+
+### 在 Safari 用户操作运行粘贴板相关逻辑逻辑的时候，如果粘贴的函数上下文同时有异步请求逻辑，则这时候会出现安全确认提示窗口
+
+参考这篇文章[How to use Clipboard API in Safari async](https://wolfgangrittner.dev/how-to-use-clipboard-api-in-safari/)解决了 Safari 调用剪贴板出现弹窗逻辑
+
+- Safari 只允许在直接用户交互的情况下使用剪贴板 API
+- 在异步环境下无法在 Safari 中写入剪贴板
+- 通过将 Promise 传递给剪贴板 API 可以解决 Safari 中的限制
+
+### ios H5 history.back() 返回上一路由 页面白屏问题
+
+改变 history.scrollRestoration
+
+使用 history.back 返回上一页的时候，浏览器会记录页面的滚动位置，而在 iOS 上面，滚动后返回的时候页面渲染会出现问题，导致白屏。可以利用 scrollRestoration 属性，它默认是 auto，也就是会记录滚动位置（这是 H5 新增的属性，所以需要判断浏览器是否支持，我实践的是可以兼容大部分移动端机型）
+
+```js
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual' //改为 manual 之后，就不会记录滚动位置
+}
+```

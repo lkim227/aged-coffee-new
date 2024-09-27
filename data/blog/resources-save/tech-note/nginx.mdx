@@ -1,0 +1,68 @@
+---
+title: nginx
+date: '2022-03-03'
+tags: ['resources-save']
+draft: false
+summary: ''
+---
+
+<TOCInlineWithSticky toHeading={3} toc={props.toc} />
+
+### Nginx 代理 decode 相关的问题
+
+[Nginx 自动 url decode 探究及如何避免 url decode](https://blog.csdn.net/qq_31772441/article/details/107072532)
+
+```sh
+# 配置2
+location / {
+	proxy_pass http://127.0.0.1:8099;
+}
+# 配置3
+location / {
+	proxy_pass http://127.0.0.1:8099$1;
+}
+# 配置4
+location / {
+	if ($request_uri ~* ^/(.*)$) {
+		proxy_pass http://127.0.0.1:8099/$1;
+	}
+}
+
+```
+
+### nginx 常规路径代理配置
+
+```
+location /docs/zh {
+  proxy_pass https://your.domain.com/zh/;
+  proxy_set_header Upgrade $http_upgrade;
+  proxy_set_header Connection "upgrade";
+}
+```
+
+### nginx 网段禁止配置
+
+```
+server {
+  listen       80;
+  server_name  domain1.com www.domain1.com;
+  access_log   logs/domain1.access.log  main;
+  root         html;
+
+  deny 61.135.0.0/16;
+}
+```
+
+### nginx-openresty 查看日志位置
+
+![rahGOt](https://cdn.jsdelivr.net/gh/klaaay/pbed@main/uPic/rahGOt.jpg)
+
+### nginx 配置正则反向代理
+
+```
+resolver 8.8.8.8;
+
+location ~ /xx/([0-9a-z]+).html {
+  proxy_pass http://your.domain/xx/$1/
+}
+```
