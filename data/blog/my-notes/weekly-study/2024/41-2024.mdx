@@ -1,0 +1,75 @@
+---
+title: 2024-第四十一周
+date: '2024-10-06'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [如何创建一个“滚动选择”表单控件](https://css-tricks.com/how-to-make-a-scroll-to-select-form-control/?__im-PJNXsmDW=6671660571431525466)
+
+这段文字介绍了如何利用 CSS 和 JavaScript 将`<select>`元素模拟成滚动式的控件，实现通过滚动选择选项的功能。通过 Intersection Observer 实现选项的自动选择，并提供了详细的代码和样式说明。
+
+- 使用 CSS 和 JavaScript 可以将 `<select>` 元素转化为滚动式选择器，提供更灵活的交互体验。
+- 通过 IntersectionObserver 监听滚动位置并自动选中相应的选项，实现滚动式选择器的功能。
+- 针对不同需求，可以调整滚动式选择器的样式、布局和交互方式，以满足特定的设计和用户体验要求。
+
+### [HTTP 的 QUERY 方法](https://www.ietf.org/archive/id/draft-ietf-httpbis-safe-method-w-body-05.html)
+
+这篇文档介绍了一种名为 QUERY 的新的 HTTP 请求方法，用于发起服务器端的查询操作。它允许在请求内容中传递查询参数，并提供了安全、幂等的特性。文档详细描述了 QUERY 方法的语义、缓存规则、安全性考虑以及一些示例。同时，该文档还包括了对该方法的 IANA 注册请求和一些规范参考。
+
+- 这篇课文介绍了一个新的 HTTP 方法——QUERY，用于发起服务器端查询操作，允许携带请求内容，并且具有安全、幂等的特性。
+- QUERY 方法的请求内容定义了查询操作，可以使用任何媒体类型，只要具有适当的查询语义，并且不会改变请求 URI 标识的资源的状态。
+- 查询方法的响应可被缓存用于满足后续的查询请求，并且可以通过 Accept-Query 头字段指定查询格式的媒体类型。
+
+### [React 组件的种类 [2024]](https://www.robinwieruch.de/react-component-types/)
+
+这篇文章介绍了自 React 发布以来出现的各种组件类型，包括已经过时的和现代的组件。其中包括了 React 的 createClass、Mixins、Class Components、Higher-Order Components、Function Components、Server Components 等类型，以及它们的使用方式和特点。同时还介绍了这些组件类型的历史发展，对比了它们的优缺点，并提出了现代 React 组件和模式的推荐用法。
+
+- React 组件类型的发展：从 createClass 和 Mixins 到 Class Components 和 Function Components，以及最近的 Server Components 和 Async Components。
+- 过时的模式：createClass 和 Mixins 曾经是常见的，但已经不再推荐使用，而 React Higher-Order Components (HOCs) 和 Render Prop Components 也不再常用。
+- 现代 React 推荐的做法：Function Components 结合 React Hooks 成为现代标准，而 Custom Hooks 成为共享逻辑的推荐方式。Server Components 和 Async Components 也是未来的发展方向。
+
+### [如何将 Electron 应用程序提交到 Mac 应用商店](https://www.dolthub.com/blog/2024-10-02-how-to-submit-an-electron-app-to-mac-app-store/)
+
+这段文字介绍了将 Electron 应用程序提交到 Mac 应用商店的过程，包括注册开发者账户、创建证书和权限、配置 Electron 应用程序等步骤。文章还提到了一些常见的挑战和解决方法，以及在提交过程中可能遇到的问题。同时，作者分享了一些个人经验和建议，希望能够帮助他人更高效地完成这一过程。
+
+- 提交 Electron 应用到 Mac App Store 需要完成一系列步骤，包括注册 Apple 开发者账户、创建证书和配置权限等。
+- 在提交过程中可能会遇到一些常见问题，比如创建合法的 Assets.car 文件和解决缺少必要图标的错误。
+- 随着工具和 API 的不断更新，发布 Electron 应用的过程可能会面临快速变化，因此需要持续学习和适应新的要求。
+
+## 工具
+
+### [useAnimate](https://www.framer.com/motion/use-animate/)
+
+### [StreamPot](https://github.com/StreamPot/StreamPot)
+
+将 FFmpeg 作为 API 使用，同时支持 fluent-ffmpeg、任务队列和 S3 存储功能。
+
+### [jiti](https://github.com/unjs/jiti)
+
+Node.js 现在支持运行时的 TypeScript 和 ESM（ECMAScript 模块）
+
+## 更新
+
+### [React-DevTools v6](https://github.com/facebook/react/blob/main/packages/react-devtools/CHANGELOG.md#600)
+
+### [ESLint 现在正式可以对 JSON 和 Markdown 文件进行代码检查](https://eslint.org/blog/2024/10/eslint-json-markdown-support/)
+
+这段文字介绍了 ESLint 的发展规划，重点是将其转变为一个通用的语言检查工具，不仅支持 JavaScript，还可以用于校验 JSON 和 Markdown 文件。它还介绍了用于 JSON 和 Markdown 校验的官方插件 @eslint/json 和 @eslint/markdown，以及如何编写自定义规则和使用 Code Explorer 来创建自定义规则。最后强调了 ESLint 的长期目标是支持任何 web 项目中可能用到的文件类型。
+
+- ESLint 现在可以用于检查 JSON 和 Markdown 文件，而不仅限于 JavaScript，通过创建相应的插件实现多语言通用的检查功能。
+- 通过安装 @eslint/json 和 @eslint/markdown 插件，并更新配置文件，可以实现 JSON 和 Markdown 文件的语法检查和规则报告。
+- 除了支持现有的语言插件，ESLint 还推出了 Code Explorer 工具，帮助开发者查看和探索不同语言文件的 AST 结构，以便编写定制的规则和插件。
+
+## 其他
+
+![DGLDII](https://cdn.jsdelivr.net/gh/klaaay/pbed1@master/uPic/DGLDII.png)
+
+![bJfwdc](https://cdn.jsdelivr.net/gh/klaaay/pbed1@master/uPic/bJfwdc.png)
