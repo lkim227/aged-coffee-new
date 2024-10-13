@@ -1,0 +1,93 @@
+---
+title: 2024-第四十二周
+date: '2024-10-10'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [具有固定表头并支持水平滚动的表格](https://www.taniarascia.com/horizontal-scroll-fixed-headers-table/)
+
+这段文字讲述了在 HTML 表格中实现水平滚动和固定表头的技巧。作者首先介绍了使用 overflow-x 属性实现水平滚动的方法，但指出了可能遇到的问题。然后提出了解决方案，即通过设置表格包裹元素的高度和使用 position:sticky 属性来实现固定表头和左侧列。最后总结了这一解决方案的可行性。
+
+- 创建同时具有水平滚动和固定标题的 HTML 表格具有挑战性，需要注意滚动容器和标题的固定位置问题。
+- 使用 overflow-x 属性创建水平滚动，但可能出现无法关联表头和单元格、无法看到表头和页面下方内容等问题。
+- 解决方案是给表格包裹元素设置高度，并使用 calc() 函数确保页面标题和页脚一直可见，从而实现同时具有水平和垂直滚动的固定标题表格。
+
+### [译：利用 CSS content-visibility 特性提高渲染性能](https://sorrycc.com/improving-rendering-performance-with-css-content-visibility/)
+
+这篇文章介绍了作者在 emoji-picker-element 上遇到的性能问题，并探讨了使用 CSS content-visibility 来提高渲染性能的解决方案。作者首先遇到了一个带有大量自定义表情符号的实例，导致页面性能下降严重，随后尝试了使用 content-visibility 来解决问题。文章详细介绍了作者的实验过程，包括遇到的问题、尝试的解决方案以及最终的性能提升效果。同时，作者也讨论了 content-visibility 的局限性，以及在虚拟列表方面的未来展望。
+
+- 通过使用 CSS content-visibility 属性，可以在不影响可访问性的情况下提高渲染性能，避免页面卡顿和冻结。
+- 在处理大量 DOM 元素的情况下，content-visibility 属性可以有效减少布局成本，并提升页面的整体性能。
+- 虽然 content-visibility 提供了性能提升，但对于更大的 DOM 树需求，以及兼容性问题尚需担忧，特别是在 Safari 上的支持问题。
+
+### [译：组件 Composition 很棒](https://sorrycc.com/component-composition-is-great-btw/)
+
+这篇文章通过讨论 React 中组件的组合和条件渲染的问题，强调了通过提前返回和组件组合来解决条件渲染带来的挑战。作者提倡将屏幕上可见的内容分解成组件，以降低认知负担，实现易扩展和更好的类型推断。文章着重强调了提前返回的优势，并警示读者不要忽视组件组合的重要性。
+
+- 组件组合是 React 中的重要优势，通过将组件组合在一起形成更多组件，使得代码更加凝聚、易于维护。
+- 在处理互斥状态时，避免过多的条件渲染，可以通过提前返回（early return）的方式来减少认知负担，提高代码可读性和可维护性。
+- 将组件的共同部分提取到独立的布局组件中，结合提前返回的方式，可以使代码易于扩展和维护，同时获得更好的类型推断和更清晰的逻辑结构。
+
+### [为了让一个网站加载速度提高 2 毫秒，我花了一整天时间研究 CSS 选择器的性能](https://www.trysmudford.com/blog/i-spent-a-day-making-the-website-go-2ms-faster/)
+
+这段文字讲述了作者在工作中进行性能优化的经历。他发现通过改进 CSS 选择器效率，成功将网站样式重计算时间从 270ms 减少到 10ms，但最终意识到自己对性能数据的误解。最终作者分享了这一经验，并指出 CSS 选择器的性能优化在某些情况下仍然有意义。
+
+- 作者通过性能调优发现了 CSS 选择器的效率问题，而通过改进选择器后成功减少了页面样式计算时间。
+- 作者最初误解了性能分析工具的结果，以为存在严重的样式计算延迟，但后来发现是自己误解了性能图表。
+- 最终经过调整后，页面的样式计算时间从原来的 11.95ms 降低到了 10.23ms，但对于大多数用户而言改进并不明显。
+
+### [检测 CSS At-Rules 支持的方法指南](https://css-tricks.com/recipes-for-detecting-support-for-css-at-rules/)
+
+这段文字介绍了 CSS 中的@supports 规则的多次扩展，以及在尚未添加新功能到浏览器之前如何测试其他@规则的支持。作者展示了一些可以用来测试支持的@规则的方法，并列举了一些支持度不同的@规则及其相关的可测试特性。文章最后提到了几个难以测试支持的@规则，并希望读者能分享其他测试支持的方法。
+
+- @supports at-rule 的延伸：@supports at-rule 已经扩展了多次，可以使用 selector() 包装函数来检查选择器的支持，以及使用 font-format() 和 font-tech() 来检查不同的字体格式和技术的支持。
+- 解决 at-rule 支持测试的方法：由于@supports at-rule 无法直接测试 CSS at-rule 的支持，可以通过查找相关属性的支持状态来间接判断特定 at-rule 的支持情况，以解决这一问题。
+- 可测试的 at-rules 列表：作者列举了一系列可以通过相关属性来间接测试支持情况的 at-rules，以及一些无法确定如何测试支持的 at-rules。
+
+## 工具
+
+### [fetch-in-chunks](https://github.com/tomayac/fetch-in-chunks/)
+
+这是一个可以将大文件分成小块进行下载的实用工具，它支持同时下载多个部分，并且能够实时跟踪下载进度。
+
+## 更新
+
+### [ESLint v9.12.0](https://eslint.org/blog/2024/10/eslint-v9.12.0-released/)
+
+这篇文章介绍了 ESLint v9.12.0 的发布内容，其中包括实验性配置文件解析、RuleTester 的更新、特性增加和 bug 修复等方面的改进。同时还提到了 ESLint 对 JSON 和 Markdown 的官方支持，以及之前版本的修复情况。
+
+- ESLint v9.12.0 发布了，增加了实验性的配置文件解析功能，可以从任何目录运行 ESLint 并获得相同结果。
+- RuleTester 现在支持自定义的测试前后钩子，复杂度规则引入了新的选项变体，以支持修改的圈复杂度。
+- 此外，还修复了一些 bug，并对文档和工具进行了更新和改进。
+
+### [React Native Storybook 8](https://storybook.js.org/blog/react-native-storybook-8/)
+
+这段文字介绍了 React Native Storybook 8.3 版本的重大更新，包括与 Web 版本的统一发布计划、全新的移动 UI、宽屏布局、简化的 Metro 配置、改进的热加载功能以及稳定的 React Native Web 支持。该更新标志着 React Native Storybook 与 Web 版本的合并和统一，为移动团队带来了重大的里程碑。
+
+- Storybook for React Native 8.3 发布了重要更新，将 React Native 和 Web 版本统一发布，实现了移动和 Web 用户体验的统一化。
+- 新的移动 UI 和宽屏布局优化了 React Native Storybook 的用户界面，使其更适合手机和平板设备的使用。
+- 简化了 Metro 配置和改进了热重载功能，同时稳定了 React Native Web 支持，为 React Native 开发者带来了更便捷和稳定的组件构建和测试体验。
+
+### [Chrome 129 带来了哪些新功能](https://developer.chrome.com/blog/new-in-chrome-129/)
+
+这段文字介绍了 Chrome 129 中的开发者新功能和更改，包括使用 scheduler.yield() 改善性能、CSS 动画的内在尺寸、CSS 锚点定位的更改、以及其他一些功能、修复和移除。同时提供了一些进一步阅读的链接。
+
+- 通过使用 scheduler.yield() 来分割长时间任务，可以改善网站的响应速度和性能。
+- 使用 CSS 的 interpolate-size 属性可以实现使用固有尺寸关键字进行动画效果，而非传统的固定尺寸。
+- CSS 锚点定位语法发生了一些变化，包括属性名称和函数语法，开发者需要及时更新代码以适应最新规范。
+
+### [译：发布 Deno 2](https://sorrycc.com/deno-release-2/)
+
+Deno 2 发布了，它是一个现代化的 JavaScript 和 TypeScript 开发工具链，提供了原生 TypeScript 支持、对 Web 标准的全面支持、默认安全性，并且与 Node 和 npm 完全向后兼容。除了包含所有必需功能，还提供了新的包管理工具和稳定的标准库。Deno 2 还支持私有 npm 注册表、工作区和 monorepo，以及长期支持版本。新的 JavaScript 注册表（JSR）也已推出。此外，Deno 2 引入了多项改进，包括 deno install、deno add 和 deno remove 命令，同时保持与 Node 和 npm 的向后兼容性。
+
+- 一个现代化、全方位的 JavaScript 和 TypeScript 开发工具链，支持原生 TypeScript，基于 Web 标准，具备完整的功能，同时默认安全，与 Node.js 和 npm 向后兼容。
+- 支持包管理、私有 npm 注册表、工作区和 monorepo 支持，并引入了长期支持（LTS）版本，为开发团队提供更多支持和灵活性。
+- 性能也有所改进，支持 JavaScript 注册表（JSR），拥有稳定的标准库，并提供更简洁的包管理、更强大的工具链和更灵活的项目管理功能，以促进 JavaScript 和 TypeScript 的现代化发展。
