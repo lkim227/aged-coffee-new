@@ -1,0 +1,107 @@
+---
+title: 2024-第四十三周
+date: '2024-10-14'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [用鼠标拖动来进行选择](https://www.joshuawootonn.com/react-drag-to-select)
+
+这段文字讲述了作者在开发一个文件管理器项目时遇到的问题以及如何利用向量来优化用户界面交互的经历。同时，作者介绍了如何结合 React 和 DOM 操作实现了拖拽选择和自动滚动等功能。文章强调了使用丰富的数据类型可以大大提高代码的可读性和可维护性。
+
+- 使用 DOMVector 类模拟矢量操作，实现了拖拽选取的功能，并解决了 DOMRect 的局限性，进而简化了状态管理。
+- 通过查询选择器和数据属性来实现拖拽选择操作，并且在拖拽时避免了文本选择和 pointer 事件触发。
+- 采用 requestAnimationFrame 和 DOMPoint 计算，实现了拖拽过程中的自动滚动功能，提升了用户交互体验。
+
+### [利用 useActionState 处理表单验证错误和重置操作](https://aurorascharff.no/posts/handling-form-validation-errors-and-resets-with-useactionstate/)
+
+这篇文章介绍了如何使用 React 19 的 useActionState hook 来创建一个验证表单，并处理表单重置以及服务器端验证错误。文章通过一个联系人表单的例子演示了如何使用这个 hook，以及如何利用 Zod 模式进行服务器端验证。作者还提到了渐进增强的概念，并介绍了另一个表单处理库 Reach Hook Form 作为可选方案。文章最后给出了示例代码和试用链接。
+
+- 使用 React 19 的 useActionState 钩子可以创建基于操作结果的组件状态，适用于表单提交等场景。
+- 通过在 Server Function 中使用 Zod 架构进行表单数据验证，并通过 useActionState 钩子处理返回的错误信息，可以实现服务器端验证和错误显示。
+- 通过合理使用 React 19 的 useActionState 钩子和 Server Function，可以实现渐进增强的表单交互体验，提高表单的可用性和用户体验。
+
+### [如何在 React 中利用 Tailwind CSS 来避免不必要的重新渲染](https://www.nico.fyi/blog/tailwind-css-group-modifier-to-prevent-react-rerender)
+
+这段文字讲述了作者在更新公司网站时，使用了不同的方法来实现根据滚动位置条件性地应用不同的样式类名。作者首先使用了 React 中的 useState 和 useEffect 来实现该功能，然后介绍了一种更加简洁、可复用的方法，利用了 Tailwind CSS 的 group modifier 和 HTML 中的 data-\* 属性来实现滚动位置条件下的样式变化，避免了组件的重新渲染。作者提到了这种方法的优势，并分享了一些实际应用的例子，最后鼓励读者在适合的情况下尝试这种更简洁的实现方式。
+
+- 使用 data-\* 属性和 group 修改器结合实现条件性样式，避免使用 useState 和 useEffect 来管理滚动状态，简化组件并减少 JavaScript 代码量。
+- 通过滚动位置控制 logo 样式的切换，避免组件重新渲染，利用 HTML 和 CSS 实现视觉效果的变化，提高页面性能。
+- 这种方法能简化组件、减少 JavaScript 代码量，并避免组件重新渲染，但并非适用于所有情况，需要根据实际情况选择是否采用条件性样式的实现方式。
+
+### [全域用户建模在美团首页推荐的探索与实践](https://tech.meituan.com/2024/10/10/exploration-and-practice-of-user-modeling-recommended.html)
+
+这篇文章主要介绍了美团首页推荐的全域用户建模探索与落地。文章提到了在多个平台、多个应用或多个领域中，整合用户在不同环境下的行为数据，构建一个统一的用户画像或模型，以提供更加精准的个性化服务和推荐。针对美团首页推荐的业务场景下的挑战，文中介绍了通过引入全美团多源数据信号，对猜喜各链路算法建模进行数据增广、纠偏、领域迁移等优化的方案。文章还介绍了全域用户建模的必要性以及落地难点，并提出了基于多展位、多业务及时空场景强相关性的挑战下的解决方案。文章总结了全域用户建模的探索与落地，并展望了后续的工作和招聘信息。
+
+- 全域用户建模是为了更全面地了解用户的兴趣、偏好和行为模式，从而提供更加精准的个性化服务和推荐。
+- 外域信号引入推荐各链路中存在严重的负迁移挑战，因此提出了显式兴趣迁移框架来解决负迁移问题，从而增强算法建模的准确性和可靠性。
+- 通过全域、全链路、全供给统一样本建设和全域兴趣预估与一致性联合建模，全面增强了推荐系统的全域感知能力，进一步发挥了全域建模的效果。
+
+### [在 JavaScript 中如何处理粘贴事件](https://frontendmasters.com/blog/handling-paste-events-in-javascript/)
+
+本文是关于在网页应用程序中如何处理粘贴事件的教程。作者介绍了如何监听"paste"事件，并演示了如何从剪贴板中获取文本数据以及文件数据。他还讨论了在处理粘贴事件时需要考虑的各种情况，以及如何以最佳的用户体验和可访问性处理粘贴事件。文章强调了不应该以伪安全措施的形式阻止粘贴操作。
+
+- JavaScript 监听粘贴事件，可以通过事件对象的 clipboardData 属性获取文本或文件数据，并在网页应用中实现粘贴操作的处理和展示。
+- 通过 getData 方法可以从事件对象的 clipboardData 中获取文本或文件数据的格式和内容，而处理文本数据时需要注意格式转换和渲染。
+- 对于粘贴的文件数据，可以通过 FileList 对象处理，例如通过 FileReader 对象读取文件并展示在网页中，实现粘贴图片的预览功能。
+
+## 工具
+
+### [fast-grid](https://github.com/gabrielpetersson/fast-grid)
+
+全球性能最佳的基于 DOM 的网页表格
+
+### [chord-symbol](https://github.com/no-chris/chord-symbol)
+
+这是一个专为 Javascript 和 NodeJS 设计的专业和弦符号解析与渲染工具。
+
+## 更新
+
+### [Zustand v5 🐻🐻🐻](https://github.com/pmndrs/zustand/releases/tag/v5.0.0)
+
+Zustand v5 版本的改动包括删除旧特性、增加对 React 18 和 TypeScript 4.5 的最低版本要求、以及其他一些改进。新版本没有新增特性，但需要注意一些潜在的技术性变化。同时提供了详细的迁移指南。在 RC 版本期间，一些用户遇到了无限循环错误，可能需要使用 useShallow 来解决。
+
+- Zustand v5 的主要变化包括删除默认导出、废弃功能、提升最低要求的 React 和 TypeScript 版本，并对一些行为进行了小幅改进。
+- 迁移至 v5 应该相对平稳，但需要仔细阅读迁移指南，并注意在 RC 版本期间出现的一些报告频繁的问题，可能需要使用 useShallow 来解决。
+- v5 还删除了一些旧的支持（如 UMD/SystemJS、ES5）和引入了 use-sync-external-store 作为必需的 peer 依赖。
+
+### [Hono：来自其创造者的网页框架背后的故事](https://blog.cloudflare.com/the-story-of-web-framework-hono-from-the-creator-of-hono/)
+
+Hono 是一个快速、轻量级的 Web 框架，基于 Web 标准构建，可以在任何支持 JavaScript 的地方运行，包括 Cloudflare Workers、Deno、Bun 和 Node.js。它的设计初衷是为了简化 Cloudflare Workers 应用的开发，但随着版本升级，现已成为一个多运行时框架，并受到许多开发者和公司的青睐，包括 Cloudflare 在内。Hono 的简单且直观的代码编写方式，以及多样的内置中间件和帮助程序，使其在全栈应用开发中也能发挥重要作用。框架还提供了强大的类型系统，支持 RPC 和服务器端 JSX，同时测试及静态网站生成等功能也得到了强调。最近，Hono 发布了 4.0 版本，引入了静态网站生成、客户端组件和基于文件的路由等新特性，使其更适合用于全栈应用开发。至今，Hono 已成为许多开发者和公司的首选，并在 2024 年举办了第一届“Hono 会议”，受到了广泛关注和认可。
+
+- Hono 是一个基于 Web 标准构建的快速、轻量级的 Web 框架，在 Cloudflare Workers 上运行，并且支持多种运行时环境，包括 Deno、Bun 和 Node.js。
+- Hono 已被许多开发者和公司采用，包括 Cloudflare 在内的多家公司，以及一些知名的 Web 服务或库。它提供了简洁直观的编码方式，并允许轻松处理 Cloudflare 产品的绑定。
+- 新版本的 Hono 具有静态站点生成、客户端组件和基于文件的路由等功能，使其能够创建全栈应用程序，并计划作为 Remix 和 Qwik 等现有全栈框架的基础服务器运行。
+
+## AI
+
+### [介绍 Auto Playwright：利用 AI 技术自动执行 Playwright 测试](https://ray.run/blog/auto-playwright)
+
+这段文字介绍了一个名为 Auto Playwright 的开源项目，它将人工智能技术与测试工作流程结合，能够通过简单的文本指令来自动化测试任务。文章阐述了 Auto Playwright 的优势、实际应用场景、工作原理、限制以及与其他类似项目 ZeroStep 的比较。同时还鼓励用户尝试该库，并强调了其在测试自动化方面的重要性和未来发展前景。
+
+- Auto Playwright 是一个集成了人工智能（AI）技术的开源项目，可通过简单的文本指令快速创建测试用例，提高测试效率。
+- 它利用 OpenAI 的能力将纯文本指令转化为一系列函数执行，实现对网页应用的自动化操作，包括点击、填写表单、页面导航等。
+- 虽然 Auto Playwright 在高频测试上速度较慢且需要考虑 API 调用成本，但在较少频次的详细测试场景下具有显著优势，可为测试开发带来便利和效率提升。
+
+### [KaibanJS](https://github.com/kaiban-ai/KaibanJS)
+
+KaibanJS 是一个原生 JavaScript 框架，旨在通过看板的理念来构建和管理多智能体系统。
+
+### [repopack](https://github.com/yamadashy/repopack)
+
+📦 Repopack 是一款功能强大的工具，它可以将您的整个代码库打包成一个便于 AI 使用的文件。当您需要将代码库输入到大语言模型 (LLMs) 或其他 AI 工具（如 Claude、ChatGPT 和 Gemini）时，这个工具特别有用。
+
+### [爱的机器之恩典 - 人工智能将如何改变世界，让生活变得更美好](https://darioamodei.com/machines-of-loving-grace)
+
+该段文字主要讨论了有关强大人工智能（AI）在生物学和健康、神经科学和心理健康、经济发展与贫困等领域的潜在影响。作者认为，AI 在生物学和医学领域可能会在短时间内取得与过去百年相当的进步，包括预防和治疗几乎所有自然传染病、大大减少癌症等疾病的发病率和死亡率、预防遗传疾病、延长人类寿命等方面。在神经科学和心理健康领域，AI 可能会加快精密神经测量和干预、改善认知功能、治愈或改善大多数精神疾病等。在经济发展和贫困领域，AI 可能有助于分发健康干预措施到全世界、促进发展中国家的经济增长、食品安全以及减缓气候变化等。尽管作者对 AI 的潜在影响持乐观态度，但同时也强调了需要全球合作来实现这些目标，尤其是在解决全球不平等和贫困方面。
+
+- 强大的人工智能有望加速生物医学领域的进步，可能在 5-10 年内实现包括疾病治愈、延长寿命等在内的巨大成就。
+- 人工智能有望加速神经科学的发展，可能导致对精神疾病的治疗和预防，并提升个体认知和心理能力。
+- 人工智能有望在全球范围内推动健康干预措施、经济增长、粮食安全和气候变化防控等领域的发展，但需要共同努力以确保这些成就惠及全球各地。
