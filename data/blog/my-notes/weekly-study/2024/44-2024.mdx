@@ -1,0 +1,123 @@
+---
+title: 2024-第四十四周
+date: '2024-10-21'
+tags: ['WEEKLY-2024']
+draft: false
+summary: ''
+---
+
+`该周报主要为各个地方内容的汇总整理`
+
+<TOCInlineWithSticky toc={props.toc} />
+
+## 技术
+
+### [Web 组件的独特优势](https://daverupert.com/2024/10/super-web-components-sunshine/)
+
+这段文章总结了使用 Web 组件的优点和不足之处。作者列举了多种适合使用 Web 组件的场景，包括叶子节点、设计系统、增强普通 HTML、原型设计、低内存需求、样式封装、模板更新等。同时也提到了一些 Web 组件的不足之处，如阴影 DOM 的复杂性、服务器端渲染、页面级抽象、无障碍性、以及对 JS 框架制作编译器的迫切需求。文章最后指出，选择技术取决于当时的潮流、问题解决方法、团队和决策者的舒适度。作者认为尽管存在一些限制，但在某些情况下，Web 组件仍然是一个很好的选择。
+
+- Web 组件适合于简单的叶子节点和包裹其他组件的表现组件，以及构建设计系统和在不使用构建工具的情况下逐步增强普通 HTML。
+- Web 组件能够快速原型设计、保持低内存占用、封装样式和实现小型模板更新，同时可以跨不同技术堆栈存在，并用于构建大型应用程序及制作第三方嵌入式小部件。
+- 然而，Web 组件也存在一些不足之处，例如 Shadow DOM 会带来困惑，服务器端渲染和页面级抽象方面仍有限制，以及一些无法解决的无障碍问题和与 JS 框架编译器相关的挑战。
+
+### [useActionState 的真正特性](https://www.nikhilsnayak.dev/blogs/the-true-nature-of-use-action-state)
+
+这篇文章介绍了 React 中的两个重要 Hooks：useActionState 和 useOptimistic，以及它们在构建持久化 TODO 应用中的应用。文章讨论了处理异步操作、实现乐观更新、有效处理错误的方法，并展示了这些 Hooks 的强大功能和用户体验优化。文章强调了持续改进的重要性，并邀请读者分享反馈。
+
+- useActionState 是一个 React hook，用于处理服务器函数的返回值，同时提供状态同步和可观测的更新特性。
+- useActionState 可以配合 useOptimistic hook 实现乐观更新，提供平滑的用户体验，同时处理异步操作和错误，使得应用具有更好的用户交互性和稳定性。
+- 通过实例讲解，课文展示了如何利用 useActionState 和 useOptimistic 优化 TODO 应用，实现数据持久化、错误处理和用户友好的界面反馈，从而提高应用的健壮性和用户体验。
+
+### [《未来使用顶级等待（top-level await）可能会导致 Node.js 的向后兼容性中断》](https://evertpot.com/using-top-level-await-is-bc-break/)
+
+这段文字讨论了 Node 23 发布的重要变化，允许通过 require() 加载 ESM 模块。然而，如果 ESM 模块中使用了顶级 await，可能导致向后兼容性问题。作者建议用户停止使用 CommonJS，转而在所有地方使用 ESM，并在代码库中进行充分的测试以确保依赖关系的稳定性。作者认为 Node.js 应该保持稳定，不应该向 CommonJS 添加新功能，同时 ESM 的可靠性也会因此受到影响。
+
+- Node 23 发布了新功能，可以通过 require() 加载 ESM 模块，避免了以前使用动态导入的繁琐操作，但需要注意避免顶级等待的使用，以免引发错误。
+- Node 23 的改变可能导致第一个顶级等待在项目中构成新的主要版本，因此需要开发者在遵循 semver 的同时制定相应的策略，以避免向后兼容性问题。
+- 作为用户，可以考虑停止使用 CommonJS，转而在所有地方使用 ESM，或者确保项目有充分的测试覆盖，以及了解项目的依赖关系，避免引入只支持 ESM 的模块，从而避免潜在的兼容性问题。
+
+### [Nginx 日志记录：详尽指南](https://betterstack.com/community/guides/logging/how-to-view-and-configure-nginx-access-and-error-logs/)
+
+这篇文章介绍了如何定位、访问和解释 Nginx 的访问和错误日志，以及在传统服务器和 Docker 容器中定制访问日志、实现条件日志记录和将日志格式化为结构化 JSON 的方法。通过这些技术，可以有效监控 Nginx 服务器、解决问题，并深入了解网站流量和应用性能。文章还介绍了如何将 Nginx 日志集中管理，并展示了如何与 Better Stack 集成来实现日志的集中式管理。
+
+- 学会定位、访问和解释 Nginx 访问和错误日志，包括在传统服务器和 Docker 容器中的操作。
+- 掌握自定义访问日志、实现条件日志记录和将日志格式化为结构化 JSON 格式以便进行更轻松的分析。
+- 配置并结构化 Nginx 错误日志，利用 Vector 进行日志转发，并将日志集中管理到 Better Stack 中以实现集中化的日志监控。
+
+### [坚持每天编写代码](https://sorrycc.com/write-code-every-day/)
+
+这篇文章讲述了作者决定每天都写代码的经历，并分享了这种习惯对他生活和工作的积极影响。他强调了每天坚持写代码的重要性，并描述了由此带来的改变，例如最小可行代码、对抗焦虑、工作平衡和外界认知的改变。他总结道，这种习惯的改变对他来说是一个巨大的成功，并鼓励其他人尝试这种策略。
+
+- 每天都写代码，即使只是 30 分钟，也能带来持续的进展，有益于养成编码的习惯。
+- 通过每天编码，可以减轻焦虑感，避免对工作进展过度焦虑，并更好地平衡工作与生活。
+- 每日编码有助于保持思维持续在项目上运转，减少上下文切换成本，并提高工作效率。
+
+## 工具
+
+### [wechatferry](https://github.com/wechatferry/wechatferry)
+
+基于 WechatFerry 的微信机器人底层框架
+
+### [alphaTab](https://github.com/CoderLine/alphaTab)
+
+alphaTab 是一个可在多个平台上使用的音乐符号和吉他谱渲染库。
+
+### [route-list](https://github.com/VladimirMikulic/route-list)
+
+在命令行界面中优雅地展示 Express/Koa/Hapi/Fastify 的路由。
+
+### [number-flow](https://github.com/barvian/number-flow)
+
+一个能够转换、格式化和本地化数字的 React 组件。
+
+## 更新
+
+### [未来可能的 CSS：树计数函数与随机值](https://kizu.dev/tree-counting-and-random/)
+
+这段文字总结了 CSS 模块级别 5 规范中提出的两个新功能：兄弟节点计数函数和随机值生成函数。作者通过示例和算法展示了如何使用这些新功能来实现动态色调、随机变换和网格布局等各种用例。同时，作者还提到了这些功能在实际项目中的应用以及可能的优化和改进方向。
+
+- CSS Values and Units Working Draft 第五级规范中介绍了新的功能：树计数函数和随机值函数，为实现动态设计提供了可能。
+- 通过使用 sibling-index() 和 sibling-count() 函数，可以在 CSS 中为元素分配索引并获取子元素数量，为设计中的动态变化提供支持。
+- 通过使用自定义属性和算法，可以在 CSS 中模拟随机性和树状结构，为网页设计带来更多灵活性和创新。
+
+### [Next.js 15](https://nextjs.org/blog/next-15)
+
+这段文字主要介绍了 Next.js 15 的稳定版本发布，展示了新版本的功能和改进。重点介绍了自动升级 CLI、异步请求 API、缓存语义、React 19 支持、Turbopack Dev、静态路由指示器、unstable_after API、instrumentation.js API、增强型表单、TypeScript 支持、自托管改进、服务器操作安全性、外部包捆绑、ESLint 9 支持和开发/构建性能改进等方面的内容。
+
+- Next.js 15 发布了稳定版本，引入了一系列稳定性和性能方面的更新，包括自动升级 CLI、异步请求 API 和静态路由指示器等功能。
+- 新版本支持 React 19，提供了 React 18 的向后兼容性，并引入了 React 编译器实验功能，为未来版本的优化奠定了基础。
+- 除了改进开发和构建性能之外，还对缓存语义、表单增强、TypeScript 支持和服务器端安全性等方面进行了改进和优化。
+
+### [Svelte 5](https://svelte.dev/blog/svelte-5-is-alive)
+
+Svelte 5 是经过长达 18 个月的开发，最终稳定发布的版本。这是项目历史上最重要的更新，通过全面重写使应用程序更快、更小、更可靠。Svelte 是用于构建 Web 用户界面的框架，通过编译器将基于 HTML、CSS 和 JavaScript 的声明性组件代码转换成高度优化的 JavaScript。此次更新引入了诸多改进，包括符合直觉的新语法、运行效率提升以及全面的 backward 兼容性。同时，Svelte 还发布了新的命令行界面 (sv)，并计划在不久的将来推出适配 Svelte 5 功能的新版本 SvelteKit。
+
+- Svelte 5 是 Svelte 框架历史上最重要的版本，通过从头开始重写，提供更快、更小、更可靠的应用程序，同时简化新手学习负担。
+- Svelte 5 移除了 Svelte 4 中存在的一些反应性和组件组合方面的不一致性和难以使用的功能，并引入了符号和新的事件处理机制，使代码更加一致、易用。
+- 升级到 Svelte 5 并非必须立刻更新所有组件，但推荐逐步迁移以获得新语法和功能，并且 Svelte 4 语法的支持将在一定时期内逐步淘汰。
+
+## 设计
+
+## AI
+
+### [open-canvas](https://github.com/langchain-ai/open-canvas)
+
+📃 提升聊天、内容创作和与大语言模型编程的用户体验。
+
+## 其他
+
+除了数学之外，对母语的出色掌握是一个有能力的程序员最重要的资产。
+
+-- Edsger W. Dijkstra，著名计算机科学家
+
+---
+
+⭐️让自己快乐的最好方法之一是，避免下意识地拒绝做一些看起来需要大量精力的事情。
+
+---
+
+⭐️人们最快乐的时候是与恋人、朋友等我们选择的人待在一起的时候。此外自己独处时总比弱关系互动时快乐。
+
+---
+
+梅拉比安法则：一个人给他人留下的社交印象有 55% 由外表决定，38% 由声音决定，7% 由纯粹的语言表达决定。
