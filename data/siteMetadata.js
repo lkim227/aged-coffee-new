@@ -21,6 +21,7 @@ const siteMetadata = {
   x: 'https://x.com/__middle__child',
   // threads: 'https://www.threads.net',
   // instagram: 'https://www.instagram.com',
+  medium: 'https://medium.com',
   locale: 'en-US',
   // set to true if you want a navbar fixed to the top
   stickyNav: false,
