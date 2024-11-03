@@ -14,6 +14,14 @@ summary: ''
 
 ### [⭐️State of CSS 2024](https://2024.stateofcss.com/zh-Hans/)
 
+### [在 Next.js 应用程序路由中如何有效管理高级搜索参数的过滤](https://aurorascharff.no/posts/managing-advanced-search-param-filtering-next-app-router/)
+
+这篇文章主要介绍了如何在 Next.js 应用程序中实现高级搜索参数过滤功能。通过使用 React 19 的特性，如 useTransition() 和 useOptimistic()，以及最后转向使用 nuqs 库，作者解决了在 Next.js 应用程序中管理搜索和过滤状态时遇到的一些问题。文章讨论了如何跟踪搜索和过滤的挂起状态、实现实时响应的过滤器，以及如何协调搜索和过滤状态。最后，作者还介绍了使用 nuqs 库实现更稳健的解决方案。
+
+- 实现 Next.js 应用程序路由中的高级搜索参数过滤功能，需要跟踪搜索和筛选状态的挂起状态，并利用 React 19 功能来实现即时用户反馈。
+- 通过使用 useOptimistic() 实现响应式类别筛选器，并利用 React Context Provider 来协调搜索和筛选状态，确保它们在页面刷新时能够正确更新。
+- 最终使用 nuqs 库来管理搜索参数作为状态，通过 useQueryState() 实时更新 URL 中的搜索参数，并实现更稳健的解决方案。
+
 ### [在 React 中创建键盘快捷方式的钩子（深度解析）](https://www.taniarascia.com/keyboard-shortcut-hook-react/)
 
 这篇文章介绍了如何在 React 应用中添加自定义键盘快捷键的方法。作者创建了一个名为 useShortcut 的自定义 React hook 来处理单个键按下、带修饰键的组合按下、多个修饰键的组合按下以及按键序列的情况。文章还讨论了性能优化、避免持有过时状态、在文本输入时禁用快捷键、以及处理使用 Alt 键时的一些问题。该文章详细介绍了每个步骤和解决方案，并提供了示例代码和演示。
