@@ -8,9 +8,38 @@ summary: ''
 
 <TOCInlineWithSticky toHeading={3} toc={props.toc} />
 
+#### 2024-11-14
+
+- 在使用 dom 的全屏 API 的时候会有一些奇怪的问题（input[type=file]点击会退出全屏、有时候 win 的菜单栏不会被收起导致顶部部分内容被裁切）
+  ahooks 的 useFullScreen 支持 pageFullScreen 模式
+
+#### 2024-11-13
+
+- 在输入框聚焦的时候会响应页面上其他的快捷键逻辑
+  通过判断当前是否存在 Input 和 TextArea 的聚焦元素来添加是否响应快捷键逻辑
+
+```tsx
+export function hasFocusedInput() {
+  return document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA'
+}
+
+if (hasFocusedInput()) return
+```
+
 ### 2024-11-11
 
 - 关于 jotai 在第三方包中导出使用的时候确保`单例模式`
+  需要在打包的配置中手动排除 jotai
+
+```js
+  // ...
+  rollup(config) {
+    config.external = [
+      'jotai',
+    ];
+  // ...
+  }
+```
 
 - css 中使用 aspect-ratio 的响应式写法
 
@@ -279,3 +308,5 @@ export default {
     "./package.json": "./package.json"
   },
 ```
+
+import { jsx } from 'react/jsx-runtime'
